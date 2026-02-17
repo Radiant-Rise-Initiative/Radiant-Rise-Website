@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -45,69 +45,99 @@ const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direct
 
 export function Footer() {
     return (
-        <footer data-theme="dark" className="bg-black pt-24 pb-12 overflow-hidden">
+        <footer data-theme="dark" className="bg-black pt-24 pb-12 overflow-hidden text-white font-sans">
             {/* Scrolling Lines */}
-            <div className="mb-24">
+            <div className="mb-32">
                 <MarqueeLine text="Let's Rise" speed={60} direction={1} />
                 <MarqueeLine text="Together" speed={60} direction={-1} />
             </div>
 
-            {/* Bottom Content Area */}
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                {/* CTA Buttons - Matching Inspo */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-32">
-                    <button className="flex items-center justify-center py-6 px-12 bg-white text-black text-lg font-bold hover:bg-white/90 transition-all duration-300">
-                        Work with us
-                    </button>
-                    <button className="flex items-center justify-center py-6 px-12 border border-white/20 text-white text-lg font-bold hover:bg-white/10 transition-all duration-300">
-                        Pitch us
-                    </button>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-24 lg:gap-32 pb-24 border-b border-white/10">
 
-                {/* Actual Footer Info */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pt-12 border-t border-white/10">
+                    {/* Newsletter Section */}
                     <div className="space-y-8">
-                        <div className="text-white font-bold tracking-tighter text-2xl">
-                            RADIANT RISE.
+                        <div>
+                            <h2 className="text-6xl font-medium tracking-tighter mb-4">Newsletter.</h2>
+                            <p className="text-2xl text-white/40 tracking-tight">Monthly news and updates.</p>
                         </div>
-                        <p className="text-sm text-white/40 max-w-sm leading-relaxed">
-                            Investing in the hardware and software tailwinds that scale industrial impact in emerging markets.
+
+                        <div className="relative max-w-md group">
+                            <input
+                                type="email"
+                                placeholder="Work Email"
+                                className="w-full bg-transparent border border-white/20 py-5 px-6 pr-16 focus:outline-none focus:border-white transition-colors text-lg"
+                            />
+                            <button className="absolute right-6 top-1/2 -translate-y-1/2 text-white/40 group-focus-within:text-white transition-colors">
+                                <ArrowRight className="w-8 h-8" />
+                            </button>
+                        </div>
+
+                        <p className="text-xs text-white/30 leading-relaxed max-w-sm">
+                            By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-white transition-colors">Privacy Notice</Link>
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-24">
-                        <div className="space-y-4">
-                            <p className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Platform</p>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Portfolio</Link>
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Impact</Link>
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">News</Link>
-                            </nav>
+                    {/* Links Sections */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-16">
+                        {/* More Celonis / More Radiant Rise */}
+                        <div className="space-y-6">
+                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
+                            <div className="flex flex-col gap-4">
+                                {["Portfolio", "Impact", "News", "Team", "Careers", "Approach", "Learnings"].map((link) => (
+                                    <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                        {link}
+                                        <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
-                        <div className="space-y-4">
-                            <p className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Company</p>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">About</Link>
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Team</Link>
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Careers</Link>
-                            </nav>
+
+                        {/* Any Questions */}
+                        <div className="space-y-6">
+                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Any Questions?</h3>
+                            <div className="flex flex-col gap-4">
+                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                    Talk to an expert
+                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                    Support
+                                    <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                    FAQs
+                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                    Glossary
+                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </div>
                         </div>
-                        <div className="space-y-4">
-                            <p className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Legal</p>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Privacy</Link>
-                                <Link href="#" className="text-sm text-white/60 hover:text-white transition-colors">Terms</Link>
-                            </nav>
+
+                        {/* Follow Us */}
+                        <div className="space-y-6">
+                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Follow Us</h3>
+                            <div className="flex flex-col gap-4">
+                                {["LinkedIn", "YouTube", "Instagram", "Facebook", "X / Twitter"].map((link) => (
+                                    <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
+                                        {link}
+                                        <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Final Bar */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-24 pt-8 border-t border-white/5 text-[10px] font-mono tracking-widest text-white/20 uppercase">
+                {/* Bottom Bar */}
+                <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 text-[10px] font-mono tracking-widest text-white/20 uppercase">
                     <p>© 2024 Radiant Rise Venture Capital. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors text-white/20">LinkedIn</Link>
-                        <Link href="#" className="hover:text-white transition-colors text-white/20">X / Twitter</Link>
+                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-white transition-colors">Cookie Settings</Link>
                     </div>
                 </div>
             </div>

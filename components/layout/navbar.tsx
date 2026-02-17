@@ -106,7 +106,7 @@ export function Navbar() {
                     <Button
                         variant="outline"
                         className={cn(
-                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500",
+                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none",
                             isDark
                                 ? "border-white text-white hover:bg-white hover:text-black"
                                 : "border-black text-black hover:bg-black hover:text-white"
@@ -140,7 +140,7 @@ export function Navbar() {
                             ))}
                             <Button
                                 variant="outline"
-                                className="mt-8 border-white text-white hover:bg-white hover:text-black uppercase tracking-wider bg-transparent w-full py-6 text-lg"
+                                className="mt-8 border-white text-white hover:bg-white hover:text-black uppercase tracking-wider bg-transparent w-full py-6 text-lg rounded-none"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Connect
