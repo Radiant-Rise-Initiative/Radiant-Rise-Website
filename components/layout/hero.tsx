@@ -18,7 +18,7 @@ export function Hero() {
     return (
         <div
             ref={ref}
-            className="relative h-screen w-full overflow-hidden flex items-end pb-20 px-6 sm:px-12"
+            className="relative h-screen w-full overflow-hidden flex items-end px-6 sm:px-12"
         >
             <motion.div
                 className="absolute inset-0 z-0 h-[120%]" // Taller than container for parallax
@@ -40,24 +40,26 @@ export function Hero() {
                 className="relative z-10 w-full mb-12"
                 style={{ y: textY }}
             >
-                <div className="flex flex-col md:flex-row items-end justify-between gap-8 pb-8 border-b border-white/40">
-                    <div className="max-w-xl">
-                        <p className="text-white text-lg md:text-xl font-medium leading-relaxed">
-                            By bridging the gap between groundbreaking climate technologies and the markets that urgently need them, we accelerate the impact of innovation on economies, communities, and the environment.
-                        </p>
+                <div className="@container max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="flex flex-col md:flex-row items-end justify-between gap-8 pb-8 border-b border-white/40">
+                        <div className="max-w-xl">
+                            <p className="text-white text-lg md:text-xl font-medium leading-relaxed">
+                                By bridging the gap between groundbreaking climate technologies and the markets that urgently need them, we accelerate the impact of innovation on economies, communities, and the environment.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-start">
+                            <Button variant="link" className="text-white text-lg p-0 h-auto font-medium hover:text-white/80 transition-colors group">
+                                Get to know us
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary w-full"></span>
+                            </Button>
+                        </div>
                     </div>
 
-                    <div className="flex flex-col items-start">
-                        <Button variant="link" className="text-white text-lg p-0 h-auto font-medium hover:text-white/80 transition-colors group">
-                            Get to know us
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary w-full"></span>
-                        </Button>
-                    </div>
+                    <h1 className="text-[10.5cqi] font-bold text-white tracking-tighter leading-[0.8] mt-8 uppercase whitespace-nowrap [text-align-last:justify] -ml-[0.08em] -mr-[0.04em]">
+                        [RISING TOGETHER]
+                    </h1>
                 </div>
-
-                <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-bold text-white tracking-tighter leading-none mt-8">
-                    [INNOVATING IMPACT]
-                </h1>
             </motion.div>
         </div>
     );
