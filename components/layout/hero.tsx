@@ -14,6 +14,7 @@ export function Hero() {
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+    const opacityOverlay = useTransform(scrollYProgress, [0, 1], [0, 0.5]);
 
     return (
         <div
@@ -33,7 +34,11 @@ export function Hero() {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 bg-black/30 z-10" />
+                <motion.div
+                    className="absolute inset-0 bg-black z-20"
+                    style={{ opacity: opacityOverlay }}
+                />
             </motion.div>
 
             <motion.div
