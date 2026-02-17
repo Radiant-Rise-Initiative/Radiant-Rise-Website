@@ -79,7 +79,7 @@ export function CompanyScroller() {
 
     return (
         <section className="bg-white py-24">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-6 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
                     <h2 className="text-5xl md:text-7xl font-semibold text-black tracking-tight">

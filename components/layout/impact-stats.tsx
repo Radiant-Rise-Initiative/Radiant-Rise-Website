@@ -29,7 +29,7 @@ const stats = [
 
 export function ImpactStats() {
     return (
-        <section className="bg-white py-24 px-6 sm:px-12">
+        <section className="bg-white py-24">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="mb-16">
                     <h2 className="text-sm font-mono tracking-[0.2em] text-black uppercase">
