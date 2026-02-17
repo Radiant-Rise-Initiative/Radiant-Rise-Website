@@ -80,7 +80,7 @@ export function SuccessStories() {
     }, []);
 
     return (
-        <section className="bg-white py-24 border-t border-black/10 overflow-hidden">
+        <section data-theme="light" className="bg-white py-24 border-t border-black/10 overflow-hidden">
 
             {/* Header - Constrained */}
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
@@ -98,6 +98,7 @@ export function SuccessStories() {
             {/* Scroller - Full Bleed with calculated padding for alignment */}
             <div
                 ref={scrollRef}
+                data-theme="dark"
                 className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide px-0 sm:px-[max(0px,calc((100vw-1280px)/2))] 2xl:px-[max(0px,calc((100vw-1440px)/2))]"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
@@ -161,7 +162,7 @@ export function SuccessStories() {
             </div>
 
             {/* Controls - Constrained */}
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8">
+            <div data-theme="light" className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8">
                 <div className="flex justify-between items-center">
                     {/* Progress Bars */}
                     <div className="flex gap-2">

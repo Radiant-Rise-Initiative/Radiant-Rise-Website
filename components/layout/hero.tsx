@@ -17,8 +17,9 @@ export function Hero() {
     const opacityOverlay = useTransform(scrollYProgress, [0, 1], [0, 0.5]);
 
     return (
-        <div
+        <section
             ref={ref}
+            data-theme="dark"
             className="relative h-screen w-full overflow-hidden flex items-end px-6 sm:px-12"
         >
             <motion.div
@@ -64,10 +65,10 @@ export function Hero() {
                     <h1 className="text-[10.5cqi] font-semibold text-white tracking-tighter leading-[0.8] mt-8 uppercase whitespace-nowrap [text-align-last:justify] -ml-[0.08em] -mr-[0.04em]">
                         <span className="inline-block mr-[0.05em]">[</span>
                         <span className="relative top-[0.04em]">RISING TOGETHER</span>
-                        <span className="inline-block ml-[0.05em]">]</span>
+                        <span className="inline-block ml-[0.05em]">[</span>
                     </h1>
                 </div>
             </motion.div>
-        </div>
+        </section>
     );
 }

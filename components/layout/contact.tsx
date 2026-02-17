@@ -9,7 +9,7 @@ export function Contact() {
     const [activeTab, setActiveTab] = useState<Tab>("Partner With Us");
 
     return (
-        <section className="relative min-h-[800px] flex items-center py-24 select-none">
+        <section data-theme="dark" className="relative min-h-[800px] flex items-center py-24 select-none">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image

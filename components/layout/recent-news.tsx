@@ -11,7 +11,7 @@ const newsItems = [
         date: "OCT 3, 2024",
         title: "GreenPod Labs Secures $50K Post-Harvest Loss Innovation Prize for Groundbreaking Active Packaging Solution",
         image: "https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?q=80&w=2600&auto=format&fit=crop", // Produce/Labs
-        overlayColor: "bg-[#FFD700]/90", // Yellowish
+        14: "bg-[#FFD700]/90", // Yellowish
         icon: <Leaf className="w-12 h-12 text-black" />,
         logoText: "GREENPOD LABS",
     },
@@ -37,7 +37,7 @@ const newsItems = [
 
 export function RecentNews() {
     return (
-        <section className="bg-white py-24 px-6 sm:px-12">
+        <section data-theme="light" className="bg-white py-24 px-6 sm:px-12">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
                 <div className="flex justify-between items-end mb-16">
@@ -53,7 +53,7 @@ export function RecentNews() {
                 </div>
 
                 {/* News Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div data-theme="dark" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {newsItems.map((item) => (
                         <Link
                             key={item.id}
@@ -69,7 +69,7 @@ export function RecentNews() {
                             />
 
                             {/* Color Overlay */}
-                            <div className={`absolute inset-0 transition-opacity duration-300 ${item.overlayColor}`} />
+                            <div className={`absolute inset-0 transition-opacity duration-300 ${item.overlayColor || 'bg-black/40'}`} />
 
                             {/* Content */}
                             <div className="relative h-full p-8 flex flex-col">

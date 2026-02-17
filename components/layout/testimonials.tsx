@@ -61,7 +61,7 @@ export function Testimonials() {
     }, [activeIndex]);
 
     return (
-        <section className="bg-white py-24">
+        <section data-theme="light" className="bg-white py-24">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header Labels */}
                 <div className="flex flex-col md:flex-row gap-8 md:gap-[20%] mb-12">

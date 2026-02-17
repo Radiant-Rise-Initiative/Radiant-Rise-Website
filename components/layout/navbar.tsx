@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isDark, setIsDark] = useState(true);
 
     // Prevent scrolling when menu is open
     useEffect(() => {
@@ -21,12 +23,56 @@ export function Navbar() {
         }
     }, [isOpen]);
 
+    // Adaptive Theme Detection
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const theme = entry.target.getAttribute("data-theme");
+                        if (theme) setIsDark(theme === "dark");
+                    } else if (!entry.isIntersecting) {
+                        // When an element leaves, we might need to check if there's
+                        // another intersecting element to revert to.
+                        // For simplicity in a flat section-based site, 
+                        // we can just re-check what's at the top.
+                        const topElement = document.elementFromPoint(window.innerWidth / 2, 20);
+                        const section = topElement?.closest("[data-theme]");
+                        if (section) {
+                            const theme = section.getAttribute("data-theme");
+                            setIsDark(theme === "dark");
+                        }
+                    }
+                });
+            },
+            {
+                rootMargin: "0px 0px -98% 0px", // Detect what's in the top 2% of the screen
+                threshold: [0, 0.01],
+            }
+        );
+
+        const sections = document.querySelectorAll("[data-theme]");
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
+
+    const navThemeClasses = isDark
+        ? "text-white border-white/10 bg-black/5"
+        : "text-black border-black/10 bg-white/5";
+
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-6 border-b border-white/10 bg-black/20 backdrop-blur-sm">
+        <nav className={cn(
+            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-6 border-b backdrop-blur-md transition-all duration-500",
+            navThemeClasses
+        )}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full flex items-center justify-between">
-                <div className="text-xl font-bold tracking-tight text-white z-50 relative">
+                <Link href="/" className={cn(
+                    "text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
+                    isDark ? "text-white" : "text-black"
+                )}>
                     Radiant Rise
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
@@ -34,7 +80,10 @@ export function Navbar() {
                         <Link
                             key={item}
                             href={`#${item.toLowerCase()}`}
-                            className="text-sm font-medium text-white/90 hover:text-white transition-colors uppercase tracking-widest"
+                            className={cn(
+                                "text-sm font-medium transition-colors duration-500 uppercase tracking-widest",
+                                isDark ? "text-white/90 hover:text-white" : "text-black/70 hover:text-black"
+                            )}
                         >
                             {item}
                         </Link>
@@ -45,13 +94,24 @@ export function Navbar() {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden text-white hover:text-white/80 transition-colors z-50 relative p-2 -mr-2"
+                        className={cn(
+                            "md:hidden transition-colors duration-500 z-50 relative p-2 -mr-2",
+                            isDark ? "text-white hover:text-white/80" : "text-black hover:text-black/70"
+                        )}
                         aria-label="Toggle menu"
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
 
-                    <Button variant="outline" className="hidden md:inline-flex border-white text-white hover:bg-white hover:text-black uppercase tracking-wider bg-transparent">
+                    <Button
+                        variant="outline"
+                        className={cn(
+                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500",
+                            isDark
+                                ? "border-white text-white hover:bg-white hover:text-black"
+                                : "border-black text-black hover:bg-black hover:text-white"
+                        )}
+                    >
                         Connect
                     </Button>
                 </div>
