@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
-const companies = [
+const originalCompanies = [
     {
         name: "Ampersand",
         category: "Advanced Transport",
@@ -43,39 +43,82 @@ const companies = [
     }
 ];
 
+// Triple the list: [Buffer Start] [Main Content] [Buffer End]
+const companies = [...originalCompanies, ...originalCompanies, ...originalCompanies];
+
 export function CompanyScroller() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
 
-    const handleScroll = () => {
-        if (scrollRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-            const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
-            setScrollProgress(progress);
+    // Initialize position to the middle set (Main Content)
+    useEffect(() => {
+        const container = scrollRef.current;
+        if (container) {
+            // Need a slight delay to ensure layout is ready or use useLayoutEffect? 
+            // useEffect is ok, but we might see a flash.
+            // Let's rely on the ref being populated.
+            const slide = container.querySelector('div');
+            if (slide) {
+                const slideWidth = slide.offsetWidth;
+                const setWidth = slideWidth * originalCompanies.length;
+
+                // Immediately jump to the middle set
+                container.scrollLeft = setWidth;
+            }
         }
+    }, []);
+
+    const handleScroll = () => {
+        const container = scrollRef.current;
+        if (!container) return;
+
+        const slide = container.querySelector('div');
+        if (!slide) return;
+
+        const slideWidth = slide.offsetWidth;
+        const setWidth = slideWidth * originalCompanies.length;
+        const { scrollLeft } = container;
+
+        // --- Infinite Loop Logic ---
+        // If we scroll past the second set (into the 3rd set aka End Buffer)
+        if (scrollLeft >= setWidth * 2) {
+            // Reset back to start of second set (Main Content)
+            // seamless jump: subtract one setWidth
+            container.scrollLeft = scrollLeft - setWidth;
+        }
+        // If we scroll into the first set (Start Buffer)
+        // Check if we are "below" the start of the Main Content (which starts at setWidth)
+        else if (scrollLeft < setWidth) {
+            // Jump forward to Main Content
+            // seamless jump: add one setWidth
+            container.scrollLeft = scrollLeft + setWidth;
+        }
+
+        // --- Progress Logic ---
+        // Calculate effective index based on visual position
+        // Since we reset scrollLeft to be within [setWidth, 2*setWidth],
+        // we can take (scrollLeft % setWidth) / slideWidth
+        const offsetX = container.scrollLeft % setWidth;
+        const rawIndex = Math.round(offsetX / slideWidth);
+        const normalizedIndex = rawIndex % originalCompanies.length;
+
+        // Progress for 5 items: 20%, 40%, 60%, 80%, 100%
+        const progress = ((normalizedIndex + 1) / originalCompanies.length) * 100;
+        setScrollProgress(progress);
     };
 
     const scroll = (direction: "left" | "right") => {
-        if (scrollRef.current) {
-            const scrollAmount = 400;
-            scrollRef.current.scrollBy({
-                left: direction === "left" ? -scrollAmount : scrollAmount,
-                behavior: "smooth",
-            });
-        }
-    };
+        const container = scrollRef.current;
+        if (!container) return;
 
-    useEffect(() => {
-        const currentRef = scrollRef.current;
-        if (currentRef) {
-            currentRef.addEventListener("scroll", handleScroll);
-        }
-        return () => {
-            if (currentRef) {
-                currentRef.removeEventListener("scroll", handleScroll);
-            }
-        };
-    }, []);
+        const slide = container.querySelector('div');
+        if (!slide) return;
+
+        const slideWidth = slide.offsetWidth;
+        const scrollAmount = direction === "left" ? -slideWidth : slideWidth;
+
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    };
 
     return (
         <section data-theme="light" className="bg-white py-24">
@@ -95,75 +138,88 @@ export function CompanyScroller() {
 
                 {/* Controls & Progress bar */}
                 <div className="flex items-center gap-8 mb-12">
-                    <div className="flex-1 h-px bg-black/10 relative">
+                    <div className="flex-1 h-1.5 bg-gray-200 rounded-full relative overflow-hidden">
                         <div
-                            className="absolute top-0 left-0 h-0.5 bg-orange-500 transition-all duration-100 -translate-y-1/2"
+                            className="absolute top-0 left-0 h-full bg-orange-500 transition-all duration-300 ease-out rounded-full"
                             style={{ width: `${scrollProgress}%` }}
                         />
                     </div>
                     <div className="flex items-center gap-4">
                         <button
                             onClick={() => scroll("left")}
-                            className="p-2 border border-black/10 rounded-full hover:bg-black/5 transition-colors"
+                            className="p-3 border border-black/10 rounded-full hover:bg-black/5 transition-colors group/btn"
                             aria-label="Scroll left"
                         >
-                            <ArrowLeft size={20} className="text-black" />
+                            <ArrowLeft size={20} className="text-black transition-transform group-hover/btn:-translate-x-0.5" />
                         </button>
                         <button
                             onClick={() => scroll("right")}
-                            className="p-2 border border-black/10 rounded-full hover:bg-black/5 transition-colors"
+                            className="p-3 border border-black/10 rounded-full hover:bg-black/5 transition-colors group/btn"
                             aria-label="Scroll right"
                         >
-                            <ArrowRight size={20} className="text-black" />
+                            <ArrowRight size={20} className="text-black transition-transform group-hover/btn:translate-x-0.5" />
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Scroller */}
-            <div
-                ref={scrollRef}
-                className="flex overflow-x-auto gap-0 scrollbar-hide snap-x snap-mandatory border-t border-b border-black/10"
-            >
-                {companies.map((company, index) => (
-                    <div
-                        key={index}
-                        className="flex-none w-[350px] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-500"
-                    >
-                        {/* Hover Background Image */}
-                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <Image
-                                src={company.image}
-                                alt={company.name}
-                                fill
-                                className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-black/60" />
-                        </div>
-
-                        <div className="relative z-10 h-full p-8 flex flex-col justify-between">
-                            <div className="flex justify-between items-start">
-                                <p className="text-xs font-mono uppercase tracking-widest text-black/60 group-hover:text-white transition-colors duration-300">
-                                    {company.category}
-                                </p>
-                                <ArrowUpRight
-                                    className="text-white opacity-0 group-hover:opacity-100 -translate-y-2 translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"
-                                    size={24}
+            <div className="relative border-y border-black/10">
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .no-scrollbar {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+                `}} />
+                <div
+                    ref={scrollRef}
+                    onScroll={handleScroll}
+                    className="flex overflow-x-auto gap-0 scrollbar-hide snap-x snap-mandatory no-scrollbar"
+                >
+                    {companies.map((company, index) => (
+                        <div
+                            key={index}
+                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-500"
+                        >
+                            {/* Hover Background Image */}
+                            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <Image
+                                    src={company.image}
+                                    alt={company.name}
+                                    fill
+                                    className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
                                 />
+                                <div className="absolute inset-0 bg-black/60" />
                             </div>
 
-                            <div className="flex-1 flex items-center justify-center py-12">
-                                <span className="text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
-                                    {company.logo}
-                                </span>
-                            </div>
+                            <div className="relative z-10 h-full p-8 flex flex-col justify-between">
+                                <div className="flex justify-between items-start">
+                                    <p className="text-xs font-mono uppercase tracking-widest text-black/60 group-hover:text-white transition-colors duration-300">
+                                        {company.category}
+                                    </p>
+                                    <ArrowUpRight
+                                        className="text-white opacity-0 group-hover:opacity-100 -translate-y-2 translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"
+                                        size={24}
+                                    />
+                                </div>
 
-                            <p className="text-sm leading-relaxed text-black/80 group-hover:text-white/90 transition-colors duration-300">
-                                {company.description}
-                            </p>
+                                <div className="flex-1 flex items-center justify-center py-12">
+                                    <span className="text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
+                                        {company.logo}
+                                    </span>
+                                </div>
+
+                                <p className="text-sm leading-relaxed text-black/80 group-hover:text-white/90 transition-colors duration-300">
+                                    {company.description}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
