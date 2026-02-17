@@ -26,10 +26,10 @@ export function Contact() {
 
                     {/* Left Side: Title */}
                     <div className="flex flex-col justify-center @container">
-                        <h1 className="text-[18cqi] font-semibold text-white tracking-tighter leading-[0.8] uppercase whitespace-nowrap [text-align-last:justify] -ml-[0.08em] -mr-[0.04em] w-full">
-                            <span className="inline-block mr-[0.05em]">[</span>
-                            <span className="relative top-[0.04em]">CONNECT</span>
-                            <span className="inline-block ml-[0.05em]">]</span>
+                        <h1 className="text-[18cqi] font-semibold text-white tracking-tighter leading-[0.8] uppercase whitespace-nowrap flex justify-between w-full">
+                            {"CONNECT".split("").map((char, i) => (
+                                <span key={i}>{char}</span>
+                            ))}
                         </h1>
                     </div>
 

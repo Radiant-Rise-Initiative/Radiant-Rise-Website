@@ -9,6 +9,7 @@ import { FAQ } from "@/components/layout/faq";
 import { Contact } from "@/components/layout/contact";
 import { Footer } from "@/components/layout/footer";
 import { GiantLogoSection } from "@/components/layout/giant-logo-section";
+import { WhoWeAre } from "@/components/layout/who-we-are";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ImpactStats />
+      <WhoWeAre />
       <SuccessStories />
       <CompanyScroller />
       <Testimonials />

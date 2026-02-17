@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const testimonials = [
     {
@@ -68,78 +67,78 @@ export function Testimonials() {
                     <p className="text-xs font-mono tracking-widest text-black/60 uppercase">
                         Testimonials
                     </p>
-                    <p className="text-xs font-mono tracking-widest text-black uppercase">
-                        {testimonials[activeIndex].category}
-                    </p>
+                    <div className="grid grid-cols-1 grid-rows-1">
+                        {testimonials.map((t, i) => (
+                            <p
+                                key={`cat-${t.id}`}
+                                className={`col-start-1 row-start-1 text-xs font-mono tracking-widest text-black uppercase transition-opacity duration-500
+                                    ${i === activeIndex ? "opacity-100" : "opacity-0"}`}
+                            >
+                                {t.category}
+                            </p>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Quote Area */}
-                <div className="min-h-[300px] flex flex-col justify-center mb-16">
-                    <h3 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black leading-tight md:leading-tight lg:leading-tight tracking-tight">
-                        “{testimonials[activeIndex].quote}”
-                    </h3>
-                </div>
-
-                {/* Controls */}
-                <div className="flex items-center gap-4 mb-12">
-                    <button
-                        onClick={prev}
-                        className="p-1 hover:text-orange-500 transition-colors"
-                        aria-label="Previous testimonial"
-                    >
-                        <ArrowLeft size={20} />
-                    </button>
-                    <button
-                        onClick={next}
-                        className="p-1 hover:text-orange-500 transition-colors"
-                        aria-label="Next testimonial"
-                    >
-                        <ArrowRight size={20} />
-                    </button>
+                {/* Quote Area - Grid Stack for stable height */}
+                <div className="grid grid-cols-1 grid-rows-1 mb-[104px]">
+                    {testimonials.map((t, i) => (
+                        <div
+                            key={t.id}
+                            className={`col-start-1 row-start-1 flex flex-col justify-start transition-all duration-700 ease-in-out
+                                ${i === activeIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
+                        >
+                            <h3 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black leading-tight md:leading-tight lg:leading-tight tracking-tight">
+                                “{t.quote}”
+                            </h3>
+                        </div>
+                    ))}
                 </div>
             </div>
 
             {/* Person Cards Scroller */}
-            <div
-                ref={scrollRef}
-                className="flex overflow-x-auto gap-0 scrollbar-hide border-t border-black/10"
-            >
-                {testimonials.map((person, index) => (
-                    <div
-                        key={person.id}
-                        onClick={() => setActiveIndex(index)}
-                        className={`flex-none w-[300px] md:w-[350px] p-8 border-r border-black/10 last:border-r-0 cursor-pointer transition-all duration-300 relative group
-                            ${index === activeIndex ? "bg-black/[0.01]" : "bg-transparent hover:bg-black/[0.02]"}`}
-                    >
-                        {/* Active Indicator */}
+            <div className="w-full border-t border-b border-black/10">
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-0 scrollbar-hide max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full"
+                >
+                    {testimonials.map((person, index) => (
                         <div
-                            className={`absolute top-0 left-0 right-0 h-1 bg-orange-500 transition-all duration-300 transform origin-left
+                            key={person.id}
+                            onClick={() => setActiveIndex(index)}
+                            className={`flex-none w-[300px] md:w-[350px] p-8 border-r border-black/10 last:border-r-0 cursor-pointer transition-all duration-300 relative group
+                            ${index === activeIndex ? "bg-black/[0.01]" : "bg-transparent hover:bg-black/[0.02]"}`}
+                        >
+                            {/* Active Indicator */}
+                            <div
+                                className={`absolute top-0 left-0 right-0 h-1 bg-orange-500 transition-all duration-300 transform origin-left
                                 ${index === activeIndex ? "scale-x-100" : "scale-x-0"}`}
-                        />
+                            />
 
-                        <div className="flex items-center gap-6">
-                            <div className="relative w-20 h-20 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500 rounded-sm overflow-hidden flex-none">
-                                <Image
-                                    src={person.image}
-                                    alt={person.name}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <p className="font-bold text-black tracking-tight leading-tight mb-1">
-                                    {person.name}
-                                </p>
-                                <p className="text-[13px] text-black/60 font-medium leading-tight">
-                                    {person.role}
-                                </p>
-                                <p className="text-[13px] text-black/60 font-medium leading-tight">
-                                    {person.company}
-                                </p>
+                            <div className="flex items-center gap-6">
+                                <div className="relative w-20 h-20 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500 rounded-sm overflow-hidden flex-none">
+                                    <Image
+                                        src={person.image}
+                                        alt={person.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div className="flex flex-col">
+                                    <p className="font-bold text-black tracking-tight leading-tight mb-1">
+                                        {person.name}
+                                    </p>
+                                    <p className="text-[13px] text-black/60 font-medium leading-tight">
+                                        {person.role}
+                                    </p>
+                                    <p className="text-[13px] text-black/60 font-medium leading-tight">
+                                        {person.company}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
