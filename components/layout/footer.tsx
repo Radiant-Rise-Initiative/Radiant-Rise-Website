@@ -53,7 +53,7 @@ export function Footer() {
             </div>
 
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-24 lg:gap-32 pb-24 border-b border-white/10">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-24 lg:gap-32">
 
                     {/* Newsletter Section */}
                     <div className="space-y-8">
@@ -128,16 +128,6 @@ export function Footer() {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 text-[10px] font-mono tracking-widest text-white/20 uppercase">
-                    <p>© 2024 Radiant Rise Venture Capital. All rights reserved.</p>
-                    <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Cookie Settings</Link>
                     </div>
                 </div>
             </div>

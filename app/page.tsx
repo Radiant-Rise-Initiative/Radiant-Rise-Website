@@ -8,6 +8,7 @@ import { RecentNews } from "@/components/layout/recent-news";
 import { FAQ } from "@/components/layout/faq";
 import { Contact } from "@/components/layout/contact";
 import { Footer } from "@/components/layout/footer";
+import { GiantLogoSection } from "@/components/layout/giant-logo-section";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <GiantLogoSection />
     </main>
   );
 }
