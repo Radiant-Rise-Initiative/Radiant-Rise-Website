@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/layout/testimonials";
 import { RecentNews } from "@/components/layout/recent-news";
 import { FAQ } from "@/components/layout/faq";
 import { Contact } from "@/components/layout/contact";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <RecentNews />
       <FAQ />
       <Contact />
+      <Footer />
     </main>
   );
 }
