@@ -53,7 +53,7 @@ export function Footer() {
             </div>
 
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-24 lg:gap-32">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32">
 
                     {/* Newsletter Section */}
                     <div className="space-y-8">
@@ -62,7 +62,7 @@ export function Footer() {
                             <p className="text-2xl text-white/40 tracking-tight">Monthly news and updates.</p>
                         </div>
 
-                        <div className="relative max-w-md group">
+                        <div className="relative max-w-lg group">
                             <input
                                 type="email"
                                 placeholder="Work Email"
@@ -73,7 +73,7 @@ export function Footer() {
                             </button>
                         </div>
 
-                        <p className="text-xs text-white/30 leading-relaxed max-w-sm">
+                        <p className="text-xs text-white/30 leading-relaxed max-w-lg">
                             By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-white transition-colors">Privacy Notice</Link>
                         </p>
                     </div>

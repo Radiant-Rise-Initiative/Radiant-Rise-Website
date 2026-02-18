@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/layout/hero";
 import { ImpactStats } from "@/components/layout/impact-stats";
 import { SuccessStories } from "@/components/layout/success-stories";
+import { AutomatedTabs } from "@/components/layout/automated-tabs";
 import { CompanyScroller } from "@/components/layout/company-scroller";
 import { Testimonials } from "@/components/layout/testimonials";
 import { RecentNews } from "@/components/layout/recent-news";
@@ -19,6 +20,7 @@ export default function Home() {
       <ImpactStats />
       <WhoWeAre />
       <SuccessStories />
+      <AutomatedTabs />
       <CompanyScroller />
       <Testimonials />
       <RecentNews />
