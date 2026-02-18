@@ -53,12 +53,12 @@ export function RecentNews() {
                 </div>
 
                 {/* News Grid */}
-                <div data-theme="dark" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div data-theme="dark" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8 -my-8 px-4 -mx-4">
                     {newsItems.map((item) => (
                         <Link
                             key={item.id}
                             href={`/news/${item.id}`}
-                            className="relative group h-[500px] overflow-hidden rounded-sm cursor-pointer"
+                            className="relative group h-[500px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.0375] hover:z-10"
                         >
                             {/* Background Image */}
                             <Image
@@ -103,8 +103,6 @@ export function RecentNews() {
                                 </div>
                             </div>
 
-                            {/* Hover Highlight (Subtle) */}
-                            <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/20 transition-all duration-300 pointer-events-none" />
                         </Link>
                     ))}
                 </div>

@@ -131,7 +131,7 @@ function MetricItem({ label, value, description, onOpen }: MetricItemProps) {
 
             {/* Plus Icon Button - Appears on Group Hover */}
             <div
-                className="absolute bottom-1 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 bg-black text-white p-2 rounded-full z-10"
+                className="absolute bottom-1 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 bg-black text-white p-2 rounded-full z-10 hover:bg-black/80"
             >
                 <Plus size={20} />
             </div>
