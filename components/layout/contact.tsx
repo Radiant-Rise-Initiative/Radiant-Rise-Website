@@ -19,6 +19,8 @@ export function Contact() {
                     className="object-cover brightness-[0.4]"
                 />
                 <div className="absolute inset-0 bg-green-900/20 mix-blend-multiply" />
+                {/* Bottom Gradient Fade - Increased height for smoother transition */}
+                <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-black to-transparent" />
             </div>
 
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10">
