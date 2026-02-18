@@ -36,7 +36,7 @@ export function Contact() {
                     </div>
 
                     {/* Right Side: Tabbed Form */}
-                    <div className="bg-[#f8f9fa] rounded-sm shadow-2xl overflow-hidden self-start">
+                    <div className="bg-[#f8f9fa] rounded-none shadow-2xl overflow-hidden self-start">
                         {/* Tabs */}
                         <div className="flex border-b border-black/5">
                             {(["Partner With Us", "Pitch Us", "Media"] as Tab[]).map((tab) => (
