@@ -24,14 +24,12 @@ export function Contact() {
             </div>
 
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 items-stretch">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-stretch">
 
                     {/* Left Side: Title */}
                     <div className="flex flex-col @container sticky top-44 self-start py-8 sm:py-0">
-                        <h1 className="text-[18cqi] font-semibold text-white tracking-tighter leading-[0.8] uppercase whitespace-nowrap flex justify-between w-full">
-                            {"CONNECT".split("").map((char, i) => (
-                                <span key={i}>{char}</span>
-                            ))}
+                        <h1 className="text-[18cqi] font-semibold text-white tracking-tighter leading-[0.8] uppercase whitespace-nowrap">
+                            CONNECT
                         </h1>
                     </div>
 
