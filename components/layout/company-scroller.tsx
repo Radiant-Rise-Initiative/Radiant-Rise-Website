@@ -40,6 +40,27 @@ const originalCompanies = [
         description: "Cutting food waste and improving crop drying",
         logo: "LOGO",
         image: "https://images.unsplash.com/photo-1523348830342-d01f9fc11339?q=80&w=2670&auto=format&fit=crop",
+    },
+    {
+        name: "EcoFlux",
+        category: "Carbon Capture",
+        description: "Next-generation direct air capture technology for a cleaner future",
+        logo: "ECOFLUX",
+        image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2670&auto=format&fit=crop",
+    },
+    {
+        name: "AgriSense",
+        category: "Smart Farming",
+        description: "AI-driven sensors optimizing crop yields and water usage",
+        logo: "AGRISENSE",
+        image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2727&auto=format&fit=crop",
+    },
+    {
+        name: "SolarStack",
+        category: "Renewable Energy",
+        description: "Modular solar storage solutions for grid independence",
+        logo: "SOLARSTACK",
+        image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop",
     }
 ];
 
@@ -102,7 +123,7 @@ export function CompanyScroller() {
         const rawIndex = Math.round(offsetX / slideWidth);
         const normalizedIndex = rawIndex % originalCompanies.length;
 
-        // Progress for 5 items: 20%, 40%, 60%, 80%, 100%
+        // Progress for 8 items
         const progress = ((normalizedIndex + 1) / originalCompanies.length) * 100;
         setScrollProgress(progress);
     };
@@ -164,7 +185,7 @@ export function CompanyScroller() {
             </div>
 
             {/* Scroller */}
-            <div className="relative border-y border-black/10">
+            <div className="relative border-y border-black/10 group/scroller">
                 <style dangerouslySetInnerHTML={{
                     __html: `
                     .no-scrollbar::-webkit-scrollbar {
@@ -175,15 +196,16 @@ export function CompanyScroller() {
                         scrollbar-width: none;
                     }
                 `}} />
+                {/* Added py-10 to allow hover expansion without clipping */}
                 <div
                     ref={scrollRef}
                     onScroll={handleScroll}
-                    className="flex overflow-x-auto gap-0 scrollbar-hide snap-x snap-mandatory no-scrollbar"
+                    className="flex overflow-x-auto gap-0 scrollbar-hide snap-x snap-mandatory no-scrollbar py-10 -my-10"
                 >
                     {companies.map((company, index) => (
                         <div
                             key={index}
-                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-500"
+                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.0375] hover:z-20 hover:shadow-2xl hover:border-black/0"
                         >
                             {/* Hover Background Image */}
                             <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
