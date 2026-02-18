@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -63,14 +64,28 @@ export function Navbar() {
 
     return (
         <nav className={cn(
-            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-6 border-b backdrop-blur-md transition-all duration-500",
+            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-3.5 border-b backdrop-blur-md transition-all duration-500",
             navThemeClasses
         )}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full flex items-center justify-between">
                 <Link href="/" className={cn(
-                    "text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
+                    "flex items-center gap-0 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
                     isDark ? "text-white" : "text-black"
                 )}>
+                    <div className="relative h-12 w-auto shrink-0 flex items-center">
+                        <Image
+                            src="/assets/branding/rr-monochrome.svg"
+                            alt="Radiant Rise Logo"
+                            width={0}
+                            height={48}
+                            style={{ width: 'auto', height: '48px' }}
+                            className={cn(
+                                "object-contain transition-all duration-500 scale-110",
+                                !isDark && "invert"
+                            )}
+                            priority
+                        />
+                    </div>
                     Radiant Rise
                 </Link>
 

@@ -79,8 +79,9 @@ export function Footer() {
                     </div>
 
                     {/* Links Sections */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-16">
-                        {/* More Celonis / More Radiant Rise */}
+                    {/* Links Sections */}
+                    <div className="flex flex-col sm:flex-row sm:justify-end gap-12 md:gap-24">
+                        {/* More Radiant Rise */}
                         <div className="space-y-6">
                             <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
                             <div className="flex flex-col gap-4">
