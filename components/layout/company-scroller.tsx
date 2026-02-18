@@ -109,20 +109,28 @@ export function CompanyScroller() {
         };
 
         // Initial set
+        // Use requestAnimationFrame to ensure layout is stable
         requestAnimationFrame(() => {
             const container = scrollRef.current;
-            if (container) {
-                // Force layout update logic
-                updateLayout();
-
-                // Do the initial scroll here
+            const header = headerRef.current;
+            if (container && header) {
                 const slide = container.querySelector('div');
-                const header = headerRef.current;
-                if (slide && header) {
+                if (slide) {
                     const slideWidth = slide.offsetWidth;
                     const setWidth = slideWidth * originalCompanies.length;
+
+                    // Get the left offset of the content container
                     const contentOffset = header.getBoundingClientRect().left;
-                    const targetScroll = (setWidth + (2 * slideWidth)) - contentOffset;
+
+                    // Apply scroll padding to container so snapping respects the visual offset
+                    container.style.scrollPaddingLeft = `${contentOffset}px`;
+
+                    // Start at the 1st item (index 0) of the middle set
+                    const itemOffset = 0;
+
+                    // We want the item at (setWidth + itemOffset) to be at 'contentOffset' pixels from the left.
+                    const targetScroll = (setWidth + itemOffset) - contentOffset;
+
                     container.scrollLeft = targetScroll;
                 }
             }
@@ -140,7 +148,8 @@ export function CompanyScroller() {
 
     const handleScroll = () => {
         const container = scrollRef.current;
-        if (!container) return;
+        const header = headerRef.current;
+        if (!container || !header) return;
 
         const slide = container.querySelector('div');
         if (!slide) return;
@@ -148,28 +157,42 @@ export function CompanyScroller() {
         const slideWidth = slide.offsetWidth;
         const setWidth = slideWidth * originalCompanies.length;
         const { scrollLeft } = container;
+        const contentOffset = header.getBoundingClientRect().left;
 
         // --- Infinite Loop Logic ---
+        // Relaxed Thresholds: Jump only when we are deep into the buffer (half a set width)
+        // This prevents fighting the scroll/snap at the boundaries
+
         // If we scroll past the second set (into the 3rd set aka End Buffer)
-        if (scrollLeft >= setWidth * 2) {
-            // Reset back to start of second set (Main Content)
+        // Original: >= setWidth * 2.5 (Unreachable on wide screens)
+        // New: >= setWidth * 2.1 (Reachable)
+        if (scrollLeft >= setWidth * 2.1) {
             // seamless jump: subtract one setWidth
             container.scrollLeft = scrollLeft - setWidth;
         }
         // If we scroll into the first set (Start Buffer)
-        // Check if we are "below" the start of the Main Content (which starts at setWidth)
-        else if (scrollLeft < setWidth) {
-            // Jump forward to Main Content
+        // Original: < setWidth * 0.5 (Reachable)
+        // New: < setWidth * 0.9 (More responsive for left scroll)
+        else if (scrollLeft < setWidth * 0.9) {
             // seamless jump: add one setWidth
             container.scrollLeft = scrollLeft + setWidth;
         }
 
         // --- Progress Logic ---
-        // Calculate effective index based on visual position
-        // Since we reset scrollLeft to be within [setWidth, 2*setWidth],
-        // we can take (scrollLeft % setWidth) / slideWidth
-        const offsetX = container.scrollLeft % setWidth;
-        const rawIndex = Math.round(offsetX / slideWidth);
+        // Calculate effective index based on visual position relative to the content start
+        // Adjusted Scroll = ScrollLeft + Padding/Offset
+        // Since we align the start of the list to be at 'contentOffset',
+        // relative position 0 corresponds to scrollLeft = -contentOffset (if it were possible)
+        // or rather: visual_position = scrollLeft + contentOffset.
+        // If visual_position = setWidth, we are at start of set 2 (Index 0).
+
+        const currentVisualPosition = scrollLeft + contentOffset;
+
+        // Modulo setWidth to get position within a single set
+        // adding setWidth first to handle any potential negative values safely (though layout ensures positive)
+        const effectivePosition = (currentVisualPosition + setWidth) % setWidth;
+
+        const rawIndex = Math.round(effectivePosition / slideWidth);
         const normalizedIndex = rawIndex % originalCompanies.length;
 
         // Progress for 8 items
@@ -208,9 +231,9 @@ export function CompanyScroller() {
 
                 {/* Controls & Progress bar */}
                 <div className="flex items-center gap-8 mb-12">
-                    <div className="flex-1 h-1.5 bg-gray-200 rounded-full relative overflow-hidden">
+                    <div className="flex-1 h-1 bg-black/10 relative">
                         <div
-                            className="absolute top-0 left-0 h-full bg-orange-500 transition-all duration-300 ease-out rounded-full"
+                            className="absolute top-0 left-0 h-full bg-orange-500 transition-all duration-300 ease-out"
                             style={{ width: `${scrollProgress}%` }}
                         />
                     </div>
