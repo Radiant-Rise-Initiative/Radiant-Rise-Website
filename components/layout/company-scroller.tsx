@@ -73,41 +73,8 @@ export function CompanyScroller() {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     // Initialize position and padding
+    // Initialize position and padding
     useEffect(() => {
-        const updateLayout = () => {
-            const container = scrollRef.current;
-            const header = headerRef.current;
-
-            if (container && header) {
-                const slide = container.querySelector('div');
-                if (slide) {
-                    const slideWidth = slide.offsetWidth;
-                    const setWidth = slideWidth * originalCompanies.length;
-
-                    // Get the left offset of the content container
-                    const contentOffset = header.getBoundingClientRect().left;
-
-                    // Apply scroll padding to container so snapping respects the visual offset
-                    container.style.scrollPaddingLeft = `${contentOffset}px`;
-
-                    // Start at the 3rd item (index 2) of the middle set
-                    const itemOffset = 2 * slideWidth;
-
-                    // We want the item at (setWidth + itemOffset) to be at 'contentOffset' pixels from the left.
-                    // With scroll-padding-left set to contentOffset, the snap point IS (setWidth + itemOffset).
-                    // Snapping logic: ItemStart (setWidth + itemOffset) aligns with SnapportStart (ScrollLeft + Padding)
-                    // (setWidth + itemOffset) = ScrollLeft + contentOffset
-                    // ScrollLeft = (setWidth + itemOffset) - contentOffset
-
-                    const targetScroll = (setWidth + itemOffset) - contentOffset;
-
-                    // Only scroll if we haven't already (to avoid fighting user scroll on simple resize? 
-                    // actually for "initial" alignment we want to force it, but on resize we might just want to update padding)
-                    // For now, let's just do it on mount. 
-                }
-            }
-        };
-
         // Initial set
         // Use requestAnimationFrame to ensure layout is stable
         requestAnimationFrame(() => {
@@ -116,13 +83,13 @@ export function CompanyScroller() {
             if (container && header) {
                 const slide = container.querySelector('div');
                 if (slide) {
-                    const slideWidth = slide.offsetWidth;
+                    const slideWidth = slide.getBoundingClientRect().width;
                     const setWidth = slideWidth * originalCompanies.length;
 
                     // Get the left offset of the content container
                     const contentOffset = header.getBoundingClientRect().left;
 
-                    // Apply scroll padding to container so snapping respects the visual offset
+                    // Apply scroll padding
                     container.style.scrollPaddingLeft = `${contentOffset}px`;
 
                     // Start at the 1st item (index 0) of the middle set
@@ -137,9 +104,13 @@ export function CompanyScroller() {
         });
 
         const handleResize = () => {
-            updateLayout();
-            // Maybe re-adjust scroll position to keep the current item aligned?
-            // That's complex. Let's at least update padding so future snaps are correct.
+            // Recalculate padding on resize
+            const container = scrollRef.current;
+            const header = headerRef.current;
+            if (container && header) {
+                const contentOffset = header.getBoundingClientRect().left;
+                container.style.scrollPaddingLeft = `${contentOffset}px`;
+            }
         };
 
         window.addEventListener('resize', handleResize);
@@ -154,48 +125,37 @@ export function CompanyScroller() {
         const slide = container.querySelector('div');
         if (!slide) return;
 
-        const slideWidth = slide.offsetWidth;
+        const slideWidth = slide.getBoundingClientRect().width;
         const setWidth = slideWidth * originalCompanies.length;
         const { scrollLeft } = container;
         const contentOffset = header.getBoundingClientRect().left;
 
         // --- Infinite Loop Logic ---
-        // Relaxed Thresholds: Jump only when we are deep into the buffer (half a set width)
-        // This prevents fighting the scroll/snap at the boundaries
+        // Relaxed Thresholds: Jump only when we are deep into the buffer
+        // Set Width is length of one full copy.
+        // We have [Buffer][Main][Buffer]
+        // ranges: [0..W], [W..2W], [2W..3W]
+        // Main content is at [W..2W] aligned.
 
         // If we scroll past the second set (into the 3rd set aka End Buffer)
-        // Original: >= setWidth * 2.5 (Unreachable on wide screens)
-        // New: >= setWidth * 2.1 (Reachable)
-        if (scrollLeft >= setWidth * 2.1) {
-            // seamless jump: subtract one setWidth
+        // Let's allow scrolling slightly into the buffer, but reset if we go too deep.
+        // If we use pre-emptive reset for buttons, this is mostly for Touch/Trackpad.
+        // Let's reset if > 2.5W (Middle of End Buffer) - very safe.
+        if (scrollLeft >= setWidth * 2.5) {
             container.scrollLeft = scrollLeft - setWidth;
         }
         // If we scroll into the first set (Start Buffer)
-        // Original: < setWidth * 0.5 (Reachable)
-        // New: < setWidth * 0.9 (More responsive for left scroll)
-        else if (scrollLeft < setWidth * 0.9) {
-            // seamless jump: add one setWidth
+        // Let's reset if < 0.5W (Middle of Start Buffer) - very safe.
+        else if (scrollLeft < setWidth * 0.5) {
             container.scrollLeft = scrollLeft + setWidth;
         }
 
         // --- Progress Logic ---
-        // Calculate effective index based on visual position relative to the content start
-        // Adjusted Scroll = ScrollLeft + Padding/Offset
-        // Since we align the start of the list to be at 'contentOffset',
-        // relative position 0 corresponds to scrollLeft = -contentOffset (if it were possible)
-        // or rather: visual_position = scrollLeft + contentOffset.
-        // If visual_position = setWidth, we are at start of set 2 (Index 0).
-
         const currentVisualPosition = scrollLeft + contentOffset;
-
-        // Modulo setWidth to get position within a single set
-        // adding setWidth first to handle any potential negative values safely (though layout ensures positive)
         const effectivePosition = (currentVisualPosition + setWidth) % setWidth;
-
         const rawIndex = Math.round(effectivePosition / slideWidth);
         const normalizedIndex = rawIndex % originalCompanies.length;
 
-        // Progress for 8 items
         const progress = ((normalizedIndex + 1) / originalCompanies.length) * 100;
         setScrollProgress(progress);
     };
@@ -207,9 +167,34 @@ export function CompanyScroller() {
         const slide = container.querySelector('div');
         if (!slide) return;
 
-        const slideWidth = slide.offsetWidth;
-        const scrollAmount = direction === "left" ? -slideWidth : slideWidth;
+        const slideWidth = slide.getBoundingClientRect().width;
+        const setWidth = slideWidth * originalCompanies.length;
 
+        // Check current position before scrolling
+        let currentScroll = container.scrollLeft;
+
+        // PRE-EMPTIVE OFFSET ADJUSTMENT
+        // If we are in the buffer zones, snap back to main content INSTANTLY before smoothing.
+        // This ensures the smooth scroll animation plays out fully within the safe zone
+        // and doesn't hit the onScroll reset triggers.
+
+        if (direction === "right") {
+            // If we are in the End Buffer (or entering it), reset to Main Content
+            // Threshold: If we are >= 2.0 * setWidth (Start of End Buffer)
+            if (currentScroll >= setWidth * 2) {
+                currentScroll -= setWidth;
+                container.scrollLeft = currentScroll;
+            }
+        } else {
+            // If we are in the Start Buffer (or entering it), reset to Main Content
+            // Threshold: If we are <= 1.0 * setWidth (End of Start Buffer / Start of Main)
+            if (currentScroll <= setWidth) {
+                currentScroll += setWidth;
+                container.scrollLeft = currentScroll;
+            }
+        }
+
+        const scrollAmount = direction === "left" ? -slideWidth : slideWidth;
         container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     };
 
