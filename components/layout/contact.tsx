@@ -27,7 +27,7 @@ export function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 items-stretch">
 
                     {/* Left Side: Title */}
-                    <div className="flex flex-col justify-center @container">
+                    <div className="flex flex-col @container sticky top-44 self-start py-8 sm:py-0">
                         <h1 className="text-[18cqi] font-semibold text-white tracking-tighter leading-[0.8] uppercase whitespace-nowrap flex justify-between w-full">
                             {"CONNECT".split("").map((char, i) => (
                                 <span key={i}>{char}</span>
@@ -36,7 +36,7 @@ export function Contact() {
                     </div>
 
                     {/* Right Side: Tabbed Form */}
-                    <div className="bg-[#f8f9fa] rounded-sm shadow-2xl overflow-hidden self-center">
+                    <div className="bg-[#f8f9fa] rounded-sm shadow-2xl overflow-hidden self-start">
                         {/* Tabs */}
                         <div className="flex border-b border-black/5">
                             {(["Partner With Us", "Pitch Us", "Media"] as Tab[]).map((tab) => (
