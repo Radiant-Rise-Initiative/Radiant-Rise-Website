@@ -154,7 +154,7 @@ export function ImpactStats() {
                 <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.1 }}
                     variants={{
                         hidden: {},
                         show: {
@@ -248,8 +248,8 @@ export function ImpactStats() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    viewport={{ once: false, amount: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-16 pt-16"
                 >
                     <div className="flex flex-col">
