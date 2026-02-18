@@ -69,24 +69,73 @@ const companies = [...originalCompanies, ...originalCompanies, ...originalCompan
 
 export function CompanyScroller() {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
 
-    // Initialize position to the middle set (Main Content)
+    // Initialize position and padding
     useEffect(() => {
-        const container = scrollRef.current;
-        if (container) {
-            // Need a slight delay to ensure layout is ready or use useLayoutEffect? 
-            // useEffect is ok, but we might see a flash.
-            // Let's rely on the ref being populated.
-            const slide = container.querySelector('div');
-            if (slide) {
-                const slideWidth = slide.offsetWidth;
-                const setWidth = slideWidth * originalCompanies.length;
+        const updateLayout = () => {
+            const container = scrollRef.current;
+            const header = headerRef.current;
 
-                // Immediately jump to the middle set
-                container.scrollLeft = setWidth;
+            if (container && header) {
+                const slide = container.querySelector('div');
+                if (slide) {
+                    const slideWidth = slide.offsetWidth;
+                    const setWidth = slideWidth * originalCompanies.length;
+
+                    // Get the left offset of the content container
+                    const contentOffset = header.getBoundingClientRect().left;
+
+                    // Apply scroll padding to container so snapping respects the visual offset
+                    container.style.scrollPaddingLeft = `${contentOffset}px`;
+
+                    // Start at the 3rd item (index 2) of the middle set
+                    const itemOffset = 2 * slideWidth;
+
+                    // We want the item at (setWidth + itemOffset) to be at 'contentOffset' pixels from the left.
+                    // With scroll-padding-left set to contentOffset, the snap point IS (setWidth + itemOffset).
+                    // Snapping logic: ItemStart (setWidth + itemOffset) aligns with SnapportStart (ScrollLeft + Padding)
+                    // (setWidth + itemOffset) = ScrollLeft + contentOffset
+                    // ScrollLeft = (setWidth + itemOffset) - contentOffset
+
+                    const targetScroll = (setWidth + itemOffset) - contentOffset;
+
+                    // Only scroll if we haven't already (to avoid fighting user scroll on simple resize? 
+                    // actually for "initial" alignment we want to force it, but on resize we might just want to update padding)
+                    // For now, let's just do it on mount. 
+                }
             }
-        }
+        };
+
+        // Initial set
+        requestAnimationFrame(() => {
+            const container = scrollRef.current;
+            if (container) {
+                // Force layout update logic
+                updateLayout();
+
+                // Do the initial scroll here
+                const slide = container.querySelector('div');
+                const header = headerRef.current;
+                if (slide && header) {
+                    const slideWidth = slide.offsetWidth;
+                    const setWidth = slideWidth * originalCompanies.length;
+                    const contentOffset = header.getBoundingClientRect().left;
+                    const targetScroll = (setWidth + (2 * slideWidth)) - contentOffset;
+                    container.scrollLeft = targetScroll;
+                }
+            }
+        });
+
+        const handleResize = () => {
+            updateLayout();
+            // Maybe re-adjust scroll position to keep the current item aligned?
+            // That's complex. Let's at least update padding so future snaps are correct.
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const handleScroll = () => {
@@ -143,7 +192,7 @@ export function CompanyScroller() {
 
     return (
         <section data-theme="light" className="bg-white py-24">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
+            <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
                     <h2 className="text-5xl md:text-7xl font-semibold text-black tracking-tight">
