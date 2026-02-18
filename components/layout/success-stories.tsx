@@ -177,7 +177,7 @@ export function SuccessStories() {
                                         container.scrollTo({ left: scrollDest, behavior: 'smooth' });
                                     }
                                 }}
-                                className={`h-1 transition-all duration-300 rounded-full ${idx === activeIndex ? "w-12 bg-black" : "w-4 bg-black/20 hover:bg-black/40"
+                                className={`h-1 transition-all duration-300 ${idx === activeIndex ? "w-12 bg-black" : "w-6 bg-black/20 hover:bg-black/40"
                                     }`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />
@@ -188,14 +188,16 @@ export function SuccessStories() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => scroll("left")}
-                            className="p-3 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-300 disabled:opacity-50"
+                            disabled={activeIndex === 0}
+                            className="p-3 border border-black/10 rounded-full enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
                             aria-label="Scroll left"
                         >
                             <ArrowLeft size={20} />
                         </button>
                         <button
                             onClick={() => scroll("right")}
-                            className="p-3 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                            disabled={activeIndex === stories.length - 1}
+                            className="p-3 border border-black/10 rounded-full enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
                             aria-label="Scroll right"
                         >
                             <ArrowRight size={20} />

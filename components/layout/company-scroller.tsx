@@ -262,7 +262,7 @@ export function CompanyScroller() {
                     {companies.map((company, index) => (
                         <div
                             key={index}
-                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.0375] hover:z-20 hover:shadow-2xl hover:border-black/0"
+                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.0375] hover:z-20 hover:border-black/0"
                         >
                             {/* Hover Background Image */}
                             <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
