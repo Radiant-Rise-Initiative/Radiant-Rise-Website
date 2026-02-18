@@ -119,7 +119,7 @@ interface MetricItemProps {
 function MetricItem({ label, value, description, onOpen }: MetricItemProps) {
     return (
         <div
-            className="flex flex-col justify-between h-full min-h-[160px] group relative cursor-pointer"
+            className="flex flex-col justify-between h-full min-h-[200px] group relative cursor-pointer"
             onClick={() => onOpen({ label, value, description })}
         >
             <p className="text-sm font-medium text-black/60 leading-tight mb-8 transition-colors group-hover:text-black/80">
@@ -152,8 +152,8 @@ export function ImpactStats() {
                 </div>
 
                 <div className="relative">
-                    {/* Content Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12">
+                    {/* Content Grid - Gaps removed to allow for padding-based hit areas */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
@@ -161,34 +161,60 @@ export function ImpactStats() {
                                     border-b lg:border-b-0
                                     ${index % 2 === 0 ? 'md:border-b-0' : ''} 
                                     py-12 lg:py-0
+                                    
+                                    /* Gap Emulation & Hit Area Expansion */
+                                    px-6
+                                    /* Handle Horizontal Flushness */
+                                    ${index === 0 ? 'lg:pl-0' : ''}
+                                    ${index === 3 ? 'lg:pr-0' : ''}
+                                    ${index % 2 === 0 ? 'md:pl-0' : ''}
+                                    ${index % 2 !== 0 ? 'md:pr-0' : ''}
                                 `}
                             >
                                 {/* Vertical Divider - Absolute Positioned in the gap to the right */}
-                                <div className={`absolute -right-6 top-0 bottom-0 w-px bg-black/10 hidden
+                                <div className={`absolute -right-px top-0 bottom-0 w-px bg-black/10 hidden
                                     ${(index === 0 || index === 2) ? 'md:block' : ''}
                                     ${(index === 1) ? 'lg:block' : ''}
                                     ${(index === 3) ? '!hidden' : ''} 
                                 `} />
 
-                                <div className="flex flex-col h-full gap-12 lg:py-4">
-                                    {/* Top Stat */}
-                                    <MetricItem
-                                        label={stat.topLabel}
-                                        value={stat.topValue}
-                                        description={stat.topDescription}
-                                        onOpen={setSelectedMetric}
-                                    />
+                                <div className="flex flex-col h-full">
+                                    {/* Top Stat Container - Acts as the hit area */}
+                                    <div
+                                        className="group cursor-pointer pb-6"
+                                        onClick={() => setSelectedMetric({
+                                            label: stat.topLabel,
+                                            value: stat.topValue,
+                                            description: stat.topDescription
+                                        })}
+                                    >
+                                        <MetricItem
+                                            label={stat.topLabel}
+                                            value={stat.topValue}
+                                            description={stat.topDescription}
+                                            onOpen={() => { }} /* Wrapper handles interaction */
+                                        />
+                                    </div>
 
                                     {/* Inset Horizontal Divider */}
                                     <div className="border-t border-black/10 w-full" />
 
-                                    {/* Bottom Stat */}
-                                    <MetricItem
-                                        label={stat.bottomLabel}
-                                        value={stat.bottomValue}
-                                        description={stat.bottomDescription}
-                                        onOpen={setSelectedMetric}
-                                    />
+                                    {/* Bottom Stat Container - Acts as the hit area */}
+                                    <div
+                                        className="group cursor-pointer pt-6"
+                                        onClick={() => setSelectedMetric({
+                                            label: stat.bottomLabel,
+                                            value: stat.bottomValue,
+                                            description: stat.bottomDescription
+                                        })}
+                                    >
+                                        <MetricItem
+                                            label={stat.bottomLabel}
+                                            value={stat.bottomValue}
+                                            description={stat.bottomDescription}
+                                            onOpen={() => { }} /* Wrapper handles interaction */
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         ))}
