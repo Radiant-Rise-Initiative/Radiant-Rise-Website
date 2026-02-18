@@ -119,7 +119,7 @@ interface MetricItemProps {
 function MetricItem({ label, value, description, onOpen }: MetricItemProps) {
     return (
         <div
-            className="flex flex-col justify-between h-full min-h-[200px] group relative cursor-pointer"
+            className="flex flex-col justify-between h-full min-h-[220px] group relative cursor-pointer"
             onClick={() => onOpen({ label, value, description })}
         >
             <p className="text-sm font-medium text-black/60 leading-tight mb-8 transition-colors group-hover:text-black/80">
@@ -151,24 +151,47 @@ export function ImpactStats() {
                     </h2>
                 </div>
 
-                <div className="relative">
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: {
+                                staggerChildren: 0.1,
+                                delayChildren: 0.2
+                            }
+                        }
+                    }}
+                    className="relative"
+                >
                     {/* Content Grid - Gaps removed to allow for padding-based hit areas */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                         {stats.map((stat, index) => (
-                            <div
+                            <motion.div
                                 key={index}
+                                variants={{
+                                    hidden: { opacity: 0, y: 40 },
+                                    show: {
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 0.8,
+                                            ease: [0.21, 0.47, 0.32, 0.98]
+                                        }
+                                    }
+                                }}
                                 className={`flex flex-col border-black/10 transition-colors relative
                                     border-b lg:border-b-0
                                     ${index % 2 === 0 ? 'md:border-b-0' : ''} 
                                     py-12 lg:py-0
                                     
-                                    /* Gap Emulation & Hit Area Expansion */
-                                    px-6
-                                    /* Handle Horizontal Flushness */
-                                    ${index === 0 ? 'lg:pl-0' : ''}
-                                    ${index === 3 ? 'lg:pr-0' : ''}
-                                    ${index % 2 === 0 ? 'md:pl-0' : ''}
-                                    ${index % 2 !== 0 ? 'md:pr-0' : ''}
+                                    /* Responsive Hit Area Padding / Flush Logic */
+                                    ${index === 0 ? 'pl-0 pr-6' :
+                                        index === 1 ? 'pl-6 lg:pr-6 md:pr-0' :
+                                            index === 2 ? 'pr-6 lg:pl-6 md:pl-0' :
+                                                'pr-0 pl-6'}
                                 `}
                             >
                                 {/* Vertical Divider - Absolute Positioned in the gap to the right */}
@@ -181,7 +204,7 @@ export function ImpactStats() {
                                 <div className="flex flex-col h-full">
                                     {/* Top Stat Container - Acts as the hit area */}
                                     <div
-                                        className="group cursor-pointer pb-6"
+                                        className="group cursor-pointer pb-8"
                                         onClick={() => setSelectedMetric({
                                             label: stat.topLabel,
                                             value: stat.topValue,
@@ -201,7 +224,7 @@ export function ImpactStats() {
 
                                     {/* Bottom Stat Container - Acts as the hit area */}
                                     <div
-                                        className="group cursor-pointer pt-6"
+                                        className="group cursor-pointer pt-8"
                                         onClick={() => setSelectedMetric({
                                             label: stat.bottomLabel,
                                             value: stat.bottomValue,
@@ -216,13 +239,19 @@ export function ImpactStats() {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Overall Metric */}
-                <div className="border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-16 pt-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-16 pt-16"
+                >
                     <div className="flex flex-col">
                         <p className="text-sm font-medium text-black/60 leading-tight mb-8">
                             Livelihoods improved
@@ -231,7 +260,7 @@ export function ImpactStats() {
                             +119.6 million
                         </p>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <MetricModal
