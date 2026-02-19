@@ -7,13 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { DonationModal } from "./donation-modal";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
-    // Prevent scrolling when menu is open
+    // Prevent scrolling when menu or modal is open
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen || isDonationModalOpen) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "unset";
@@ -21,7 +23,7 @@ export function Navbar() {
         return () => {
             document.body.style.overflow = "unset";
         }
-    }, [isOpen]);
+    }, [isOpen, isDonationModalOpen]);
 
 
     return (
@@ -70,6 +72,7 @@ export function Navbar() {
 
                     <Button
                         variant="outline"
+                        onClick={() => setIsDonationModalOpen(true)}
                         className={cn(
                             "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none border-black text-black hover:bg-black hover:text-white"
                         )}
@@ -103,7 +106,10 @@ export function Navbar() {
                             <Button
                                 variant="outline"
                                 className="mt-8 border-black text-black hover:bg-black hover:text-white uppercase tracking-wider bg-transparent w-full py-6 text-lg rounded-none"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    setIsDonationModalOpen(true);
+                                }}
                             >
                                 GIVE NOW
                             </Button>
@@ -111,6 +117,12 @@ export function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Global Donation Modal */}
+            <DonationModal
+                isOpen={isDonationModalOpen}
+                onClose={() => setIsDonationModalOpen(false)}
+            />
         </nav >
     );
 }

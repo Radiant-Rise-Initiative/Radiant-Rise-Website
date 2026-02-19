@@ -20,6 +20,10 @@
   --color-input: #e4e4e7;
   --color-ring: #18181b;
 
+  /* Overrides for Brand Orange */
+  --color-orange-500: #FF6B04;
+  --color-orange-600: #FF6B04;
+
   --radius: 0.5rem;
 }
 
