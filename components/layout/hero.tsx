@@ -1,16 +1,31 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
+const images = [
+    "/assets/branding/splash-image-022.jpg",
+    "/assets/branding/splash-image-023.jpg",
+    "/assets/branding/splash-image-024.jpg",
+    "/assets/branding/splash-image-025.jpg"
+];
+
 export function Hero() {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"],
     });
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
@@ -28,13 +43,24 @@ export function Hero() {
                     y: backgroundY,
                 }}
             >
-                <Image
-                    src="/assets/branding/splash-image-022.jpg"
-                    alt="Community Impact"
-                    fill
-                    className="object-cover"
-                    priority
-                />
+                <AnimatePresence mode="popLayout">
+                    <motion.div
+                        key={currentImageIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5 }}
+                        className="absolute inset-0"
+                    >
+                        <Image
+                            src={images[currentImageIndex]}
+                            alt="Community Impact"
+                            fill
+                            className="object-cover"
+                            priority={currentImageIndex === 0}
+                        />
+                    </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-black/30 z-10" />
                 <motion.div
                     className="absolute inset-0 bg-black z-20"
