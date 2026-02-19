@@ -200,9 +200,9 @@ export function CompanyScroller() {
 
     return (
         <section data-theme="light" className="bg-white pt-24 pb-0">
-            <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
+            <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
-                <div className="flex justify-between items-end mb-16 px-0">
+                <div className="flex justify-between items-end mb-4 px-0">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
                         Our Partners
                     </h2>
@@ -215,7 +215,7 @@ export function CompanyScroller() {
                 </div>
 
                 {/* Controls & Progress bar */}
-                <div className="flex items-center gap-8 mb-12">
+                <div className="flex items-center gap-8 pt-2 mb-24">
                     <div className="flex-1 h-1 bg-black/10 relative">
                         <div
                             className="absolute top-0 left-0 h-full bg-orange-500 transition-all duration-300 ease-out"
@@ -272,7 +272,7 @@ export function CompanyScroller() {
                                     fill
                                     className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-black/60" />
+                                <div className="absolute inset-0 bg-black/30" />
                             </div>
 
                             <div className="relative z-10 h-full p-8 flex flex-col justify-between">

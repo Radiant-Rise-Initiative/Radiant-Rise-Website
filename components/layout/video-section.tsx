@@ -18,6 +18,7 @@ export function VideoSection() {
                         className="object-cover"
                         priority
                     />
+                    <div className="absolute inset-0 bg-black/30 z-0" />
 
                     {/* Main Content */}
                     <div className="absolute inset-0 z-10 h-full flex flex-col justify-center px-6 md:px-12 max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
@@ -51,14 +52,14 @@ export function VideoSection() {
                             {/* Info Points */}
                             <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                                 <div className="flex gap-6 items-start">
-                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-xs font-mono text-white/60 mt-1 shrink-0 pt-0.5">1</div>
-                                    <p className="text-sm text-white/70 leading-relaxed theme-transition:text-white">
+                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">1</div>
+                                    <p className="text-sm text-white/70 leading-relaxed theme-transition:text-white pt-[5px]">
                                         To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.
                                     </p>
                                 </div>
                                 <div className="flex gap-6 items-start">
-                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-xs font-mono text-white/60 mt-1 shrink-0 pt-0.5">2</div>
-                                    <p className="text-sm text-white/70 leading-relaxed">
+                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">2</div>
+                                    <p className="text-sm text-white/70 leading-relaxed pt-[5px]">
                                         To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community.
                                     </p>
                                 </div>
