@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isDark, setIsDark] = useState(true);
 
     // Prevent scrolling when menu is open
     useEffect(() => {
@@ -24,65 +23,22 @@ export function Navbar() {
         }
     }, [isOpen]);
 
-    // Adaptive Theme Detection
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const theme = entry.target.getAttribute("data-theme");
-                        if (theme) setIsDark(theme === "dark");
-                    } else if (!entry.isIntersecting) {
-                        // When an element leaves, we might need to check if there's
-                        // another intersecting element to revert to.
-                        // For simplicity in a flat section-based site, 
-                        // we can just re-check what's at the top.
-                        const topElement = document.elementFromPoint(window.innerWidth / 2, 20);
-                        const section = topElement?.closest("[data-theme]");
-                        if (section) {
-                            const theme = section.getAttribute("data-theme");
-                            setIsDark(theme === "dark");
-                        }
-                    }
-                });
-            },
-            {
-                rootMargin: "0px 0px -98% 0px", // Detect what's in the top 2% of the screen
-                threshold: [0, 0.01],
-            }
-        );
-
-        const sections = document.querySelectorAll("[data-theme]");
-        sections.forEach((section) => observer.observe(section));
-
-        return () => observer.disconnect();
-    }, []);
-
-    const navThemeClasses = isDark
-        ? "text-white border-white/10 bg-black/5"
-        : "text-black border-black/10 bg-white/5";
 
     return (
         <nav className={cn(
-            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-3.5 border-b backdrop-blur-md transition-all duration-500",
-            navThemeClasses
+            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-2 border-b backdrop-blur-md transition-all duration-500",
+            "text-black border-black/10 bg-white/80"
         )}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full flex items-center justify-between">
-                <Link href="/" className={cn(
-                    "flex items-center gap-2 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
-                    isDark ? "text-white" : "text-black"
-                )}>
-                    <div className="relative h-12 w-auto shrink-0 flex items-center">
+                <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500 text-black">
+                    <div className="relative h-10 w-auto shrink-0 flex items-center">
                         <Image
                             src="/assets/branding/rr-logo-v3.svg"
                             alt="Radiant Rise Logo"
                             width={0}
-                            height={48}
-                            style={{ width: 'auto', height: '48px' }}
-                            className={cn(
-                                "object-contain transition-all duration-500 scale-110",
-                                isDark && "invert"
-                            )}
+                            height={40}
+                            style={{ width: 'auto', height: '40px' }}
+                            className="object-contain transition-all duration-500"
                             priority
                         />
                     </div>
@@ -95,10 +51,7 @@ export function Navbar() {
                         <Link
                             key={item}
                             href={`#${item.toLowerCase()}`}
-                            className={cn(
-                                "text-sm font-medium transition-colors duration-500 uppercase tracking-widest",
-                                isDark ? "text-white/90 hover:text-white" : "text-black/70 hover:text-black"
-                            )}
+                            className="text-sm font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
                         >
                             {item}
                         </Link>
@@ -109,10 +62,7 @@ export function Navbar() {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className={cn(
-                            "md:hidden transition-colors duration-500 z-50 relative p-2 -mr-2",
-                            isDark ? "text-white hover:text-white/80" : "text-black hover:text-black/70"
-                        )}
+                        className="md:hidden transition-colors duration-500 z-50 relative p-2 -mr-2 text-black hover:text-black/70"
                         aria-label="Toggle menu"
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -121,13 +71,10 @@ export function Navbar() {
                     <Button
                         variant="outline"
                         className={cn(
-                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none",
-                            isDark
-                                ? "border-white text-white hover:bg-white hover:text-black"
-                                : "border-black text-black hover:bg-black hover:text-white"
+                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none border-black text-black hover:bg-black hover:text-white"
                         )}
                     >
-                        Connect
+                        GIVE NOW
                     </Button>
                 </div>
             </div>
@@ -140,7 +87,7 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md pt-24 px-6 sm:px-12 flex flex-col md:hidden"
+                        className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md pt-24 px-6 sm:px-12 flex flex-col md:hidden"
                     >
                         <div className="flex flex-col gap-8 text-center mt-12">
                             {["About", "Approach", "Learnings"].map((item) => (
@@ -148,22 +95,22 @@ export function Navbar() {
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-2xl font-light text-white hover:text-white/70 transition-colors uppercase tracking-widest"
+                                    className="text-2xl font-light text-black hover:text-black/70 transition-colors uppercase tracking-widest"
                                 >
                                     {item}
                                 </Link>
                             ))}
                             <Button
                                 variant="outline"
-                                className="mt-8 border-white text-white hover:bg-white hover:text-black uppercase tracking-wider bg-transparent w-full py-6 text-lg rounded-none"
+                                className="mt-8 border-black text-black hover:bg-black hover:text-white uppercase tracking-wider bg-transparent w-full py-6 text-lg rounded-none"
                                 onClick={() => setIsOpen(false)}
                             >
-                                Connect
+                                GIVE NOW
                             </Button>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </nav >
     );
 }
