@@ -10,12 +10,20 @@ export function GiantLogoSection() {
                 {/* Main Logo Row */}
                 <div className="flex justify-between items-center mb-32">
                     {/* Text Logo - Fluid scaling with width constraint */}
-                    <h2 className="text-[13cqi] md:text-[7cqi] font-medium text-white/10 tracking-tighter leading-none select-none whitespace-nowrap">
-                        Radiant Rise
-                    </h2>
+                    <div className="relative w-[55%] max-w-[800px]">
+                        <Image
+                            src="/assets/branding/rr-lettermark.svg"
+                            alt="Radiant Rise"
+                            width={0}
+                            height={0}
+                            style={{ width: '100%', height: 'auto' }}
+                            className="object-contain invert opacity-10 select-none"
+                            priority
+                        />
+                    </div>
 
                     {/* Orb Asset Container */}
-                    <div className="relative w-[520px] h-[520px] opacity-[0.1] pointer-events-none select-none shrink-0">
+                    <div className="relative w-[520px] h-[520px] opacity-5 pointer-events-none select-none shrink-0">
                         <Image
                             src="/assets/branding/rr-logo-v3.svg"
                             alt=""

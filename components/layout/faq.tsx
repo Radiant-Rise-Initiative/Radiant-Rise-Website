@@ -40,7 +40,7 @@ export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(1);
 
     return (
-        <section data-theme="light" className="bg-white py-24 px-6 sm:px-12 border-t border-black/10">
+        <section data-theme="light" className="bg-white py-24 px-6 sm:px-12">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <h2 className="text-5xl md:text-7xl font-semibold text-black tracking-tight mb-16">
                     How we invest
