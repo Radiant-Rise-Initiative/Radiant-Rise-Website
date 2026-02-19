@@ -45,15 +45,21 @@ const accordionVariants: Variants = {
 };
 
 export function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(1);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
         <section data-theme="light" className="bg-white py-24 px-6 sm:px-12">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-0">
-                <div className="mb-16">
+                <div className="flex justify-between items-end mb-16 px-0">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
-                        Learn More
+                        Got Questions?
                     </h2>
+                    <a
+                        href="/contact"
+                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
+                    >
+                        MAKE MORE INQUIRIES
+                    </a>
                 </div>
 
                 <div className="border-t border-black/10">
