@@ -52,11 +52,11 @@ export function WhoWeAre() {
     // Let's try: default equal width, hover expands one.
 
     return (
-        <section data-theme="dark" className="bg-black text-white py-24 border-t border-white/10">
+        <section id="who-we-are" data-theme="dark" className="bg-black text-white py-24 border-t border-white/10">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header Section */}
                 <div className="mb-16 max-w-2xl">
-                    <h2 className="text-2xl font-medium mb-4">What We Do</h2>
+                    <h2 className="text-2xl font-medium mb-4">Who We Are</h2>
                     <p className="text-xl text-white/60 leading-relaxed font-light">
                         At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected.
                     </p>

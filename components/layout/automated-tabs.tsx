@@ -97,7 +97,7 @@ export function AutomatedTabs() {
     };
 
     return (
-        <section className="bg-black text-white py-24 overflow-hidden">
+        <section id="what-we-do" className="bg-black text-white py-24 overflow-hidden">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 

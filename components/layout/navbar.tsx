@@ -49,13 +49,17 @@ export function Navbar() {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
-                    {["About", "Approach", "Learnings"].map((item) => (
+                    {[
+                        { label: "Who We Are", id: "who-we-are" },
+                        { label: "Our Impact", id: "our-impact" },
+                        { label: "What We Do", id: "what-we-do" }
+                    ].map((item) => (
                         <Link
-                            key={item}
-                            href={`#${item.toLowerCase()}`}
+                            key={item.id}
+                            href={`#${item.id}`}
                             className="text-sm font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
                         >
-                            {item}
+                            {item.label}
                         </Link>
                     ))}
                 </div>
@@ -93,14 +97,18 @@ export function Navbar() {
                         className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md pt-24 px-6 sm:px-12 flex flex-col md:hidden"
                     >
                         <div className="flex flex-col gap-8 text-center mt-12">
-                            {["About", "Approach", "Learnings"].map((item) => (
+                            {[
+                                { label: "Who We Are", id: "who-we-are" },
+                                { label: "Our Impact", id: "our-impact" },
+                                { label: "What We Do", id: "what-we-do" }
+                            ].map((item) => (
                                 <Link
-                                    key={item}
-                                    href={`#${item.toLowerCase()}`}
+                                    key={item.id}
+                                    href={`#${item.id}`}
                                     onClick={() => setIsOpen(false)}
                                     className="text-2xl font-light text-black hover:text-black/70 transition-colors uppercase tracking-widest"
                                 >
-                                    {item}
+                                    {item.label}
                                 </Link>
                             ))}
                             <Button

@@ -143,7 +143,7 @@ export function ImpactStats() {
     const [selectedMetric, setSelectedMetric] = useState<{ label: string; value: string; description: string } | null>(null);
 
     return (
-        <section data-theme="light" className="bg-white py-24 relative">
+        <section id="our-impact" data-theme="light" className="bg-white py-24 relative">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="flex justify-between items-end mb-16 px-0">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
