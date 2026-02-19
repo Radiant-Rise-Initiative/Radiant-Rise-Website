@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Lightbulb, Leaf } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const newsItems = [
@@ -13,8 +12,6 @@ const newsItems = [
         date: "OCT 3, 2024",
         title: "GreenPod Labs Secures $50K Post-Harvest Loss Innovation Prize for Groundbreaking Active Packaging Solution",
         image: "/assets/branding/splash-image.jpg",
-        icon: <Leaf className="w-12 h-12 text-black" />,
-        logoText: "GREENPOD LABS",
     },
     {
         id: "openaccess",
@@ -22,8 +19,6 @@ const newsItems = [
         date: "AUG 14, 2024",
         title: "Open Access Energy Secures $750,000, Launching $1.5 Million Seed Round",
         image: "/assets/branding/splash-image.jpg",
-        overlayColor: "bg-black/40",
-        icon: null,
     },
     {
         id: "innovation",
@@ -31,10 +26,52 @@ const newsItems = [
         date: "JUN 26, 2024",
         title: "$50,000 Post-Harvest Loss Innovation Prize",
         image: "/assets/branding/splash-image.jpg",
-        overlayColor: "bg-[#6495ED]/80", // Muted Blue
-        icon: <Lightbulb className="w-12 h-12 text-black font-bold" />,
     },
 ];
+
+import { useEffect } from "react";
+
+function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
+    const [bgColor, setBgColor] = useState("rgba(0,0,0,0.6)");
+
+    useEffect(() => {
+        const img = new window.Image();
+        img.crossOrigin = "anonymous";
+        img.src = item.image;
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+            canvas.width = 1;
+            canvas.height = 1;
+            ctx.drawImage(img, 0, 0, 1, 1);
+            const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+            // Slightly darken/mute the color for a more premium feel if it's too bright
+            setBgColor(`rgb(${r}, ${g}, ${b})`);
+        };
+    }, [item.image]);
+
+    return (
+        <div className="relative h-full flex flex-col justify-end">
+            <div
+                className="p-8 transition-colors duration-500"
+                style={{ backgroundColor: bgColor }}
+            >
+                <div className="flex justify-between items-center mb-6">
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-white/80 uppercase">
+                        {item.category}
+                    </span>
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-white/80 uppercase">
+                        {item.date}
+                    </span>
+                </div>
+                <h3 className="text-2xl font-semibold text-white leading-tight tracking-tight">
+                    {item.title}
+                </h3>
+            </div>
+        </div>
+    );
+}
 
 export function RecentNews() {
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
@@ -111,40 +148,7 @@ export function RecentNews() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
 
-                                {/* Color Overlay */}
-                                <div className={`absolute inset-0 transition-opacity duration-300 ${item.overlayColor || 'bg-black/40'}`} />
-
-                                {/* Content */}
-                                <div className="relative h-full p-8 flex flex-col">
-                                    {/* Top Icon/Logo */}
-                                    <div className="flex-1 flex flex-col items-center justify-center">
-                                        {item.icon && (
-                                            <div className="mb-4">
-                                                {item.icon}
-                                            </div>
-                                        )}
-                                        {item.logoText && (
-                                            <p className="text-xl font-bold tracking-widest text-black">
-                                                {item.logoText}
-                                            </p>
-                                        )}
-                                    </div>
-
-                                    {/* Bottom Meta & Title */}
-                                    <div className="mt-auto">
-                                        <div className="flex justify-between items-center mb-6">
-                                            <span className="text-[10px] font-mono tracking-[0.2em] text-black/80 uppercase">
-                                                {item.category}
-                                            </span>
-                                            <span className="text-[10px] font-mono tracking-[0.2em] text-black/80 uppercase">
-                                                {item.date}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-2xl font-semibold text-black leading-tight tracking-tight">
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                </div>
+                                <NewsItemContent item={item} />
                             </Link>
                         </motion.div>
                     ))}
