@@ -13,7 +13,7 @@ export function Contact() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2670&auto=format&fit=crop"
+                    src="/assets/branding/splash-image.jpg"
                     alt="Energy Infrastructure"
                     fill
                     className="object-cover brightness-[0.4]"

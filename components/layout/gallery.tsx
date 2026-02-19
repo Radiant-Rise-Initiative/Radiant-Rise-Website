@@ -12,7 +12,7 @@ const galleryItems = [
         title: "Eternity",
         category: "Romance",
         description: "Do you believe in love after life?",
-        image: "https://images.unsplash.com/photo-1444703686981-a3abb9a5bb58?q=80&w=2670&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -20,7 +20,7 @@ const galleryItems = [
         title: "Innovation",
         category: "Technology",
         description: "Shaping the future of process intelligence.",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -28,7 +28,7 @@ const galleryItems = [
         title: "Sustainability",
         category: "Environment",
         description: "Next-generation energy solutions for a greener planet.",
-        image: "https://images.unsplash.com/photo-1466611653911-954ffea1127b?q=80&w=2670&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -36,7 +36,7 @@ const galleryItems = [
         title: "Advancement",
         category: "Transport",
         description: "Revolutionizing low-carbon public transportation.",
-        image: "https://images.unsplash.com/photo-1594818822617-670c99a13f28?q=80&w=2671&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     }
 ];

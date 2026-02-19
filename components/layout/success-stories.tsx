@@ -10,7 +10,7 @@ const stories = [
         company: "PepsiCo",
         tag: "Customer Story",
         description: "See how PepsiCo uses Celonis Process Mining in their transformation journey to become faster, stronger, better – unlocking millions of dollars across the company.",
-        image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop", // Business meeting/office context
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -18,7 +18,7 @@ const stories = [
         company: "Florida Crystals",
         tag: "Customer Story",
         description: "With Celonis Process Intelligence, Florida Crystals unlocked millions in Accounts Payable, slashed duplicate payments, and sped up their S/4HANA transformation.",
-        image: "https://images.unsplash.com/photo-1560179707-f14e90ef3dab?q=80&w=2670&auto=format&fit=crop", // Industrial/office context
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -26,7 +26,7 @@ const stories = [
         company: "Uber",
         tag: "Customer Story",
         description: "Uber leveraged process intelligence to optimize their customer support operations, reducing resolution times by 15% and improving customer satisfaction scores globally.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop", // Modern office
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
@@ -34,7 +34,7 @@ const stories = [
         company: "Siemens",
         tag: "Customer Story",
         description: "Siemens utilized digital twin technology to streamline their manufacturing lines, resulting in a 20% increase in output and significant reduction in energy consumption.",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop", // Tech/Engineer
+        image: "/assets/branding/splash-image.jpg",
         link: "#"
     }
 ];

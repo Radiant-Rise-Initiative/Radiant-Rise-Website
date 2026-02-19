@@ -98,7 +98,7 @@ export function AutomatedTabs() {
 
     return (
         <section className="bg-black text-white py-24 overflow-hidden">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-6 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
                     {/* Left Column: Tabs & Headline */}

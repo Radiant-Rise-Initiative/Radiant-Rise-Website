@@ -11,7 +11,7 @@ const testimonials = [
         name: "Jonathan Berman",
         role: "CEO",
         company: "Shell Foundation",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
     },
     {
         id: "wider",
@@ -20,7 +20,7 @@ const testimonials = [
         name: "Piper Wider",
         role: "CEO",
         company: "60 Hertz",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
     },
     {
         id: "mitchell",
@@ -29,7 +29,7 @@ const testimonials = [
         name: "Julian Mitchell",
         role: "CEO (Former)",
         company: "InspiraFarms",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
     },
     {
         id: "mcateer",
@@ -38,7 +38,7 @@ const testimonials = [
         name: "Emily McAteer",
         role: "CEO",
         company: "Odyssey Energy Solutions",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2561&auto=format&fit=crop",
+        image: "/assets/branding/splash-image.jpg",
     },
 ];
 

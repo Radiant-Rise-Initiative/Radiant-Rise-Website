@@ -12,7 +12,7 @@ const newsItems = [
         category: "NEWS",
         date: "OCT 3, 2024",
         title: "GreenPod Labs Secures $50K Post-Harvest Loss Innovation Prize for Groundbreaking Active Packaging Solution",
-        image: "https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?q=80&w=2600&auto=format&fit=crop", // Produce/Labs
+        image: "/assets/branding/splash-image.jpg",
         icon: <Leaf className="w-12 h-12 text-black" />,
         logoText: "GREENPOD LABS",
     },
@@ -21,7 +21,7 @@ const newsItems = [
         category: "PRESS",
         date: "AUG 14, 2024",
         title: "Open Access Energy Secures $750,000, Launching $1.5 Million Seed Round",
-        image: "https://images.unsplash.com/photo-1509391366360-fe5bb58351b5?q=80&w=2670&auto=format&fit=crop", // Solar panels
+        image: "/assets/branding/splash-image.jpg",
         overlayColor: "bg-black/40",
         icon: null,
     },
@@ -30,7 +30,7 @@ const newsItems = [
         category: "PRESS",
         date: "JUN 26, 2024",
         title: "$50,000 Post-Harvest Loss Innovation Prize",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop", // Tech/Blue
+        image: "/assets/branding/splash-image.jpg",
         overlayColor: "bg-[#6495ED]/80", // Muted Blue
         icon: <Lightbulb className="w-12 h-12 text-black font-bold" />,
     },

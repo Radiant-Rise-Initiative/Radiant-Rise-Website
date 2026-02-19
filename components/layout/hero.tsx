@@ -29,7 +29,7 @@ export function Hero() {
                 }}
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2670&auto=format&fit=crop" // Placeholder solar panel/community image
+                    src="/assets/branding/splash-image.jpg"
                     alt="Community Impact"
                     fill
                     className="object-cover"
