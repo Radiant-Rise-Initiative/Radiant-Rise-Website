@@ -69,19 +69,19 @@ export function Navbar() {
         )}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full flex items-center justify-between">
                 <Link href="/" className={cn(
-                    "flex items-center gap-0 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
+                    "flex items-center gap-2 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500",
                     isDark ? "text-white" : "text-black"
                 )}>
                     <div className="relative h-12 w-auto shrink-0 flex items-center">
                         <Image
-                            src="/assets/branding/rr-monochrome.svg"
+                            src="/assets/branding/rr-logo-v3.svg"
                             alt="Radiant Rise Logo"
                             width={0}
                             height={48}
                             style={{ width: 'auto', height: '48px' }}
                             className={cn(
                                 "object-contain transition-all duration-500 scale-110",
-                                !isDark && "invert"
+                                isDark && "invert"
                             )}
                             priority
                         />

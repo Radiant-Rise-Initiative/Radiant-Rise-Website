@@ -17,10 +17,10 @@ export function GiantLogoSection() {
                     {/* Orb Asset Container */}
                     <div className="relative w-[520px] h-[520px] opacity-[0.1] pointer-events-none select-none shrink-0 -mr-[12%] lg:-mr-16">
                         <Image
-                            src="/assets/branding/rr-monochrome.svg"
+                            src="/assets/branding/rr-logo-v3.svg"
                             alt=""
                             fill
-                            className="object-contain object-right"
+                            className="object-contain object-right invert"
                         />
                     </div>
                 </div>

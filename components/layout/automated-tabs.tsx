@@ -32,7 +32,7 @@ const tabs = [
     {
         id: "process",
         label: "Process Excellence",
-        headline: "When processes work, everything works.",
+        headline: "Everything works with us.",
         description: "Unlock the full potential of your operations. We help you identify inefficiencies, redesign workflows, and implement lasting improvements.",
         features: [
             { title: "Analyze", text: "Explore how your processes truly run, identify the most impactful and strategic use cases for AI, and understand not just how to fix prevent problems but prevent them altogether." },
@@ -112,7 +112,7 @@ export function AutomatedTabs() {
                                     onClick={() => handleTabClick(index)}
                                 >
                                     <div className={cn(
-                                        "py-5 transition-colors duration-300 text-xl font-medium",
+                                        "py-4 transition-colors duration-300 text-xl font-medium",
                                         activeTab === index
                                             ? "text-white"
                                             : "text-white/40 group-hover:text-white/70"
@@ -137,42 +137,45 @@ export function AutomatedTabs() {
                         </div>
 
                         {/* Dynamic Bottom Headline section */}
-                        <div className="mt-20 lg:mt-auto pt-10">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeTab}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.5 }}
+                        <div className="mt-20 lg:mt-auto pt-10 grid">
+                            {tabs.map((tab, index) => (
+                                <div
+                                    key={tab.id}
+                                    className={cn(
+                                        "col-start-1 row-start-1 transition-all duration-500",
+                                        activeTab === index
+                                            ? "opacity-100 translate-y-0 pointer-events-auto"
+                                            : "opacity-0 translate-y-4 pointer-events-none"
+                                    )}
                                 >
                                     <div className="inline-block bg-white/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-white/80 mb-6">
                                         Initiative
                                     </div>
                                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.1]">
-                                        {tabs[activeTab].headline}
+                                        {tab.headline}
                                     </h2>
-                                </motion.div>
-                            </AnimatePresence>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
                     {/* Right Column: Dynamic Content */}
-                    <div>
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="space-y-12"
+                    <div className="grid py-4">
+                        {tabs.map((tab, index) => (
+                            <div
+                                key={tab.id}
+                                className={cn(
+                                    "col-start-1 row-start-1 space-y-12 transition-all duration-500",
+                                    activeTab === index
+                                        ? "opacity-100 translate-x-0 pointer-events-auto"
+                                        : "opacity-0 translate-x-8 pointer-events-none"
+                                )}
                             >
                                 <div className="space-y-10">
-                                    {tabs[activeTab].features.map((feature, i) => (
+                                    {tab.features.map((feature, i) => (
                                         <div key={i} className="space-y-3">
                                             <h3 className="text-2xl font-medium text-white">{feature.title}</h3>
-                                            <p className="text-lg text-white/50 leading-relaxed max-w-xl">
+                                            <p className="text-lg text-white/50 leading-relaxed">
                                                 {feature.text}
                                             </p>
                                         </div>
@@ -186,8 +189,8 @@ export function AutomatedTabs() {
                                     <span className="text-lg">Learn more</span>
                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                                 </Link>
-                            </motion.div>
-                        </AnimatePresence>
+                            </div>
+                        ))}
                     </div>
 
                 </div>
