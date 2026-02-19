@@ -54,7 +54,7 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
     return (
         <div className="relative h-full flex flex-col justify-end">
             <div
-                className="p-8 transition-colors duration-500"
+                className="p-8 transition-colors duration-500 min-h-[220px] flex flex-col justify-start"
                 style={{ backgroundColor: bgColor }}
             >
                 <div className="flex justify-between items-center mb-6">
