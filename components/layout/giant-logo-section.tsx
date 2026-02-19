@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function GiantLogoSection() {
     return (
-        <section data-theme="dark" className="bg-black pt-40 pb-12 relative border-t border-white/5 @container">
+        <section data-theme="dark" className="bg-black py-24 relative border-t border-white/5 @container">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10">
                 {/* Main Logo Row */}
                 <div className="flex justify-between items-center mb-32">

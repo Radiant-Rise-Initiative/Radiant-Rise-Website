@@ -97,7 +97,7 @@ export function AutomatedTabs() {
     };
 
     return (
-        <section className="bg-black text-white py-24 lg:py-32 overflow-hidden">
+        <section className="bg-black text-white py-24 overflow-hidden">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-6 sm:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
@@ -112,7 +112,7 @@ export function AutomatedTabs() {
                                     onClick={() => handleTabClick(index)}
                                 >
                                     <div className={cn(
-                                        "py-4 transition-colors duration-300 text-xl font-medium",
+                                        "py-5 transition-colors duration-300 text-xl font-medium",
                                         activeTab === index
                                             ? "text-white"
                                             : "text-white/40 group-hover:text-white/70"
@@ -160,7 +160,7 @@ export function AutomatedTabs() {
                     </div>
 
                     {/* Right Column: Dynamic Content */}
-                    <div className="grid py-4">
+                    <div className="grid pt-5">
                         {tabs.map((tab, index) => (
                             <div
                                 key={tab.id}
