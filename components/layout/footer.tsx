@@ -58,8 +58,8 @@ export function Footer() {
                     {/* Newsletter Section */}
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-6xl font-medium tracking-tighter mb-4">Newsletter.</h2>
-                            <p className="text-2xl text-white/40 tracking-tight">Monthly news and updates.</p>
+                            <h2 className="text-6xl font-medium tracking-tighter mb-4">Join our Community.</h2>
+                            <p className="text-2xl text-white/40 tracking-tight">Stay connected with the movement.</p>
                         </div>
 
                         <div className="relative max-w-lg group">
@@ -85,7 +85,7 @@ export function Footer() {
                         <div className="space-y-6">
                             <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
                             <div className="flex flex-col gap-4">
-                                {["Portfolio", "Impact", "News", "Team", "Careers", "Approach", "Learnings"].map((link) => (
+                                {["Our Impact", "News & Stories", "Leadership", "Get Involved", "Our Approach", "Core Values"].map((link) => (
                                     <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
                                         {link}
                                         <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -96,22 +96,22 @@ export function Footer() {
 
                         {/* Any Questions */}
                         <div className="space-y-6">
-                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Any Questions?</h3>
+                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Learn More</h3>
                             <div className="flex flex-col gap-4">
                                 <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Talk to an expert
+                                    Partner With Us
                                     <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                 </Link>
                                 <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Support
+                                    Our Programs
                                     <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                 </Link>
                                 <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    FAQs
+                                    Success Stories
                                     <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                 </Link>
                                 <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Glossary
+                                    Resource Hub
                                     <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </div>

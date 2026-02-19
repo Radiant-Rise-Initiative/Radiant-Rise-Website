@@ -7,24 +7,24 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const newsItems = [
     {
-        id: "greenpod",
-        category: "NEWS",
-        date: "OCT 3, 2024",
-        title: "GreenPod Labs Secures $50K Post-Harvest Loss Innovation Prize for Groundbreaking Active Packaging Solution",
+        id: "vocational-hub",
+        category: "INITIATIVE",
+        date: "FEB 15, 2024",
+        title: "Radiant Rise Launches New Vocational Empowerment Hub for Young Mothers",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        id: "openaccess",
-        category: "PRESS",
-        date: "AUG 14, 2024",
-        title: "Open Access Energy Secures $750,000, Launching $1.5 Million Seed Round",
+        id: "trauma-circles",
+        category: "IMPACT",
+        date: "JAN 28, 2024",
+        title: "Healing Through Storytelling: Over 100 Participants Join Our Trauma-Informed Counseling Circles",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        id: "innovation",
-        category: "PRESS",
-        date: "JUN 26, 2024",
-        title: "$50,000 Post-Harvest Loss Innovation Prize",
+        id: "community-grant",
+        category: "PARTNERSHIP",
+        date: "DEC 12, 2023",
+        title: "Scaling Grassroots Change: Securing Community Grants to Uplift Vulnerable Youths",
         image: "/assets/branding/splash-image.jpg",
     },
 ];

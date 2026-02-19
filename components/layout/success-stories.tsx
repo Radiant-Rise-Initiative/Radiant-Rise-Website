@@ -7,33 +7,33 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const stories = [
     {
         id: 1,
-        company: "PepsiCo",
-        tag: "Customer Story",
-        description: "See how PepsiCo uses Celonis Process Mining in their transformation journey to become faster, stronger, better – unlocking millions of dollars across the company.",
+        company: "The Mukono Project",
+        tag: "Empowerment Story",
+        description: "See how the Mukono Project achieved a 0% relapse rate in trauma recovery, empowering 200 young mothers to lead their own community-based healing circles and local cooperatives.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 2,
-        company: "Florida Crystals",
-        tag: "Customer Story",
-        description: "With Celonis Process Intelligence, Florida Crystals unlocked millions in Accounts Payable, slashed duplicate payments, and sped up their S/4HANA transformation.",
+        company: "Sarah's Textile Collective",
+        tag: "Success Spotlight",
+        description: "From a single vulnerable participant to a 50-person textile powerhouse, Sarah's story demonstrates the power of vocational skills in unlocking global export markets for local craftsmanship.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 3,
-        company: "Uber",
-        tag: "Customer Story",
-        description: "Uber leveraged process intelligence to optimize their customer support operations, reducing resolution times by 15% and improving customer satisfaction scores globally.",
+        company: "Tech Rise Initiative",
+        tag: "Impact Story",
+        description: "Learn how Davis transformed from a street youth to a tech leader, founding a digital skills bootcamp that has already placed 500 young mothers in stable, high-paying remote roles.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 4,
-        company: "Siemens",
-        tag: "Customer Story",
-        description: "Siemens utilized digital twin technology to streamline their manufacturing lines, resulting in a 20% increase in output and significant reduction in energy consumption.",
+        company: "Village Savings Hub",
+        tag: "Sustainability Story",
+        description: "Our Village Savings and Loans modules have achieved a 100% financial inclusion rate across 12 districts, fostering a culture of self-reliance and community-led economic resilience.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     }

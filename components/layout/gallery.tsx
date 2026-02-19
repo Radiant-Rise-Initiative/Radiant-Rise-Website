@@ -9,33 +9,33 @@ import { cn } from "@/lib/utils";
 const galleryItems = [
     {
         id: 1,
-        title: "Eternity",
-        category: "Romance",
-        description: "Do you believe in love after life?",
+        title: "Healing Hearts",
+        category: "Counseling",
+        description: "Post-trauma and adversity counseling sessions for young mothers.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 2,
-        title: "Innovation",
-        category: "Technology",
-        description: "Shaping the future of process intelligence.",
+        title: "Economic Freedom",
+        category: "Empowerment",
+        description: "Equipping participants with vocational skills and financial inclusion.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 3,
-        title: "Sustainability",
-        category: "Environment",
-        description: "Next-generation energy solutions for a greener planet.",
+        title: "Community Synergy",
+        category: "Partnership",
+        description: "Nurturing hope and self-reliance through values-based leadership.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     },
     {
         id: 4,
-        title: "Advancement",
-        category: "Transport",
-        description: "Revolutionizing low-carbon public transportation.",
+        title: "Stronger Futures",
+        category: "Mentorship",
+        description: "Uplifting the next generation of youth through structured support.",
         image: "/assets/branding/splash-image.jpg",
         link: "#"
     }

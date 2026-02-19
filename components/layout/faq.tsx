@@ -6,20 +6,28 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const faqItems = [
     {
-        question: "Do we have a geographic preference?",
-        answer: "We focus on companies operating in emerging markets, with a strong emphasis on Sub-Saharan Africa and Southeast Asia, where we believe we can have the greatest impact and uncover the most innovative technical solutions.",
+        question: "Who can join the program?",
+        answer: "We focus on young mothers and vulnerable youths in East Africa, starting with our regional hubs in Uganda, where we prioritize those rising above adversity through faith and self-reliance.",
     },
     {
-        question: "What stage of companies do we invest in?",
-        answer: "We typically invest at the Seed and Series A stages. We look for companies that have a working prototype or MVP and are ready to scale their operations and impact.",
+        question: "How do we measure impact?",
+        answer: "We track long-term self-reliance, community leadership roles, and the economic stability of our participants through rigorous, data-driven post-program follow-ups.",
     },
     {
-        question: "What industries do we invest in?",
-        answer: "We are industry-agnostic but have deep expertise in Sustainable Agriculture, Clean Power, Advanced Transport, and Hardware/Software innovations that drive efficiency in resource-constrained environments.",
+        question: "What skills do we provide?",
+        answer: "From high-end textiles and craftsmanship to digital literacy and values-based leadership, we equip our members with globally competitive tools to uplift their communities.",
     },
     {
-        question: "What is our typical deal size?",
-        answer: "Our typical initial investment ranges from $500k to $2M, with capital reserved for follow-on rounds to support our portfolio companies as they grow.",
+        question: "Are we faith-based?",
+        answer: "Yes, we are a faith-led organization that believes in the inherent dignity of every individual and the power of purpose-driven transformation to create lasting social change.",
+    },
+    {
+        question: "How can I support the initiative?",
+        answer: "You can partner with us through mentorship, vocational volunteering, or strategic donations. Every contribution directly funds the tools and training our participants need to achieve total self-reliance.",
+    },
+    {
+        question: "What is the long-term vision?",
+        answer: "Our goal is to build a network of self-sustaining communities where young mothers and youths lead the way in economic innovation and social resilience across all of East Africa.",
     },
 ];
 
@@ -44,7 +52,7 @@ export function FAQ() {
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-0">
                 <div className="mb-16">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
-                        How We Invest
+                        Learn More
                     </h2>
                 </div>
 

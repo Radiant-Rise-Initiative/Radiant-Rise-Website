@@ -50,7 +50,7 @@ export function Hero() {
                     <div className="flex flex-col md:flex-row items-end justify-between gap-8 pb-8 border-b border-white/40">
                         <div className="max-w-xl">
                             <p className="text-white text-lg md:text-xl font-medium leading-relaxed">
-                                By bridging the gap between groundbreaking climate technologies and the markets that urgently need them, we accelerate the impact of innovation on economies, communities, and the environment.
+                                Nurturing hope, purpose, and self-reliance among youths and young mothers to rise above adversity. Equipping Youths and Young Mothers with skills that empower them to uplift their communities.
                             </p>
                         </div>
 

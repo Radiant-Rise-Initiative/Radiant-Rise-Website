@@ -7,59 +7,59 @@ import Image from "next/image";
 
 const originalCompanies = [
     {
-        name: "Ampersand",
-        category: "Advanced Transport",
-        description: "Paving the way for low-carbon public transportation",
-        logo: "AMPERSAND",
+        name: "USAID",
+        category: "International Development",
+        description: "Partnering for global health and economic prosperity",
+        logo: "USAID",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "Clean Crop Technologies",
-        category: "Sustainable Agriculture",
-        description: "Using electricity to revolutionize food safety",
-        logo: "CLEAN CROP TECHNOLOGIES",
+        name: "UNICEF",
+        category: "Child Advocacy",
+        description: "Protecting the rights of every child and young mother",
+        logo: "UNICEF",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "Odyssey",
-        category: "Clean Power",
-        description: "Eliminate bottlenecks in renewable energy development",
-        logo: "ODYSSEY",
+        name: "Ministry of Gender",
+        category: "Government Partner",
+        description: "Coordinating national social protection programs",
+        logo: "MGLSD",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "Open Access Energy",
-        category: "Clean Power",
-        description: "Bridging the gap between energy producers and consumers",
-        logo: "OPEN ACCESS ENERGY",
+        name: "Global Fund for Children",
+        category: "Community Impact",
+        description: "Scaling grassroots movements for social change",
+        logo: "GFC",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "Some Company",
-        category: "Sustainable Agriculture",
-        description: "Cutting food waste and improving crop drying",
-        logo: "LOGO",
+        name: "Uganda NGO Bureau",
+        category: "Regulatory Partner",
+        description: "Ensuring excellence in indigenous NGO operations",
+        logo: "NGO BUREAU",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "EcoFlux",
-        category: "Carbon Capture",
-        description: "Next-generation direct air capture technology for a cleaner future",
-        logo: "ECOFLUX",
+        name: "The Mastercard Foundation",
+        category: "Economic Empowerment",
+        description: "Enabling young people to access dignified work",
+        logo: "MASTERCARD",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "AgriSense",
-        category: "Smart Farming",
-        description: "AI-driven sensors optimizing crop yields and water usage",
-        logo: "AGRISENSE",
+        name: "Save the Children",
+        category: "Child Safety",
+        description: "Championing the safety and future of every child",
+        logo: "SAVE THE CHILDREN",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        name: "SolarStack",
-        category: "Renewable Energy",
-        description: "Modular solar storage solutions for grid independence",
-        logo: "SOLARSTACK",
+        name: "Comic Relief",
+        category: "Philanthropic Partner",
+        description: "Driving positive change through creative advocacy",
+        logo: "COMIC RELIEF",
         image: "/assets/branding/splash-image.jpg",
     }
 ];
@@ -204,13 +204,13 @@ export function CompanyScroller() {
                 {/* Header */}
                 <div className="flex justify-between items-end mb-16 px-0">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
-                        Some of Our Companies
+                        Our Partners
                     </h2>
                     <Link
-                        href="/portfolio"
+                        href="/partners"
                         className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
                     >
-                        See Complete Portfolio
+                        See All Partners
                     </Link>
                 </div>
 

@@ -8,58 +8,58 @@ import { cn } from "@/lib/utils";
 
 const tabs = [
     {
-        id: "ai",
-        label: "Artificial Intelligence (AI)",
-        headline: "Intelligence that acts.",
-        description: "Transform your business with AI that doesn't just analyze, but acts. Drive automation, predict outcomes, and optimize processes in real-time.",
+        id: "compassion",
+        label: "Compassion",
+        headline: "Heart-led Transformation.",
+        description: "We serve with radical empathy, putting the needs and dignity of every young mother at the center of our global mandate.",
         features: [
-            { title: "Predict", text: "Forecast future trends and behaviors with high accuracy." },
-            { title: "Automate", text: "Eliminate manual tasks with intelligent process automation." },
-            { title: "Optimize", text: "Continuously improve performance with self-learning algorithms." }
+            { title: "Radical Empathy", text: "We go beyond service, building deep emotional bonds that foster true healing and belonging." },
+            { title: "Unwavering Dignity", text: "Every individual is treated with the highest respect, regardless of their past or present circumstances." },
+            { title: "Holistic Sanctuary", text: "Creating safe spaces where physical, emotional, and spiritual needs are met with equal intensity." }
         ]
     },
     {
-        id: "supply-chain",
-        label: "Supply Chain",
-        headline: "Resilience in motion.",
-        description: "Build a supply chain that bends but never breaks. Gain end-to-end visibility and meaningful control over every link in your value chain.",
+        id: "empowerment",
+        label: "Empowerment",
+        headline: "Architects of Independence.",
+        description: "We equip the next generation with the high-stakes skills and financial tools needed to dominate their economic futures.",
         features: [
-            { title: "Visibility", text: "See your entire supply chain in real-time, from source to customer." },
-            { title: "Agility", text: "Respond instantly to disruptions and changing market demands." },
-            { title: "Sustainability", text: "Track and reduce your carbon footprint across the network." }
+            { title: "Market Mastery", text: "Vocational training that competes on the global stage, from advanced textiles to digital excellence." },
+            { title: "Financial Dominance", text: "Promoting a culture of aggressive saving and investment through our proprietary inclusion modules." },
+            { title: "Sustained Self-Reliance", text: "Ending the cycle of dependency by fostering a rugged mindset of individual and community ownership." }
         ]
     },
     {
-        id: "process",
-        label: "Process Excellence",
-        headline: "Everything works with us.",
-        description: "Unlock the full potential of your operations. We help you identify inefficiencies, redesign workflows, and implement lasting improvements.",
+        id: "integrity",
+        label: "Integrity",
+        headline: "Relentless Accountability.",
+        description: "Our commitment to transparency is absolute. We help you identify growth areas, solve bottleneck challenges, and implement lasting community improvements.",
         features: [
-            { title: "Analyze", text: "Explore how your processes truly run, identify the most impactful and strategic use cases for AI, and understand not just how to fix prevent problems but prevent them altogether." },
-            { title: "Design", text: "Redesign the target state of your operations based on the insights gained in analysis. Set outcomes, guardrails, and AI insertion points – with the help of best-practice blueprints." },
-            { title: "Operate", text: "Operate your new process, orchestrating AI solutions alongside your people and systems to transform and continuously improve operations and generate tangible RoAI." }
+            { title: "Total Transparency", text: "Ensuring every stakeholder can explore how our programs truly run, identify the most impactful use cases for capital, and understand how to prevent problems altogether." },
+            { title: "Excellence Protocol", text: "Redesigning the target state of our operations based on high-integrity data. Setting outcomes, guardrails, and success points with best-practice blueprints." },
+            { title: "Audit-Ready Impact", text: "Operating our new modules with precision, orchestrating solutions alongside our people and systems to transform and continuously improve community ROI." }
         ]
     },
     {
-        id: "finance",
-        label: "Finance and Shared Services",
-        headline: "Precision at scale.",
-        description: "Modernize your financial operations for the digital age. specific solutions for accounts payable, receivable, and treasury management.",
+        id: "inclusiveness",
+        label: "Inclusiveness",
+        headline: "Universal Empowerment.",
+        description: "We break down every barrier. Our programs are designed to be radically inclusive, ensuring no one is left behind in our collective rise.",
         features: [
-            { title: "Control", text: "Ensure compliance and reduce risk with automated governance." },
-            { title: "Efficiency", text: "Accelerate closing cycles and reduce transaction costs." },
-            { title: "Insight", text: "Turn financial data into strategic business intelligence." }
+            { title: "Barrier-Free Access", text: "Opening doors for vulnerable youths regardless of origin, background, or previous trauma." },
+            { title: "Global Sustainability", text: "Building systems that thrive today and scale for generations to come across every network." },
+            { title: "Community Synergy", text: "Uniting diverse stakeholders into a single, high-performance ecosystem of mutual growth and support." }
         ]
     },
     {
-        id: "it",
-        label: "IT",
-        headline: "The backbone of innovation.",
-        description: "Empower your organization with a robust, scalable, and secure IT infrastructure that drives digital transformation.",
+        id: "faith",
+        label: "Faith & Purpose",
+        headline: "Purpose-Driven Power.",
+        description: "Fueled by faith and guided by an audacious vision, we nurture leaders who are ready to change the world.",
         features: [
-            { title: "Modernize", text: "Upgrade legacy systems to cloud-native architectures." },
-            { title: "Secure", text: "Protect your digital assets with advanced cybersecurity protocols." },
-            { title: "Scale", text: "Support growth with flexible and resilient IT foundations." }
+            { title: "Faith-Led Foundation", text: "Integrating spiritual strength with practical action to build unshakable character and resilience." },
+            { title: "Audacious Vision", text: "Setting goals that others call impossible and achieving them through relentless, faith-based effort." },
+            { title: "Future Leadership", text: "Transforming participants into mentors who will lead the next wave of Radiant Rise global initiatives." }
         ]
     }
 ];

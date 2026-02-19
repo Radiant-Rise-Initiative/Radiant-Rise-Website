@@ -13,31 +13,31 @@ type Item = {
 
 const items: Item[] = [
     {
-        id: "analyze",
-        number: "1",
-        title: "Analyze",
-        description: "Gain complete visibility into your processes to identify inefficiencies and opportunities for value generation.",
+        id: "healing",
+        number: "01",
+        title: "Healing Programs",
+        description: "We host post-trauma and adversity counseling sessions with mental health experts to support young mothers.",
         linkText: "Learn more",
     },
     {
-        id: "design",
-        number: "2",
-        title: "Design",
-        description: "Redesign the target state of your operations based on the insights gained in analysis. Set outcomes, guardrails, and AI insertion points — with the help of best-practice blueprints.",
+        id: "community",
+        number: "02",
+        title: "Community Assessment",
+        description: "Our interventions are designed based on community needs assessments to address specific identified gaps.",
         linkText: "Learn more",
     },
     {
-        id: "operate",
-        number: "3",
-        title: "Operate",
-        description: "Run your processes intelligently with real-time interventions and automation that ensure peak performance.",
+        id: "holistic",
+        number: "03",
+        title: "Holistic Growth",
+        description: "Our activities range from storytelling workshops and inspirational sessions to aerobics and wellness programs.",
         linkText: "Learn more",
     },
     {
-        id: "solutions",
-        number: "4",
-        title: "Composable Solutions",
-        description: "Build custom apps and automation flows tailored to your specific business needs using our flexible platform.",
+        id: "economic",
+        number: "04",
+        title: "Economic Empowerment",
+        description: "We connect participants to job opportunities, provide vocational training, and promote financial inclusion.",
         linkText: "Learn more",
     },
 ];
@@ -56,9 +56,9 @@ export function WhoWeAre() {
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header Section */}
                 <div className="mb-16 max-w-2xl">
-                    <h2 className="text-2xl font-medium mb-4">The Build Experience</h2>
+                    <h2 className="text-2xl font-medium mb-4">What We Do</h2>
                     <p className="text-xl text-white/60 leading-relaxed font-light">
-                        Analyze, design, and operate composable, AI-driven business processes. Build and run new applications that are strategic, operational, and business-critical.
+                        At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected.
                     </p>
                 </div>
 

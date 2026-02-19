@@ -35,7 +35,7 @@ export function GiantLogoSection() {
 
                 {/* Bottom Bar - Pushed from Footer */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-white/10 text-[10px] font-mono tracking-widest text-white/20 uppercase">
-                    <p>© 2024 Radiant Rise Venture Capital. All rights reserved.</p>
+                    <p>© 2024 Radiant Rise Initiative. All rights reserved.</p>
                     <div className="flex gap-8">
                         <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

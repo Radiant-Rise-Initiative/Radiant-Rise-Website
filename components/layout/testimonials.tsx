@@ -5,39 +5,39 @@ import Image from "next/image";
 
 const testimonials = [
     {
-        id: "berman",
-        category: "FUNDING PARTNER",
-        quote: "Factor E's unique and innovative approach to impact investing sets them apart. Over the past decade of our partnership, they have consistently delivered bold, effective approaches to uncovering impactful tech innovations.",
-        name: "Jonathan Berman",
-        role: "CEO",
-        company: "Shell Foundation",
+        id: "nakato",
+        category: "YOUNG MOTHER",
+        quote: "Radiant Rise didn't just give me skills; they gave me back my dignity. I went from feeling hopeless to leading a cooperative that now supports ten other young mothers in my village.",
+        name: "Sarah Nakato",
+        role: "Program Graduate",
+        company: "Radiant Rise Initiative",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        id: "wider",
-        category: "PORTFOLIO CEO",
-        quote: "Working with the team has been transformative for our growth. Their deep technical expertise and commitment to our mission made them an invaluable partner from day one.",
-        name: "Piper Wider",
-        role: "CEO",
-        company: "60 Hertz",
+        id: "babirye",
+        category: "DEDICATED MENTOR",
+        quote: "Watching these women transform from survivors into business owners is the greatest privilege of my life. The resilience here is unlike anything I've seen in twenty years of social work.",
+        name: "Proscovia Babirye",
+        role: "Lead Mentor",
+        company: "Radiant Rise Initiative",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        id: "mitchell",
-        category: "PORTFOLIO CEO",
-        quote: "They don't just provide capital; they provide the strategic tailwinds needed to scale hardware innovations in tough markets. Their support was pivotal for our exit strategy.",
-        name: "Julian Mitchell",
-        role: "CEO (Former)",
-        company: "InspiraFarms",
+        id: "okello",
+        category: "BOARD MEMBER",
+        quote: "Our integrity is our foundation. By mapping every intervention to real community needs, we ensure that every life touched by Radiant Rise is a life fundamentally changed for the better.",
+        name: "Dr. James Okello",
+        role: "Regional Director",
+        company: "Radiant Rise Initiative",
         image: "/assets/branding/splash-image.jpg",
     },
     {
-        id: "mcateer",
-        category: "PORTFOLIO CEO",
-        quote: "The rigor they bring to impact measurement combined with their entrepreneurial spirit is rare. They are truly building the future of clean energy infrastructure.",
-        name: "Emily McAteer",
-        role: "CEO",
-        company: "Odyssey Energy Solutions",
+        id: "namuli",
+        category: "COMMUNITY PARTNER",
+        quote: "The ripple effect of their work is visible in every corner of our district. When you empower a young mother, you aren't just helping one person—you are uplifting an entire generation.",
+        name: "Hon. Grace Namuli",
+        role: "Local Council Leader",
+        company: "Community Empowerment Hub",
         image: "/assets/branding/splash-image.jpg",
     },
 ];
@@ -89,7 +89,7 @@ export function Testimonials() {
                                 ${i === activeIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
                         >
                             <h3 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-black leading-tight md:leading-tight lg:leading-tight tracking-tight">
-                                “{t.quote}”
+                                {t.quote}
                             </h3>
                         </div>
                     ))}
