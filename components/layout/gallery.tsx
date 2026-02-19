@@ -12,7 +12,7 @@ const galleryItems = [
         title: "Healing Hearts",
         category: "Counseling",
         description: "Post-trauma and adversity counseling sessions for young mothers.",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-016.jpg",
         link: "#"
     },
     {
@@ -20,7 +20,7 @@ const galleryItems = [
         title: "Economic Freedom",
         category: "Empowerment",
         description: "Equipping participants with vocational skills and financial inclusion.",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-017.jpg",
         link: "#"
     },
     {
@@ -28,7 +28,7 @@ const galleryItems = [
         title: "Community Synergy",
         category: "Partnership",
         description: "Nurturing hope and self-reliance through values-based leadership.",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-018.jpg",
         link: "#"
     },
     {
@@ -36,7 +36,7 @@ const galleryItems = [
         title: "Stronger Futures",
         category: "Mentorship",
         description: "Uplifting the next generation of youth through structured support.",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-019.jpg",
         link: "#"
     }
 ];

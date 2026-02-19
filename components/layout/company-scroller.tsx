@@ -11,56 +11,56 @@ const originalCompanies = [
         category: "International Development",
         description: "Partnering for global health and economic prosperity",
         logo: "USAID",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-011.jpg",
     },
     {
         name: "UNICEF",
         category: "Child Advocacy",
         description: "Protecting the rights of every child and young mother",
         logo: "UNICEF",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-012.jpg",
     },
     {
         name: "Ministry of Gender",
         category: "Government Partner",
         description: "Coordinating national social protection programs",
         logo: "MGLSD",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-013.jpg",
     },
     {
         name: "Global Fund for Children",
         category: "Community Impact",
         description: "Scaling grassroots movements for social change",
         logo: "GFC",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-014.jpg",
     },
     {
         name: "Uganda NGO Bureau",
         category: "Regulatory Partner",
         description: "Ensuring excellence in indigenous NGO operations",
         logo: "NGO BUREAU",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-011.jpg",
     },
     {
         name: "The Mastercard Foundation",
         category: "Economic Empowerment",
         description: "Enabling young people to access dignified work",
         logo: "MASTERCARD",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-012.jpg",
     },
     {
         name: "Save the Children",
         category: "Child Safety",
         description: "Championing the safety and future of every child",
         logo: "SAVE THE CHILDREN",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-013.jpg",
     },
     {
         name: "Comic Relief",
         category: "Philanthropic Partner",
         description: "Driving positive change through creative advocacy",
         logo: "COMIC RELIEF",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-014.jpg",
     }
 ];
 
@@ -262,39 +262,41 @@ export function CompanyScroller() {
                     {companies.map((company, index) => (
                         <div
                             key={index}
-                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.0375] hover:z-20 hover:border-black/0"
+                            className="flex-none w-[85vw] md:w-[400px] snap-start border-r border-black/10 last:border-r-0 h-[450px] md:h-[500px] relative group cursor-pointer z-0 hover:z-20 transition-colors duration-300 hover:border-transparent"
                         >
-                            {/* Hover Background Image */}
-                            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <Image
-                                    src={company.image}
-                                    alt={company.name}
-                                    fill
-                                    className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-black/30" />
-                            </div>
-
-                            <div className="relative z-10 h-full p-8 flex flex-col justify-between">
-                                <div className="flex justify-between items-start">
-                                    <p className="text-xs font-mono uppercase tracking-widest text-black/60 group-hover:text-white transition-colors duration-300">
-                                        {company.category}
-                                    </p>
-                                    <ArrowUpRight
-                                        className="text-white opacity-0 group-hover:opacity-100 -translate-y-2 translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"
-                                        size={24}
+                            <div className="w-full h-full relative overflow-hidden transition-transform duration-300 group-hover:scale-[1.0375]">
+                                {/* Hover Background Image */}
+                                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <Image
+                                        src={company.image}
+                                        alt={company.name}
+                                        fill
+                                        className="object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
                                     />
+                                    <div className="absolute inset-0 bg-black/30" />
                                 </div>
 
-                                <div className="flex-1 flex items-center justify-center py-12">
-                                    <span className="text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
-                                        {company.logo}
-                                    </span>
-                                </div>
+                                <div className="relative z-10 h-full p-8 flex flex-col justify-between">
+                                    <div className="flex justify-between items-start">
+                                        <p className="text-xs font-mono uppercase tracking-widest text-black/60 group-hover:text-white transition-colors duration-300">
+                                            {company.category}
+                                        </p>
+                                        <ArrowUpRight
+                                            className="text-white opacity-0 group-hover:opacity-100 -translate-y-2 translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"
+                                            size={24}
+                                        />
+                                    </div>
 
-                                <p className="text-sm leading-relaxed text-black/80 group-hover:text-white/90 transition-colors duration-300">
-                                    {company.description}
-                                </p>
+                                    <div className="flex-1 flex items-center justify-center py-12">
+                                        <span className="text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
+                                            {company.logo}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-sm leading-relaxed text-black/80 group-hover:text-white/90 transition-colors duration-300">
+                                        {company.description}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     ))}

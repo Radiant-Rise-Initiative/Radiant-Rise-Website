@@ -11,7 +11,7 @@ const testimonials = [
         name: "Sarah Nakato",
         role: "Program Graduate",
         company: "Radiant Rise Initiative",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-005.jpg",
     },
     {
         id: "babirye",
@@ -20,7 +20,7 @@ const testimonials = [
         name: "Proscovia Babirye",
         role: "Lead Mentor",
         company: "Radiant Rise Initiative",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-005.jpg",
     },
     {
         id: "okello",
@@ -29,7 +29,7 @@ const testimonials = [
         name: "Dr. James Okello",
         role: "Regional Director",
         company: "Radiant Rise Initiative",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-005.jpg",
     },
     {
         id: "namuli",
@@ -38,7 +38,7 @@ const testimonials = [
         name: "Hon. Grace Namuli",
         role: "Local Council Leader",
         company: "Community Empowerment Hub",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-005.jpg",
     },
 ];
 

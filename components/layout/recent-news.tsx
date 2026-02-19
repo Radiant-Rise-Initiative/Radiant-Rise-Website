@@ -11,21 +11,21 @@ const newsItems = [
         category: "INITIATIVE",
         date: "FEB 15, 2024",
         title: "Radiant Rise Launches New Vocational Empowerment Hub for Young Mothers",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-001.jpg",
     },
     {
         id: "trauma-circles",
         category: "IMPACT",
         date: "JAN 28, 2024",
         title: "Healing Through Storytelling: Over 100 Participants Join Our Trauma-Informed Counseling Circles",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-002.jpg",
     },
     {
         id: "community-grant",
         category: "PARTNERSHIP",
         date: "DEC 12, 2023",
         title: "Scaling Grassroots Change: Securing Community Grants to Uplift Vulnerable Youths",
-        image: "/assets/branding/splash-image.jpg",
+        image: "/assets/branding/splash-image-003.jpg",
     },
 ];
 

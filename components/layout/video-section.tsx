@@ -12,7 +12,7 @@ export function VideoSection() {
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="relative h-[800px] w-full overflow-hidden bg-black text-white">
                     <Image
-                        src="/assets/branding/splash-image.jpg"
+                        src="/assets/branding/splash-image-020.jpg"
                         alt="Radiant Rise Video Background"
                         fill
                         className="object-cover"

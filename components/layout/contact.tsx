@@ -14,7 +14,7 @@ export function Contact() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/assets/branding/splash-image.jpg"
+                    src="/assets/branding/splash-image-015.jpg"
                     alt="Radiant Rise Community"
                     fill
                     className="object-cover brightness-[0.4]"

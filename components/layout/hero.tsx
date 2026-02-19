@@ -29,7 +29,7 @@ export function Hero() {
                 }}
             >
                 <Image
-                    src="/assets/branding/splash-image.jpg"
+                    src="/assets/branding/splash-image-022.jpg"
                     alt="Community Impact"
                     fill
                     className="object-cover"
