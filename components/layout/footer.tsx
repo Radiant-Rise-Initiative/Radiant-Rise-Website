@@ -45,7 +45,7 @@ const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direct
 
 export function Footer() {
     return (
-        <footer data-theme="dark" className="bg-black pt-[240px] pb-12 overflow-hidden text-white font-sans">
+        <footer data-theme="dark" className="bg-black pt-[240px] pb-0 overflow-hidden text-white font-sans">
             {/* Scrolling Lines */}
             <div className="mb-[240px]">
                 <MarqueeLine text="Let's Rise" speed={60} direction={1} />

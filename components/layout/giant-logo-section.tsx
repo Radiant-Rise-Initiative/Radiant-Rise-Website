@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function GiantLogoSection() {
     return (
-        <section data-theme="dark" className="bg-black py-24 relative border-t border-white/5 @container">
+        <section data-theme="dark" className="bg-black pt-12 pb-24 relative @container w-full overflow-hidden">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10">
                 {/* Main Logo Row */}
                 <div className="flex justify-between items-center mb-32">
@@ -15,7 +15,7 @@ export function GiantLogoSection() {
                     </h2>
 
                     {/* Orb Asset Container */}
-                    <div className="relative w-[520px] h-[520px] opacity-[0.1] pointer-events-none select-none shrink-0 -mr-[12%] lg:-mr-16">
+                    <div className="relative w-[520px] h-[520px] opacity-[0.1] pointer-events-none select-none shrink-0">
                         <Image
                             src="/assets/branding/rr-logo-v3.svg"
                             alt=""
