@@ -145,10 +145,16 @@ export function ImpactStats() {
     return (
         <section data-theme="light" className="bg-white py-24 relative">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                <div className="mb-16">
-                    <h2 className="text-sm font-mono tracking-[0.2em] text-black uppercase">
-                        Real Impact. Real Results.
+                <div className="flex justify-between items-end mb-16 px-0">
+                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
+                        Our Impact
                     </h2>
+                    <a
+                        href="#"
+                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
+                    >
+                        Learn More
+                    </a>
                 </div>
 
                 <motion.div

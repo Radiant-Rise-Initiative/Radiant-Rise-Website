@@ -83,14 +83,16 @@ export function SuccessStories() {
         <section data-theme="light" className="bg-white py-24 border-t border-black/10 overflow-hidden">
 
             {/* Header - Constrained */}
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
-                <div className="flex justify-between items-end">
-                    <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-black">
-                        Success stories
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-0">
+                <div className="flex justify-between items-end mb-16">
+                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
+                        Success Stories
                     </h2>
-                    <a href="#" className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-orange-600 transition-colors">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        See all
+                    <a
+                        href="#"
+                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
+                    >
+                        See All Success Stories
                     </a>
                 </div>
             </div>

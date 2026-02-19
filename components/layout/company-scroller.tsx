@@ -202,15 +202,15 @@ export function CompanyScroller() {
         <section data-theme="light" className="bg-white pt-24 pb-0">
             <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
-                    <h2 className="text-5xl md:text-7xl font-semibold text-black tracking-tight">
-                        Some of our companies
+                <div className="flex justify-between items-end mb-16 px-0">
+                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
+                        Some of Our Companies
                     </h2>
                     <Link
                         href="/portfolio"
-                        className="text-black font-medium border-b-2 border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors"
+                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
                     >
-                        See complete portfolio
+                        See Complete Portfolio
                     </Link>
                 </div>
 
