@@ -68,6 +68,8 @@ export function Hero() {
                 />
             </motion.div>
 
+
+
             <motion.div
                 className="relative z-10 w-full mb-12"
                 style={{ y: textY }}

@@ -37,15 +37,22 @@ export function VideoSection() {
                             }}
                             className="max-w-4xl"
                         >
-                            <motion.h2
+                            <motion.div
                                 variants={{
                                     hidden: { opacity: 0, y: 20 },
                                     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
                                 }}
-                                className="text-5xl md:text-6xl font-semibold tracking-tight mb-8"
+                                className="mb-8 w-[320px] md:w-[420px]"
                             >
-                                Our Purpose
-                            </motion.h2>
+                                <Image
+                                    src="/assets/branding/rr-lettermark.svg"
+                                    alt="Radiant Rise - Our Purpose"
+                                    width={0}
+                                    height={0}
+                                    style={{ width: '100%', height: 'auto' }}
+                                    className="object-contain invert select-none opacity-90"
+                                />
+                            </motion.div>
                             <motion.p
                                 variants={{
                                     hidden: { opacity: 0, y: 20 },
