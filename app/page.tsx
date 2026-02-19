@@ -12,12 +12,14 @@ import { Footer } from "@/components/layout/footer";
 import { GiantLogoSection } from "@/components/layout/giant-logo-section";
 import { WhoWeAre } from "@/components/layout/who-we-are";
 import { Gallery } from "@/components/layout/gallery";
+import { VideoSection } from "@/components/layout/video-section";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
+      <VideoSection />
       <ImpactStats />
       <WhoWeAre />
       <SuccessStories />

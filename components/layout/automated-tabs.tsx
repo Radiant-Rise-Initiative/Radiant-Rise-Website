@@ -121,12 +121,12 @@ export function AutomatedTabs() {
                                     </div>
 
                                     {/* Progress Bar Background (Line) */}
-                                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/10" />
+                                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white/10 rounded-none" />
 
                                     {/* Active Progress Bar */}
                                     {activeTab === index && (
                                         <motion.div
-                                            className="absolute bottom-0 left-0 h-[1px] bg-white"
+                                            className="absolute bottom-0 left-0 h-[2px] bg-white rounded-none"
                                             initial={{ width: "0%" }}
                                             animate={{ width: `${progress}%` }}
                                             transition={{ ease: "linear", duration: 0.05 }}

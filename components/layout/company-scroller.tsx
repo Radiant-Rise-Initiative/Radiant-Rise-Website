@@ -81,9 +81,9 @@ export function CompanyScroller() {
             const container = scrollRef.current;
             const header = headerRef.current;
             if (container && header) {
-                const slide = container.querySelector('div');
+                const slide = container.querySelector('div') as HTMLElement;
                 if (slide) {
-                    const slideWidth = slide.getBoundingClientRect().width;
+                    const slideWidth = slide.offsetWidth;
                     const setWidth = slideWidth * originalCompanies.length;
 
                     // Get the left offset of the content container
@@ -122,10 +122,10 @@ export function CompanyScroller() {
         const header = headerRef.current;
         if (!container || !header) return;
 
-        const slide = container.querySelector('div');
+        const slide = container.querySelector('div') as HTMLElement;
         if (!slide) return;
 
-        const slideWidth = slide.getBoundingClientRect().width;
+        const slideWidth = slide.offsetWidth;
         const setWidth = slideWidth * originalCompanies.length;
         const { scrollLeft } = container;
         const contentOffset = header.getBoundingClientRect().left;
@@ -164,10 +164,10 @@ export function CompanyScroller() {
         const container = scrollRef.current;
         if (!container) return;
 
-        const slide = container.querySelector('div');
+        const slide = container.querySelector('div') as HTMLElement;
         if (!slide) return;
 
-        const slideWidth = slide.getBoundingClientRect().width;
+        const slideWidth = slide.offsetWidth;
         const setWidth = slideWidth * originalCompanies.length;
 
         // Check current position before scrolling
