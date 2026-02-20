@@ -10,7 +10,7 @@ import { FAQ } from "@/components/layout/Faq";
 import { Contact } from "@/components/layout/Contact";
 import { Footer } from "@/components/layout/Footer";
 import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
-import { WhoWeAre } from "@/components/layout/WhoWeAre";
+import { OurIdentity } from "@/components/layout/OurIdentity";
 import { Gallery } from "@/components/layout/Gallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <PurposeSection />
       <ImpactStats />
-      <WhoWeAre />
+      <OurIdentity />
       <SuccessStories />
       <AutomatedTabs />
       <CompanyScroller />
