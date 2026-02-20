@@ -6,12 +6,12 @@ import { WhoWeAreTabs } from "@/components/layout/WhoWeAreTabs";
 import { CompanyScroller } from "@/components/layout/CompanyScroller";
 import { Testimonials } from "@/components/layout/Testimonials";
 import { RecentNews } from "@/components/layout/RecentNews";
-import { FAQ } from "@/components/layout/Faq";
-import { Contact } from "@/components/layout/Contact";
+import { GotQuestions } from "@/components/layout/GotQuestions";
+import { ConnectForm } from "@/components/layout/ConnectForm";
 import { Footer } from "@/components/layout/Footer";
 import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
 import { OurIdentity } from "@/components/layout/OurIdentity";
-import { Gallery } from "@/components/layout/Gallery";
+import { OurGallery } from "@/components/layout/OurGallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
 
 export default function Home() {
@@ -27,9 +27,9 @@ export default function Home() {
       <CompanyScroller />
       <Testimonials />
       <RecentNews />
-      <Gallery />
-      <FAQ />
-      <Contact />
+      <OurGallery />
+      <GotQuestions />
+      <ConnectForm />
       <Footer />
       <GiantLogoSection />
     </main>

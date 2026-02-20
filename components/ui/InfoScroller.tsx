@@ -231,9 +231,9 @@ export function InfoScroller({
 
                                 <div className="relative z-10 h-full p-8 flex flex-col justify-between">
                                     <div className="flex justify-between items-start">
-                                        <p className="text-xs font-mono uppercase tracking-widest text-black/60 group-hover:text-white transition-colors duration-300">
+                                        <span className="inline-block py-1 px-0 transition-all duration-300 text-xs font-mono uppercase tracking-widest text-black/60 bg-transparent group-hover:text-white/90 group-hover:bg-[#f5f5f7]/10 group-hover:backdrop-blur-sm group-hover:px-3">
                                             {item.category}
-                                        </p>
+                                        </span>
                                         <ArrowUpRight
                                             className="text-white opacity-0 group-hover:opacity-100 -translate-y-2 translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"
                                             size={24}

@@ -34,14 +34,14 @@ const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direct
 
 export function Footer() {
     return (
-        <footer data-theme="dark" className="bg-black pt-[240px] pb-0 overflow-hidden text-white font-sans">
+        <footer data-theme="dark" className="bg-black pt-40 lg:pt-[240px] pb-0 overflow-hidden text-white font-sans">
             {/* Scrolling Lines */}
-            <div className="mb-[240px]">
+            <div className="mb-40 lg:mb-[240px]">
                 <MarqueeLine text="Let's Rise" speed={60} direction={1} />
                 <MarqueeLine text="Together" speed={60} direction={-1} />
             </div>
 
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 pb-12 sm:pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32">
 
                     {/* Newsletter Section */}

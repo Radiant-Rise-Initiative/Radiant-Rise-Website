@@ -153,8 +153,8 @@ export function AutomatedInfoTabs({
                                     href="#"
                                     className="inline-flex items-center gap-2 text-white hover:text-white/70 transition-colors group"
                                 >
-                                    <span className="text-lg">Learn more</span>
-                                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                    <span className="text-sm font-mono tracking-widest uppercase">Learn More</span>
+                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </div>
                         ))}

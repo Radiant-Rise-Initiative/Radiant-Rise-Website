@@ -84,10 +84,10 @@ export function ColumnInfoStack({
                                                 e.stopPropagation();
                                                 onLinkClick?.(item.id);
                                             }}
-                                            className="flex items-center gap-2 text-lg font-normal text-orange-500 transition-colors hover:text-orange-400"
+                                            className="flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-orange-500 transition-colors hover:text-orange-400 group"
                                         >
                                             {item.linkText}
-                                            <ArrowRight size={20} />
+                                            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                                         </button>
                                     </div>
                                 </div>

@@ -20,7 +20,7 @@ export function SectionHeader({ title, linkText, href, className }: SectionHeade
             {linkText && href && (
                 <Link
                     href={href}
-                    className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider w-fit"
+                    className="text-xs sm:text-sm font-mono font-medium tracking-widest uppercase border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors w-fit"
                 >
                     {linkText}
                 </Link>

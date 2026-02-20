@@ -58,10 +58,10 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
                 style={{ backgroundColor: bgColor }}
             >
                 <div className="flex justify-between items-center mb-6">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-white/80 uppercase">
+                    <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
                         {item.category}
                     </span>
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-white/80 uppercase">
+                    <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
                         {item.date}
                     </span>
                 </div>
