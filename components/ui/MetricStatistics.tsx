@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Plus, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 interface Metric {
     label: string;

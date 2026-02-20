@@ -67,7 +67,7 @@ const originalCompanies = [
 // Triple the list: [Buffer Start] [Main Content] [Buffer End]
 const companies = [...originalCompanies, ...originalCompanies, ...originalCompanies];
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function CompanyScroller() {
     const scrollRef = useRef<HTMLDivElement>(null);

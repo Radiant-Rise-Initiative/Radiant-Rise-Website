@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { DonationInterface } from "./donation-interface";
+import { DonationInterface } from "./DonationInterface";
 
 type Tab = "Partner With Us" | "Join Our Team" | "Support Radiant Rise";
 

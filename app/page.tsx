@@ -1,25 +1,25 @@
-import { Navbar } from "@/components/layout/navbar";
-import { Hero } from "@/components/layout/hero";
-import { ImpactStats } from "@/components/layout/impact-stats";
-import { SuccessStories } from "@/components/layout/success-stories";
-import { AutomatedTabs } from "@/components/layout/automated-tabs";
-import { CompanyScroller } from "@/components/layout/company-scroller";
-import { Testimonials } from "@/components/layout/testimonials";
-import { RecentNews } from "@/components/layout/recent-news";
-import { FAQ } from "@/components/layout/faq";
-import { Contact } from "@/components/layout/contact";
-import { Footer } from "@/components/layout/footer";
-import { GiantLogoSection } from "@/components/layout/giant-logo-section";
-import { WhoWeAre } from "@/components/layout/who-we-are";
-import { Gallery } from "@/components/layout/gallery";
-import { VideoSection } from "@/components/layout/video-section";
+import { Navbar } from "@/components/layout/Navbar";
+import { Hero } from "@/components/layout/Hero";
+import { ImpactStats } from "@/components/layout/ImpactStats";
+import { SuccessStories } from "@/components/layout/SuccessStories";
+import { AutomatedTabs } from "@/components/layout/AutomatedTabs";
+import { CompanyScroller } from "@/components/layout/CompanyScroller";
+import { Testimonials } from "@/components/layout/Testimonials";
+import { RecentNews } from "@/components/layout/RecentNews";
+import { FAQ } from "@/components/layout/Faq";
+import { Contact } from "@/components/layout/Contact";
+import { Footer } from "@/components/layout/Footer";
+import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
+import { WhoWeAre } from "@/components/layout/WhoWeAre";
+import { Gallery } from "@/components/layout/Gallery";
+import { PurposeSection } from "@/components/layout/PurposeSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <VideoSection />
+      <PurposeSection />
       <ImpactStats />
       <WhoWeAre />
       <SuccessStories />

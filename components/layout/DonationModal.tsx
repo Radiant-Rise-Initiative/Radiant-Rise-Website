@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { DonationInterface } from "./donation-interface";
+import { DonationInterface } from "./DonationInterface";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 

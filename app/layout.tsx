@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SkipLink } from "@/components/layout/skip-link";
+import { SkipLink } from "@/components/layout/SkipLink";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({

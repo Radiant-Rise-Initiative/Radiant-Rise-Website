@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { DonationModal } from "./donation-modal";
+import { DonationModal } from "./DonationModal";
 
-import { NavbarUI } from "@/components/ui/navbar";
+import { NavbarUI } from "@/components/ui/Navbar";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);

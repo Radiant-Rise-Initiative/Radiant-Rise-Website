@@ -39,7 +39,7 @@ const stories = [
     }
 ];
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function SuccessStories() {
     const scrollRef = useRef<HTMLDivElement>(null);

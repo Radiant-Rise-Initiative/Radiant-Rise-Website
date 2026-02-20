@@ -44,7 +44,7 @@ const accordionVariants: Variants = {
     }
 };
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);

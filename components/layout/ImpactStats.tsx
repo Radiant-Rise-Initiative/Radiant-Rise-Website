@@ -1,6 +1,6 @@
 "use client";
 
-import { MetricStatistics } from "@/components/ui/metric-statistics";
+import { MetricStatistics } from "@/components/ui/MetricStatistics";
 
 const stats = [
     {

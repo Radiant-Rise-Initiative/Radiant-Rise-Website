@@ -73,7 +73,7 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
     );
 }
 
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function RecentNews() {
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
