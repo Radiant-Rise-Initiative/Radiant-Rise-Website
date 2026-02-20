@@ -5,42 +5,9 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direction?: 1 | -1; speed?: number }) => {
-    // Duplicate text to ensure seamless loop
-    const items = Array.from({ length: 8 }).map((_, i) => (
-        <div key={i} className="flex items-center gap-12 flex-none py-2">
-            <span className="text-[80px] md:text-[120px] font-normal tracking-tighter text-white">
-                {text}
-            </span>
-            <ArrowUpRight className="w-16 h-16 md:w-24 md:h-24 text-white/40" strokeWidth={1.5} />
-        </div>
-    ));
-
-    return (
-        <div
-            className="flex overflow-hidden border-b border-white/10 last:border-b-0 select-none cursor-default"
-        >
-            <div
-                className={`flex w-max flex-nowrap ${direction > 0 ? 'animate-marquee' : 'animate-marquee-reverse'}`}
-                style={{ '--duration': `${speed}s` } as React.CSSProperties}
-            >
-                {/* Two identical containers for perfect looping without gap offsets */}
-                <div className="flex flex-none gap-12 pr-12">{items}</div>
-                <div className="flex flex-none gap-12 pr-12">{items}</div>
-            </div>
-        </div>
-    );
-};
-
 export function Footer() {
     return (
-        <footer data-theme="dark" className="bg-black pt-40 lg:pt-[240px] pb-0 overflow-hidden text-white font-sans">
-            {/* Scrolling Lines */}
-            <div className="mb-40 lg:mb-[240px]">
-                <MarqueeLine text="Let's Rise" speed={60} direction={1} />
-                <MarqueeLine text="Together" speed={60} direction={-1} />
-            </div>
-
+        <footer data-theme="dark" className="bg-black pt-0 pb-0 overflow-hidden text-white font-sans">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 pb-12 sm:pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32">
 
@@ -72,7 +39,7 @@ export function Footer() {
                     <div className="flex flex-col sm:flex-row sm:justify-end gap-12 md:gap-24">
                         {/* More Radiant Rise */}
                         <div className="space-y-6">
-                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
+                            <h3 className="text-xs font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
                             <div className="flex flex-col gap-4">
                                 {["Our Impact", "News & Stories", "Leadership", "Get Involved", "Our Approach", "Core Values"].map((link) => (
                                     <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
@@ -85,7 +52,7 @@ export function Footer() {
 
                         {/* Any Questions */}
                         <div className="space-y-6">
-                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Learn More</h3>
+                            <h3 className="text-xs font-mono tracking-widest text-white/30 uppercase">Learn More</h3>
                             <div className="flex flex-col gap-4">
                                 <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
                                     Partner With Us
@@ -108,7 +75,7 @@ export function Footer() {
 
                         {/* Follow Us */}
                         <div className="space-y-6">
-                            <h3 className="text-[10px] font-mono tracking-widest text-white/30 uppercase">Follow Us</h3>
+                            <h3 className="text-xs font-mono tracking-widest text-white/30 uppercase">Follow Us</h3>
                             <div className="flex flex-col gap-4">
                                 {["LinkedIn", "YouTube", "Instagram", "Facebook", "X / Twitter"].map((link) => (
                                     <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">

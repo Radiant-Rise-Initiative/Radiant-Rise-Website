@@ -8,6 +8,7 @@ import { Testimonials } from "@/components/layout/Testimonials";
 import { RecentNews } from "@/components/layout/RecentNews";
 import { GotQuestions } from "@/components/layout/GotQuestions";
 import { ConnectForm } from "@/components/layout/ConnectForm";
+import { LetsRiseMarquee } from "@/components/layout/LetsRiseMarquee";
 import { Footer } from "@/components/layout/Footer";
 import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
 import { OurIdentity } from "@/components/layout/OurIdentity";
@@ -30,6 +31,7 @@ export default function Home() {
       <OurGallery />
       <GotQuestions />
       <ConnectForm />
+      <LetsRiseMarquee />
       <Footer />
       <GiantLogoSection />
     </main>
