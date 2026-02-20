@@ -70,7 +70,7 @@ function MetricModal({ isOpen, onClose, metric }: MetricModalProps) {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="bg-[#f5f5f7] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto relative rounded-[2rem]"
+                            className="bg-[#f5f5f7] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto relative"
                         >
                             <button
                                 onClick={onClose}

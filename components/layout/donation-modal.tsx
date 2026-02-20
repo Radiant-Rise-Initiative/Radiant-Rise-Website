@@ -53,7 +53,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="bg-[#f8f9fa] w-full max-w-[600px] shadow-2xl pointer-events-auto relative rounded-[2rem] overflow-hidden"
+                            className="bg-[#f8f9fa] w-full max-w-[600px] shadow-2xl pointer-events-auto relative"
                         >
                             {/* Close Button */}
                             <button

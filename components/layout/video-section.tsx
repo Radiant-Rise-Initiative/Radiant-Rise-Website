@@ -42,16 +42,11 @@ export function VideoSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
                                 }}
-                                className="mb-8 w-[320px] md:w-[420px]"
+                                className="mb-8"
                             >
-                                <Image
-                                    src="/assets/branding/rr-lettermark.svg"
-                                    alt="Radiant Rise - Our Purpose"
-                                    width={0}
-                                    height={0}
-                                    style={{ width: '100%', height: 'auto' }}
-                                    className="object-contain invert select-none opacity-90"
-                                />
+                                <h2 className="text-5xl md:text-6xl font-semibold text-white tracking-tight">
+                                    Radiant Rise
+                                </h2>
                             </motion.div>
                             <motion.p
                                 variants={{
