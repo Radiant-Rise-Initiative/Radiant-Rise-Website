@@ -139,23 +139,22 @@ function MetricItem({ label, value, description, onOpen }: MetricItemProps) {
     );
 }
 
+import { SectionHeader } from "@/components/ui/section-header";
+
+// ... (existing imports and code)
+
 export function ImpactStats() {
     const [selectedMetric, setSelectedMetric] = useState<{ label: string; value: string; description: string } | null>(null);
 
     return (
         <section id="our-impact" data-theme="light" className="bg-[#f5f5f7] py-24 relative">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 md:gap-0 mb-16 px-0">
-                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
-                        Our Impact
-                    </h2>
-                    <a
-                        href="#"
-                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider w-fit"
-                    >
-                        Learn More
-                    </a>
-                </div>
+                <SectionHeader
+                    title="Our Impact"
+                    linkText="Learn More"
+                    href="#"
+                    className="mb-16 px-0"
+                />
 
                 <motion.div
                     initial="hidden"

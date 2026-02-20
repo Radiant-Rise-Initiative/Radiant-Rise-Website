@@ -73,6 +73,8 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
     );
 }
 
+import { SectionHeader } from "@/components/ui/section-header";
+
 export function RecentNews() {
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
     const { scrollY } = useScroll();
@@ -90,17 +92,12 @@ export function RecentNews() {
         <section data-theme="light" className="bg-[#f5f5f7] py-24 px-6 sm:px-12">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 md:gap-0 mb-16">
-                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
-                        Recent News
-                    </h2>
-                    <Link
-                        href="/news"
-                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider w-fit"
-                    >
-                        See all news
-                    </Link>
-                </div>
+                <SectionHeader
+                    title="Recent News"
+                    linkText="See all news"
+                    href="/news"
+                    className="mb-16"
+                />
 
                 {/* News Grid */}
                 <motion.div

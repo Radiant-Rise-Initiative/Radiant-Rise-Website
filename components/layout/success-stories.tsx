@@ -39,6 +39,8 @@ const stories = [
     }
 ];
 
+import { SectionHeader } from "@/components/ui/section-header";
+
 export function SuccessStories() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -84,17 +86,12 @@ export function SuccessStories() {
 
             {/* Header - Constrained */}
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-0">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 md:gap-0 mb-16">
-                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
-                        Success Stories
-                    </h2>
-                    <a
-                        href="#"
-                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider w-fit"
-                    >
-                        See All Success Stories
-                    </a>
-                </div>
+                <SectionHeader
+                    title="Success Stories"
+                    linkText="See All Success Stories"
+                    href="#"
+                    className="mb-16"
+                />
             </div>
 
             {/* Scroller - Full Bleed with calculated padding for alignment */}
