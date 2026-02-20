@@ -149,7 +149,7 @@ export function MetricStatistics({
                     title={title}
                     linkText={linkText}
                     href={href}
-                    className="mb-24 px-0"
+                    className="mb-16 px-0"
                 />
 
                 <motion.div

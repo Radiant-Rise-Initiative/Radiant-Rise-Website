@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
-import { SuccessStories } from "@/components/layout/SuccessStories";
-import { AutomatedTabs } from "@/components/layout/AutomatedTabs";
+import { ImpactStories } from "@/components/layout/ImpactStories";
+import { WhoWeAreTabs } from "@/components/layout/WhoWeAreTabs";
 import { CompanyScroller } from "@/components/layout/CompanyScroller";
 import { Testimonials } from "@/components/layout/Testimonials";
 import { RecentNews } from "@/components/layout/RecentNews";
@@ -22,8 +22,8 @@ export default function Home() {
       <PurposeSection />
       <ImpactStats />
       <OurIdentity />
-      <SuccessStories />
-      <AutomatedTabs />
+      <ImpactStories />
+      <WhoWeAreTabs />
       <CompanyScroller />
       <Testimonials />
       <RecentNews />
