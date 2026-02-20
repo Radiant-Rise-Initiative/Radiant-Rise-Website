@@ -53,7 +53,7 @@ export function WhoWeAre() {
 
     return (
         <section id="who-we-are" data-theme="dark" className="bg-black text-white py-24 border-t border-white/10">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12">
                 {/* Header Section */}
                 <div className="mb-16 max-w-2xl">
                     <h2 className="text-2xl font-medium mb-4">Who We Are</h2>

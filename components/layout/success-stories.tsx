@@ -85,7 +85,7 @@ export function SuccessStories() {
         <section data-theme="light" className="bg-[#f5f5f7] py-24 border-t border-black/10 overflow-hidden">
 
             {/* Header - Constrained */}
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-0">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-4 sm:px-12">
                 <SectionHeader
                     title="Success Stories"
                     linkText="See All Success Stories"
@@ -161,7 +161,7 @@ export function SuccessStories() {
             </div>
 
             {/* Controls - Constrained */}
-            <div data-theme="light" className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8">
+            <div data-theme="light" className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8 px-4 sm:px-12">
                 <div className="flex justify-between items-center">
                     {/* Progress Bars */}
                     <div className="flex gap-2">

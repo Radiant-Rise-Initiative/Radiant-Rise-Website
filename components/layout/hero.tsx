@@ -35,7 +35,7 @@ export function Hero() {
         <section
             ref={ref}
             data-theme="dark"
-            className="relative h-screen w-full overflow-hidden flex items-end px-6 sm:px-12"
+            className="relative h-screen w-full overflow-hidden flex items-end px-4 sm:px-12"
         >
             <motion.div
                 className="absolute inset-0 z-0 h-[120%]" // Taller than container for parallax

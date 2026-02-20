@@ -206,7 +206,7 @@ export function CompanyScroller() {
 
     return (
         <section data-theme="light" className="bg-[#f5f5f7] pt-24 pb-0">
-            <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+            <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12">
                 {/* Header */}
                 <SectionHeader
                     title="Our Partners"

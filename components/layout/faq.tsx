@@ -50,7 +50,7 @@ export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section data-theme="light" className="bg-[#f5f5f7] py-24 px-6 sm:px-12">
+        <section data-theme="light" className="bg-[#f5f5f7] py-24 px-4 sm:px-12">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-0">
                 <SectionHeader
                     title="Got Questions?"

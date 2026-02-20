@@ -37,7 +37,7 @@ export function NavbarUI({
     return (
         <>
             <nav className={cn(
-                "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 backdrop-blur-lg transition-all duration-500",
+                "fixed top-0 left-0 right-0 z-50 px-4 sm:px-12 backdrop-blur-lg transition-all duration-500",
                 isOpen ? "bg-transparent" : "bg-white/70",
                 "text-black",
                 className
@@ -106,7 +106,7 @@ export function NavbarUI({
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 1.2, ease: [0.1, 1, 0, 1] }}
-                        className="fixed inset-0 z-40 bg-white/70 backdrop-blur-lg pt-28 px-6 sm:px-12 flex flex-col md:hidden overflow-y-auto"
+                        className="fixed inset-0 z-40 bg-white/70 backdrop-blur-lg pt-28 px-4 sm:px-12 flex flex-col md:hidden overflow-y-auto"
                     >
                         <div className="flex-1 flex flex-col justify-center gap-6 text-left mb-8">
                             {[...items, { label: "Give Now", id: "give-now" }].map((item, index) => {
@@ -150,7 +150,7 @@ export function NavbarUI({
                             })}
                         </div>
 
-                        <div className="shrink-0 pb-10 w-auto flex flex-col gap-4 text-black border-t border-black/10 pt-8 -mx-6 sm:-mx-12 px-6 sm:px-12">
+                        <div className="shrink-0 pb-10 w-auto flex flex-col gap-4 text-black border-t border-black/10 pt-8 -mx-4 sm:-mx-12 px-4 sm:px-12">
                             <a href="mailto:hello@radiantrise.com" className="text-2xl sm:text-3xl font-medium tracking-tight hover:opacity-70 transition-opacity w-fit border-b-2 border-black pb-1">
                                 hello@radiantrise.com
                             </a>

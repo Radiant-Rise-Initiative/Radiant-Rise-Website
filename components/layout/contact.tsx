@@ -24,7 +24,7 @@ export function Contact() {
                 <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-black to-transparent" />
             </div>
 
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10 px-4 sm:px-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-stretch">
 
                     {/* Left Side: Title */}
