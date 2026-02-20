@@ -28,8 +28,8 @@ export function Navbar() {
 
     return (
         <nav className={cn(
-            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-2 border-b backdrop-blur-md transition-all duration-500",
-            "text-black border-black/10 bg-white/80"
+            "fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-2 backdrop-blur-lg transition-all duration-500",
+            "text-black bg-white/70"
         )}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight z-50 relative transition-colors duration-500 text-black">
@@ -57,7 +57,7 @@ export function Navbar() {
                         <Link
                             key={item.id}
                             href={`#${item.id}`}
-                            className="text-sm font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
+                            className="text-xs font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
                         >
                             {item.label}
                         </Link>
@@ -78,7 +78,7 @@ export function Navbar() {
                         variant="outline"
                         onClick={() => setIsDonationModalOpen(true)}
                         className={cn(
-                            "hidden md:inline-flex uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none border-black text-black hover:bg-black hover:text-white"
+                            "hidden md:inline-flex text-xs uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none border-black text-black hover:bg-black hover:text-white"
                         )}
                     >
                         GIVE NOW
@@ -94,7 +94,7 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md pt-24 px-6 sm:px-12 flex flex-col md:hidden"
+                        className="fixed inset-0 z-40 bg-white/90 backdrop-blur-lg pt-24 px-6 sm:px-12 flex flex-col md:hidden"
                     >
                         <div className="flex flex-col gap-8 text-center mt-12">
                             {[
@@ -106,14 +106,14 @@ export function Navbar() {
                                     key={item.id}
                                     href={`#${item.id}`}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-2xl font-light text-black hover:text-black/70 transition-colors uppercase tracking-widest"
+                                    className="text-xl font-light text-black hover:text-black/70 transition-colors uppercase tracking-widest"
                                 >
                                     {item.label}
                                 </Link>
                             ))}
                             <Button
                                 variant="outline"
-                                className="mt-8 border-black text-black hover:bg-black hover:text-white uppercase tracking-wider bg-transparent w-full py-6 text-lg rounded-none"
+                                className="mt-8 border-black text-black hover:bg-black hover:text-white uppercase tracking-wider bg-transparent w-full py-6 text-base rounded-none"
                                 onClick={() => {
                                     setIsOpen(false);
                                     setIsDonationModalOpen(true);

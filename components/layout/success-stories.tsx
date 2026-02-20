@@ -80,7 +80,7 @@ export function SuccessStories() {
     }, []);
 
     return (
-        <section data-theme="light" className="bg-white py-24 border-t border-black/10 overflow-hidden">
+        <section data-theme="light" className="bg-[#f5f5f7] py-24 border-t border-black/10 overflow-hidden">
 
             {/* Header - Constrained */}
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-0">
@@ -113,7 +113,7 @@ export function SuccessStories() {
                             {/* Left: Content */}
                             <div className="w-full md:w-[60%] p-8 md:p-12 flex flex-col z-10 relative">
                                 <div className="mb-auto">
-                                    <span className="inline-block px-3 py-1 bg-white/10 text-white/90 text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-sm">
+                                    <span className="inline-block px-3 py-1 bg-[#f5f5f7]/10 text-white/90 text-xs font-mono uppercase tracking-widest mb-8 backdrop-blur-sm">
                                         {story.tag}
                                     </span>
                                     <h3 className="text-4xl md:text-5xl font-medium mb-8 leading-tight">
@@ -123,7 +123,7 @@ export function SuccessStories() {
 
                                 <div className="mt-auto space-y-8">
                                     <div className="flex gap-4">
-                                        <div className="w-1.5 h-1.5 bg-white mt-2.5 flex-none" />
+                                        <div className="w-1.5 h-1.5 bg-[#f5f5f7] mt-2.5 flex-none" />
                                         <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                                             {story.description}
                                         </p>

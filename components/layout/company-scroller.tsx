@@ -117,6 +117,8 @@ export function CompanyScroller() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const scrollTimeoutRef = useRef<NodeJS.Timeout>(null);
+
     const handleScroll = () => {
         const container = scrollRef.current;
         const header = headerRef.current;
@@ -130,26 +132,6 @@ export function CompanyScroller() {
         const { scrollLeft } = container;
         const contentOffset = header.getBoundingClientRect().left;
 
-        // --- Infinite Loop Logic ---
-        // Relaxed Thresholds: Jump only when we are deep into the buffer
-        // Set Width is length of one full copy.
-        // We have [Buffer][Main][Buffer]
-        // ranges: [0..W], [W..2W], [2W..3W]
-        // Main content is at [W..2W] aligned.
-
-        // If we scroll past the second set (into the 3rd set aka End Buffer)
-        // Let's allow scrolling slightly into the buffer, but reset if we go too deep.
-        // If we use pre-emptive reset for buttons, this is mostly for Touch/Trackpad.
-        // Let's reset if > 2.5W (Middle of End Buffer) - very safe.
-        if (scrollLeft >= setWidth * 2.5) {
-            container.scrollLeft = scrollLeft - setWidth;
-        }
-        // If we scroll into the first set (Start Buffer)
-        // Let's reset if < 0.5W (Middle of Start Buffer) - very safe.
-        else if (scrollLeft < setWidth * 0.5) {
-            container.scrollLeft = scrollLeft + setWidth;
-        }
-
         // --- Progress Logic ---
         const currentVisualPosition = scrollLeft + contentOffset;
         const effectivePosition = (currentVisualPosition + setWidth) % setWidth;
@@ -158,6 +140,28 @@ export function CompanyScroller() {
 
         const progress = ((normalizedIndex + 1) / originalCompanies.length) * 100;
         setScrollProgress(progress);
+
+        // --- Infinite Loop Logic (Scroll End Debounced) ---
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
+        scrollTimeoutRef.current = setTimeout(() => {
+            const currentScroll = container.scrollLeft;
+
+            // Optional: temporarily disable snap to prevent visual glitches on Safari
+            const oldSnap = container.style.scrollSnapType;
+            container.style.scrollSnapType = 'none';
+
+            if (currentScroll >= setWidth * 2.5) {
+                container.scrollLeft = currentScroll - setWidth;
+            } else if (currentScroll < setWidth * 0.5) {
+                container.scrollLeft = currentScroll + setWidth;
+            }
+
+            // Restore snap after rendering tick
+            requestAnimationFrame(() => {
+                container.style.scrollSnapType = oldSnap || '';
+            });
+        }, 150);
     };
 
     const scroll = (direction: "left" | "right") => {
@@ -199,7 +203,7 @@ export function CompanyScroller() {
     };
 
     return (
-        <section data-theme="light" className="bg-white pt-24 pb-0">
+        <section data-theme="light" className="bg-[#f5f5f7] pt-24 pb-0">
             <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
                 <div className="flex justify-between items-end mb-4 px-0">

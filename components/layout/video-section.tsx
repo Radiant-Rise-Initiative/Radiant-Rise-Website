@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function VideoSection() {
     return (
-        <section className="bg-white pt-24 pb-0">
+        <section className="bg-[#f5f5f7] pt-24 pb-0">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="relative h-[800px] w-full overflow-hidden bg-black text-white">
                     <Image
@@ -70,7 +70,7 @@ export function VideoSection() {
                         <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-6 md:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
                             {/* Play Trailer Button */}
                             <button className="flex items-center gap-6 group hover:opacity-80 transition-opacity">
-                                <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center bg-white/5 group-hover:bg-orange-600 group-hover:border-orange-600 transition-colors duration-300">
+                                <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center bg-[#f5f5f7]/5 group-hover:bg-orange-600 group-hover:border-orange-600 transition-colors duration-300">
                                     <Play size={24} fill="currentColor" className="ml-1" />
                                 </div>
                                 <span className="text-sm font-mono uppercase tracking-widest text-white/80">Play Trailer</span>
@@ -99,7 +99,7 @@ export function VideoSection() {
                                     }}
                                     className="flex gap-6 items-start"
                                 >
-                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">1</div>
+                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-[#f5f5f7]/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">1</div>
                                     <p className="text-sm text-white/70 leading-relaxed theme-transition:text-white pt-[5px]">
                                         To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.
                                     </p>
@@ -111,7 +111,7 @@ export function VideoSection() {
                                     }}
                                     className="flex gap-6 items-start"
                                 >
-                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">2</div>
+                                    <div className="w-10 h-16 rounded-full border border-white/20 bg-[#f5f5f7]/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1 shrink-0">2</div>
                                     <p className="text-sm text-white/70 leading-relaxed pt-[5px]">
                                         To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community.
                                     </p>

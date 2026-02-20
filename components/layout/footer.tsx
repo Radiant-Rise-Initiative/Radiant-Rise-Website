@@ -6,8 +6,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direction?: 1 | -1; speed?: number }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
     // Duplicate text to ensure seamless loop
     const items = Array.from({ length: 8 }).map((_, i) => (
         <div key={i} className="flex items-center gap-12 flex-none py-2">
@@ -21,24 +19,15 @@ const MarqueeLine = ({ text, direction = 1, speed = 40 }: { text: string; direct
     return (
         <div
             className="flex overflow-hidden border-b border-white/10 last:border-b-0 select-none cursor-default"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
-            <motion.div
-                className="flex flex-nowrap"
-                animate={{
-                    x: direction > 0 ? ["-50%", "0%"] : ["0%", "-50%"],
-                }}
-                transition={{
-                    duration: isHovered ? 120 : speed,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+            <div
+                className={`flex w-max flex-nowrap ${direction > 0 ? 'animate-marquee' : 'animate-marquee-reverse'}`}
+                style={{ '--duration': `${speed}s` } as React.CSSProperties}
             >
                 {/* Two identical containers for perfect looping without gap offsets */}
                 <div className="flex flex-none gap-12 pr-12">{items}</div>
                 <div className="flex flex-none gap-12 pr-12">{items}</div>
-            </motion.div>
+            </div>
         </div>
     );
 };

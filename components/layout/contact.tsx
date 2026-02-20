@@ -43,7 +43,7 @@ export function Contact() {
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`flex-1 py-5 px-4 text-sm font-medium transition-all duration-300 relative
-                                        ${activeTab === tab ? "text-black bg-white" : "text-black/40 hover:text-black/60 bg-[#f0f2f5]"}`}
+                                        ${activeTab === tab ? "text-black bg-[#f5f5f7]" : "text-black/40 hover:text-black/60 bg-[#f0f2f5]"}`}
                                 >
                                     {tab}
                                     {activeTab === tab && (
@@ -61,29 +61,29 @@ export function Contact() {
                                         <input
                                             type="text"
                                             placeholder="First Name"
-                                            className="w-full bg-white border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
                                         />
                                         <input
                                             type="text"
                                             placeholder="Last Name"
-                                            className="w-full bg-white border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
                                         />
                                     </div>
                                     <input
                                         type="email"
                                         placeholder="Email Address"
-                                        className="w-full bg-white border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                        className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Company Name"
-                                        className="w-full bg-white border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                        className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
                                     />
 
                                     <textarea
                                         placeholder="Message"
                                         rows={5}
-                                        className="w-full bg-white border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors resize-none flex-1"
+                                        className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors resize-none flex-1"
                                     />
 
                                     <button

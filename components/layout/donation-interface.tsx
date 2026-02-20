@@ -22,7 +22,7 @@ export function DonationInterface({ className }: DonationInterfaceProps) {
                     className={cn(
                         "flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors",
                         donationFrequency === "once"
-                            ? "bg-white border border-black/5 text-orange-600 shadow-sm"
+                            ? "bg-[#f5f5f7] border border-black/5 text-orange-600 shadow-sm"
                             : "text-black/40 hover:text-black/60"
                     )}
                 >
@@ -33,7 +33,7 @@ export function DonationInterface({ className }: DonationInterfaceProps) {
                     className={cn(
                         "flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors",
                         donationFrequency === "monthly"
-                            ? "bg-white border border-black/5 text-orange-600 shadow-sm"
+                            ? "bg-[#f5f5f7] border border-black/5 text-orange-600 shadow-sm"
                             : "text-black/40 hover:text-black/60"
                     )}
                 >
@@ -42,7 +42,7 @@ export function DonationInterface({ className }: DonationInterfaceProps) {
             </div>
 
             {/* Selected Amount Display */}
-            <div className="bg-white border border-black/10 p-6 flex justify-between items-center rounded-none">
+            <div className="bg-[#f5f5f7] border border-black/10 p-6 flex justify-between items-center rounded-none">
                 <span className="text-4xl font-semibold text-black tracking-tighter">${donationAmount}</span>
                 <span className="text-sm font-mono tracking-widest text-black/40 uppercase">USD</span>
             </div>
@@ -57,7 +57,7 @@ export function DonationInterface({ className }: DonationInterfaceProps) {
                             "py-4 rounded-none font-bold border transition-all text-sm tracking-widest",
                             donationAmount === amount
                                 ? "bg-black text-white border-black"
-                                : "bg-white border-black/10 text-black/60 hover:border-orange-500/50"
+                                : "bg-[#f5f5f7] border-black/10 text-black/60 hover:border-orange-500/50"
                         )}
                     >
                         ${amount}
@@ -75,7 +75,7 @@ export function DonationInterface({ className }: DonationInterfaceProps) {
                 onClick={() => setIsHonorGift(!isHonorGift)}
                 className="flex items-center gap-3 cursor-pointer group mt-2 w-fit"
             >
-                <div className="w-5 h-5 bg-white border border-black/10 flex items-center justify-center transition-colors group-hover:border-orange-500/50">
+                <div className="w-5 h-5 bg-[#f5f5f7] border border-black/10 flex items-center justify-center transition-colors group-hover:border-orange-500/50">
                     <div className={cn(
                         "w-2.5 h-2.5 bg-orange-600 transition-transform",
                         isHonorGift ? "scale-100" : "scale-0"

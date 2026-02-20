@@ -70,7 +70,7 @@ function MetricModal({ isOpen, onClose, metric }: MetricModalProps) {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="bg-white p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto relative rounded-[2rem]"
+                            className="bg-[#f5f5f7] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto relative rounded-[2rem]"
                         >
                             <button
                                 onClick={onClose}
@@ -143,7 +143,7 @@ export function ImpactStats() {
     const [selectedMetric, setSelectedMetric] = useState<{ label: string; value: string; description: string } | null>(null);
 
     return (
-        <section id="our-impact" data-theme="light" className="bg-white py-24 relative">
+        <section id="our-impact" data-theme="light" className="bg-[#f5f5f7] py-24 relative">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="flex justify-between items-end mb-16 px-0">
                     <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">

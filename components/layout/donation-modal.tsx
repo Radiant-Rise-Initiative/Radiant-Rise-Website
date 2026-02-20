@@ -64,7 +64,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
                             </button>
 
                             {/* Header */}
-                            <div className="p-8 pb-4 bg-white border-b border-black/5">
+                            <div className="p-8 pb-4 bg-[#f5f5f7] border-b border-black/5">
                                 <h2 className="text-xl font-bold tracking-tight text-black">Support Radiant Rise</h2>
                             </div>
 

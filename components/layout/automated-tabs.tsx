@@ -121,12 +121,12 @@ export function AutomatedTabs() {
                                     </div>
 
                                     {/* Progress Bar Background (Line) */}
-                                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white/10 rounded-none" />
+                                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#f5f5f7]/10 rounded-none" />
 
                                     {/* Active Progress Bar */}
                                     {activeTab === index && (
                                         <motion.div
-                                            className="absolute bottom-0 left-0 h-[2px] bg-white rounded-none"
+                                            className="absolute bottom-0 left-0 h-[2px] bg-[#f5f5f7] rounded-none"
                                             initial={{ width: "0%" }}
                                             animate={{ width: `${progress}%` }}
                                             transition={{ ease: "linear", duration: 0.05 }}
@@ -148,7 +148,7 @@ export function AutomatedTabs() {
                                             : "opacity-0 translate-y-4 pointer-events-none"
                                     )}
                                 >
-                                    <div className="inline-block bg-white/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-white/80 mb-6">
+                                    <div className="inline-block bg-[#f5f5f7]/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-white/80 mb-6">
                                         Initiative
                                     </div>
                                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.1]">
