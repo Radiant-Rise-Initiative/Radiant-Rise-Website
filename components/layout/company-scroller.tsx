@@ -206,13 +206,13 @@ export function CompanyScroller() {
         <section data-theme="light" className="bg-[#f5f5f7] pt-24 pb-0">
             <div ref={headerRef} className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
-                <div className="flex justify-between items-end mb-4 px-0">
-                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 md:gap-0 mb-4 px-0">
+                    <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
                         Our Partners
                     </h2>
                     <Link
                         href="/partners"
-                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider"
+                        className="text-xs font-medium border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors uppercase tracking-wider w-fit"
                     >
                         See All Partners
                     </Link>
