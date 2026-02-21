@@ -7,8 +7,8 @@ export function PurposeSection() {
         <PurposeStatement
             title="Radiant Rise"
             description="Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
-            imageSrc="/assets/branding/splash-image-020.jpg"
-            imageAlt="Radiant Rise Video Background"
+            imageSrc="/assets/placeholders/image-004.jpg"
+            imageAlt="Radiant Rise Purpose"
             actionText="Play Trailer"
             onActionClick={() => console.log("Play Trailer clicked")}
             infoPoints={[

@@ -3,10 +3,10 @@
 import { HeroUI } from "@/components/ui/Hero";
 
 const images = [
-    "/assets/branding/splash-image-022.jpg",
-    "/assets/branding/splash-image-023.jpg",
-    "/assets/branding/splash-image-024.jpg",
-    "/assets/branding/splash-image-025.jpg"
+    "/assets/placeholders/image-005.jpg",
+    "/assets/placeholders/image-006.jpg",
+    "/assets/placeholders/image-007.jpg",
+    "/assets/placeholders/image-008.jpg"
 ];
 
 export function Hero() {
