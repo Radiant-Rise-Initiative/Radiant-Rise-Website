@@ -64,7 +64,7 @@ export function AutomatedInfoTabs({
     return (
         <section id={id} className={cn("bg-black text-white pt-20 pb-24 overflow-hidden", className)}>
             {/* Added px-4 sm:px-12 to ensure content sits within horizontal padding fully */}
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 w-full">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-0 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
                     {/* Left Column: Tabs & Headline */}

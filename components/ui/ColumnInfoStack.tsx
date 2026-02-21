@@ -33,7 +33,7 @@ export function ColumnInfoStack({
 
     return (
         <section id={id} data-theme="dark" className={cn("bg-black text-white py-24 border-t border-white/10", className)}>
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 {/* Header Section */}
                 <div className="pb-16 max-w-2xl">
                     <h2 className="text-5xl md:text-6xl font-semibold text-white tracking-tight mb-8">

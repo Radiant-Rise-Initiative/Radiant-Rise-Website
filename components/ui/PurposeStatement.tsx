@@ -37,7 +37,7 @@ export function PurposeStatement({
                     <div className="absolute inset-0 bg-black/30 z-0" />
 
                     {/* Main Content */}
-                    <div className="absolute inset-0 z-10 h-full flex flex-col justify-start pt-24 lg:justify-center lg:pt-0 px-6 sm:px-12 max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="absolute inset-0 z-10 h-full flex flex-col justify-start pt-24 lg:justify-center lg:pt-0 px-6 sm:px-12 lg:px-0 max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                         <motion.div
                             initial="hidden"
                             whileInView="show"
@@ -78,7 +78,7 @@ export function PurposeStatement({
 
                     {/* Bottom Bar */}
                     <div className="absolute bottom-0 left-0 w-full z-20 border-t border-white/10 bg-black/20 backdrop-blur-xl">
-                        <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-6 sm:px-12 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16">
+                        <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-0 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16">
                             {/* Action Button */}
                             <button
                                 onClick={onActionClick}

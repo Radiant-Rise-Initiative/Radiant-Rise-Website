@@ -142,7 +142,7 @@ export function MetricStatistics({
         <section
             id={id}
             data-theme="light"
-            className={cn("bg-[#f5f5f7] py-24 px-4 sm:px-12 relative", className)}
+            className={cn("bg-[#f5f5f7] py-24 px-4 sm:px-12 lg:px-0 relative", className)}
         >
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <SectionHeader

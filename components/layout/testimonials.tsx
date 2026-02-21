@@ -33,7 +33,7 @@ const testimonialsData: TestimonialItem[] = [
     {
         id: "namuli",
         category: "COMMUNITY PARTNER",
-        quote: "The ripple effect of their work is visible in every corner of our district. When you empower a young mother, you aren't just helping one person—you are uplifting an entire generation.",
+        quote: "The ripple effect of their work is visible in every corner of our district. When you empower a young mother, you aren't just helping one person — you are uplifting an entire generation.",
         name: "Hon. Grace Namuli",
         role: "Local Council Leader",
         company: "Community Empowerment Hub",

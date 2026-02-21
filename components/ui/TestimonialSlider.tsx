@@ -47,7 +47,7 @@ export function TestimonialSlider({
 
     return (
         <section data-theme="light" className={`bg-[#f5f5f7] pt-24 pb-0 ${className}`}>
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 {/* Header Labels */}
                 <div className="flex flex-row justify-between items-center gap-4 mb-12">
                     <p className="text-xs font-mono tracking-widest text-black/60 uppercase">
@@ -67,7 +67,7 @@ export function TestimonialSlider({
                 </div>
 
                 {/* Quote Area - Grid Stack for stable height */}
-                <div className="grid grid-cols-1 grid-rows-1 mb-16">
+                <div className="grid grid-cols-1 grid-rows-1 mb-16 md:mb-32">
                     {testimonials.map((t, i) => (
                         <div
                             key={t.id}
@@ -86,7 +86,7 @@ export function TestimonialSlider({
             <div className="w-full border-t border-b border-black/10">
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto gap-0 scrollbar-hide max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 snap-x snap-mandatory scroll-pl-4 sm:scroll-pl-12 xl:justify-center xl:overflow-x-hidden"
+                    className="flex overflow-x-auto gap-0 scrollbar-hide max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0 snap-x snap-mandatory scroll-pl-4 sm:scroll-pl-12 lg:scroll-pl-0 xl:justify-center xl:overflow-x-hidden"
                 >
                     {testimonials.map((person, index) => (
                         <div

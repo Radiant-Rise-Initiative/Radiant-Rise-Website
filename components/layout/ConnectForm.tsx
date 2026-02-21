@@ -18,7 +18,7 @@ export function ConnectForm() {
                 <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-black to-transparent" />
             </div>
 
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10 px-4 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative z-10 px-4 sm:px-12 lg:px-0">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[64px] sm:gap-10 items-stretch">
                     {/* Left Side: Title */}
                     <div className="flex flex-col @container sticky top-44 self-start sm:py-0">

@@ -39,7 +39,7 @@ const galleryItems: GalleryItem[] = [
 export function OurGallery() {
     return (
         <section className="bg-[#f5f5f7] pt-24 pb-0 overflow-hidden select-none border-t border-black/10">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-4 sm:px-12">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mb-12 px-4 sm:px-12 lg:px-0">
                 <SectionHeader
                     title="Our Gallery"
                     linkText="Explore Our Stories"
