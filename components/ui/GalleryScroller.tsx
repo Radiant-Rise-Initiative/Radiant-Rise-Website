@@ -37,7 +37,7 @@ export function GalleryScroller({ items }: GalleryScrollerProps) {
             className="w-full overflow-hidden pl-4 sm:pl-12 cursor-pointer"
         >
             <div
-                className="flex w-max animate-marquee [--duration:45s] md:[--duration:80s]"
+                className="flex w-max animate-marquee [--duration:45s] md:[--duration:240s]"
                 style={{
                     animationPlayState: isPaused ? 'paused' : 'running'
                 } as React.CSSProperties}

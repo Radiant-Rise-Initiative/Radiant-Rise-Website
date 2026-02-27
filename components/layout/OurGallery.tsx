@@ -7,7 +7,7 @@ const galleryItems: GalleryItem[] = [
         title: "Healing Hearts",
         category: "Counseling",
         description: "Post-trauma and adversity counseling sessions for young mothers.",
-        image: "/assets/placeholders/image-009.jpg",
+        image: "/assets/images/gallery_images/gallery_01.jpg",
         link: "#"
     },
     {
@@ -15,7 +15,7 @@ const galleryItems: GalleryItem[] = [
         title: "Economic Freedom",
         category: "Empowerment",
         description: "Equipping participants with vocational skills and financial inclusion.",
-        image: "/assets/placeholders/image-010.jpg",
+        image: "/assets/images/gallery_images/gallery_02.jpg",
         link: "#"
     },
     {
@@ -23,7 +23,7 @@ const galleryItems: GalleryItem[] = [
         title: "Community Synergy",
         category: "Partnership",
         description: "Nurturing hope and self-reliance through values-based leadership.",
-        image: "/assets/placeholders/image-011.jpg",
+        image: "/assets/images/gallery_images/gallery_03.jpg",
         link: "#"
     },
     {
@@ -31,7 +31,71 @@ const galleryItems: GalleryItem[] = [
         title: "Stronger Futures",
         category: "Mentorship",
         description: "Uplifting the next generation of youth through structured support.",
-        image: "/assets/placeholders/image-012.jpg",
+        image: "/assets/images/gallery_images/gallery_04.jpg",
+        link: "#"
+    },
+    {
+        id: 5,
+        title: "Skills Training",
+        category: "Vocational",
+        description: "Dedicated workshops to build practical and marketable skills.",
+        image: "/assets/images/gallery_images/gallery_05.jpg",
+        link: "#"
+    },
+    {
+        id: 6,
+        title: "Spiritual Foundation",
+        category: "Faith",
+        description: "Building resilience on strong, enduring values.",
+        image: "/assets/images/gallery_images/gallery_06.jpg",
+        link: "#"
+    },
+    {
+        id: 7,
+        title: "Leadership Focus",
+        category: "Development",
+        description: "Fostering community leaders to inspire systemic change.",
+        image: "/assets/images/gallery_images/gallery_07.jpg",
+        link: "#"
+    },
+    {
+        id: 8,
+        title: "Creative Arts",
+        category: "Expression",
+        description: "Expressive therapies combining tradition and creativity.",
+        image: "/assets/images/gallery_images/gallery_08.jpg",
+        link: "#"
+    },
+    {
+        id: 9,
+        title: "Collaborative Growth",
+        category: "Teamwork",
+        description: "Achieving more through united community efforts.",
+        image: "/assets/images/gallery_images/gallery_09.jpg",
+        link: "#"
+    },
+    {
+        id: 10,
+        title: "Health & Wellness",
+        category: "Care",
+        description: "Holistic well-being approaches for lasting impacts.",
+        image: "/assets/images/gallery_images/gallery_10.jpg",
+        link: "#"
+    },
+    {
+        id: 11,
+        title: "Digital Literacy",
+        category: "Education",
+        description: "Closing the digital divide with hands-on computer training.",
+        image: "/assets/images/gallery_images/gallery_11.jpg",
+        link: "#"
+    },
+    {
+        id: 12,
+        title: "Family Unity",
+        category: "Support",
+        description: "Strengthening families as the core of community transformation.",
+        image: "/assets/images/gallery_images/gallery_12.jpg",
         link: "#"
     }
 ];

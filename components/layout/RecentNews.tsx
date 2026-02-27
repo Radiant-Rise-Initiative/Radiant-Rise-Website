@@ -11,21 +11,21 @@ const newsItems = [
         category: "INITIATIVE",
         date: "FEB 15, 2024",
         title: "Radiant Rise Launches New Vocational Empowerment Hub for Young Mothers",
-        image: "/assets/branding/splash-image-001.jpg",
+        image: "/assets/images/news_images/newsletter_01.jpg",
     },
     {
         id: "trauma-circles",
         category: "IMPACT",
         date: "JAN 28, 2024",
         title: "Healing Through Storytelling: Over 100 Participants Join Our Trauma-Informed Counseling Circles",
-        image: "/assets/branding/splash-image-002.jpg",
+        image: "/assets/images/news_images/newsletter_02.jpg",
     },
     {
         id: "community-grant",
         category: "PARTNERSHIP",
         date: "DEC 12, 2023",
         title: "Scaling Grassroots Change: Securing Community Grants to Uplift Vulnerable Youths",
-        image: "/assets/branding/splash-image-003.jpg",
+        image: "/assets/images/news_images/newsletter_03.jpg",
     },
 ];
 
@@ -54,20 +54,22 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
     return (
         <div className="relative h-full flex flex-col justify-end">
             <div
-                className="p-8 transition-colors duration-500 min-h-[220px] flex flex-col justify-start"
+                className="p-8 transition-colors duration-500 w-full"
                 style={{ backgroundColor: bgColor }}
             >
-                <div className="flex justify-between items-center mb-6">
-                    <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
-                        {item.category}
-                    </span>
-                    <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
-                        {item.date}
-                    </span>
+                <div className="w-full">
+                    <div className="flex justify-between items-center mb-6">
+                        <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
+                            {item.category}
+                        </span>
+                        <span className="text-xs font-mono tracking-[0.2em] text-white/80 uppercase">
+                            {item.date}
+                        </span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-white leading-tight tracking-tight">
+                        {item.title}
+                    </h3>
                 </div>
-                <h3 className="text-2xl font-semibold text-white leading-tight tracking-tight">
-                    {item.title}
-                </h3>
             </div>
         </div>
     );
