@@ -241,9 +241,9 @@ export function InfoScroller({
                                     </div>
 
                                     <div className="flex-1 flex items-center justify-center py-12">
-                                        <span className="text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
+                                        <div className="w-[80%] text-2xl font-bold tracking-tighter text-center text-black group-hover:text-white transition-colors duration-300">
                                             {item.logo}
-                                        </span>
+                                        </div>
                                     </div>
 
                                     <p className="text-sm leading-relaxed text-black/80 group-hover:text-white/90 transition-colors duration-300">

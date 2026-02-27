@@ -3,7 +3,7 @@ import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
 import { ImpactStories } from "@/components/layout/ImpactStories";
 import { WhoWeAreTabs } from "@/components/layout/WhoWeAreTabs";
-import { CompanyScroller } from "@/components/layout/CompanyScroller";
+import { TargetScroller } from "@/components/layout/TargetScroller";
 import { Testimonials } from "@/components/layout/Testimonials";
 import { RecentNews } from "@/components/layout/RecentNews";
 import { GotQuestions } from "@/components/layout/GotQuestions";
@@ -25,7 +25,7 @@ export default function Home() {
       <OurIdentity />
       <ImpactStories />
       <WhoWeAreTabs />
-      <CompanyScroller />
+      <TargetScroller />
       <Testimonials />
       <RecentNews />
       <OurGallery />
