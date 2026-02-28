@@ -6,7 +6,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 export interface QAItem {
     question: string;
-    answer: string;
+    answer: React.ReactNode;
 }
 
 interface QAInquiriesProps {
@@ -74,9 +74,9 @@ export function QAInquiries({ items }: QAInquiriesProps) {
                                     }}
                                 >
                                     <div className="pb-12 pr-12">
-                                        <p className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl">
+                                        <div className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl flex flex-col gap-4">
                                             {item.answer}
-                                        </p>
+                                        </div>
                                     </div>
                                 </motion.div>
                             )}
