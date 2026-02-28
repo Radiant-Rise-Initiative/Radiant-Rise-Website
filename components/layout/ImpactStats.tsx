@@ -4,36 +4,44 @@ import { MetricStatistics } from "@/components/ui/MetricStatistics";
 
 const stats = [
     {
-        topLabel: "Active Programs",
-        topValue: "1.2K+",
-        topDescription: "Radiant Rise Initiative has scaled its operations to over 1,200 active community-led programs. Our holistic approach ensures that hope and self-reliance are nurtured at every level of society, creating a sustainable path for those rising above adversity through faith-led, values-based leadership.",
-        bottomLabel: "Skills Certified",
-        bottomValue: "15K+",
-        bottomDescription: "We have successfully certified over 15,000 individuals in vocational and technical skills. Operating with a valid permit from the Uganda National NGO Bureau, we provide structured support that empowers participants to uplift their communities and secure their economic future.",
+        topLabel: "Economic Empowerment",
+        topValue: "16",
+        topModalTitle: "16 Job Placements",
+        topDescription: "Radiant Rise Initiative has successfully secured 16 tailoring job placements for young mothers, marking a critical milestone in our income activation phase. By connecting practical vocational training directly to market-aligned employment opportunities, we ensure participants transition effectively from vulnerability to sustained economic stability. This targeted approach to localized job creation in Kampala actively reduces household poverty, decreases economic shocks, and fosters long-term self-reliance within the community.",
+        bottomLabel: "Month Program Cycle",
+        bottomValue: "6",
+        bottomModalTitle: "6-Month Cohort Pathway",
+        bottomDescription: "Radiant Rise is formalizing a structured six-month cohort model serving Acholi Quarters to create lasting household stability. This deliberate timeframe allows participants to thoroughly engage in our core sequence: emotional recovery, market-aligned skills development, income activation, and savings retention. It provides the exact sustained support necessary to effectively break long-standing cycles of urban poverty and build measurable, long-term economic resilience for local families.",
     },
     {
-        topLabel: "Partner NGOs",
-        topValue: "500+",
-        topDescription: "Our network has expanded to include over 500 strategic NGO partnerships globally. We collaborate to create meaningful community impact through post-adversity and trauma healing programs, ensuring our participants have access to a wide range of specialized support services.",
-        bottomLabel: "Crisis Support",
-        bottomValue: "24/7",
-        bottomDescription: "We provide round-the-clock crisis intervention and support for young mothers in distress. Our data-driven approach, informed by comprehensive community needs assessments, allows us to address urgent mental health and safety gaps in real-time.",
+        topLabel: "Year Strategic MOU",
+        topValue: "5",
+        topModalTitle: "5-Year MOU Employer Pipeline",
+        topDescription: "To guarantee a sustained employment pipeline for youth and young mothers, Radiant Rise has signed a five-year Memorandum of Understanding with Fine Spinners. This strategic employer partnership bridges the critical gap between initial skills acquisition and formal job placement. By securing long-term commitments from private sector employers, we are building a highly reliable foundation for household economic resilience and reducing irregular income cycles in Uganda.",
+        bottomLabel: "Evidence-Based Intervention",
+        bottomValue: "2+1",
+        bottomModalTitle: "2 Baseline Studies",
+        bottomDescription: "Before implementing any core programs, a comprehensive community needs assessment and a detailed feasibility study were systematically conducted in Acholi Quarters. These crucial baseline studies ensured our trauma-informed support and vocational training interventions are culturally appropriate, economically viable, and practical. By actively listening to diverse stakeholders, we guarantee that our initiatives are directly responsive to the unique socio-economic challenges deeply affecting vulnerable youths and young mothers.",
     },
     {
-        topLabel: "Young Mothers Empowered",
-        topValue: "50K+",
-        topDescription: "Over 50,000 young mothers have been empowered through our core interventions. We prioritize physical and emotional wellness, hosting wellness sessions and talks that support mothers in their journey toward dignity and independence.",
-        bottomLabel: "Empowerment Rate",
-        bottomValue: "100%",
-        bottomDescription: "Every participant in our program receives a tailored roadmap to self-reliance. We connect individuals to job opportunities, vocational training, and financial inclusion programs, ensuring a culture of saving and long-term economic stability.",
+        topLabel: "Local Trust & Buy-In",
+        topValue: "90%",
+        topModalTitle: "90% Community Approval",
+        topDescription: "Following our extensive grassroots mobilization efforts between November 2025 and February 2026, ninety percent of community members formally welcomed the initiative. This overwhelming support from engaged male youth, elders, religious leaders, and young mothers highlights a profound trust in our community-owned model. It firmly demonstrates that Acholi Quarters is fully ready to collaboratively build coordinated economic pathways that replace fragmented support systems and strengthen every household.",
+        bottomLabel: "Deep Community Focus",
+        bottomValue: "1",
+        bottomModalTitle: "1 Target Settlement",
+        bottomDescription: "We intentionally concentrate our programmatic efforts within one specific informal urban settlement: Acholi Quarters in Kampala, Uganda. Rather than pursuing rapid geographic expansion, Radiant Rise prioritizes depth, continuity, and measurable impact. Building a disciplined, repeatable resilience model within a single community allows us to profoundly understand and effectively address the intricate convergence of localized youth unemployment, early pregnancy, and the heavy burdens of survival work.",
     },
     {
-        topLabel: "Volunteer Hours",
-        topValue: "12M+",
-        topDescription: "Our global community has contributed over 12 million hours of dedicated service. This massive volunteer effort drives our impactful change, providing the mentorship and guidance needed to nurture values-based leadership among the youth we serve.",
-        bottomLabel: "Success Ratio",
-        bottomValue: "98%",
-        bottomDescription: "Our programs maintain a 98% success ratio in participant reintegration and economic stability. By addressing the priorities of our target populations through specialized outreach, we achieve world-class results that transform lives and communities.",
+        topLabel: "Holistic Methodology",
+        topValue: "4",
+        topModalTitle: "4 Intervention Stages",
+        topDescription: "Our household economic resilience model operates through a rigorous pathway featuring four sequential stages: stabilize, build, activate, and reinforce. The sequence matters immensely; if any single element is missing, individual progress collapses. By seamlessly integrating trauma-informed counseling, market-aligned skills training, formal job placement, and structured savings participation, we guarantee a comprehensive ecosystem that effectively moves participants from immediate crisis toward long-term independence.",
+        bottomLabel: "Organizational Foundation",
+        bottomValue: "2025",
+        bottomModalTitle: "Established in 2025",
+        bottomDescription: "Radiant Rise Initiative was officially formed in July 2025 in direct response to the urgent need for coordinated economic support in informal urban settlements. Founded by Agnes Oyella, who experienced the harsh realities of Acholi Quarters firsthand, our registered indigenous NGO operates with a clear mandate. We aim to transform historically fragmented aid into sustained household economic resilience for Uganda's most vulnerable youth and young mothers.",
     },
 ];
 
@@ -46,8 +54,10 @@ export function ImpactStats() {
             href="#"
             stats={stats}
             overallMetric={{
-                label: "Global Outreach",
-                value: "25M+ Lives Touched"
+                label: "Grassroots Engagement",
+                value: "105 Young Mothers",
+                modalTitle: "105 Young Mothers Mobilized",
+                description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters."
             }}
         />
     );

@@ -13,14 +13,14 @@ const targetEntities: ScrollerItem[] = [
     {
         name: "EARLY INTERVENTION",
         category: "EARLY INTERVENTION",
-        logo: <>50-60% SECURE INCOME<br />IN 3 MONTHS</>,
+        logo: <>50-60% EARNING<br />IN 3 MONTHS</>,
         description: "Accelerating the transition from vulnerability to active income through market-aligned vocational training and early intervention.",
         image: "/assets/branding/splash-image-012.jpg",
     },
     {
         name: "CAREER STABILITY",
         category: "CAREER STABILITY",
-        logo: <>70% SECURE INCOME<br />IN 6 MONTHS</>,
+        logo: <>70% EARNING<br />IN 6 MONTHS</>,
         description: "Facilitating long-term job placement and employer partnerships within 6 months to reduce household economic shocks.",
         image: "/assets/branding/splash-image-013.jpg",
     },

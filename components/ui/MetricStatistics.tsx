@@ -10,15 +10,18 @@ interface Metric {
     label: string;
     value: string;
     description: string;
+    modalTitle?: string;
 }
 
 interface StatPair {
     topLabel: string;
     topValue: string;
     topDescription: string;
+    topModalTitle?: string;
     bottomLabel: string;
     bottomValue: string;
     bottomDescription: string;
+    bottomModalTitle?: string;
 }
 
 interface MetricStatisticsProps {
@@ -29,6 +32,8 @@ interface MetricStatisticsProps {
     overallMetric?: {
         label: string;
         value: string;
+        description: string;
+        modalTitle?: string;
     };
     className?: string;
     id?: string;
@@ -69,11 +74,11 @@ function MetricModal({ isOpen, onClose, metric }: MetricModalProps) {
                             </button>
                             <div className="flex flex-col gap-6 pt-4">
                                 <div>
-                                    <h3 className="text-sm font-semibold text-black mb-4">
+                                    <h3 className="text-sm font-medium text-black/60 leading-tight mb-4">
                                         {metric.label}
                                     </h3>
                                     <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.1]">
-                                        {metric.value} {metric.label.toLowerCase()}
+                                        {metric.modalTitle || `${metric.value} ${metric.label.toLowerCase()}`}
                                     </h2>
                                 </div>
                                 <div className="py-2">
@@ -98,11 +103,11 @@ function MetricModal({ isOpen, onClose, metric }: MetricModalProps) {
     );
 }
 
-function MetricItem({ label, value, description, onOpen }: MetricItemProps & { onOpen: (metric: Metric) => void }) {
+function MetricItem({ label, value, description, modalTitle, onOpen }: MetricItemProps & { onOpen: (metric: Metric) => void }) {
     return (
         <div
             className="flex flex-col gap-6 lg:justify-between h-full lg:min-h-[220px] group relative cursor-pointer"
-            onClick={() => onOpen({ label, value, description })}
+            onClick={() => onOpen({ label, value, description, modalTitle })}
         >
             <p className="text-sm font-medium text-black/60 leading-tight transition-colors group-hover:text-black/80">
                 {label}
@@ -125,6 +130,7 @@ interface MetricItemProps {
     label: string;
     value: string;
     description: string;
+    modalTitle?: string;
 }
 
 export function MetricStatistics({
@@ -207,13 +213,15 @@ export function MetricStatistics({
                                         onClick={() => setSelectedMetric({
                                             label: stat.topLabel,
                                             value: stat.topValue,
-                                            description: stat.topDescription
+                                            description: stat.topDescription,
+                                            modalTitle: stat.topModalTitle,
                                         })}
                                     >
                                         <MetricItem
                                             label={stat.topLabel}
                                             value={stat.topValue}
                                             description={stat.topDescription}
+                                            modalTitle={stat.topModalTitle}
                                             onOpen={setSelectedMetric}
                                         />
                                     </div>
@@ -225,13 +233,15 @@ export function MetricStatistics({
                                         onClick={() => setSelectedMetric({
                                             label: stat.bottomLabel,
                                             value: stat.bottomValue,
-                                            description: stat.bottomDescription
+                                            description: stat.bottomDescription,
+                                            modalTitle: stat.bottomModalTitle,
                                         })}
                                     >
                                         <MetricItem
                                             label={stat.bottomLabel}
                                             value={stat.bottomValue}
                                             description={stat.bottomDescription}
+                                            modalTitle={stat.bottomModalTitle}
                                             onOpen={setSelectedMetric}
                                         />
                                     </div>
@@ -247,15 +257,26 @@ export function MetricStatistics({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-14 md:mt-16 pt-0 md:pt-16"
+                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-14 md:mt-16 pt-0 md:pt-16 cursor-pointer group"
+                        onClick={() => setSelectedMetric({
+                            label: overallMetric.label,
+                            value: overallMetric.value,
+                            description: overallMetric.description,
+                            modalTitle: overallMetric.modalTitle,
+                        })}
                     >
-                        <div className="flex flex-col gap-6">
-                            <p className="text-sm font-medium text-black/60 leading-tight">
-                                {overallMetric.label}
-                            </p>
-                            <p className="text-6xl sm:text-7xl font-semibold text-black tracking-tighter -ml-1 leading-[1.0]">
-                                {overallMetric.value}
-                            </p>
+                        <div className="flex items-end justify-between gap-4">
+                            <div className="flex flex-col gap-6">
+                                <p className="text-sm font-medium text-black/60 leading-tight transition-colors group-hover:text-black/80">
+                                    {overallMetric.label}
+                                </p>
+                                <p className="text-6xl sm:text-7xl font-semibold text-black tracking-tighter -ml-1 leading-[1.0] group-hover:text-orange-600 transition-colors duration-300">
+                                    {overallMetric.value}
+                                </p>
+                            </div>
+                            <div className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-full z-10 hover:bg-black/80 shrink-0 mb-1">
+                                <Plus size={20} />
+                            </div>
                         </div>
                     </motion.div>
                 )}
