@@ -7,7 +7,6 @@ export interface TestimonialItem {
     id: string;
     category: string;
     quote: string;
-    name: string;
     role: string;
     company: string;
     image: string;
@@ -104,19 +103,28 @@ export function TestimonialSlider({
                             />
 
                             <div className="flex items-center gap-6">
-                                <div className="relative w-20 h-20 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500 rounded-sm overflow-hidden flex-none">
+                                <div className="relative w-20 h-20 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500 rounded-full overflow-hidden flex-none">
                                     <Image
                                         src={person.image}
-                                        alt={person.name}
+                                        alt={person.role}
                                         fill
                                         className="object-cover"
                                     />
+                                    {/* Overlay for Logo */}
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                    {/* Radiant Rise Logo */}
+                                    <div className="absolute inset-0 z-20 flex items-center justify-center mix-blend-screen opacity-90 group-hover:opacity-0 transition-opacity duration-500">
+                                        <Image
+                                            src="/assets/branding/rr-logo-v3.svg"
+                                            alt="Radiant Rise"
+                                            width={40}
+                                            height={40}
+                                            className="invert"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="font-bold text-black tracking-tight leading-tight mb-1">
-                                        {person.name}
-                                    </p>
-                                    <p className="text-[13px] text-black/60 font-medium leading-tight">
                                         {person.role}
                                     </p>
                                     <p className="text-[13px] text-black/60 font-medium leading-tight">

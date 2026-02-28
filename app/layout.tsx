@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Radiant Rise",
-  description: "Supporting marginalized communities through impactful digital experiences.",
+  description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
   openGraph: {
     title: "Radiant Rise",
-    description: "Supporting marginalized communities through impactful digital experiences.",
+    description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
     type: "website",
     locale: "en_US",
     siteName: "Radiant Rise",
