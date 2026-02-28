@@ -67,18 +67,49 @@ export function AutomatedInfoTabs({
     };
 
     return (
-        <section id={id} className={cn("bg-black text-white py-24 border-t border-white/10", className)}>
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-0 w-full">
+        <motion.section
+            id={id}
+            className={cn("bg-black text-white py-24 border-t border-white/10", className)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.1 }}
+            onViewportEnter={() => {
+                setActiveTab(0);
+                setProgress(0);
+            }}
+        >
+            <motion.div
+                className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-0 w-full"
+                variants={{
+                    hidden: {},
+                    show: {
+                        transition: {
+                            staggerChildren: 0.15,
+                            delayChildren: 0.1
+                        }
+                    }
+                }}
+            >
                 {/* Header Section */}
                 {title && description && (
-                    <div className="pb-11 max-w-2xl">
+                    <motion.div
+                        className="pb-11 max-w-2xl"
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            show: {
+                                opacity: 1,
+                                y: 0,
+                                transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+                            }
+                        }}
+                    >
                         <h2 className="text-5xl md:text-6xl font-semibold text-white tracking-tight mb-8">
                             {title}
                         </h2>
                         <p className="text-white text-lg md:text-xl font-normal md:font-medium leading-relaxed max-w-2xl">
                             {description}
                         </p>
-                    </div>
+                    </motion.div>
                 )}
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 lg:min-h-[600px]">
@@ -86,7 +117,13 @@ export function AutomatedInfoTabs({
                     {/* Left Column: Tabs & Headline */}
                     <div className="flex flex-col justify-between h-full">
                         {/* Tabs List */}
-                        <div className="space-y-0">
+                        <motion.div
+                            className="space-y-0"
+                            variants={{
+                                hidden: { opacity: 0, y: 40 },
+                                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+                            }}
+                        >
                             {tabs.map((tab, index) => (
                                 <div
                                     key={tab.id}
@@ -116,11 +153,17 @@ export function AutomatedInfoTabs({
                                     )}
                                 </div>
                             ))}
-                        </div>
+                        </motion.div>
 
                         {/* Dynamic Bottom Headline section */}
                         {/* Gap below last progress bar adjusted to 64px (mt-16) */}
-                        <div className="mt-16 lg:mt-auto pt-0 grid">
+                        <motion.div
+                            className="mt-16 lg:mt-auto pt-0 grid"
+                            variants={{
+                                hidden: { opacity: 0, y: 40 },
+                                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+                            }}
+                        >
                             {tabs.map((tab, index) => (
                                 <div
                                     key={tab.id}
@@ -139,11 +182,17 @@ export function AutomatedInfoTabs({
                                     </h2>
                                 </div>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Right Column: Dynamic Content */}
-                    <div className="grid pt-0 lg:pt-5">
+                    <motion.div
+                        className="grid pt-0 lg:pt-5"
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+                        }}
+                    >
                         {tabs.map((tab, index) => (
                             <div
                                 key={tab.id}
@@ -166,10 +215,10 @@ export function AutomatedInfoTabs({
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
 
                 </div>
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     );
 }
