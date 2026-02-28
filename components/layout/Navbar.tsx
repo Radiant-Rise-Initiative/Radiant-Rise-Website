@@ -30,7 +30,7 @@ export function Navbar() {
     const navItems = [
         { label: "Who We Are", id: "who-we-are" },
         { label: "Our Impact", id: "our-impact" },
-        { label: "What We Do", id: "what-we-do" }
+        { label: "Our Identity", id: "our-identity" }
     ];
 
     const logo = {

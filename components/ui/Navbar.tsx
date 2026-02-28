@@ -65,13 +65,19 @@ export function NavbarUI({
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
                         {items.map((item) => (
-                            <Link
+                            <button
                                 key={item.id}
-                                href={`#${item.id}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const section = document.getElementById(item.id);
+                                    if (section) {
+                                        section.scrollIntoView({ behavior: "instant" });
+                                    }
+                                }}
                                 className="text-xs font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
                             >
                                 {item.label}
-                            </Link>
+                            </button>
                         ))}
                     </div>
 
@@ -138,14 +144,21 @@ export function NavbarUI({
                                 }
 
                                 return (
-                                    <Link
+                                    <button
                                         key={item.id}
-                                        href={`#${item.id}`}
-                                        onClick={() => onOpenChange(false)}
+                                        onClick={() => {
+                                            onOpenChange(false);
+                                            setTimeout(() => {
+                                                const section = document.getElementById(item.id);
+                                                if (section) {
+                                                    section.scrollIntoView({ behavior: "instant" });
+                                                }
+                                            }, 100);
+                                        }}
                                         className="flex items-start gap-5 text-left hover:opacity-70 transition-opacity group"
                                     >
                                         {content}
-                                    </Link>
+                                    </button>
                                 );
                             })}
                         </div>

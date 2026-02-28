@@ -27,7 +27,7 @@ export function Hero() {
             onActionClick={() => {
                 const section = document.getElementById("who-we-are");
                 if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
+                    section.scrollIntoView({ behavior: "instant" });
                 }
             }}
         />
