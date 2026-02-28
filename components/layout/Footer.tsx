@@ -41,35 +41,69 @@ export function Footer() {
                         <div className="space-y-6">
                             <h3 className="text-xs font-mono tracking-widest text-white/30 uppercase">More Radiant</h3>
                             <div className="flex flex-col gap-4">
-                                {["Our Impact", "News & Stories", "Leadership", "Get Involved", "Our Approach", "Core Values"].map((link) => (
-                                    <Link key={link} href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                        {link}
+                                {[
+                                    { label: "Our Impact", target: "our-impact" },
+                                    { label: "Recent News", target: "recent-news" },
+                                    { label: "Success Stories", target: "impact-stories" },
+                                    { label: "Core Values", target: "who-we-are" },
+                                    { label: "Get Involved", target: "connect", action: "join-team" },
+                                    { label: "Scroll to Top", target: "top" }
+                                ].map((link) => (
+                                    <button
+                                        key={link.label}
+                                        onClick={() => {
+                                            if (link.target === "top") {
+                                                window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+                                            } else {
+                                                const section = document.getElementById(link.target);
+                                                if (section) {
+                                                    section.scrollIntoView({ behavior: "instant" });
+                                                }
+                                                if (link.action === "join-team") {
+                                                    setTimeout(() => {
+                                                        window.dispatchEvent(new CustomEvent("activate-tab", { detail: "Join Our Team" }));
+                                                    }, 50);
+                                                }
+                                            }
+                                        }}
+                                        className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all text-left"
+                                    >
+                                        {link.label}
                                         <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                    </Link>
+                                    </button>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Any Questions */}
+                        {/* Learn More */}
                         <div className="space-y-6">
                             <h3 className="text-xs font-mono tracking-widest text-white/30 uppercase">Learn More</h3>
                             <div className="flex flex-col gap-4">
-                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Partner With Us
-                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Our Programs
-                                    <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Success Stories
-                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                                <Link href="#" className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all">
-                                    Resource Hub
-                                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                </Link>
+                                {[
+                                    { label: "Partner With Us", target: "connect", tab: "Partner With Us" },
+                                    { label: "Join Our Team", target: "connect", tab: "Join Our Team" },
+                                    { label: "What Others Say", target: "testimonials" },
+                                    { label: "Frequently Asked", target: "got-questions" }
+                                ].map((link) => (
+                                    <button
+                                        key={link.label}
+                                        onClick={() => {
+                                            const section = document.getElementById(link.target);
+                                            if (section) {
+                                                section.scrollIntoView({ behavior: "instant" });
+                                            }
+                                            if (link.tab) {
+                                                setTimeout(() => {
+                                                    window.dispatchEvent(new CustomEvent("activate-tab", { detail: link.tab }));
+                                                }, 50);
+                                            }
+                                        }}
+                                        className="group flex items-center gap-2 text-xl font-medium hover:text-white/60 transition-all text-left"
+                                    >
+                                        {link.label}
+                                        <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                    </button>
+                                ))}
                             </div>
                         </div>
 

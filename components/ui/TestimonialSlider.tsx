@@ -17,12 +17,14 @@ export interface TestimonialSliderProps {
     testimonials: TestimonialItem[];
     sectionLabel?: string;
     className?: string;
+    id?: string;
 }
 
 export function TestimonialSlider({
     testimonials,
     sectionLabel = "Testimonials",
-    className = ""
+    className = "",
+    id
 }: TestimonialSliderProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -46,7 +48,7 @@ export function TestimonialSlider({
     if (!testimonials || testimonials.length === 0) return null;
 
     return (
-        <section data-theme="light" className={`bg-[#f5f5f7] pt-24 pb-0 ${className}`}>
+        <section id={id} data-theme="light" className={`bg-[#f5f5f7] pt-24 pb-0 ${className}`}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 {/* Header Labels */}
                 <div className="flex flex-row justify-between items-center gap-4 mb-12">

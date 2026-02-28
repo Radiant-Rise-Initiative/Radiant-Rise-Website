@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DonationInterface } from "@/components/layout/DonationInterface";
 
 type Tab = "Partner With Us" | "Join Our Team" | "Support Us";
@@ -13,6 +13,14 @@ const tabConfig: Record<Tab, { mobile: string; desktop: string }> = {
 
 export function TabForm() {
     const [activeTab, setActiveTab] = useState<Tab>("Partner With Us");
+
+    useEffect(() => {
+        const handler = (e: CustomEvent<Tab>) => {
+            setActiveTab(e.detail);
+        };
+        window.addEventListener("activate-tab", handler as EventListener);
+        return () => window.removeEventListener("activate-tab", handler as EventListener);
+    }, []);
 
     return (
         <div className="bg-[#f8f9fa] rounded-none shadow-2xl overflow-hidden self-start">

@@ -44,6 +44,7 @@ const testimonialsData: TestimonialItem[] = [
 export function Testimonials() {
     return (
         <TestimonialSlider
+            id="testimonials"
             testimonials={testimonialsData}
             sectionLabel="Testimonials"
         />
