@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export interface HeroProps {
     title: string;
-    description: string;
+    description: string | string[];
     images: string[];
     actionText?: string;
     onActionClick?: () => void;
@@ -93,9 +93,26 @@ export function HeroUI({
                 <div className="@container max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="flex flex-col md:flex-row items-end justify-between gap-8 pb-8 border-b border-white/40">
                         <div className="max-w-xl">
-                            <p className="text-white text-lg md:text-xl font-medium leading-relaxed">
-                                {description}
-                            </p>
+                            <div className="relative min-h-[4.5rem]">
+                                {Array.isArray(description) ? (
+                                    <AnimatePresence mode="wait">
+                                        <motion.p
+                                            key={currentImageIndex % description.length}
+                                            initial={{ opacity: 0, y: 12 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -12 }}
+                                            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+                                            className="text-white text-lg md:text-xl font-medium leading-relaxed"
+                                        >
+                                            {description[currentImageIndex % description.length]}
+                                        </motion.p>
+                                    </AnimatePresence>
+                                ) : (
+                                    <p className="text-white text-lg md:text-xl font-medium leading-relaxed">
+                                        {description}
+                                    </p>
+                                )}
+                            </div>
                         </div>
 
                         {actionText && (
