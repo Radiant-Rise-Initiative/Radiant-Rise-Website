@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, useInView } from "framer-motion";
 
 const newsItems = [
     {
@@ -80,6 +80,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 export function RecentNews() {
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
     const { scrollY } = useScroll();
+    const gridRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(gridRef, { once: false, amount: 0.2 });
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
@@ -102,37 +104,22 @@ export function RecentNews() {
                 />
 
                 {/* News Grid */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.2 }}
-                    variants={{
-                        hidden: {},
-                        show: {
-                            transition: {
-                                staggerChildren: 0.1
-                            }
-                        }
-                    }}
+                <div
+                    ref={gridRef}
                     data-theme="dark"
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8 -my-8 px-4 -mx-4"
                 >
-                    {newsItems.map((item) => (
+                    {newsItems.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            variants={{
-                                hidden: {
-                                    opacity: 0,
-                                    x: scrollDirection === "down" ? 60 : -60
-                                },
-                                show: {
-                                    opacity: 1,
-                                    x: 0,
-                                    transition: {
-                                        duration: 0.8,
-                                        ease: [0.21, 0.47, 0.32, 0.98]
-                                    }
-                                }
+                            animate={isInView
+                                ? { opacity: 1, x: 0 }
+                                : { opacity: 0, x: scrollDirection === "down" ? 40 : -40 }
+                            }
+                            transition={{
+                                duration: isInView ? 0.8 : 0,
+                                ease: [0.21, 0.47, 0.32, 0.98],
+                                delay: isInView ? index * 0.1 : 0
                             }}
                         >
                             <Link
@@ -151,7 +138,7 @@ export function RecentNews() {
                             </Link>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

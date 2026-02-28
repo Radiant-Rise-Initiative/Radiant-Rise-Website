@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useInView } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export interface CarouselItem {
@@ -37,6 +37,8 @@ export function InfoCarouselComponent({
     items,
 }: InfoCarouselComponentProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const carouselInViewRef = useRef<HTMLDivElement>(null);
+    const isCarouselInView = useInView(carouselInViewRef, { once: false, amount: 0.2 });
     const [activeIndex, setActiveIndex] = useState(0);
     const [selectedModal, setSelectedModal] = useState<CarouselItem["modal"] | null>(null);
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
@@ -103,39 +105,26 @@ export function InfoCarouselComponent({
                 </div>
 
                 {/* Scroller - Full Bleed with calculated padding for alignment */}
-                <motion.div
-                    ref={scrollRef}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.2 }}
-                    variants={{
-                        hidden: {},
-                        show: {
-                            transition: {
-                                staggerChildren: 0.1
-                            }
-                        }
+                <div
+                    ref={(node) => {
+                        scrollRef.current = node;
+                        (carouselInViewRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
                     }}
                     data-theme="dark"
                     className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide px-4 sm:px-[max(3rem,calc((100vw-1280px)/2))] 2xl:px-[max(3rem,calc((100vw-1440px)/2))]"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
-                    {items.map((item) => (
+                    {items.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            variants={{
-                                hidden: {
-                                    opacity: 0,
-                                    x: scrollDirection === "down" ? 60 : -60
-                                },
-                                show: {
-                                    opacity: 1,
-                                    x: 0,
-                                    transition: {
-                                        duration: 0.8,
-                                        ease: [0.21, 0.47, 0.32, 0.98]
-                                    }
-                                }
+                            animate={isCarouselInView
+                                ? { opacity: 1, x: 0 }
+                                : { opacity: 0, x: scrollDirection === "down" ? 40 : -40 }
+                            }
+                            transition={{
+                                duration: isCarouselInView ? 0.8 : 0,
+                                ease: [0.21, 0.47, 0.32, 0.98],
+                                delay: isCarouselInView ? index * 0.1 : 0
                             }}
                             className="flex-none snap-center w-full md:w-[90%] h-[580px] bg-black text-white overflow-hidden relative group cursor-pointer"
                             onClick={() => {
@@ -198,7 +187,7 @@ export function InfoCarouselComponent({
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
 
                 {/* Controls - Constrained */}
                 <div data-theme="light" className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8 px-4 sm:px-12 lg:px-0">
