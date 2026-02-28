@@ -64,6 +64,8 @@ export function WhoWeAreTabs() {
     return (
         <AutomatedInfoTabs
             id="who-we-are"
+            title="Who We Are"
+            description="Born from the lived realities of Acholi Quarters, Radiant Rise Initiative is a community-owned movement defined by deep-rooted values. Driven by faith, radical inclusivity, and an unwavering commitment to human dignity, we are building a sanctuary where vulnerable youths and young mothers can truly thrive and lead."
             tabs={whoWeAreTabs}
             durationPerTab={5000}
         />

@@ -21,6 +21,8 @@ export interface InfoTab {
 
 interface AutomatedInfoTabsProps {
     id?: string;
+    title?: string;
+    description?: string;
     tabs: InfoTab[];
     durationPerTab?: number;
     className?: string;
@@ -28,6 +30,8 @@ interface AutomatedInfoTabsProps {
 
 export function AutomatedInfoTabs({
     id,
+    title,
+    description,
     tabs,
     durationPerTab = 5000,
     className
@@ -63,10 +67,21 @@ export function AutomatedInfoTabs({
     };
 
     return (
-        <section id={id} className={cn("bg-black text-white pt-20 pb-24 overflow-hidden", className)}>
-            {/* Added px-4 sm:px-12 to ensure content sits within horizontal padding fully */}
+        <section id={id} className={cn("bg-black text-white py-24 border-t border-white/10", className)}>
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-0 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+                {/* Header Section */}
+                {title && description && (
+                    <div className="pb-11 max-w-2xl">
+                        <h2 className="text-5xl md:text-6xl font-semibold text-white tracking-tight mb-8">
+                            {title}
+                        </h2>
+                        <p className="text-white text-lg md:text-xl font-normal md:font-medium leading-relaxed max-w-2xl">
+                            {description}
+                        </p>
+                    </div>
+                )}
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 lg:min-h-[600px]">
 
                     {/* Left Column: Tabs & Headline */}
                     <div className="flex flex-col justify-between h-full">
@@ -149,14 +164,6 @@ export function AutomatedInfoTabs({
                                         </div>
                                     ))}
                                 </div>
-
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center gap-2 text-white hover:text-white/70 transition-colors group"
-                                >
-                                    <span className="text-sm font-mono tracking-widest uppercase">Learn More</span>
-                                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                                </Link>
                             </div>
                         ))}
                     </div>
