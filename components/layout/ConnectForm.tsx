@@ -4,7 +4,7 @@ import { TabForm } from "@/components/ui/TabForm";
 
 export function ConnectForm() {
     return (
-        <section data-theme="dark" className="relative min-h-[800px] flex items-center pt-20 pb-0 select-none">
+        <section id="connect" data-theme="dark" className="relative min-h-[800px] flex items-center pt-20 pb-0 select-none">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image

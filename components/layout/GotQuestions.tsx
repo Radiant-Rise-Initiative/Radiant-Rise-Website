@@ -79,7 +79,7 @@ export function GotQuestions() {
                 <SectionHeader
                     title="Got Questions?"
                     linkText="MAKE MORE INQUIRIES"
-                    href="/contact"
+                    href="#connect"
                     className="mb-16 px-0"
                 />
                 <QAInquiries items={faqItems} />
