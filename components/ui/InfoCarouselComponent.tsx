@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export interface CarouselItem {
@@ -39,6 +39,17 @@ export function InfoCarouselComponent({
     const scrollRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [selectedModal, setSelectedModal] = useState<CarouselItem["modal"] | null>(null);
+    const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious() ?? 0;
+        if (latest > previous && scrollDirection !== "down") {
+            setScrollDirection("down");
+        } else if (latest < previous && scrollDirection !== "up") {
+            setScrollDirection("up");
+        }
+    });
 
     const closeModal = () => {
         setSelectedModal(null);
@@ -92,15 +103,40 @@ export function InfoCarouselComponent({
                 </div>
 
                 {/* Scroller - Full Bleed with calculated padding for alignment */}
-                <div
+                <motion.div
                     ref={scrollRef}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
                     data-theme="dark"
                     className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide px-4 sm:px-[max(3rem,calc((100vw-1280px)/2))] 2xl:px-[max(3rem,calc((100vw-1440px)/2))]"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {items.map((item) => (
-                        <div
+                        <motion.div
                             key={item.id}
+                            variants={{
+                                hidden: {
+                                    opacity: 0,
+                                    x: scrollDirection === "down" ? 60 : -60
+                                },
+                                show: {
+                                    opacity: 1,
+                                    x: 0,
+                                    transition: {
+                                        duration: 0.8,
+                                        ease: [0.21, 0.47, 0.32, 0.98]
+                                    }
+                                }
+                            }}
                             className="flex-none snap-center w-full md:w-[90%] h-[580px] bg-black text-white overflow-hidden relative group cursor-pointer"
                             onClick={() => {
                                 if (item.modal) {
@@ -160,9 +196,9 @@ export function InfoCarouselComponent({
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Controls - Constrained */}
                 <div data-theme="light" className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full mt-8 px-4 sm:px-12 lg:px-0">
