@@ -45,6 +45,7 @@ export function ColumnInfoStack({
         setHoveredId(null);
     };
 
+
     return (
         <>
             <section id={id} data-theme="dark" className={cn("bg-black text-white py-24 border-t border-white/10", className)}>
@@ -61,13 +62,27 @@ export function ColumnInfoStack({
 
                     {/* Interactive Grid */}
                     <div className="h-auto md:h-[600px] flex flex-col md:flex-row bg-[#111]">
-                        {items.map((item) => {
+                        {items.map((item, index) => {
                             const isHovered = hoveredId === item.id || activeModalId === item.id;
                             const isActiveFlex = hoveredId === item.id || activeModalId === item.id;
 
                             return (
-                                <div
+                                <motion.div
                                     key={item.id}
+                                    initial={{ opacity: 0, filter: "blur(12px)", scale: 0.97 }}
+                                    whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{
+                                        duration: 0.9,
+                                        ease: [0.21, 0.47, 0.32, 0.98],
+                                        delay: index * 0.15
+                                    }}
+                                    className={cn(
+                                        "group relative border-b md:border-r md:border-b-0 border-white/10 p-8 md:p-12 flex flex-col justify-between transition-[flex] duration-500 ease-in-out cursor-pointer overflow-hidden",
+                                        "last:border-b-0 md:last:border-r-0",
+                                        isActiveFlex ? "md:flex-[2.5]" : "md:flex-1",
+                                        (!hoveredId && !activeModalId) ? "md:flex-1" : ""
+                                    )}
                                     onMouseEnter={() => {
                                         if (!activeModalId) setHoveredId(item.id);
                                     }}
@@ -79,12 +94,6 @@ export function ColumnInfoStack({
                                             setHoveredId(hoveredId === item.id ? null : item.id);
                                         }
                                     }}
-                                    className={cn(
-                                        "group relative border-b md:border-r md:border-b-0 border-white/10 p-8 md:p-12 flex flex-col justify-between transition-all duration-500 ease-in-out cursor-pointer overflow-hidden",
-                                        "last:border-b-0 md:last:border-r-0",
-                                        isActiveFlex ? "md:flex-[2.5]" : "md:flex-1",
-                                        (!hoveredId && !activeModalId) ? "md:flex-1" : ""
-                                    )}
                                 >
                                     {/* Top Content */}
                                     <div>
@@ -130,67 +139,69 @@ export function ColumnInfoStack({
                                             {item.number}
                                         </span>
                                     </div>
-                                </div>
+                                </motion.div>
                             );
                         })}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Modal Overlay */}
             <AnimatePresence>
-                {selectedModal && (
-                    <>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/80 backdrop-blur-sm cursor-pointer z-[100]"
-                            onClick={closeModal}
-                        />
-
-                        <div className="fixed inset-0 flex items-center justify-center p-4 z-[101] pointer-events-none">
+                {
+                    selectedModal && (
+                        <>
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="relative bg-[#111] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto"
-                            >
-                                <button
-                                    onClick={closeModal}
-                                    className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-full hover:bg-white/10 transition-colors"
-                                >
-                                    <X size={20} />
-                                </button>
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-black/80 backdrop-blur-sm cursor-pointer z-[100]"
+                                onClick={closeModal}
+                            />
 
-                                <div className="flex flex-col gap-6 pt-4">
-                                    <div>
-                                        <h3 className="text-sm font-medium text-white/50 leading-tight mb-4">
-                                            {selectedModal.topTagline}
-                                        </h3>
-                                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1]">
-                                            {selectedModal.title}
-                                        </h2>
+                            <div className="fixed inset-0 flex items-center justify-center p-4 z-[101] pointer-events-none">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                                    className="relative bg-[#111] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto"
+                                >
+                                    <button
+                                        onClick={closeModal}
+                                        className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+                                    >
+                                        <X size={20} />
+                                    </button>
+
+                                    <div className="flex flex-col gap-6 pt-4">
+                                        <div>
+                                            <h3 className="text-sm font-medium text-white/50 leading-tight mb-4">
+                                                {selectedModal.topTagline}
+                                            </h3>
+                                            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1]">
+                                                {selectedModal.title}
+                                            </h2>
+                                        </div>
+                                        <div className="py-2">
+                                            <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                                                {selectedModal.text}
+                                            </p>
+                                        </div>
+                                        <div className="pt-4">
+                                            <button
+                                                onClick={closeModal}
+                                                className="text-orange-500 font-medium hover:text-orange-400 transition-colors flex items-center gap-1 text-sm md:text-base underline underline-offset-4"
+                                            >
+                                                Close details
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="py-2">
-                                        <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                                            {selectedModal.text}
-                                        </p>
-                                    </div>
-                                    <div className="pt-4">
-                                        <button
-                                            onClick={closeModal}
-                                            className="text-orange-500 font-medium hover:text-orange-400 transition-colors flex items-center gap-1 text-sm md:text-base underline underline-offset-4"
-                                        >
-                                            Close details
-                                        </button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </>
-                )}
-            </AnimatePresence>
+                                </motion.div>
+                            </div>
+                        </>
+                    )
+                }
+            </AnimatePresence >
         </>
     );
 }
