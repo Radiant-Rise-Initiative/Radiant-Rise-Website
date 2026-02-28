@@ -15,6 +15,7 @@ export interface InfoTab {
     id: string;
     label: string;
     headline: string;
+    bottomTagline?: string;
     features: InfoTabFeature[];
 }
 
@@ -116,7 +117,7 @@ export function AutomatedInfoTabs({
                                     )}
                                 >
                                     <div className="inline-block bg-[#f5f5f7]/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-white/80 mb-6">
-                                        Initiative
+                                        {tab.bottomTagline || "Initiative"}
                                     </div>
                                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.1]">
                                         {tab.headline}
