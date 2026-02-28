@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
 import { ImpactStories } from "@/components/layout/ImpactStories";
-import { WhoWeAreTabs } from "@/components/layout/WhoWeAreTabs";
+import { OurValuesTabs } from "@/components/layout/OurValuesTabs";
 import { TargetScroller } from "@/components/layout/TargetScroller";
 import { Testimonials } from "@/components/layout/Testimonials";
 import { RecentNews } from "@/components/layout/RecentNews";
@@ -24,7 +24,7 @@ export default function Home() {
       <ImpactStats />
       <OurIdentity />
       <ImpactStories />
-      <WhoWeAreTabs />
+      <OurValuesTabs />
       <TargetScroller />
       <Testimonials />
       <RecentNews />

@@ -28,9 +28,10 @@ export function Navbar() {
     }, [isOpen, isDonationModalOpen]);
 
     const navItems = [
-        { label: "Who We Are", id: "who-we-are" },
         { label: "Our Impact", id: "our-impact" },
-        { label: "Our Identity", id: "our-identity" }
+        { label: "Our Values", id: "who-we-are" },
+        { label: "Our Identity", id: "our-identity" },
+        { label: "Recent News", id: "recent-news" }
     ];
 
     const logo = {

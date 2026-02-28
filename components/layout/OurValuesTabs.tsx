@@ -2,7 +2,7 @@
 
 import { AutomatedInfoTabs, InfoTab } from "@/components/ui/AutomatedInfoTabs";
 
-const whoWeAreTabs: InfoTab[] = [
+const ourValuesTabs: InfoTab[] = [
     {
         id: "compassion",
         label: "Compassion",
@@ -60,13 +60,13 @@ const whoWeAreTabs: InfoTab[] = [
     }
 ];
 
-export function WhoWeAreTabs() {
+export function OurValuesTabs() {
     return (
         <AutomatedInfoTabs
             id="who-we-are"
-            title="Who We Are"
+            title="Our Values"
             description="Born from the lived realities of Acholi Quarters, Radiant Rise Initiative is a community-owned movement defined by deep-rooted values. Driven by faith, radical inclusivity, and an unwavering commitment to human dignity, we are building a sanctuary where vulnerable youths and young mothers can truly thrive and lead."
-            tabs={whoWeAreTabs}
+            tabs={ourValuesTabs}
             durationPerTab={5000}
         />
     );
