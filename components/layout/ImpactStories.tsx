@@ -26,7 +26,7 @@ const stories: CarouselItem[] = [
         modal: {
             topTagline: "COMMUNITY ENGAGEMENT",
             title: "Conducting the Comprehensive Needs Assessment",
-            text: "On September 12th, 2025, Radiant Rise Initiative conducted a comprehensive needs assessment in Acholi Quarters. This exercise created a participatory platform where diverse voices—including young mothers, male youth, senior men, and religious leaders—could openly share their experiences and aspirations. By deliberately engaging a wide spectrum of stakeholders, we ensured that future interventions are genuinely responsive and community-driven. Through interactive dialogue, participants highlighted critical concerns affecting livelihoods and family stability, ultimately strengthening the trust and collaboration required for sustainable change."
+            text: "On September 12th, 2025, Radiant Rise Initiative conducted a comprehensive needs assessment in Acholi Quarters. This exercise created a participatory platform where diverse voices, including young mothers, youth, senior men, religious leaders, and local council leaders of Banda, openly shared their experiences, challenges and aspirations. By deliberately engaging a wide spectrum of stakeholders, we ensure that future interventions are genuinely responsive and community-driven. Through interactive dialogue, participants highlighted critical concerns affecting livelihoods and family instability, ultimately strengthening the trust and collaboration required for sustainable change."
         }
     },
     {
