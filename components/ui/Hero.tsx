@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { Pause, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface HeroProps {
@@ -24,6 +25,7 @@ export function HeroUI({
     className
 }: HeroProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -31,13 +33,13 @@ export function HeroUI({
     });
 
     useEffect(() => {
-        if (!images || images.length <= 1) return;
+        if (!images || images.length <= 1 || isPaused) return;
 
         const timer = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % images.length);
         }, 5000);
         return () => clearInterval(timer);
-    }, [images]);
+    }, [images, isPaused]);
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
@@ -91,7 +93,7 @@ export function HeroUI({
                 style={{ y: textY, opacity: textOpacity }}
             >
                 <div className="@container max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="flex flex-col md:flex-row items-end justify-between gap-8 pb-8 border-b border-white/40">
+                    <div className="flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 pb-8 border-b border-white/40">
                         <div className="max-w-xl">
                             <div className="relative min-h-[4.5rem]">
                                 {Array.isArray(description) ? (
@@ -115,8 +117,17 @@ export function HeroUI({
                             </div>
                         </div>
 
-                        {actionText && (
-                            <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-start md:items-end justify-between gap-4">
+                            <button
+                                onClick={() => setIsPaused(!isPaused)}
+                                className="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-mono mt-1.5"
+                                aria-label={isPaused ? "Play slides" : "Pause slides"}
+                            >
+                                <span>{isPaused ? "Play" : "Pause"}</span>
+                                {isPaused ? <Play size={14} /> : <Pause size={14} />}
+                            </button>
+
+                            {actionText && (
                                 <Button
                                     variant="link"
                                     onClick={onActionClick}
@@ -125,8 +136,8 @@ export function HeroUI({
                                     {actionText}
                                     <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary w-full"></span>
                                 </Button>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
 
                     <h1 className="text-[10.5cqi] font-semibold text-white tracking-tighter leading-[0.8] mt-8 uppercase whitespace-nowrap [text-align-last:justify] w-full">

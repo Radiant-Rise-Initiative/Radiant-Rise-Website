@@ -57,7 +57,7 @@ export function OurIdentity() {
     return (
         <ColumnInfoStack
             id="our-identity"
-            title="Our Identity"
+            title="Who We Are"
             description="At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected."
             items={identityItems}
             onLinkClick={(id) => {
