@@ -11,7 +11,7 @@ import { ConnectForm } from "@/components/layout/ConnectForm";
 import { LetsRiseMarquee } from "@/components/layout/LetsRiseMarquee";
 import { Footer } from "@/components/layout/Footer";
 import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
-import { OurIdentity } from "@/components/layout/OurIdentity";
+import { WhoWeAre } from "@/components/layout/WhoWeAre";
 import { OurGallery } from "@/components/layout/OurGallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
 
@@ -22,7 +22,7 @@ export default function Home() {
       <Hero />
       <PurposeSection />
       <ImpactStats />
-      <OurIdentity />
+      <WhoWeAre />
       <ImpactStories />
       <OurValuesTabs />
       <TargetScroller />

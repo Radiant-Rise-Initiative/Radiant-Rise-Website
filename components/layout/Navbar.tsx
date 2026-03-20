@@ -37,7 +37,7 @@ export function Navbar() {
     const logo = {
         src: "/assets/branding/rr-logo-v3.svg",
         alt: "Radiant Rise Logo",
-        label: "Radiant Rise"
+        label: "Radiant Rise Initiative"
     };
 
     return (

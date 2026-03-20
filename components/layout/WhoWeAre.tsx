@@ -53,7 +53,7 @@ const identityItems: StackItem[] = [
     },
 ];
 
-export function OurIdentity() {
+export function WhoWeAre() {
     return (
         <ColumnInfoStack
             id="who-we-are"
