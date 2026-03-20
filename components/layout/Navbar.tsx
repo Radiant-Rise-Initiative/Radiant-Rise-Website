@@ -29,8 +29,8 @@ export function Navbar() {
 
     const navItems = [
         { label: "Our Impact", id: "our-impact" },
-        { label: "Our Values", id: "who-we-are" },
-        { label: "Our Identity", id: "our-identity" },
+        { label: "Our Values", id: "our-values" },
+        { label: "Who We Are", id: "who-we-are" },
         { label: "Recent News", id: "recent-news" }
     ];
 
