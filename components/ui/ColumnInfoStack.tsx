@@ -25,6 +25,9 @@ export interface ColumnInfoStackProps {
     onLinkClick?: (id: string) => void;
     className?: string;
     id?: string;
+    sectionBgColor?: string;
+    contentBgColor?: string;
+    linkColor?: string;
 }
 
 export function ColumnInfoStack({
@@ -33,7 +36,10 @@ export function ColumnInfoStack({
     items,
     onLinkClick,
     className,
-    id
+    id,
+    sectionBgColor = "black",
+    contentBgColor = "#111",
+    linkColor = "#f97316" // orange-500
 }: ColumnInfoStackProps) {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
     const [selectedModal, setSelectedModal] = useState<StackItem["modal"] | null>(null);
@@ -48,7 +54,12 @@ export function ColumnInfoStack({
 
     return (
         <>
-            <section id={id} data-theme="dark" className={cn("bg-black text-white py-24 border-t border-white/10", className)}>
+            <section
+                id={id}
+                data-theme="dark"
+                className={cn("text-white py-24 border-t border-white/20", className)}
+                style={{ backgroundColor: sectionBgColor }}
+            >
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                     {/* Header Section */}
                     <div className="pb-16 max-w-2xl">
@@ -61,7 +72,10 @@ export function ColumnInfoStack({
                     </div>
 
                     {/* Interactive Grid */}
-                    <div className="h-auto md:h-[600px] flex flex-col md:flex-row bg-[#111]">
+                    <div
+                        className="h-auto md:h-[600px] flex flex-col md:flex-row"
+                        style={{ backgroundColor: contentBgColor }}
+                    >
                         {items.map((item, index) => {
                             const isHovered = hoveredId === item.id || activeModalId === item.id;
                             const isActiveFlex = hoveredId === item.id || activeModalId === item.id;
@@ -78,7 +92,7 @@ export function ColumnInfoStack({
                                         delay: index * 0.15
                                     }}
                                     className={cn(
-                                        "group relative border-b md:border-r md:border-b-0 border-white/10 p-8 md:p-12 flex flex-col justify-between transition-[flex] duration-500 ease-in-out cursor-pointer overflow-hidden",
+                                        "group relative border-b md:border-r md:border-b-0 border-white/20 p-8 md:p-12 flex flex-col justify-between transition-[flex] duration-500 ease-in-out cursor-pointer overflow-hidden",
                                         "last:border-b-0 md:last:border-r-0",
                                         isActiveFlex ? "md:flex-[2.5]" : "md:flex-1",
                                         (!hoveredId && !activeModalId) ? "md:flex-1" : ""
@@ -122,7 +136,8 @@ export function ColumnInfoStack({
                                                     }
                                                     onLinkClick?.(item.id);
                                                 }}
-                                                className="flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-orange-500 transition-colors hover:text-orange-400 group"
+                                                className="flex items-center gap-2 text-sm font-mono tracking-widest uppercase transition-colors hover:opacity-80 group"
+                                                style={{ color: linkColor }}
                                             >
                                                 {item.linkText}
                                                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -164,7 +179,8 @@ export function ColumnInfoStack({
                                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                    className="relative bg-[#111] p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto"
+                                    className="relative p-12 md:p-16 max-w-3xl w-full shadow-2xl pointer-events-auto"
+                                    style={{ backgroundColor: contentBgColor }}
                                 >
                                     <button
                                         onClick={closeModal}
@@ -190,7 +206,8 @@ export function ColumnInfoStack({
                                         <div className="pt-4">
                                             <button
                                                 onClick={closeModal}
-                                                className="text-orange-500 font-medium hover:text-orange-400 transition-colors flex items-center gap-1 text-sm md:text-base underline underline-offset-4"
+                                                className="font-medium hover:opacity-80 transition-opacity flex items-center gap-1 text-sm md:text-base underline underline-offset-4"
+                                                style={{ color: linkColor }}
                                             >
                                                 Close details
                                             </button>

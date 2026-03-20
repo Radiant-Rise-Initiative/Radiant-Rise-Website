@@ -103,7 +103,8 @@ export function TestimonialSlider({
                             />
 
                             <div className="flex items-center gap-6">
-                                <div className="relative w-20 h-20 grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500 rounded-full overflow-hidden flex-none">
+                                <div className={`relative w-20 h-20 transition-all duration-500 rounded-full overflow-hidden flex-none
+                                    ${index === activeIndex ? "grayscale-0 brightness-100" : "grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100"}`}>
                                     <Image
                                         src={person.image}
                                         alt={person.role}
@@ -111,9 +112,10 @@ export function TestimonialSlider({
                                         className="object-cover"
                                     />
                                     {/* Overlay for Logo */}
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                    <div className={`absolute inset-0 transition-colors duration-500 z-10
+                                        ${index === activeIndex ? "bg-transparent" : "bg-black/20"}`} />
                                     {/* Radiant Rise Logo */}
-                                    <div className="absolute inset-0 z-20 flex items-center justify-center mix-blend-screen opacity-90 group-hover:opacity-0 transition-opacity duration-500">
+                                    <div className="absolute inset-0 z-20 flex items-center justify-center mix-blend-screen transition-opacity duration-500 opacity-90">
                                         <Image
                                             src="/assets/branding/rr-logo-v3.svg"
                                             alt="Radiant Rise"
