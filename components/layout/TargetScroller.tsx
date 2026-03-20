@@ -27,14 +27,14 @@ const targetEntities: ScrollerItem[] = [
     {
         name: "REVENUE EXPANSION",
         category: "REVENUE EXPANSION",
-        logo: <>25%+ INCOME<br />INCREASE</>,
+        logo: <>98% INCOME<br />INCREASE</>,
         description: "Targeting significant financial improvement and revenue expansion for at least half of our program participants.",
         image: "/assets/branding/splash-image-014.jpg",
     },
     {
         name: "ASSET BUILDING",
         category: "ASSET BUILDING",
-        logo: <>MAJORITY<br />IN SAVINGS</>,
+        logo: <>100% SAVINGS<br />CULTURE</>,
         description: "Reinforcing economic resilience by participating in structured savings groups and financial literacy education to build assets.",
         image: "/assets/branding/splash-image-011.jpg",
     },
@@ -48,8 +48,8 @@ const targetEntities: ScrollerItem[] = [
     {
         name: "CURRENT ENGAGEMENT",
         category: "CURRENT ENGAGEMENT",
-        logo: <>130 MOTHERS<br />RECRUITED</>,
-        description: "Actively engaging and supporting a growing cohort of 130 young mothers through our registered indigenous organization.",
+        logo: <>105 MOTHERS<br />RECRUITED</>,
+        description: "Actively engaging and supporting a growing cohort of 105 young mothers through our registered indigenous organization.",
         image: "/assets/branding/splash-image-013.jpg",
     },
     {
