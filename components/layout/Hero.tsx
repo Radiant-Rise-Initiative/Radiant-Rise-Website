@@ -3,11 +3,11 @@
 import { HeroUI } from "@/components/ui/Hero";
 
 const images = [
-    "/assets/images/hero_images/hero_01.jpg",
-    "/assets/images/hero_images/hero_02.jpg",
-    "/assets/images/hero_images/hero_03.jpg",
-    "/assets/images/hero_images/hero_04.jpg",
-    "/assets/images/hero_images/hero_05.jpg"
+    "/assets/images/hero_images/Hero 01.jpg",
+    "/assets/images/hero_images/Hero 02.jpg",
+    "/assets/images/hero_images/Hero 03.jpg",
+    "/assets/images/hero_images/Hero 04.jpg",
+    "/assets/images/hero_images/Hero 05.jpg"
 ];
 
 const descriptions = [
