@@ -27,7 +27,7 @@ const stats = [
         topLabel: "Local Trust & Buy-In",
         topValue: "90%",
         topModalTitle: "90% Community Approval",
-        topDescription: "Following our extensive grassroots mobilization efforts between November 2025 and February 2026, ninety percent of community members formally welcomed the initiative. This overwhelming support from engaged male youth, elders, religious leaders, and young mothers highlights a profound trust in our community-owned model. It firmly demonstrates that Acholi Quarters is fully ready to collaboratively build coordinated economic pathways that replace fragmented support systems and strengthen every household.",
+        topDescription: "Following our extensive grassroots mobilization efforts between November 2025 and February 2026, ninety percent of community members formally welcomed the initiative. This overwhelming support from Acholi Quarters, engaged young mothers and surrounding community through needs assessment and discussions, highlights a profound trust in our community-owned model. It firmly demonstrates that the Quarters is fully ready to collaboratively build coordinated economic pathways that replace fragmented support systems and strengthen every household.",
         bottomLabel: "Deep Community Focus",
         bottomValue: "1",
         bottomModalTitle: "1 Target Settlement",
