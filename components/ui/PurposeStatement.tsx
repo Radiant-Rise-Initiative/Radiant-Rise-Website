@@ -24,7 +24,7 @@ export function PurposeStatement({
     infoPoints,
 }: PurposeStatementProps) {
     return (
-        <section className="bg-[#f5f5f7] pt-24 pb-0">
+        <section className="bg-[#f5f5f7] py-24">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 <div className="relative h-[800px] w-full overflow-hidden bg-black text-white">
                     <Image

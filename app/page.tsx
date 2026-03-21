@@ -13,6 +13,7 @@ import { GiantLogoSection } from "@/components/layout/GiantLogoSection";
 import { WhoWeAre } from "@/components/layout/WhoWeAre";
 import { OurGallery } from "@/components/layout/OurGallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
+import { TheoriesOfChange } from "@/components/layout/TheoriesOfChange";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <PurposeSection />
+      <TheoriesOfChange />
       <ImpactStats />
       <WhoWeAre />
       <OurValuesTabs />
