@@ -44,7 +44,7 @@ export default function NewsArchive() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                            className="relative aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden"
+                            className="relative aspect-square sm:aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden"
                         >
                             <Link href={`/news/${featuredStory.id}`} className="block w-full h-full group">
                                 <Image 
@@ -54,8 +54,8 @@ export default function NewsArchive() {
                                     className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                                     priority
                                 />
-                                <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-none shadow-sm">
-                                    <span className="text-[10px] sm:text-xs font-mono tracking-[0.2em] font-bold text-black uppercase">
+                                <div className="absolute top-6 left-6 md:top-8 md:left-8">
+                                    <span className="inline-block py-1 px-3 transition-all duration-300 text-xs font-mono uppercase tracking-widest text-white/90 bg-[#f5f5f7]/10 backdrop-blur-sm">
                                         FEATURED • {featuredStory.category}
                                     </span>
                                 </div>
@@ -67,7 +67,7 @@ export default function NewsArchive() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-black/50 font-mono text-sm tracking-widest mb-6 block uppercase"
+                                className="text-xs font-mono tracking-widest text-black/60 uppercase block mb-4 md:mb-6"
                             >
                                 {featuredStory.date}
                             </motion.span>
@@ -75,7 +75,7 @@ export default function NewsArchive() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="text-5xl md:text-6xl font-semibold tracking-tight text-black mb-10 -ml-1"
+                                className="text-5xl md:text-6xl font-semibold tracking-tight text-black mb-8 md:mb-10 -ml-1"
                             >
                                 {featuredStory.title}
                             </motion.h1>
@@ -83,13 +83,14 @@ export default function NewsArchive() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
+                                className="w-full sm:w-auto"
                             >
                                 <Link 
                                     href={`/news/${featuredStory.id}`} 
-                                    className="group inline-flex items-center gap-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] border border-black text-black px-8 py-4 sm:px-10 sm:py-5 hover:bg-black hover:text-white transition-all duration-300"
+                                    className="group inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 text-sm font-mono tracking-widest uppercase border border-black text-black px-8 py-4 sm:px-10 sm:py-5 hover:bg-black hover:text-white transition-all duration-300"
                                 >
                                     Read Story
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -102,7 +103,7 @@ export default function NewsArchive() {
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="flex justify-between items-end mb-16">
                         <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-black -ml-1">The Archive</h2>
-                        <span className="font-mono text-black/40 text-xs tracking-[0.2em] uppercase hidden sm:block">Latest Updates</span>
+                        <span className="font-mono text-xs tracking-widest text-black/60 uppercase hidden sm:block">Latest Updates</span>
                     </div>
 
                     <div 
@@ -114,25 +115,23 @@ export default function NewsArchive() {
                                 href={`/news/${story.id}`} 
                                 key={story.id} 
                                 onMouseEnter={() => setHoveredId(story.id)}
-                                className="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
+                                className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-start md:items-center py-8 md:py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
                             >
                                 <div className="md:col-span-2">
-                                    <span className="text-xs sm:text-sm font-mono text-black/50 tracking-widest uppercase block mb-2 md:mb-0">
+                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase block mb-1 md:mb-0">
                                         {story.date}
                                     </span>
                                 </div>
-                                <div className="md:col-span-7">
-                                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-black group-hover:text-[#CD5929] transition-colors leading-[1.1]">
+                                <div className="md:col-span-8">
+                                    <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-black group-hover:text-[#CD5929] transition-colors leading-[1.15] md:leading-[1.1]">
                                         {story.title}
                                     </h3>
                                 </div>
-                                <div className="md:col-span-2 hidden md:block">
-                                    <span className="text-xs sm:text-sm font-mono text-black/50 tracking-widest uppercase">
+                                <div className="md:col-span-2 hidden md:flex justify-end items-center gap-5">
+                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase text-right">
                                         {story.category}
                                     </span>
-                                </div>
-                                <div className="md:col-span-1 hidden md:flex justify-end">
-                                    <ArrowUpRight className="w-8 h-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#CD5929]" />
+                                    <ArrowUpRight className="w-8 h-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#CD5929] shrink-0" />
                                 </div>
                             </Link>
                         ))}
