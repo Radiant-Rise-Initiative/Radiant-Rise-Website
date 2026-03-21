@@ -5,29 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, useInView } from "framer-motion";
 
-const newsItems = [
-    {
-        id: "vocational-hub",
-        category: "INITIATIVE",
-        date: "FEB 15, 2024",
-        title: "Radiant Rise Launches New Vocational Empowerment Hub for Young Mothers",
-        image: "/assets/images/news_images/newsletter_01.jpg",
-    },
-    {
-        id: "trauma-circles",
-        category: "IMPACT",
-        date: "JAN 28, 2024",
-        title: "Healing Through Storytelling: Over 100 Participants Join Our Trauma-Informed Counseling Circles",
-        image: "/assets/images/news_images/newsletter_02.jpg",
-    },
-    {
-        id: "community-grant",
-        category: "PARTNERSHIP",
-        date: "DEC 12, 2023",
-        title: "Scaling Grassroots Change: Securing Community Grants to Uplift Vulnerable Youths",
-        image: "/assets/images/news_images/newsletter_03.jpg",
-    },
-];
+import { newsItems } from "@/lib/newsData";
 
 import { useEffect } from "react";
 

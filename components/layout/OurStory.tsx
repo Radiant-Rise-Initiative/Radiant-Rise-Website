@@ -57,11 +57,11 @@ const stories: CarouselItem[] = [
     }
 ];
 
-export function ImpactStories() {
+export function OurStory() {
     return (
         <InfoCarouselComponent
-            id="impact-stories"
-            sectionTitle="Impact Stories"
+            id="our-story"
+            sectionTitle="Our Story"
             sectionLinkText="See All Impact Stories"
             sectionHref="#"
             items={stories}

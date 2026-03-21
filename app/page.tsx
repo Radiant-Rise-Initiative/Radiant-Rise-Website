@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
-import { ImpactStories } from "@/components/layout/ImpactStories";
+import { OurStory } from "@/components/layout/OurStory";
 import { OurValuesTabs } from "@/components/layout/OurValuesTabs";
 import { TargetScroller } from "@/components/layout/TargetScroller";
-import { Testimonials } from "@/components/layout/Testimonials";
+import { ImpactMilestones } from "@/components/layout/ImpactMilestones";
 import { RecentNews } from "@/components/layout/RecentNews";
 import { GotQuestions } from "@/components/layout/GotQuestions";
 import { ConnectForm } from "@/components/layout/ConnectForm";
@@ -23,10 +23,10 @@ export default function Home() {
       <PurposeSection />
       <ImpactStats />
       <WhoWeAre />
-      <ImpactStories />
+      <OurStory />
       <OurValuesTabs />
       <TargetScroller />
-      <Testimonials />
+      <ImpactMilestones />
       <RecentNews />
       <OurGallery />
       <GotQuestions />
