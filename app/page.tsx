@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
-import { OurStory } from "@/components/layout/OurStory";
 import { OurValuesTabs } from "@/components/layout/OurValuesTabs";
 import { TargetScroller } from "@/components/layout/TargetScroller";
 import { ImpactMilestones } from "@/components/layout/ImpactMilestones";
@@ -23,7 +22,6 @@ export default function Home() {
       <PurposeSection />
       <ImpactStats />
       <WhoWeAre />
-      <OurStory />
       <OurValuesTabs />
       <TargetScroller />
       <ImpactMilestones />
