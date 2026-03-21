@@ -14,7 +14,7 @@ export const newsItems: NewsItem[] = [
         id: "vocational-hub",
         category: "INITIATIVE",
         date: "FEB 15, 2024",
-        title: "Radiant Rise Launches New Vocational Empowerment Hub for Young Mothers",
+        title: "Vocational Empowerment: Radiant Rise Opens New Training Hub for Young Mothers",
         image: "/assets/images/news_images/newsletter_01.jpg",
         author: "Sarah Namukasa",
         readTime: "4 min read",

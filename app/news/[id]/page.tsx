@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 
 export default function NewsletterTemplate({ params }: { params: Promise<{ id: string }> }) {
@@ -24,18 +25,42 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
             <article className="pt-32 pb-24 flex-grow px-6">
                 <div className="max-w-[1000px] mx-auto bg-white shadow-[0_40px_100px_rgba(0,0,0,0.05)] border border-black/[0.02]">
                     {/* Newsletter Header / Masthead */}
-                    <div className="p-8 md:p-12 border-b-2 border-black/5 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
-                            <span className="text-[#CD5929] font-mono text-xs tracking-[0.3em] font-bold mb-4 block">
-                                RADIANT RISE WEEKLY • {item.date}
-                            </span>
-                            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-black leading-tight max-w-3xl">
-                                {item.title}
-                            </h1>
-                        </div>
-                        <div className="text-right hidden md:block">
-                            <span className="text-[10px] font-mono tracking-widest text-black/30 uppercase block">VOL. 01 ISSUE 12</span>
-                        </div>
+                    <div className="p-8 md:p-12 border-b-2 border-black/5">
+                        <Link href="/news" className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 hover:bg-black/10 hover:text-black transition-colors mb-6 md:mb-8 group">
+                            <ArrowLeft className="w-3.5 h-3.5 -ml-1 group-hover:-translate-x-1 transition-transform" />
+                            RADIANT RISE WEEKLY • {item.date}
+                        </Link>
+                        
+                        {(() => {
+                            const parts = item.title.split(': ');
+                            if (parts.length > 1) {
+                                return (
+                                    <>
+                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-black leading-tight max-w-4xl mb-4">
+                                            {parts[0]}
+                                        </h1>
+                                        <div className="flex flex-row items-center justify-between gap-8">
+                                            <p className="text-lg md:text-xl text-black/80 leading-relaxed max-w-3xl">
+                                                {parts.slice(1).join(': ')}
+                                            </p>
+                                            <div className="hidden md:block shrink-0">
+                                                <span className="text-xs font-mono tracking-widest text-black uppercase block">VOL. 01 ISSUE 12</span>
+                                            </div>
+                                        </div>
+                                    </>
+                                );
+                            }
+                            return (
+                                <div className="flex flex-row md:items-end justify-between gap-6">
+                                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-black leading-tight max-w-4xl">
+                                        {item.title}
+                                    </h1>
+                                    <div className="text-right hidden md:block shrink-0 mb-3">
+                                        <span className="text-xs font-mono tracking-widest text-black uppercase block">VOL. 01 ISSUE 12</span>
+                                    </div>
+                                </div>
+                            );
+                        })()}
                     </div>
 
                     {/* Featured Image */}
@@ -53,16 +78,16 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                         {/* Meta Sidebar */}
                         <div className="lg:col-span-3 border-t lg:border-t-0 lg:border-r border-black/5 pt-8 lg:pt-0">
                             <div className="mb-8">
-                                <span className="text-[10px] font-mono text-black/40 uppercase tracking-widest block mb-1">AUTHOR</span>
-                                <span className="text-sm font-semibold text-black">{item.author || "Radiant Rise Team"}</span>
+                                <span className="text-sm leading-relaxed text-black/60 block mb-1">Author</span>
+                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.author || "Radiant Rise Team"}</span>
                             </div>
                             <div className="mb-8">
-                                <span className="text-[10px] font-mono text-black/40 uppercase tracking-widest block mb-1">CATEGORY</span>
-                                <span className="text-sm font-semibold text-black">{item.category}</span>
+                                <span className="text-sm leading-relaxed text-black/60 block mb-1">Category</span>
+                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.category}</span>
                             </div>
                             <div className="mb-8">
-                                <span className="text-[10px] font-mono text-black/40 uppercase tracking-widest block mb-1">READ TIME</span>
-                                <span className="text-sm font-semibold text-black">{item.readTime || "5 MIN"}</span>
+                                <span className="text-sm leading-relaxed text-black/60 block mb-1">Read Time</span>
+                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.readTime || "5 MIN"}</span>
                             </div>
                         </div>
 
@@ -77,21 +102,26 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                             <div className="mt-16 pt-12 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-8">
                                 <Link
                                     href="/news"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-[#CD5929] hover:text-[#96503F] transition-colors group"
+                                    className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 hover:bg-black/10 hover:text-black transition-colors group"
                                 >
-                                    <span className="transition-transform group-hover:-translate-x-1">←</span> Back to all news
+                                    <ArrowLeft className="w-3.5 h-3.5 -ml-1 group-hover:-translate-x-1 transition-transform" />
+                                    BACK TO ALL NEWS
                                 </Link>
-                                <div className="flex gap-4">
-                                    <button className="h-10 w-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#CD5929] hover:text-white transition-all text-black/60">
-                                        <span className="text-xs font-mono">SH</span>
-                                    </button>
-                                    <button className="h-10 w-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#CD5929] hover:text-white transition-all text-black/60">
-                                        <span className="text-xs font-mono">TW</span>
-                                    </button>
-                                    <button className="h-10 w-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-[#CD5929] hover:text-white transition-all text-black/60">
-                                        <span className="text-xs font-mono">IN</span>
-                                    </button>
-                                </div>
+                                
+                                {(() => {
+                                    const currentIndex = newsItems.findIndex(n => n.id === item.id);
+                                    const nextItem = newsItems[(currentIndex + 1) % newsItems.length];
+                                    const isLastItem = currentIndex === newsItems.length - 1;
+                                    return (
+                                        <Link 
+                                            href={`/news/${nextItem.id}`}
+                                            className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 hover:bg-black/10 hover:text-black transition-colors group"
+                                        >
+                                            {isLastItem ? "VIEW LATEST RELEASE" : "READ NEXT EDITION"}
+                                            <ArrowRight className="w-3.5 h-3.5 -mr-1 group-hover:translate-x-1 transition-transform" />
+                                        </Link>
+                                    );
+                                })()}
                             </div>
                         </div>
                     </div>
