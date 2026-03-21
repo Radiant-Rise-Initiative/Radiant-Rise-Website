@@ -14,6 +14,7 @@ export function PurposeSection() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
     const [progress, setProgress] = useState(0);
+    const [buffered, setBuffered] = useState(0);
     const [currentTime, setCurrentTime] = useState("0:00");
     const [duration, setDuration] = useState("0:00");
     const [isMuted, setIsMuted] = useState(false);
@@ -47,6 +48,16 @@ export function PurposeSection() {
             setCurrentTime(formatTime(current));
             if (total > 0) {
                 setProgress((current / total) * 100);
+            }
+        }
+    };
+
+    const handleProgress = () => {
+        if (videoRef.current && videoRef.current.buffered.length > 0) {
+            const bufferedEnd = videoRef.current.buffered.end(videoRef.current.buffered.length - 1);
+            const total = videoRef.current.duration;
+            if (total > 0) {
+                setBuffered((bufferedEnd / total) * 100);
             }
         }
     };
@@ -124,6 +135,7 @@ export function PurposeSection() {
         if (isVideoOpen) {
             setIsPlaying(true);
             setProgress(0);
+            setBuffered(0);
             setCurrentTime("0:00");
             setShowControls(true);
         } else {
@@ -202,6 +214,7 @@ export function PurposeSection() {
                                 autoPlay 
                                 playsInline
                                 onTimeUpdate={handleTimeUpdate}
+                                onProgress={handleProgress}
                                 onLoadedMetadata={handleLoadedMetadata}
                                 onPlay={() => setIsPlaying(true)}
                                 onPause={() => setIsPlaying(false)}
@@ -235,12 +248,21 @@ export function PurposeSection() {
                                         style={{ left: `calc(${progress}% - 1.5px)` }}
                                     />
 
-                                    {/* Unplayed Track (Right) */}
+                                    {/* Unplayed Track (Right - Base) */}
                                     <div 
-                                        className="absolute h-[3px] bg-white/40 shadow-sm pointer-events-none transition-none"
+                                        className="absolute h-[3px] bg-white/10 shadow-sm pointer-events-none transition-none"
                                         style={{ 
                                             left: `min(100%, calc(${progress}% + 5px))`, 
                                             width: `max(0px, calc(100% - (${progress}% + 5px)))` 
+                                        }}
+                                    />
+
+                                    {/* Buffered Track (Right - Load Fill) */}
+                                    <div 
+                                        className="absolute h-[3px] bg-white/30 shadow-sm pointer-events-none transition-all duration-300"
+                                        style={{ 
+                                            left: `min(100%, calc(${progress}% + 5px))`, 
+                                            width: `max(0px, calc(${buffered}% - (${progress}% + 5px)))` 
                                         }}
                                     />
                                     
