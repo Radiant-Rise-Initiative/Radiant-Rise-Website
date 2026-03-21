@@ -164,8 +164,8 @@ export function NavbarUI({
                         </div>
 
                         <div className="shrink-0 pb-10 w-auto flex flex-col gap-4 text-black border-t border-black/10 pt-8 -mx-4 sm:-mx-12 px-4 sm:px-12">
-                            <a href="mailto:hello@radiantrise.com" className="text-2xl sm:text-3xl font-medium tracking-tight hover:opacity-70 transition-opacity w-fit border-b-2 border-black pb-1">
-                                hello@radiantrise.com
+                            <a href="mailto:info@radiantriseinitiative.org" className="text-2xl sm:text-3xl font-medium tracking-tight hover:opacity-70 transition-opacity w-fit border-b-2 border-black pb-1">
+                                info@radiantriseinitiative.org
                             </a>
                             <div className="flex gap-4 text-sm font-mono tracking-widest text-black/60 uppercase">
                                 <Link href="#" className="hover:text-black transition-colors">IN</Link>
