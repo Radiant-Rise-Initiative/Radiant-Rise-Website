@@ -136,6 +136,14 @@ export function PurposeSection() {
 
     return (
         <>
+            {/* Force browser to aggressively preload the video in the background so it's ready instantly */}
+            <link 
+                rel="preload" 
+                as="video" 
+                href="/assets/images/video_stories/Radiant%20Rise%20Story.mp4" 
+                type="video/mp4" 
+            />
+            
             <PurposeStatement
                 title="Radiant Rise"
                 description="Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
@@ -181,7 +189,7 @@ export function PurposeSection() {
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             className={cn(
                                 "relative w-full max-w-6xl overflow-hidden bg-black group shadow-[0_0_100px_rgba(0,0,0,0.5)] border border-white/10",
-                                isFullscreen ? "rounded-none h-full max-w-none border-none aspect-auto" : "aspect-video rounded-xl sm:rounded-2xl"
+                                isFullscreen ? "h-full max-w-none border-none aspect-auto" : "aspect-video"
                             )}
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -203,57 +211,52 @@ export function PurposeSection() {
                             {/* Controls Overlay */}
                             <div 
                                 className={cn(
-                                    "absolute bottom-0 left-0 right-0 px-6 pb-6 pt-24 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-300 flex flex-col gap-4",
+                                    "absolute bottom-0 left-0 right-0 px-8 pb-8 pt-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 flex items-center gap-5 text-white",
                                     showControls ? "opacity-100" : "opacity-0"
                                 )}
                                 onClick={e => e.stopPropagation()} 
                             >
-                                {/* Progress Bar */}
-                                <div className="w-full relative h-1.5 bg-white/20 rounded-full cursor-pointer overflow-hidden group/track">
+                                {/* Volume Toggle */}
+                                <button onClick={toggleMute} className="hover:opacity-80 transition-opacity focus:outline-none shrink-0 drop-shadow-md">
+                                    {isMuted || volume === 0 ? <VolumeX size={22} fill="currentColor" /> : <Volume2 size={22} fill="currentColor" opacity={0.9} />}
+                                </button>
+                                
+                                {/* Progress Bar with Gaps */}
+                                <div className="flex-1 relative h-6 overflow-visible cursor-pointer group flex items-center">
+                                    {/* Played Track (Left) */}
                                     <div 
-                                        className="absolute top-0 left-0 h-full bg-[#CD5929]"
-                                        style={{ width: `${progress}%` }}
+                                        className="absolute left-0 h-[3px] bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] pointer-events-none"
+                                        style={{ width: `max(0px, calc(${progress}% - 5px))` }}
                                     />
+                                    
+                                    {/* Playhead Pill (Center) */}
+                                    <div 
+                                        className="absolute w-[3px] h-4 bg-white shadow-md pointer-events-none"
+                                        style={{ left: `calc(${progress}% - 1.5px)` }}
+                                    />
+
+                                    {/* Unplayed Track (Right) */}
+                                    <div 
+                                        className="absolute h-[3px] bg-white/40 shadow-sm pointer-events-none transition-none"
+                                        style={{ 
+                                            left: `min(100%, calc(${progress}% + 5px))`, 
+                                            width: `max(0px, calc(100% - (${progress}% + 5px)))` 
+                                        }}
+                                    />
+                                    
                                     <input 
                                         type="range"
                                         min="0" max="100" step="0.1"
                                         value={progress}
                                         onChange={handleSeek}
-                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                     />
                                 </div>
-                                
-                                {/* Controls */}
-                                <div className="flex items-center justify-between text-white">
-                                    <div className="flex items-center gap-6">
-                                        <button onClick={togglePlay} className="hover:text-[#CD5929] transition-colors focus:outline-none">
-                                            {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" />}
-                                        </button>
-                                        
-                                        <div className="flex items-center gap-3 group/volume">
-                                            <button onClick={toggleMute} className="hover:text-[#CD5929] transition-colors focus:outline-none">
-                                                {isMuted || volume === 0 ? <VolumeX size={24} /> : <Volume2 size={24} />}
-                                            </button>
-                                            <div className="w-0 overflow-hidden group-hover/volume:w-20 transition-all duration-300 ease-out flex items-center">
-                                                <input 
-                                                    type="range" 
-                                                    min="0" max="1" step="0.05" 
-                                                    value={isMuted ? 0 : volume} 
-                                                    onChange={handleVolumeChange}
-                                                    className="w-full accent-[#CD5929] h-1"
-                                                />
-                                            </div>
-                                        </div>
-                                        
-                                        <span className="text-sm font-medium font-mono tracking-wider opacity-80 mt-0.5">
-                                            {currentTime} / {duration}
-                                        </span>
-                                    </div>
-                                    
-                                    <button onClick={toggleFullscreen} className="hover:text-[#CD5929] transition-colors focus:outline-none">
-                                        {isFullscreen ? <Minimize size={24} /> : <Maximize size={24} />}
-                                    </button>
-                                </div>
+
+                                {/* Timestamp */}
+                                <span className="text-xs font-mono uppercase tracking-widest opacity-90 shrink-0 tabular-nums drop-shadow-md pt-0.5">
+                                    {currentTime} / {duration}
+                                </span>
                             </div>
                         </motion.div>
                     </motion.div>
