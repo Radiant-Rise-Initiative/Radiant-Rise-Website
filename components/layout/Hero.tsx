@@ -12,11 +12,11 @@ const images = [
 ];
 
 const descriptions = [
-    "Driven by faith and radical inclusiveness, our indigenous organization empowers young mothers to unlock their full potential. Together, we are building intergenerational economic stability and stronger, self-reliant communities.",
-    "Guided by compassion and purpose, we equip youth and young mothers with market-aligned skills. By nurturing hope and self-reliance, we empower them to rise above adversity and uplift communities.",
-    "Registered and permitted, our indigenous, faith-driven organization empowers young mothers through renewable MOUs. Together, we build intergenerational economic stability and self-reliant communities through our community-owned model.",
-    "Replacing fragmented aid with a community-owned pathway, we seamlessly unite emotional recovery and economic activation. Together, we forge lasting household resilience and sustainable livelihoods for vulnerable young mothers.",
-    "Confronting the deep impacts of youth unemployment and early pregnancy, we coordinate trauma-informed healing with strategic vocational partnerships. We actively transition families from daily survival toward sustained, dignified stability."
+    "Driven by faith and inclusiveness, we empower young mothers. We build intergenerational economic stability and stronger, self-reliant communities through our indigenous, community-owned model.",
+    "Guided by compassion and purpose, we equip young mothers with market-aligned skills. By nurturing hope and self-reliance, we empower them to rise and uplift communities.",
+    "Registered and permitted, our faith-driven organization empowers young mothers through renewable MOUs. We build intergenerational economic stability and self-reliant communities through community-owned models.",
+    "Replacing fragmented aid with community-owned pathways, we unite emotional recovery and economic activation. We forge lasting household resilience and sustainable livelihoods for young mothers.",
+    "Addressing youth unemployment and early pregnancy, we coordinate trauma-informed healing with vocational partnerships. We transition families from daily survival toward sustained, dignified household stability."
 ];
 
 export function Hero() {
