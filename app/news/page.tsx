@@ -1,101 +1,173 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { newsItems } from "@/lib/newsData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function NewsArchive() {
+    const featuredStory = newsItems[0];
+    const archiveStories = newsItems.slice(1);
+
+    // Mouse tracking for premium hover effect
+    const [hoveredId, setHoveredId] = useState<string | null>(null);
+    const mouseX = useMotionValue(-1000);
+    const mouseY = useMotionValue(-1000);
+
+    const springConfig = { damping: 25, stiffness: 120, mass: 0.5 };
+    const x = useSpring(mouseX, springConfig);
+    const y = useSpring(mouseY, springConfig);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            mouseX.set(e.clientX - 200); // 400px width / 2
+            mouseY.set(e.clientY - 150); // 300px height / 2
+        };
+        
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, [mouseX, mouseY]);
+
     return (
-        <main className="min-h-screen bg-[#f5f5f7] flex flex-col">
+        <main className="min-h-screen bg-[#fafafa] flex flex-col overflow-x-hidden">
             <Navbar />
             
-            {/* Hero Section */}
-            <section className="pt-32 pb-20 px-6 bg-white border-b border-black/5">
-                <div className="max-w-[1200px] mx-auto text-center">
-                    <motion.span 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-xs font-mono tracking-[0.3em] text-[#CD5929] uppercase mb-4 block"
-                    >
-                        THE LATEST FROM RADIANT RISE
-                    </motion.span>
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-semibold tracking-tight text-black mb-8"
-                    >
-                        Our News & Updates
-                    </motion.h1>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="max-w-2xl mx-auto text-lg text-black/60 leading-relaxed"
-                    >
-                        Stay informed about our latest initiatives, community impact stories, and strategic partnerships as we work towards a more resilient Acholi Quarters.
-                    </motion.p>
-                </div>
-            </section>
-
-            {/* News Grid */}
-            <section className="py-20 px-6 flex-grow">
-                <div className="max-w-[1400px] mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {newsItems.map((item, index) => (
-                            <motion.article 
-                                key={item.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="group bg-white rounded-3xl overflow-hidden border border-black/[0.03] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
-                            >
-                                <Link href={`/news/${item.id}`} className="block relative h-64 overflow-hidden">
-                                    <Image 
-                                        src={item.image} 
-                                        alt={item.title} 
-                                        fill 
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute top-6 left-6">
-                                        <span className="bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase text-black">
-                                            {item.category}
-                                        </span>
-                                    </div>
-                                </Link>
-                                <div className="p-8 flex-grow flex flex-col">
-                                    <span className="text-xs font-mono text-black/40 mb-4 block">
-                                        {item.date}
+            {/* Featured Spotlight */}
+            <section className="pt-40 lg:pt-48 pb-24 px-4 sm:px-12 lg:px-0 bg-white border-b border-black/5">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+                            className="relative aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden"
+                        >
+                            <Link href={`/news/${featuredStory.id}`} className="block w-full h-full group">
+                                <Image 
+                                    src={featuredStory.image} 
+                                    alt={featuredStory.title}
+                                    fill 
+                                    className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                                    priority
+                                />
+                                <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-none shadow-sm">
+                                    <span className="text-[10px] sm:text-xs font-mono tracking-[0.2em] font-bold text-black uppercase">
+                                        FEATURED • {featuredStory.category}
                                     </span>
-                                    <h2 className="text-2xl font-semibold text-black mb-6 leading-tight group-hover:text-[#CD5929] transition-colors">
-                                        <Link href={`/news/${item.id}`}>
-                                            {item.title}
-                                        </Link>
-                                    </h2>
-                                    <div className="mt-auto flex justify-between items-center pt-6 border-t border-black/5">
-                                        <span className="text-xs text-black/40 italic">
-                                            {item.readTime || "5 min read"}
-                                        </span>
-                                        <Link 
-                                            href={`/news/${item.id}`}
-                                            className="text-xs font-semibold uppercase tracking-widest text-black hover:text-[#CD5929] transition-colors inline-flex items-center gap-2 group/link"
-                                        >
-                                            Read More
-                                            <span className="transition-transform group-hover/link:translate-x-1">→</span>
-                                        </Link>
-                                    </div>
                                 </div>
-                            </motion.article>
-                        ))}
+                            </Link>
+                        </motion.div>
+
+                        <div className="flex flex-col items-start pr-0 lg:pr-12">
+                            <motion.span 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="text-black/50 font-mono text-sm tracking-widest mb-6 block uppercase"
+                            >
+                                {featuredStory.date}
+                            </motion.span>
+                            <motion.h1 
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="text-5xl md:text-6xl font-semibold tracking-tight text-black mb-10 -ml-1"
+                            >
+                                {featuredStory.title}
+                            </motion.h1>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <Link 
+                                    href={`/news/${featuredStory.id}`} 
+                                    className="group inline-flex items-center gap-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] border border-black text-black px-8 py-4 sm:px-10 sm:py-5 hover:bg-black hover:text-white transition-all duration-300"
+                                >
+                                    Read Story
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                                </Link>
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <Footer />
+            {/* Editorial Archive List */}
+            <section className="py-24 md:py-32 px-4 sm:px-12 lg:px-0 flex-grow relative">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="flex justify-between items-end mb-16">
+                        <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-black -ml-1">The Archive</h2>
+                        <span className="font-mono text-black/40 text-xs tracking-[0.2em] uppercase hidden sm:block">Latest Updates</span>
+                    </div>
+
+                    <div 
+                        className="flex flex-col border-b border-black/10"
+                        onMouseLeave={() => setHoveredId(null)}
+                    >
+                        {archiveStories.map((story) => (
+                            <Link 
+                                href={`/news/${story.id}`} 
+                                key={story.id} 
+                                onMouseEnter={() => setHoveredId(story.id)}
+                                className="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
+                            >
+                                <div className="md:col-span-2">
+                                    <span className="text-xs sm:text-sm font-mono text-black/50 tracking-widest uppercase block mb-2 md:mb-0">
+                                        {story.date}
+                                    </span>
+                                </div>
+                                <div className="md:col-span-7">
+                                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-black group-hover:text-[#CD5929] transition-colors leading-[1.1]">
+                                        {story.title}
+                                    </h3>
+                                </div>
+                                <div className="md:col-span-2 hidden md:block">
+                                    <span className="text-xs sm:text-sm font-mono text-black/50 tracking-widest uppercase">
+                                        {story.category}
+                                    </span>
+                                </div>
+                                <div className="md:col-span-1 hidden md:flex justify-end">
+                                    <ArrowUpRight className="w-8 h-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#CD5929]" />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Mouse-following Image Preview (Desktop Only) */}
+                <motion.div 
+                    className="pointer-events-none fixed top-0 left-0 w-[400px] h-[300px] z-50 overflow-hidden shadow-2xl hidden lg:block"
+                    style={{ x, y, opacity: hoveredId ? 1 : 0 }}
+                >
+                    <AnimatePresence>
+                        {hoveredId && (
+                            <motion.div 
+                                key={hoveredId} 
+                                initial={{ opacity: 0, scale: 1.1 }} 
+                                animate={{ opacity: 1, scale: 1 }} 
+                                exit={{ opacity: 0 }} 
+                                transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                                className="absolute inset-0"
+                            >
+                                <Image 
+                                    src={archiveStories.find(s => s.id === hoveredId)?.image || ''} 
+                                    alt="Preview"
+                                    fill 
+                                    className="object-cover"
+                                />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
+            </section>
+
+            <Footer topPadding={true} />
         </main>
     );
 }
+

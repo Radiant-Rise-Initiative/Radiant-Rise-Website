@@ -5,16 +5,20 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-export function Footer() {
+interface FooterProps {
+    topPadding?: boolean;
+}
+
+export function Footer({ topPadding = false }: FooterProps) {
     return (
         <footer data-theme="dark" className="bg-black pt-0 pb-0 overflow-hidden text-white font-sans">
-            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0 pb-12 sm:pb-24">
+            <div className={`max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0 pb-12 sm:pb-24 ${topPadding ? 'pt-12 sm:pt-24' : ''}`}>
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32">
 
                     {/* Newsletter Section */}
-                    <div className="space-y-8">
+                    <div className="space-y-12">
                         <div>
-                            <h2 className="text-6xl font-medium tracking-tighter mb-4">Join our Community.</h2>
+                            <h2 className="text-6xl font-medium tracking-tighter mb-4">Join Our Community.</h2>
                             <p className="text-2xl text-white/40 tracking-tight">Stay connected with the movement.</p>
                         </div>
 

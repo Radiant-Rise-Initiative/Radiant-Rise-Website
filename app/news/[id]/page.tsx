@@ -20,7 +20,7 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
     return (
         <main className="min-h-screen bg-[#fafafa] flex flex-col">
             <Navbar />
-            
+
             <article className="pt-32 pb-24 flex-grow px-6">
                 <div className="max-w-[1000px] mx-auto bg-white shadow-[0_40px_100px_rgba(0,0,0,0.05)] border border-black/[0.02]">
                     {/* Newsletter Header / Masthead */}
@@ -40,10 +40,10 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
 
                     {/* Featured Image */}
                     <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
-                        <Image 
-                            src={item.image} 
-                            alt={item.title} 
-                            fill 
+                        <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
                             className="object-cover"
                         />
                     </div>
@@ -68,14 +68,14 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
 
                         {/* Content */}
                         <div className="lg:col-span-9 newsletter-body">
-                            <div 
+                            <div
                                 className="text-lg md:text-xl text-black/80 leading-relaxed space-y-8 prose prose-lg max-w-none"
                                 dangerouslySetInnerHTML={{ __html: item.content || `<p>No content available for this news item.</p>` }}
                             />
-                            
+
                             {/* Footer inside the Newsletter */}
                             <div className="mt-16 pt-12 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                                <Link 
+                                <Link
                                     href="/news"
                                     className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-[#CD5929] hover:text-[#96503F] transition-colors group"
                                 >
@@ -98,7 +98,7 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                 </div>
             </article>
 
-            <Footer />
+            <Footer topPadding={true} />
 
             <style jsx global>{`
                 .newsletter-body h3 {
