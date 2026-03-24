@@ -18,7 +18,7 @@ function MissionVisionItem({ label, statement, className }: MissionVisionItemPro
                 </span>
             </div>
             <div className="flex flex-col items-start gap-8">
-                <h2 className="text-3xl md:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tighter max-w-[1000px] -ml-1">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tighter max-w-[1000px] -ml-1">
                     {statement}
                 </h2>
             </div>
