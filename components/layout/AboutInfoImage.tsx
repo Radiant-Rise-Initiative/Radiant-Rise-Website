@@ -23,15 +23,15 @@ export function AboutInfoImage() {
 
             <div className="relative z-10 w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-0 py-24">
                 
-                {/* 2x2 Grid for Diagonal Layout - Row 1 wraps box, Row 2 wraps mission */}
-                <div className="grid grid-cols-[auto_1fr] grid-rows-[auto_auto] w-full items-start">
+                {/* Responsive Layout: Vertical Stack (Mobile) with 20px (gap-5), Diagonal Grid (Desktop) */}
+                <div className="flex flex-col lg:grid lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_auto] w-full items-start gap-5 lg:gap-0">
                     {/* Top Left Quote Box */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="bg-white p-8 md:p-12 max-w-sm md:max-w-md shadow-[0_30px_60px_-12px_rgba(0,0,0,0.25)] flex flex-col gap-6 col-start-1 row-start-1"
+                        className="bg-white p-8 md:p-12 max-w-sm md:max-w-md shadow-[0_30px_60px_-12px_rgba(0,0,0,0.25)] flex flex-col gap-6 lg:col-start-1 lg:row-start-1"
                     >
                         {/* Branded Title Button - Matching Who We Are (#CD5929) and Newsletter Style */}
                         <div className="flex">
@@ -52,13 +52,13 @@ export function AboutInfoImage() {
                         </div>
                     </motion.div>
 
-                    {/* Bottom Statement Row - Placed in the Bottom Right Grid Cell */}
+                    {/* Bottom Statement Row - Placed in the Bottom Right Grid Cell for Desktop */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 col-start-2 row-start-2"
+                        className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 lg:col-start-2 lg:row-start-2"
                     >
                         {/* Inset Image */}
                         <div className="relative w-32 h-32 md:w-56 md:h-56 shadow-2xl overflow-hidden shrink-0">
