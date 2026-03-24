@@ -2,38 +2,53 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function AboutStory() {
     return (
         <section id="our-story" className="bg-white py-24 border-t border-black/5">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 
-                {/* Section Tagline/Label */}
-                <div className="mb-20">
-                    <span className="text-xs font-mono tracking-[0.4em] uppercase text-black/40">
-                        Historical Context
-                    </span>
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mt-6">
-                        OUR STORY
-                    </h2>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-32 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-32 items-stretch h-full">
                     
-                    {/* Left Column: Sub-headline & Context */}
-                    <div className="space-y-12">
-                        <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
-                            Rising from trauma to purpose—restoring dignity, unlocking potential, and building self-reliant futures.
-                        </p>
-                        
-                        <div className="pt-8 border-t border-black/10">
-                            <p className="text-sm md:text-base text-black/60 leading-relaxed font-medium">
-                                Radiant Rise Initiative is an indigenous non-governmental organisation based in Kampala, fully registered with the Uganda National NGO Bureau with a 5-year renewable permit to operate.
+                    {/* Left Column: Title & Tagline & Subscription - Should Remain in View (Sticky) */}
+                    <div className="lg:sticky lg:top-32 self-start space-y-12 pb-24 z-20">
+                        {/* Section Title matched to SectionHeader/Our Impact style */}
+                        <div className="space-y-8">
+                            <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
+                                Our Story
+                            </h2>
+                            <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                Rising from trauma to purpose—restoring dignity, unlocking potential, and building self-reliant futures.
+                            </p>
+                        </div>
+
+                        {/* Subscription Box Section - Light Mode Footer Style */}
+                        <div className="pt-8 space-y-10 border-t border-black/5">
+                            <div>
+                                <h3 className="text-4xl md:text-5xl font-medium tracking-tighter mb-4">Join Our Community.</h3>
+                                <p className="text-xl text-black/40 tracking-tight">Stay connected with the movement.</p>
+                            </div>
+
+                            <div className="relative max-w-lg group">
+                                <input
+                                    type="email"
+                                    placeholder="Work Email"
+                                    className="w-full bg-transparent border border-black/10 py-5 px-6 pr-16 focus:outline-none focus:border-black transition-colors text-base md:text-lg"
+                                />
+                                <button className="absolute right-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-black transition-colors">
+                                    <ArrowRight className="w-8 h-8" />
+                                </button>
+                            </div>
+
+                            <p className="text-xs text-black/40 leading-relaxed max-w-sm">
+                                By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-black/60 transition-colors">Privacy Notice</Link>
                             </p>
                         </div>
                     </div>
 
-                    {/* Right Column: Narrative & Quotes */}
+                    {/* Right Column: Narrative & Quotes - Should Scroll Away */}
                     <div className="space-y-12 text-lg md:text-xl leading-[1.6] text-black/80">
                         
                         <p>

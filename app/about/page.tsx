@@ -19,7 +19,7 @@ export default function AboutPage() {
           </div>
         } 
         images={["/assets/images/hero_images/Hero 08.jpg"]}
-        description="We coordinate trauma-informed healing with vocational partnerships, transitioning families from daily survival toward sustained, dignified household stability."
+        description="Radiant Rise Initiative is an indigenous non-governmental organisation based in Kampala, fully registered with the Uganda National NGO Bureau with a 5-year renewable permit to operate."
         imageStyle={{ transform: 'translateY(-120px) scale(1.15)', transformOrigin: 'center top' }}
       />
       <AboutMissionVision />
