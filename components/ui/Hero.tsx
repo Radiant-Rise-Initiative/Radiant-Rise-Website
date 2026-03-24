@@ -8,12 +8,16 @@ import { Pause, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface HeroProps {
-    title: string;
+    title: React.ReactNode;
     description: string | string[];
     images: string[];
     actionText?: string;
     onActionClick?: () => void;
     className?: string;
+    imageClassName?: string;
+    imageStyle?: React.CSSProperties;
+    contentClassName?: string;
+    contentStyle?: React.CSSProperties;
 }
 
 export function HeroUI({
@@ -22,7 +26,11 @@ export function HeroUI({
     images,
     actionText,
     onActionClick,
-    className
+    className,
+    imageClassName,
+    imageStyle,
+    contentClassName,
+    contentStyle
 }: HeroProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -51,7 +59,7 @@ export function HeroUI({
             ref={ref}
             data-theme="dark"
             className={cn(
-                "relative h-[100dvh] w-full overflow-hidden flex items-end px-6 md:px-12 pb-6 md:pb-12",
+                "relative h-[100dvh] w-full overflow-hidden flex items-end px-6 md:px-12 pb-8",
                 className
             )}
         >
@@ -73,9 +81,10 @@ export function HeroUI({
                         >
                             <Image
                                 src={images[currentImageIndex]}
-                                alt={title || "Background"}
+                                alt={typeof title === 'string' ? title : "Background"}
                                 fill
-                                className="object-cover"
+                                className={cn("object-cover", imageClassName)}
+                                style={imageStyle}
                                 priority={currentImageIndex === 0}
                             />
                         </motion.div>
@@ -89,8 +98,8 @@ export function HeroUI({
             </motion.div>
 
             <motion.div
-                className="relative z-10 w-full will-change-transform"
-                style={{ y: textY, opacity: textOpacity }}
+                className={cn("relative z-10 w-full will-change-transform", contentClassName)}
+                style={{ ...contentStyle, y: textY, opacity: textOpacity }}
             >
                 <div className="@container max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="flex flex-col md:flex-row items-start md:items-stretch justify-between gap-8 pb-8 border-b border-white/40">
@@ -118,14 +127,16 @@ export function HeroUI({
                         </div>
 
                         <div className="flex flex-col items-start md:items-end justify-between gap-4">
-                            <button
-                                onClick={() => setIsPaused(!isPaused)}
-                                className="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-mono mt-1.5"
-                                aria-label={isPaused ? "Play slides" : "Pause slides"}
-                            >
-                                <span>{isPaused ? "Play" : "Pause"}</span>
-                                {isPaused ? <Play size={14} /> : <Pause size={14} />}
-                            </button>
+                            {images && images.length > 1 && (
+                                <button
+                                    onClick={() => setIsPaused(!isPaused)}
+                                    className="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-mono mt-1.5"
+                                    aria-label={isPaused ? "Play slides" : "Pause slides"}
+                                >
+                                    <span>{isPaused ? "Play" : "Pause"}</span>
+                                    {isPaused ? <Play size={14} /> : <Pause size={14} />}
+                                </button>
+                            )}
 
                             {actionText && (
                                 <Button
@@ -140,7 +151,10 @@ export function HeroUI({
                         </div>
                     </div>
 
-                    <h1 className="text-[10.5cqi] font-semibold text-white tracking-tighter leading-[0.8] mt-8 uppercase whitespace-nowrap [text-align-last:justify] w-full">
+                    <h1 className={cn(
+                        "text-[10.5cqi] font-semibold text-white tracking-tighter leading-[0.8] mt-8 uppercase w-full",
+                        typeof title === 'string' && "whitespace-nowrap [text-align-last:justify]"
+                    )}>
                         {title}
                     </h1>
                 </div>

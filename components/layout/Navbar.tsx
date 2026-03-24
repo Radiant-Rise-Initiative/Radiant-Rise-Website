@@ -28,10 +28,10 @@ export function Navbar() {
     }, [isOpen, isDonationModalOpen]);
 
     const navItems = [
-        { label: "About Us", href: "/about" },
         { label: "Our Values", id: "our-values" },
         { label: "Who We Are", id: "who-we-are" },
-        { label: "Recent News", id: "recent-news" }
+        { label: "Recent News", id: "recent-news" },
+        { label: "About Us", href: "/about" }
     ];
 
     const logo = {
