@@ -28,9 +28,9 @@ export function Navbar() {
     }, [isOpen, isDonationModalOpen]);
 
     const navItems = [
-        { label: "Our Values", id: "our-values" },
-        { label: "Who We Are", id: "who-we-are" },
-        { label: "Recent News", id: "recent-news" },
+        { label: "Our Values", href: "/#our-values" },
+        { label: "Who We Are", href: "/#who-we-are" },
+        { label: "Recent News", href: "/#recent-news" },
         { label: "About Us", href: "/about" }
     ];
 
