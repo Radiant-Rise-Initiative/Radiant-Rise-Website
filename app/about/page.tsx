@@ -3,6 +3,7 @@ import { Hero } from "@/components/layout/Hero";
 import { Footer } from "@/components/layout/Footer";
 import { AboutMissionVision } from "@/components/layout/AboutMissionVision";
 import { AboutInfoImage } from "@/components/layout/AboutInfoImage";
+import { AboutStory } from "@/components/layout/AboutStory";
 import { LetsRiseMarquee } from "@/components/layout/LetsRiseMarquee";
 
 export default function AboutPage() {
@@ -23,6 +24,7 @@ export default function AboutPage() {
       />
       <AboutMissionVision />
       <AboutInfoImage />
+      <AboutStory />
       <LetsRiseMarquee />
       <Footer />
     </main>

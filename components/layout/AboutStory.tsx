@@ -1,0 +1,88 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+export function AboutStory() {
+    return (
+        <section id="our-story" className="bg-white py-24 border-t border-black/5">
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
+                
+                {/* Section Tagline/Label */}
+                <div className="mb-20">
+                    <span className="text-xs font-mono tracking-[0.4em] uppercase text-black/40">
+                        Historical Context
+                    </span>
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mt-6">
+                        OUR STORY
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-32 items-start">
+                    
+                    {/* Left Column: Sub-headline & Context */}
+                    <div className="space-y-12">
+                        <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                            Rising from trauma to purpose—restoring dignity, unlocking potential, and building self-reliant futures.
+                        </p>
+                        
+                        <div className="pt-8 border-t border-black/10">
+                            <p className="text-sm md:text-base text-black/60 leading-relaxed font-medium">
+                                Radiant Rise Initiative is an indigenous non-governmental organisation based in Kampala, fully registered with the Uganda National NGO Bureau with a 5-year renewable permit to operate.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Narrative & Quotes */}
+                    <div className="space-y-12 text-lg md:text-xl leading-[1.6] text-black/80">
+                        
+                        <p>
+                            Our story is deeply rooted in the lived realities of Acholi Quarters—a community shaped by resilience in the face of hardship. Many families in this area were displaced during the Lord’s Resistance Army insurgency in the Northern Part of Uganda and continue to navigate the long-term effects of poverty, trauma, and limited access to opportunities.
+                        </p>
+
+                        <p>
+                            Our founder, <span className="text-black font-semibold">Agnes Oyella</span>, was born and raised in this community and experienced these challenges firsthand.
+                        </p>
+
+                        {/* Pull Quote 1 */}
+                        <div className="py-8 border-y border-black/5 group">
+                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
+                                "I grew up seeing families struggle to survive. Many of us had to work in stone quarries just to get by. Education felt like a distant dream, and for many young people, dropping out of school seemed inevitable."
+                            </p>
+                            <div className="mt-6 flex items-center gap-4">
+                                <div className="w-8 h-px bg-[#FF5C35]" />
+                                <span className="text-xs font-mono tracking-widest uppercase text-black/40">Agnes Oyella</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            "What broke my heart most was seeing how deeply trauma affected us—how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change."
+                        </p>
+
+                        <p>
+                            "God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people—to help them heal, to rediscover their worth, and to rise into self-reliance."
+                        </p>
+
+                        <p className="text-black/60">
+                            At the heart of Radiant Rise is a commitment to support vulnerable youth and young mothers to heal from trauma, rediscover their worth, and grow into self-reliant individuals. Through a holistic and faith-driven approach, we provide trauma-informed emotional and psychosocial support, helping participants process their experiences and rebuild inner strength.
+                        </p>
+
+                        <p>
+                            We complement this healing journey with practical interventions including life skills development, vocational training, and mentorship as well as Financial and digital Literacy. Our six-month model program is intentionally designed to guide participants from brokenness to stability, and from dependence to self-reliance.
+                        </p>
+
+                        {/* Final Impact Quote */}
+                        <div className="bg-[#f9f9f8] p-10 md:p-14 shadow-sm border border-black/5">
+                            <p className="text-2xl md:text-3xl font-bold leading-tight text-black tracking-tighter">
+                                "I believe that when a young person heals, they rise—and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible."
+                            </p>
+                            <p className="mt-8 text-sm font-mono tracking-widest uppercase text-black">
+                                — AGNES OYELLA, FOUNDER
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
