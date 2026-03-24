@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { Footer } from "@/components/layout/Footer";
 import { AboutMissionVision } from "@/components/layout/AboutMissionVision";
+import { AboutInfoImage } from "@/components/layout/AboutInfoImage";
 import { LetsRiseMarquee } from "@/components/layout/LetsRiseMarquee";
 
 export default function AboutPage() {
@@ -21,6 +22,7 @@ export default function AboutPage() {
         imageStyle={{ transform: 'translateY(-120px) scale(1.15)', transformOrigin: 'center top' }}
       />
       <AboutMissionVision />
+      <AboutInfoImage />
       <LetsRiseMarquee />
       <Footer />
     </main>
