@@ -57,20 +57,25 @@ export function AboutStory() {
                             Our founder, <span className="text-black font-semibold">Agnes Oyella</span>, was born and raised in this community and experienced these challenges firsthand.
                         </p>
 
-                        {/* Pull Quote 1 */}
-                        <div className="py-8 border-y border-black/5 group space-y-8">
-                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
-                                "I grew up seeing families struggle to survive. Many of us had to work in stone quarries just to get by. Education felt like a distant dream, and for many young people, dropping out of school seemed inevitable."
-                            </p>
-                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
-                                "What broke my heart most was seeing how deeply trauma affected us, how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change."
-                            </p>
-                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
-                                "God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people, to help them heal, to rediscover their worth, and to rise into self-reliance."
-                            </p>
-                            <div className="mt-6 flex items-center gap-4">
-                                <div className="w-8 h-px bg-[#FF5C35]" />
-                                <span className="text-xs font-mono tracking-widest uppercase text-black/40">Agnes Oyella</span>
+                        {/* Agnes Oyella Quote Block - Image Inspired Design */}
+                        <div className="relative pl-10 md:pl-16 py-2 group">
+                            {/* Vertical Accent Bar */}
+                            <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#FF5C35]" />
+                            
+                            <div className="space-y-12">
+                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                    I grew up seeing families struggle to survive. Many of us had to work in stone quarries just to get by. Education felt like a distant dream, and for many young people, dropping out of school seemed inevitable.
+                                </p>
+                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                    What broke my heart most was seeing how deeply trauma affected us, how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change.
+                                </p>
+                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                    God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people, to help them heal, to rediscover their worth, and to rise into self-reliance.
+                                </p>
+                            </div>
+
+                            <div className="mt-12 text-black/60 font-mono text-xs md:text-sm tracking-normal uppercase">
+                                Agnes Oyella, Founder
                             </div>
                         </div>
 
@@ -82,13 +87,13 @@ export function AboutStory() {
                             We complement this healing journey with practical interventions including life skills development, vocational training, and mentorship as well as Financial and digital Literacy. Our six-month model program is intentionally designed to guide participants from brokenness to stability, and from dependence to self-reliance.
                         </p>
 
-                        {/* Final Impact Quote */}
-                        <div className="bg-[#f9f9f8] p-10 md:p-14 shadow-sm border border-black/5">
-                            <p className="text-2xl md:text-3xl font-bold leading-tight text-black tracking-tighter">
-                                "I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible."
+                        {/* Final Impact Quote - Shadow Removed, 1px Border, Subtext Style */}
+                        <div className="bg-[#f9f9f8] p-10 md:p-14 border border-black/10 shadow-none">
+                            <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible.
                             </p>
-                            <p className="mt-8 text-sm font-mono tracking-widest uppercase text-black">
-                                - AGNES OYELLA, FOUNDER
+                            <p className="mt-8 text-sm font-mono tracking-normal uppercase text-black/60">
+                                AGNES OYELLA, FOUNDER
                             </p>
                         </div>
                     </div>

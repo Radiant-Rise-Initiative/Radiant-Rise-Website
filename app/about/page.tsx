@@ -18,9 +18,9 @@ export default function AboutPage() {
             <span className="shrink-0">PURPOSE</span>
           </div>
         } 
-        images={["/assets/images/hero_images/Hero 08.jpg"]}
+        images={["/assets/images/about_images/About HERO.jpg"]}
         description="Radiant Rise Initiative is an indigenous non-governmental organisation based in Kampala, fully registered with the Uganda National NGO Bureau with a 5-year renewable permit to operate."
-        imageStyle={{ transform: 'translateY(-120px) scale(1.15)', transformOrigin: 'center top' }}
+        imageStyle={{ transform: 'translateY(0px) scale(1.15)', transformOrigin: 'center top' }}
       />
       <AboutMissionVision />
       <AboutInfoImage />
