@@ -10,7 +10,7 @@ export function AboutStory() {
         <section id="our-story" className="bg-white py-24 border-t border-black/5">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-32 items-stretch h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32 items-stretch h-full">
                     
                     {/* Left Column: Title & Tagline & Subscription - Should Remain in View (Sticky) */}
                     <div className="lg:sticky lg:top-32 self-start space-y-12 pb-24 z-20">
@@ -20,17 +20,15 @@ export function AboutStory() {
                                 Our Story
                             </h2>
                             <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
-                                Rising from trauma to purpose—restoring dignity, unlocking potential, and building self-reliant futures.
+                                Rising from trauma to purpose, restoring dignity, unlocking potential, and building self-reliant futures.
                             </p>
                         </div>
 
-                        {/* Subscription Box Section - Light Mode Footer Style */}
-                        <div className="pt-8 space-y-10 border-t border-black/5">
+                        {/* Subscription Box Section - No Title or Divider */}
+                        <div className="space-y-10">
                             <div>
-                                <h3 className="text-4xl md:text-5xl font-medium tracking-tighter mb-4">Join Our Community.</h3>
                                 <p className="text-xl text-black/40 tracking-tight">Stay connected with the movement.</p>
                             </div>
-
                             <div className="relative max-w-lg group">
                                 <input
                                     type="email"
@@ -42,7 +40,7 @@ export function AboutStory() {
                                 </button>
                             </div>
 
-                            <p className="text-xs text-black/40 leading-relaxed max-w-sm">
+                            <p className="text-xs text-black/40 leading-relaxed max-w-lg">
                                 By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-black/60 transition-colors">Privacy Notice</Link>
                             </p>
                         </div>
@@ -52,7 +50,7 @@ export function AboutStory() {
                     <div className="space-y-12 text-lg md:text-xl leading-[1.6] text-black/80">
                         
                         <p>
-                            Our story is deeply rooted in the lived realities of Acholi Quarters—a community shaped by resilience in the face of hardship. Many families in this area were displaced during the Lord’s Resistance Army insurgency in the Northern Part of Uganda and continue to navigate the long-term effects of poverty, trauma, and limited access to opportunities.
+                            Our story is deeply rooted in the lived realities of Acholi Quarters, a community shaped by resilience in the face of hardship. Many families in this area were displaced during the Lord’s Resistance Army insurgency in the Northern Part of Uganda and continue to navigate the long-term effects of poverty, trauma, and limited access to opportunities.
                         </p>
 
                         <p>
@@ -60,23 +58,21 @@ export function AboutStory() {
                         </p>
 
                         {/* Pull Quote 1 */}
-                        <div className="py-8 border-y border-black/5 group">
+                        <div className="py-8 border-y border-black/5 group space-y-8">
                             <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
                                 "I grew up seeing families struggle to survive. Many of us had to work in stone quarries just to get by. Education felt like a distant dream, and for many young people, dropping out of school seemed inevitable."
+                            </p>
+                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
+                                "What broke my heart most was seeing how deeply trauma affected us, how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change."
+                            </p>
+                            <p className="text-2xl md:text-3xl font-medium leading-tight text-black tracking-tight italic">
+                                "God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people, to help them heal, to rediscover their worth, and to rise into self-reliance."
                             </p>
                             <div className="mt-6 flex items-center gap-4">
                                 <div className="w-8 h-px bg-[#FF5C35]" />
                                 <span className="text-xs font-mono tracking-widest uppercase text-black/40">Agnes Oyella</span>
                             </div>
                         </div>
-
-                        <p>
-                            "What broke my heart most was seeing how deeply trauma affected us—how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change."
-                        </p>
-
-                        <p>
-                            "God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people—to help them heal, to rediscover their worth, and to rise into self-reliance."
-                        </p>
 
                         <p className="text-black/60">
                             At the heart of Radiant Rise is a commitment to support vulnerable youth and young mothers to heal from trauma, rediscover their worth, and grow into self-reliant individuals. Through a holistic and faith-driven approach, we provide trauma-informed emotional and psychosocial support, helping participants process their experiences and rebuild inner strength.
@@ -89,10 +85,10 @@ export function AboutStory() {
                         {/* Final Impact Quote */}
                         <div className="bg-[#f9f9f8] p-10 md:p-14 shadow-sm border border-black/5">
                             <p className="text-2xl md:text-3xl font-bold leading-tight text-black tracking-tighter">
-                                "I believe that when a young person heals, they rise—and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible."
+                                "I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible."
                             </p>
                             <p className="mt-8 text-sm font-mono tracking-widest uppercase text-black">
-                                — AGNES OYELLA, FOUNDER
+                                - AGNES OYELLA, FOUNDER
                             </p>
                         </div>
                     </div>
