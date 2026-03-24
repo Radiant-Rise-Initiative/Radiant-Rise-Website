@@ -19,10 +19,10 @@ const descriptions = [
     "Addressing youth unemployment and early pregnancy, we coordinate trauma-informed healing with vocational partnerships. We transition families from daily survival toward sustained, dignified household stability."
 ];
 
-export function Hero() {
+export function Hero({ title = "RISING TOGETHER" }: { title?: string }) {
     return (
         <HeroUI
-            title="RISING TOGETHER"
+            title={title}
             description={descriptions}
             images={images}
             actionText="Get to know us"

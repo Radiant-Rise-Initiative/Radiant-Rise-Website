@@ -10,7 +10,8 @@ import { cn } from "@/lib/utils";
 
 interface NavItem {
     label: string;
-    id: string;
+    id?: string;
+    href?: string;
 }
 
 interface NavbarProps {
@@ -64,21 +65,34 @@ export function NavbarUI({
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        {items.map((item) => (
-                            <button
-                                key={item.id}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    const section = document.getElementById(item.id);
-                                    if (section) {
-                                        section.scrollIntoView({ behavior: "instant" });
-                                    }
-                                }}
-                                className="text-xs font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
-                            >
-                                {item.label}
-                            </button>
-                        ))}
+                        {items.map((item) => {
+                            if (item.href) {
+                                return (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className="text-xs font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            }
+                            return (
+                                <button
+                                    key={item.id}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const section = document.getElementById(item.id!);
+                                        if (section) {
+                                            section.scrollIntoView({ behavior: "instant" });
+                                        }
+                                    }}
+                                    className="text-xs font-medium transition-colors duration-500 uppercase tracking-widest text-black/70 hover:text-black"
+                                >
+                                    {item.label}
+                                </button>
+                            );
+                        })}
                     </div>
 
                     <div className="flex items-center gap-4 relative z-50">
@@ -143,13 +157,31 @@ export function NavbarUI({
                                     );
                                 }
 
+                                if (item.href) {
+                                    return (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => onOpenChange(false)}
+                                            className="flex items-start gap-5 text-left hover:opacity-70 transition-opacity group"
+                                        >
+                                            <span className="text-sm font-mono tracking-widest text-black/40 pt-2.25 shrink-0">
+                                                {String(index + 1).padStart(2, '0')}
+                                            </span>
+                                            <span className="text-3xl sm:text-4xl tracking-tight font-medium text-black">
+                                                {item.label}
+                                            </span>
+                                        </Link>
+                                    );
+                                }
+
                                 return (
                                     <button
                                         key={item.id}
                                         onClick={() => {
                                             onOpenChange(false);
                                             setTimeout(() => {
-                                                const section = document.getElementById(item.id);
+                                                const section = document.getElementById(item.id!);
                                                 if (section) {
                                                     section.scrollIntoView({ behavior: "instant" });
                                                 }
