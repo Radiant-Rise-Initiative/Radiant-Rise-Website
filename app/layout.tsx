@@ -32,16 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden w-full">
+    <html lang="en" suppressHydrationWarning className="w-full">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased overflow-x-hidden w-full",
+          "min-h-screen bg-background font-sans antialiased w-full",
           inter.variable,
           geistMono.variable
         )}
       >
         <SkipLink />
-        <main id="main-content" className="relative flex min-h-screen flex-col overflow-x-hidden w-full">
+        <main id="main-content" className="relative flex min-h-screen flex-col w-full">
           {children}
         </main>
       </body>

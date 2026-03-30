@@ -11,11 +11,11 @@ export function AboutStory() {
         <section id="our-story" className="bg-white py-24 border-t border-black/5">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 
-                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32 items-start h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32 items-stretch h-full">
                     
-                    {/* Left Column: Title & Tagline & Subscription - Should Remain in View (Sticky) */}
-                    <div className="lg:sticky lg:top-32 self-start space-y-12 pb-24 z-20">
-                        {/* Section Title matched to SectionHeader/Our Impact style */}
+                    {/* Left Column: Title & Tagline scroll, Image sticks */}
+                    <div className="space-y-12 pb-24 z-20">
+                        {/* Section Titles - These will scroll away */}
                         <div className="space-y-8">
                             <h2 className="text-5xl md:text-6xl font-semibold text-black tracking-tight -ml-1">
                                 Our Story
@@ -24,9 +24,9 @@ export function AboutStory() {
                                 Rising from trauma to purpose, restoring dignity, unlocking potential, and building self-reliant futures.
                             </p>
                         </div>
-
-                        {/* CEO Image - Added below titles */}
-                        <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden shadow-none">
+                        
+                        {/* CEO Image - Only this will stick */}
+                        <div className="lg:sticky lg:top-32 relative aspect-[4/5] w-full max-w-md overflow-hidden shadow-none">
                             <Image
                                 src="/assets/images/about_images/About CEO.jpg"
                                 alt="Agnes Oyella, Founder & CEO"
