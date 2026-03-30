@@ -8,10 +8,12 @@ import { cn } from "@/lib/utils";
 
 interface PurposeSectionProps {
     imageSrc?: string;
+    description?: string;
 }
 
 export function PurposeSection({ 
-    imageSrc = "/assets/images/hero_images/Hero 06.jpg" 
+    imageSrc = "/assets/images/hero_images/Hero 06.jpg",
+    description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
 }: PurposeSectionProps) {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     
@@ -164,7 +166,7 @@ export function PurposeSection({
             
             <PurposeStatement
                 title="Radiant Rise"
-                description="Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
+                description={description}
                 imageSrc={imageSrc}
                 imageAlt="Radiant Rise Purpose"
                 actionText="Play Trailer"

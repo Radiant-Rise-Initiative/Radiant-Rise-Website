@@ -78,10 +78,6 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                         {/* Meta Sidebar */}
                         <div className="lg:col-span-3 border-t lg:border-t-0 lg:border-r border-black/5 pt-8 lg:pt-0">
                             <div className="mb-8">
-                                <span className="text-sm leading-relaxed text-black/60 block mb-1">Author</span>
-                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.author || "Radiant Rise Team"}</span>
-                            </div>
-                            <div className="mb-8">
                                 <span className="text-sm leading-relaxed text-black/60 block mb-1">Category</span>
                                 <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.category}</span>
                             </div>

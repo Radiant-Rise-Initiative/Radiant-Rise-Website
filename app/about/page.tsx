@@ -25,7 +25,10 @@ export default function AboutPage() {
       />
       <AboutMissionVision />
       <AboutInfoImage />
-      <PurposeSection imageSrc="/assets/images/about_images/About TN.jpg" />
+      <PurposeSection 
+        imageSrc="/assets/images/about_images/About TN.jpg" 
+        description="I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities." 
+      />
       <AboutStory />
       <LetsRiseMarquee />
       <Footer />
