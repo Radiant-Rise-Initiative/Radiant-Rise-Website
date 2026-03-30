@@ -12,11 +12,11 @@ const defaultImages = [
 ];
 
 const defaultDescriptions = [
-    "Driven by faith and inclusiveness, we empower young mothers. We build intergenerational economic stability and stronger, self-reliant communities through our indigenous, community-owned model.",
-    "Guided by compassion and purpose, we equip young mothers with market-aligned skills. By nurturing hope and self-reliance, we empower them to rise and uplift communities.",
-    "Registered and permitted, our faith-driven organization empowers young mothers through renewable MOUs. We build intergenerational economic stability and self-reliant communities through community-owned models.",
-    "Replacing fragmented aid with community-owned pathways, we unite emotional recovery and economic activation. We forge lasting household resilience and sustainable livelihoods for young mothers.",
-    "Addressing youth unemployment and early pregnancy, we coordinate trauma-informed healing with vocational partnerships. We transition families from daily survival toward sustained, dignified household stability."
+    "Born from the lived realities of Acholi Quarters, a slum in Kampala, the Radiant Rise Initiative is a community-owned movement that empowers young mothers and vulnerable youths through a six-month pathway.",
+    "Radiant Rise Initiative pairs post-trauma healing with need-based vocational skills, fostering the emotional and economic recovery needed to lead purposeful, self-reliant lives that rebuild communities and reduce household vulnerability.",
+    "Radiant Rise Initiative focuses on breaking cycles of poverty by equipping participants with vocational skills, a spiritual foundation, and resilience. It aims to build intergenerational economic stability and stronger, self-reliant communities.",
+    "Radiant Rise Initiative provides holistic, faith-driven empowerment that addresses not just immediate economic needs, but deep emotional and spiritual well-being to ensure lasting transformation from brokenness to stability and self-reliance.",
+    "Radiant Rise Initiative is driven by faith, inclusiveness, and an unwavering commitment to human dignity, creating a safe sanctuary where vulnerable youths and young mothers can truly heal, thrive, and lead."
 ];
 
 export function Hero({ 
