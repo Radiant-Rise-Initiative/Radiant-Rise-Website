@@ -63,13 +63,13 @@ export function AboutStory() {
                             <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#FF5C35]" />
                             
                             <div className="space-y-12">
-                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                <p className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-black">
                                     I grew up seeing families struggle to survive. Many of us had to work in stone quarries just to get by. Education felt like a distant dream, and for many young people, dropping out of school seemed inevitable.
                                 </p>
-                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                <p className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-black">
                                     What broke my heart most was seeing how deeply trauma affected us, how it silenced dreams and limited what young people believed was possible for their lives. I knew something had to change.
                                 </p>
-                                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                                <p className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-black">
                                     God placed a burden in my heart to act. Together with friends, we started Radiant Rise to walk alongside these young people, to help them heal, to rediscover their worth, and to rise into self-reliance.
                                 </p>
                             </div>
@@ -89,7 +89,7 @@ export function AboutStory() {
 
                         {/* Final Impact Quote - Shadow Removed, 1px Border, Subtext Style */}
                         <div className="bg-[#f9f9f8] p-10 md:p-14 border border-black/10 shadow-none">
-                            <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight text-black">
+                            <p className="text-xl md:text-2xl font-medium leading-tight tracking-tight text-black">
                                 I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities. Radiant Rise is here to make that journey possible.
                             </p>
                             <p className="mt-8 text-sm font-mono tracking-normal uppercase text-black/60">

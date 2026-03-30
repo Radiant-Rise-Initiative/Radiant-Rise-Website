@@ -29,6 +29,10 @@ export default function AboutPage() {
         videoSrc="/assets/images/video_stories/RRI (Story).mp4"
         imageSrc="/assets/images/about_images/About TN.jpg" 
         description="I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities." 
+        infoPoints={[
+          "Developing trauma-informed psychosocial support systems that help participants process lived experiences, rebuild inner strength, and rediscover their inherent worth.",
+          "Providing practical interventions like vocational training and mentorship to guide participants from brokenness to stability, and from dependency to self-reliance."
+        ]}
       />
       <AboutStory />
       <LetsRiseMarquee />
