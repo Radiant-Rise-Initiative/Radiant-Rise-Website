@@ -15,7 +15,7 @@ export const newsItems: NewsItem[] = [
         category: "INITIATIVE",
         date: "SEP 12, 2025",
         title: "Vocational Empowerment: Radiant Rise Opens New Training Hub for Young Mothers",
-        image: "/assets/images/news_images/newsletter_01.jpg",
+        image: "/assets/images/purpose_images/purpose_01.jpg",
         author: "Sarah Namukasa",
         readTime: "4 min read",
         content: `
@@ -45,7 +45,7 @@ export const newsItems: NewsItem[] = [
         category: "IMPACT",
         date: "FEB 2026",
         title: "Healing Through Storytelling: Over 100 Participants Join Our Counseling Circles",
-        image: "/assets/images/news_images/newsletter_02.jpg",
+        image: "/assets/images/gallery_images/01. Healing Hearts.jpg",
         author: "Dr. Elizabeth Akello",
         readTime: "5 min read",
         content: `
