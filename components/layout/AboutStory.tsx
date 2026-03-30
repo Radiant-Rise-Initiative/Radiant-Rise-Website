@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export function AboutStory() {
@@ -10,7 +11,7 @@ export function AboutStory() {
         <section id="our-story" className="bg-white py-24 border-t border-black/5">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
                 
-                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32 items-stretch h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32 items-start h-full">
                     
                     {/* Left Column: Title & Tagline & Subscription - Should Remain in View (Sticky) */}
                     <div className="lg:sticky lg:top-32 self-start space-y-12 pb-24 z-20">
@@ -24,25 +25,14 @@ export function AboutStory() {
                             </p>
                         </div>
 
-                        {/* Subscription Box Section - No Title or Divider */}
-                        <div className="space-y-10">
-                            <div>
-                                <p className="text-xl text-black/40 tracking-tight">Stay connected with the movement.</p>
-                            </div>
-                            <div className="relative max-w-lg group">
-                                <input
-                                    type="email"
-                                    placeholder="Work Email"
-                                    className="w-full bg-transparent border border-black/10 py-5 px-6 pr-16 focus:outline-none focus:border-black transition-colors text-base md:text-lg"
-                                />
-                                <button className="absolute right-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-black transition-colors">
-                                    <ArrowRight className="w-8 h-8" />
-                                </button>
-                            </div>
-
-                            <p className="text-xs text-black/40 leading-relaxed max-w-lg">
-                                By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-black/60 transition-colors">Privacy Notice</Link>
-                            </p>
+                        {/* CEO Image - Added below titles */}
+                        <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden shadow-none">
+                            <Image
+                                src="/assets/images/about_images/About CEO.jpg"
+                                alt="Agnes Oyella, Founder & CEO"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
                     </div>
 
@@ -94,6 +84,27 @@ export function AboutStory() {
                             </p>
                             <p className="mt-8 text-sm font-mono tracking-normal uppercase text-black/60">
                                 AGNES OYELLA, FOUNDER
+                            </p>
+                        </div>
+
+                        {/* Subscription Box Section - Moved to Body */}
+                        <div className="space-y-10">
+                            <div>
+                                <p className="text-xl text-black/40 tracking-tight">Stay connected with the movement.</p>
+                            </div>
+                            <div className="relative max-w-2xl group">
+                                <input
+                                    type="email"
+                                    placeholder="Work Email"
+                                    className="w-full bg-transparent border border-black/10 py-5 px-6 pr-16 focus:outline-none focus:border-black transition-colors text-base md:text-lg"
+                                />
+                                <button className="absolute right-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-black transition-colors">
+                                    <ArrowRight className="w-8 h-8" />
+                                </button>
+                            </div>
+
+                            <p className="text-xs text-black/40 leading-relaxed max-w-2xl">
+                                By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-black/60 transition-colors">Privacy Notice</Link>
                             </p>
                         </div>
                     </div>
