@@ -26,6 +26,7 @@ export default function AboutPage() {
       <AboutMissionVision />
       <AboutInfoImage />
       <PurposeSection 
+        videoSrc="/assets/images/video_stories/RRI (Story).mp4"
         imageSrc="/assets/images/about_images/About TN.jpg" 
         description="I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities." 
       />

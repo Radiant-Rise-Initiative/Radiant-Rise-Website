@@ -20,7 +20,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <PurposeSection />
+      <PurposeSection videoSrc="/assets/images/video_stories/RR1 (Hero).mp4" />
       <TheoriesOfChange />
       <ImpactStats />
       <WhoWeAre />

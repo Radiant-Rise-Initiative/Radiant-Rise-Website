@@ -9,11 +9,13 @@ import { cn } from "@/lib/utils";
 interface PurposeSectionProps {
     imageSrc?: string;
     description?: string;
+    videoSrc?: string;
 }
 
 export function PurposeSection({ 
     imageSrc = "/assets/images/hero_images/Hero 06.jpg",
-    description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
+    description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
+    videoSrc = "/assets/images/video_stories/Radiant Rise Story.mp4"
 }: PurposeSectionProps) {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     
@@ -160,7 +162,7 @@ export function PurposeSection({
             <link 
                 rel="preload" 
                 as="video" 
-                href="/assets/images/video_stories/Radiant%20Rise%20Story.mp4" 
+                href={videoSrc} 
                 type="video/mp4" 
             />
             
@@ -218,7 +220,7 @@ export function PurposeSection({
                         >
                             <video 
                                 ref={videoRef}
-                                src="/assets/images/video_stories/Radiant%20Rise%20Story.mp4" 
+                                src={videoSrc} 
                                 autoPlay 
                                 playsInline
                                 onTimeUpdate={handleTimeUpdate}
