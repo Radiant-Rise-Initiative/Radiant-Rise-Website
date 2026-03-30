@@ -4,7 +4,7 @@ import { GalleryScroller, GalleryItem } from "@/components/ui/GalleryScroller";
 const galleryItems: GalleryItem[] = [
     {
         id: 1,
-        title: "Healing Hearts",
+        title: "Post-trauma and adversity counseling sessions for young mothers.",
         category: "Counseling",
         description: "Post-trauma and adversity counseling sessions for young mothers.",
         image: "/assets/images/gallery_images/gallery_01.jpg",
@@ -14,7 +14,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 2,
-        title: "Economic Freedom",
+        title: "Equipping participants with vocational skills and financial inclusion.",
         category: "Empowerment",
         description: "Equipping participants with vocational skills and financial inclusion.",
         image: "/assets/images/gallery_images/gallery_02.jpg",
@@ -24,7 +24,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 3,
-        title: "Community Synergy",
+        title: "Nurturing hope and self-reliance through values-based leadership.",
         category: "Partnership",
         description: "Nurturing hope and self-reliance through values-based leadership.",
         image: "/assets/images/gallery_images/gallery_03.jpg",
@@ -34,7 +34,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 4,
-        title: "Stronger Futures",
+        title: "Uplifting the next generation of youth through structured support.",
         category: "Mentorship",
         description: "Uplifting the next generation of youth through structured support.",
         image: "/assets/images/gallery_images/gallery_04.jpg",
@@ -44,7 +44,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 5,
-        title: "Skills Training",
+        title: "Dedicated workshops to build practical and marketable skills.",
         category: "Vocational",
         description: "Dedicated workshops to build practical and marketable skills.",
         image: "/assets/images/gallery_images/gallery_05.jpg",
@@ -54,7 +54,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 6,
-        title: "Spiritual Foundation",
+        title: "Building resilience on strong, enduring values.",
         category: "Faith",
         description: "Building resilience on strong, enduring values.",
         image: "/assets/images/gallery_images/gallery_06.jpg",
@@ -64,7 +64,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 7,
-        title: "Leadership Focus",
+        title: "Fostering community leaders to inspire systemic change.",
         category: "Development",
         description: "Fostering community leaders to inspire systemic change.",
         image: "/assets/images/gallery_images/gallery_07.jpg",
@@ -74,7 +74,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 8,
-        title: "Creative Arts",
+        title: "Expressive therapies combining tradition and creativity.",
         category: "Expression",
         description: "Expressive therapies combining tradition and creativity.",
         image: "/assets/images/gallery_images/gallery_08.jpg",
@@ -84,7 +84,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 9,
-        title: "Collaborative Growth",
+        title: "Achieving more through united community efforts.",
         category: "Teamwork",
         description: "Achieving more through united community efforts.",
         image: "/assets/images/gallery_images/gallery_09.jpg",
@@ -94,7 +94,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 10,
-        title: "Health & Wellness",
+        title: "Holistic well-being approaches for lasting impacts.",
         category: "Care",
         description: "Holistic well-being approaches for lasting impacts.",
         image: "/assets/images/gallery_images/gallery_10.jpg",
@@ -104,7 +104,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 11,
-        title: "Digital Literacy",
+        title: "Closing the digital divide with hands-on computer training.",
         category: "Education",
         description: "Closing the digital divide with hands-on computer training.",
         image: "/assets/images/gallery_images/gallery_11.jpg",
@@ -114,7 +114,7 @@ const galleryItems: GalleryItem[] = [
     },
     {
         id: 12,
-        title: "Family Unity",
+        title: "Strengthening families as the core of community transformation.",
         category: "Support",
         description: "Strengthening families as the core of community transformation.",
         image: "/assets/images/gallery_images/gallery_12.jpg",

@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { AboutMissionVision } from "@/components/layout/AboutMissionVision";
 import { AboutInfoImage } from "@/components/layout/AboutInfoImage";
 import { AboutStory } from "@/components/layout/AboutStory";
+import { PurposeSection } from "@/components/layout/PurposeSection";
 import { LetsRiseMarquee } from "@/components/layout/LetsRiseMarquee";
 
 export default function AboutPage() {
@@ -24,6 +25,7 @@ export default function AboutPage() {
       />
       <AboutMissionVision />
       <AboutInfoImage />
+      <PurposeSection imageSrc="/assets/images/about_images/About TN.jpg" />
       <AboutStory />
       <LetsRiseMarquee />
       <Footer />

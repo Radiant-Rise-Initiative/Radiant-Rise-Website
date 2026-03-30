@@ -6,7 +6,13 @@ import { X, Play, Pause, Volume2, VolumeX, Maximize, Minimize } from "lucide-rea
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function PurposeSection() {
+interface PurposeSectionProps {
+    imageSrc?: string;
+}
+
+export function PurposeSection({ 
+    imageSrc = "/assets/images/hero_images/Hero 06.jpg" 
+}: PurposeSectionProps) {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     
     // Custom Video Player State
@@ -159,7 +165,7 @@ export function PurposeSection() {
             <PurposeStatement
                 title="Radiant Rise"
                 description="Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."
-                imageSrc="/assets/images/hero_images/Hero 06.jpg"
+                imageSrc={imageSrc}
                 imageAlt="Radiant Rise Purpose"
                 actionText="Play Trailer"
                 onActionClick={() => setIsVideoOpen(true)}
