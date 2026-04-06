@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface PurposeSectionProps {
+    title?: string;
     imageSrc?: string;
     description?: string;
     videoSrc?: string;
@@ -14,6 +15,7 @@ interface PurposeSectionProps {
 }
 
 export function PurposeSection({ 
+    title = "Radiant Rise",
     imageSrc = "/assets/images/hero_images/Hero 06.jpg",
     description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
     videoSrc = "/assets/images/video_stories/Radiant Rise Story.mp4",
@@ -172,7 +174,7 @@ export function PurposeSection({
             />
             
             <PurposeStatement
-                title="Radiant Rise"
+                title={title}
                 description={description}
                 imageSrc={imageSrc}
                 imageAlt="Radiant Rise Purpose"

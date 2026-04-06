@@ -53,15 +53,21 @@ const identityItems: StackItem[] = [
     },
 ];
 
-export function WhoWeAre() {
+export function WhoWeAre({ 
+    title = "Who We Are", 
+    description = "At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected."
+}: { 
+    title?: string, 
+    description?: string 
+}) {
     return (
         <ColumnInfoStack
             id="who-we-are"
-            title="Who We Are"
+            title={title}
             sectionBgColor="#96503F"
             contentBgColor="#CD5929"
             linkColor="#F3A993"
-            description="At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected."
+            description={description}
             items={identityItems}
             onLinkClick={(id) => {
                 console.log(`Navigating to identity pillar: ${id}`);

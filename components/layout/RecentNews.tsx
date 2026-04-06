@@ -1,15 +1,10 @@
-"use client";
-
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, useInView } from "framer-motion";
+import { supabase } from "@/lib/supabase";
 
-import { newsItems } from "@/lib/newsData";
-
-import { useEffect } from "react";
-
-function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
+function NewsItemContent({ item }: { item: any }) {
     const [bgColor, setBgColor] = useState("rgba(0,0,0,0.6)");
 
     useEffect(() => {
@@ -56,10 +51,23 @@ function NewsItemContent({ item }: { item: typeof newsItems[0] }) {
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function RecentNews() {
+    const [news, setNews] = useState<any[]>([]);
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
     const { scrollY } = useScroll();
     const gridRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(gridRef, { once: false, amount: 0.2 });
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            const { data } = await supabase
+                .from('news_releases')
+                .select('*')
+                .order('date', { ascending: false })
+                .limit(3);
+            if (data) setNews(data);
+        };
+        fetchNews();
+    }, []);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
@@ -69,6 +77,8 @@ export function RecentNews() {
             setScrollDirection("up");
         }
     });
+
+    if (news.length === 0) return null;
 
     return (
         <section id="recent-news" data-theme="light" className="bg-[#f5f5f7] py-24 px-4 sm:px-12 lg:px-0">
@@ -87,7 +97,7 @@ export function RecentNews() {
                     data-theme="dark"
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8 -my-8 px-4 -mx-4"
                 >
-                    {newsItems.map((item, index) => (
+                    {news.map((item, index) => (
                         <motion.div
                             key={item.id}
                             animate={isInView
@@ -101,18 +111,20 @@ export function RecentNews() {
                             }}
                         >
                             <Link
-                                href={`/news/${item.id}`}
+                                href={`/news/${item.slug}`}
                                 className="relative group h-[500px] block overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.0375] hover:z-10"
                             >
                                 {/* Background Image */}
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
+                                {item.image_url && (
+                                    <Image
+                                        src={item.image_url}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                )}
 
-                                <NewsItemContent item={item} />
+                                <NewsItemContent item={{ ...item, image: item.image_url }} />
                             </Link>
                         </motion.div>
                     ))}

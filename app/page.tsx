@@ -1,3 +1,4 @@
+import { getSections } from "@/lib/supabase";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
@@ -15,15 +16,39 @@ import { OurGallery } from "@/components/layout/OurGallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
 import { TheoriesOfChange } from "@/components/layout/TheoriesOfChange";
 
-export default function Home() {
+export default async function Home() {
+  const sections = await getSections();
+  const heroData = sections.hero || {};
+  const purposeData = sections.purpose || {};
+  const impactData = sections.impact_stats || {};
+  const whoWeAreData = sections.who_we_are || {};
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <Hero />
-      <PurposeSection videoSrc="/assets/images/video_stories/RR1 (Hero).mp4" />
+      <Hero 
+        title={heroData.headline}
+        description={heroData.subheadline}
+      />
+      <PurposeSection 
+        videoSrc="/assets/images/video_stories/RR1 (Hero).mp4" 
+        title={purposeData.title}
+        description={purposeData.description}
+        infoPoints={[purposeData.info_point_1, purposeData.info_point_2].filter(Boolean)}
+      />
       <TheoriesOfChange />
-      <ImpactStats />
-      <WhoWeAre />
+      <ImpactStats 
+        title={impactData.title}
+        description={impactData.description}
+        overallMetric={{
+          label: impactData.metric_label,
+          value: impactData.metric_value
+        }}
+      />
+      <WhoWeAre 
+        title={whoWeAreData.title}
+        description={whoWeAreData.content}
+      />
       <OurValuesTabs />
       <TargetScroller />
       <ImpactMilestones />

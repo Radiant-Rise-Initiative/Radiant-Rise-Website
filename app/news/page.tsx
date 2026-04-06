@@ -1,17 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { newsItems } from "@/lib/newsData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function NewsArchive() {
-    const featuredStory = newsItems[0];
-    const archiveStories = newsItems.slice(1);
+    const [news, setNews] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            const { data } = await supabase
+                .from('news_releases')
+                .select('*')
+                .order('date', { ascending: false });
+            if (data) setNews(data);
+            setIsLoading(false);
+        };
+        fetchNews();
+    }, []);
+
+    const featuredStory = news[0];
+    const archiveStories = news.slice(1);
 
     // Mouse tracking for premium hover effect
     const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -32,6 +47,24 @@ export default function NewsArchive() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, [mouseX, mouseY]);
 
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <Loader2 className="w-8 h-8 animate-spin text-black/10" />
+            </div>
+        );
+    }
+
+    if (news.length === 0) {
+        return (
+            <main className="min-h-screen bg-[#fafafa] flex flex-col items-center justify-center">
+                <Navbar />
+                <p className="text-black/40 font-mono text-xs uppercase tracking-widest">No stories found in the archive.</p>
+                <Footer topPadding={true} />
+            </main>
+        );
+    }
+
     return (
         <main className="min-h-screen bg-[#fafafa] flex flex-col overflow-x-hidden">
             <Navbar />
@@ -46,14 +79,16 @@ export default function NewsArchive() {
                             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                             className="relative aspect-square sm:aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden"
                         >
-                            <Link href={`/news/${featuredStory.id}`} className="block w-full h-full group">
-                                <Image 
-                                    src={featuredStory.image} 
-                                    alt={featuredStory.title}
-                                    fill 
-                                    className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
-                                    priority
-                                />
+                            <Link href={`/news/${featuredStory.slug}`} className="block w-full h-full group">
+                                {featuredStory.image_url && (
+                                    <Image 
+                                        src={featuredStory.image_url} 
+                                        alt={featuredStory.title}
+                                        fill 
+                                        className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                                        priority
+                                    />
+                                )}
                                 <div className="absolute top-6 left-6 md:top-8 md:left-8">
                                     <span className="inline-block py-1 px-3 transition-all duration-300 text-xs font-mono uppercase tracking-widest text-white/90 bg-[#f5f5f7]/10 backdrop-blur-sm">
                                         FEATURED • {featuredStory.category}
@@ -86,7 +121,7 @@ export default function NewsArchive() {
                                 className="w-full sm:w-auto"
                             >
                                 <Link 
-                                    href={`/news/${featuredStory.id}`} 
+                                    href={`/news/${featuredStory.slug}`} 
                                     className="group inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 text-sm font-mono tracking-widest uppercase border border-black text-black px-8 py-4 sm:px-10 sm:py-5 hover:bg-black hover:text-white transition-all duration-300"
                                 >
                                     Read Story
@@ -112,7 +147,7 @@ export default function NewsArchive() {
                     >
                         {archiveStories.map((story) => (
                             <Link 
-                                href={`/news/${story.id}`} 
+                                href={`/news/${story.slug}`} 
                                 key={story.id} 
                                 onMouseEnter={() => setHoveredId(story.id)}
                                 className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-start md:items-center py-8 md:py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
@@ -154,7 +189,7 @@ export default function NewsArchive() {
                                 className="absolute inset-0"
                             >
                                 <Image 
-                                    src={archiveStories.find(s => s.id === hoveredId)?.image || ''} 
+                                    src={archiveStories.find(s => s.id === hoveredId)?.image_url || ''} 
                                     alt="Preview"
                                     fill 
                                     className="object-cover"

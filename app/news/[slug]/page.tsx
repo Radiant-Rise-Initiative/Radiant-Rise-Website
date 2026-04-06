@@ -1,18 +1,61 @@
 "use client";
 
-import { use } from "react";
-import { newsItems } from "@/lib/newsData";
+import { use, useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import { notFound } from "next/navigation";
 
-export default function NewsletterTemplate({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
-    const item = newsItems.find(n => n.id === id);
+export default function NewsletterTemplate({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = use(params);
+    const [item, setItem] = useState<any>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [nextItem, setNextItem] = useState<any>(null);
+
+    useEffect(() => {
+        const fetchStory = async () => {
+            const { data: story, error } = await supabase
+                .from('news_releases')
+                .select('*')
+                .eq('slug', slug)
+                .single();
+
+            if (error || !story) {
+                setIsLoading(false);
+                return;
+            }
+
+            setItem(story);
+
+            // Fetch next story for navigation
+            const { data: next } = await supabase
+                .from('news_releases')
+                .select('slug, title')
+                .neq('slug', slug)
+                .order('date', { ascending: false })
+                .limit(1);
+            
+            if (next && next.length > 0) {
+                setNextItem(next[0]);
+            }
+
+            setIsLoading(false);
+        };
+
+        fetchStory();
+    }, [slug]);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <Loader2 className="w-8 h-8 animate-spin text-black/10" />
+            </div>
+        );
+    }
 
     if (!item) {
         notFound();
@@ -64,14 +107,16 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                     </div>
 
                     {/* Featured Image */}
-                    <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
-                        <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
+                    {item.image_url && (
+                        <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                            <Image
+                                src={item.image_url}
+                                alt={item.title}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    )}
 
                     {/* Article Body */}
                     <div className="p-8 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -83,8 +128,14 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                             </div>
                             <div className="mb-8">
                                 <span className="text-sm leading-relaxed text-black/60 block mb-1">Read Time</span>
-                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.readTime || "5 MIN"}</span>
+                                <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.read_time || "5 MIN"}</span>
                             </div>
+                            {item.author && (
+                                <div className="mb-8">
+                                    <span className="text-sm leading-relaxed text-black/60 block mb-1">Author</span>
+                                    <span className="text-xs font-mono tracking-widest text-black uppercase block">{item.author}</span>
+                                </div>
+                            )}
                         </div>
 
                         {/* Content */}
@@ -104,20 +155,15 @@ export default function NewsletterTemplate({ params }: { params: Promise<{ id: s
                                     BACK TO ALL NEWS
                                 </Link>
                                 
-                                {(() => {
-                                    const currentIndex = newsItems.findIndex(n => n.id === item.id);
-                                    const nextItem = newsItems[(currentIndex + 1) % newsItems.length];
-                                    const isLastItem = currentIndex === newsItems.length - 1;
-                                    return (
-                                        <Link 
-                                            href={`/news/${nextItem.id}`}
-                                            className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 hover:bg-black/10 hover:text-black transition-colors group"
-                                        >
-                                            {isLastItem ? "VIEW LATEST RELEASE" : "READ NEXT EDITION"}
-                                            <ArrowRight className="w-3.5 h-3.5 -mr-1 group-hover:translate-x-1 transition-transform" />
-                                        </Link>
-                                    );
-                                })()}
+                                {nextItem && (
+                                    <Link 
+                                        href={`/news/${nextItem.slug}`}
+                                        className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 hover:bg-black/10 hover:text-black transition-colors group"
+                                    >
+                                        READ NEXT EDITION
+                                        <ArrowRight className="w-3.5 h-3.5 -mr-1 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
