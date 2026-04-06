@@ -30,12 +30,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const pathname = usePathname();
 
     useEffect(() => {
+        const isPublicPath = pathname === "/admin/login" || pathname === "/admin/seed";
+
         const checkUser = async () => {
             const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
+            if (!session && !isPublicPath) {
                 router.push("/admin/login");
             } else {
-                setUser(session.user);
+                setUser(session?.user ?? null);
                 setIsLoading(false);
             }
         };
@@ -43,10 +45,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         checkUser();
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-            if (!session) {
+            if (!session && !isPublicPath) {
                 router.push("/admin/login");
             } else {
-                setUser(session.user);
+                setUser(session?.user ?? null);
                 setIsLoading(false);
             }
         });
@@ -65,6 +67,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <Loader2 className="w-6 h-6 animate-spin text-black/20" />
             </div>
         );
+    }
+
+    const isPublicPath = pathname === "/admin/login" || pathname === "/admin/seed";
+
+    if (isPublicPath) {
+        return <AnimatePresence mode="wait"><motion.div key={pathname}>{children}</motion.div></AnimatePresence>;
     }
 
     return (

@@ -18,16 +18,24 @@ export default function AdminLogin() {
         setIsLoading(true);
         setError(null);
 
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
+        try {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
 
-        if (error) {
-            setError(error.message);
+            if (error) {
+                console.error("Supabase Login Error:", error);
+                setError(error.message);
+                setIsLoading(false);
+            } else {
+                console.log("Login successful:", data);
+                router.push("/admin/dashboard");
+            }
+        } catch (err: any) {
+            console.error("Network/Unexpected Error:", err);
+            setError(err.message || "An unexpected error occurred. Check console.");
             setIsLoading(false);
-        } else {
-            router.push("/admin/dashboard");
         }
     };
 
