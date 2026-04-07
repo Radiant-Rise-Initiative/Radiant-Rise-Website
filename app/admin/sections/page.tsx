@@ -59,7 +59,7 @@ const SECTIONS = [
     { key: "purpose", label: "Purpose Section", fields: ["title", "description", "image_url", "video_url", "info_point_1", "info_point_2"] },
     { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "metric_label", "metric_value"], isMulti: true, fieldName: 'stats' },
     { key: "who_we_are", label: "Who We Are", fields: ["title", "description", "image_url"] },
-    { key: "values", label: "Our Values", fields: ["title", "description", "image_url"] },
+    { key: "our_values", label: "Our Values" },
     { key: "gallery", label: "Our Gallery", isMulti: true, fieldName: 'items' },
 ];
 
