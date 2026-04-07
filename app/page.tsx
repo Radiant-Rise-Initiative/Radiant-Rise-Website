@@ -45,6 +45,10 @@ export default async function Home() {
   const whoWeAre = { ...siteDefaults.who_we_are, ...sections.who_we_are };
   const theoriesOfChange = { ...siteDefaults.theories_of_change, ...sections.theories_of_change };
   const ourValues = { ...siteDefaults.our_values, ...sections.our_values };
+  const ourTargets = { ...siteDefaults.our_targets, ...sections.our_targets };
+  const impactMilestones = { ...siteDefaults.impact_milestones, ...sections.impact_milestones };
+  const gallery = { ...siteDefaults.gallery, ...sections.gallery };
+  const gotQuestions = { ...siteDefaults.got_questions, ...sections.got_questions };
   
   const newsData = await getNews();
   const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
@@ -121,11 +125,42 @@ export default async function Home() {
           }))
         }))}
       />
-      <TargetScroller />
-      <ImpactMilestones />
+      <TargetScroller 
+        title={s(ourTargets.title)}
+        linkText={s(ourTargets.linkText)}
+        href={s(ourTargets.href)}
+        items={(ourTargets.items || []).map((item: any) => ({
+          ...item,
+          name: s(item.name),
+          category: s(item.category),
+          logo: s(item.logo),
+          description: s(item.description),
+          image: s(item.image)
+        }))}
+      />
+      <ImpactMilestones 
+        sectionLabel={s(impactMilestones.sectionLabel)}
+        testimonials={(impactMilestones.testimonials || []).map((item: any) => ({
+          ...item,
+          category: s(item.category),
+          quote: s(item.quote),
+          role: s(item.role),
+          company: s(item.company),
+          image: s(item.image)
+        }))}
+      />
       <RecentNews initialNews={finalNews} />
-      <OurGallery items={sections.gallery?.items} />
-      <GotQuestions />
+      <OurGallery items={gallery.items} />
+      <GotQuestions 
+        title={s(gotQuestions.title)}
+        linkText={s(gotQuestions.linkText)}
+        href={s(gotQuestions.href)}
+        items={(gotQuestions.items || []).map((item: any) => ({
+          ...item,
+          question: s(item.question),
+          answer: s(item.answer)
+        }))}
+      />
       <ConnectForm />
       <LetsRiseMarquee />
       <Footer />

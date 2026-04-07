@@ -59,6 +59,9 @@ const SECTIONS = [
     { key: "purpose", label: "Purpose Section", fields: ["title", "description", "image_url", "video_url", "info_point_1", "info_point_2"] },
     { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "metric_label", "metric_value"], isMulti: true, fieldName: 'stats' },
     { key: "who_we_are", label: "Who We Are", fields: ["title", "description", "image_url"] },
+    { key: "our_targets", label: "Our Targets", fields: ["title", "linkText", "href"], isMulti: true, fieldName: 'items' },
+    { key: "impact_milestones", label: "Impact Milestones", fields: ["sectionLabel"], isMulti: true, fieldName: 'testimonials' },
+    { key: "got_questions", label: "Got Questions", fields: ["title", "linkText", "href"], isMulti: true, fieldName: 'items' },
     { key: "our_values", label: "Our Values" },
     { key: "gallery", label: "Our Gallery", isMulti: true, fieldName: 'items' },
 ];
@@ -152,6 +155,24 @@ export default function AdminSections() {
                         { title: "", text: "" },
                         { title: "" , text: "" }
                     ]
+                };
+                break;
+            case 'our_targets':
+                newItem = { 
+                    id: Math.random().toString(36).substr(2, 9), 
+                    name: "", logo: "", description: "", image: "" 
+                };
+                break;
+            case 'impact_milestones':
+                newItem = { 
+                    id: Math.random().toString(36).substr(2, 9), 
+                    category: "", quote: "", role: "", company: "", image: "" 
+                };
+                break;
+            case 'got_questions':
+                newItem = { 
+                    id: Math.random().toString(36).substr(2, 9), 
+                    question: "", answer: "" 
                 };
                 break;
             default:
@@ -455,6 +476,132 @@ export default function AdminSections() {
                                                     >
                                                         <Trash2 className="w-4 h-4" />
                                                     </button>
+                                                </Reorder.Item>
+                                            ))}
+                                        </Reorder.Group>
+                                    </div>
+                                </div>
+                            ) : section.key === 'our_targets' ? (
+                                // Custom Layout for Our Targets
+                                <div className="space-y-10">
+                                    <div className="space-y-6">
+                                        <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Section Metadata</h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Section Title</label>
+                                                <input value={sectionsData[section.key]?.title || ""} onChange={(e) => handleChange(section.key, 'title', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Link Text</label>
+                                                <input value={sectionsData[section.key]?.linkText || ""} onChange={(e) => handleChange(section.key, 'linkText', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Link HREF</label>
+                                                <input value={sectionsData[section.key]?.href || ""} onChange={(e) => handleChange(section.key, 'href', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border-b border-dashed border-black/10" />
+                                    <div className="space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Target Items</h4>
+                                            <button onClick={() => addItem(section.key, 'items')} className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-black/60 hover:text-black transition-colors">
+                                                <Plus className="w-3 h-3" /> Add Target
+                                            </button>
+                                        </div>
+                                        <Reorder.Group axis="y" values={sectionsData[section.key]?.items || []} onReorder={(newOrder) => handleChange(section.key, 'items', newOrder)} className="space-y-4">
+                                            {(sectionsData[section.key]?.items || []).map((item: any) => (
+                                                <Reorder.Item key={item.id} value={item} className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item">
+                                                    <div className="mt-4 cursor-grab active:cursor-grabbing text-black/20 group-hover/item:text-black/40"><GripVertical className="w-4 h-4" /></div>
+                                                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div className="space-y-4">
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Name</label><input value={item.name} onChange={(e) => updateItem(section.key, 'items', item.id, "name", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Image URL</label><input value={item.image} onChange={(e) => updateItem(section.key, 'items', item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                        </div>
+                                                        <div className="space-y-4">
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Logo (Multi-line text)</label><AutoResizingTextarea value={item.logo} onChange={(val) => updateItem(section.key, 'items', item.id, "logo", val)} className="bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black font-mono leading-relaxed" /></div>
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Description</label><AutoResizingTextarea value={item.description} onChange={(val) => updateItem(section.key, 'items', item.id, "description", val)} className="bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                        </div>
+                                                    </div>
+                                                    <button onClick={() => removeItem(section.key, 'items', item.id)} className="mt-4 text-black/20 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                                                </Reorder.Item>
+                                            ))}
+                                        </Reorder.Group>
+                                    </div>
+                                </div>
+                            ) : section.key === 'impact_milestones' ? (
+                                // Custom Layout for Impact Milestones
+                                <div className="space-y-10">
+                                    <div className="space-y-2">
+                                        <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Section Label</label>
+                                        <input value={sectionsData[section.key]?.sectionLabel || ""} onChange={(e) => handleChange(section.key, 'sectionLabel', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                    </div>
+                                    <div className="border-b border-dashed border-black/10" />
+                                    <div className="space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Milestones (Testimonials)</h4>
+                                            <button onClick={() => addItem(section.key, 'testimonials')} className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-black/60 hover:text-black transition-colors">
+                                                <Plus className="w-3 h-3" /> Add Milestone
+                                            </button>
+                                        </div>
+                                        <Reorder.Group axis="y" values={sectionsData[section.key]?.testimonials || []} onReorder={(newOrder) => handleChange(section.key, 'testimonials', newOrder)} className="space-y-4">
+                                            {(sectionsData[section.key]?.testimonials || []).map((item: any) => (
+                                                <Reorder.Item key={item.id} value={item} className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item">
+                                                    <div className="mt-4 cursor-grab active:cursor-grabbing text-black/20 group-hover/item:text-black/40"><GripVertical className="w-4 h-4" /></div>
+                                                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div className="space-y-4">
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Category</label><input value={item.category} onChange={(e) => updateItem(section.key, 'testimonials', item.id, "category", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Role</label><input value={item.role} onChange={(e) => updateItem(section.key, 'testimonials', item.id, "role", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                                <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Company</label><input value={item.company} onChange={(e) => updateItem(section.key, 'testimonials', item.id, "company", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                            </div>
+                                                            <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Image URL</label><input value={item.image} onChange={(e) => updateItem(section.key, 'testimonials', item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" /></div>
+                                                        </div>
+                                                        <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Quote (Detailed Narrative)</label><AutoResizingTextarea value={item.quote} onChange={(val) => updateItem(section.key, 'testimonials', item.id, "quote", val)} className="bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black h-full" /></div>
+                                                    </div>
+                                                    <button onClick={() => removeItem(section.key, 'testimonials', item.id)} className="mt-4 text-black/20 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                                                </Reorder.Item>
+                                            ))}
+                                        </Reorder.Group>
+                                    </div>
+                                </div>
+                            ) : section.key === 'got_questions' ? (
+                                // Custom Layout for Got Questions (FAQs)
+                                <div className="space-y-10">
+                                    <div className="space-y-6">
+                                        <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Section Metadata</h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Section Title</label>
+                                                <input value={sectionsData[section.key]?.title || ""} onChange={(e) => handleChange(section.key, 'title', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Link Text</label>
+                                                <input value={sectionsData[section.key]?.linkText || ""} onChange={(e) => handleChange(section.key, 'linkText', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Link HREF</label>
+                                                <input value={sectionsData[section.key]?.href || ""} onChange={(e) => handleChange(section.key, 'href', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border-b border-dashed border-black/10" />
+                                    <div className="space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Question & Answer Items</h4>
+                                            <button onClick={() => addItem(section.key, 'items')} className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-black/60 hover:text-black transition-colors">
+                                                <Plus className="w-3 h-3" /> Add FAQ
+                                            </button>
+                                        </div>
+                                        <Reorder.Group axis="y" values={sectionsData[section.key]?.items || []} onReorder={(newOrder) => handleChange(section.key, 'items', newOrder)} className="space-y-4">
+                                            {(sectionsData[section.key]?.items || []).map((item: any) => (
+                                                <Reorder.Item key={item.id} value={item} className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item">
+                                                    <div className="mt-4 cursor-grab active:cursor-grabbing text-black/20 group-hover/item:text-black/40"><GripVertical className="w-4 h-4" /></div>
+                                                    <div className="flex-1 space-y-4">
+                                                        <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Question</label><input value={item.question} onChange={(e) => updateItem(section.key, 'items', item.id, "question", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm outline-none focus:border-black" /></div>
+                                                        <div className="space-y-1"><label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Answer</label><AutoResizingTextarea value={item.answer} onChange={(val) => updateItem(section.key, 'items', item.id, "answer", val)} className="bg-white border border-black/10 px-4 py-3 text-sm outline-none focus:border-black" /></div>
+                                                    </div>
+                                                    <button onClick={() => removeItem(section.key, 'items', item.id)} className="mt-4 text-black/20 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
                                                 </Reorder.Item>
                                             ))}
                                         </Reorder.Group>
