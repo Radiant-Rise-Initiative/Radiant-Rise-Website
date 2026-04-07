@@ -110,11 +110,11 @@ export function SectionEditor({
                         className="px-6 py-3 bg-black text-white text-[10px] font-mono uppercase tracking-widest flex items-center gap-2 hover:bg-[#CD5929] transition-colors disabled:opacity-50 min-w-[140px] justify-center"
                     >
                         {isSaving ? (
-                            <Loader2 className="w-3 h-3 animate-spin" />
+                            <Loader2 className="w-4 h-4 animate-spin" />
                         ) : (
-                            <span className="text-[12px] font-mono tracking-widest uppercase font-bold">Save</span>
+                            <Save className="w-4 h-4" />
                         )}
-                        {isSaving ? "Syncing..." : "Changes"}
+                        {isSaving ? "Syncing..." : "Save Changes"}
                     </button>
                 </div>
             </div>

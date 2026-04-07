@@ -299,12 +299,12 @@ export default function AdminNews() {
                                     className="w-full bg-black text-white py-5 px-6 flex items-center justify-between group hover:bg-[#CD5929] transition-all duration-500 disabled:opacity-50"
                                 >
                                     <span className="text-xs font-mono tracking-widest uppercase">
-                                        {isSaving ? "Syncing..." : "Release"}
+                                        {isSaving ? "Syncing..." : "Commit Release"}
                                     </span>
                                     {isSaving ? (
                                         <Loader2 className="w-4 h-4 animate-spin" />
                                     ) : (
-                                        <span className="text-[12px] font-mono tracking-widest uppercase font-bold text-white/90">Save</span>
+                                        <Save className="w-4 h-4" />
                                     )}
                                 </button>
                             </div>
