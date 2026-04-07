@@ -49,7 +49,11 @@ export function SectionTargets({ data, setData }: SectionTargetsProps) {
                     </div>
                     <div className="space-y-2">
                         <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Navigation HREF</label>
-                        <input value={data?.href || ""} onChange={(e) => handleChange('href', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                        <input 
+                            value={data?.href || ""} 
+                            disabled
+                            className="w-full bg-black/[0.05] border border-black/10 px-4 py-3 text-sm text-black/30 cursor-not-allowed outline-none font-mono" 
+                        />
                     </div>
                 </div>
             </div>

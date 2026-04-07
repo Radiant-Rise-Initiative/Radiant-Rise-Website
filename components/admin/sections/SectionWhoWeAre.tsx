@@ -1,9 +1,8 @@
 "use client";
 
-import { Plus, Trash2, GripVertical, Image as ImageIcon } from "lucide-react";
+import { Plus, Trash2, GripVertical } from "lucide-react";
 import { Reorder } from "framer-motion";
 import { AutoResizingTextarea } from "@/components/admin/AutoResizingTextarea";
-import { ImagePreview } from "@/components/admin/ImagePreview";
 
 interface SectionWhoWeAreProps {
     data: any;
@@ -20,7 +19,7 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
     const addItem = () => {
         const newItem = { 
             id: Math.random().toString(36).substr(2, 9), 
-            title: "", description: "", modalTagline: "", modalText: "", image: "" 
+            title: "", description: "", modalTagline: "", modalText: "" 
         };
         setData({ ...data, items: [...items, newItem] });
     };
@@ -39,17 +38,10 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
             {/* 1. Metadata */}
             <div className="space-y-6">
                 <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Section Identity</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6">
                     <div className="space-y-2">
-                        <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Title</label>
+                        <label className="block text-[10px) font-mono tracking-widest uppercase text-black/40">Title</label>
                         <input value={data?.title || ""} onChange={(e) => handleChange('title', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                    </div>
-                    <div className="space-y-4">
-                        <div className="space-y-2">
-                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Header Image URL</label>
-                            <input value={data?.image_url || ""} onChange={(e) => handleChange('image_url', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                        </div>
-                        <ImagePreview url={data?.image_url} />
                     </div>
                 </div>
                 <div className="space-y-2">
@@ -81,9 +73,9 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
                     onReorder={(newOrder) => setData({ ...data, items: newOrder })}
                     className="space-y-4"
                 >
-                    {items.map((item: any) => (
+                    {items.map((item: any, index: number) => (
                         <Reorder.Item 
-                            key={item.id} 
+                            key={item.id || `phase-${index}`} 
                             value={item}
                             className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item"
                         >
@@ -97,13 +89,6 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
                                         <div className="space-y-2">
                                             <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Phase Heading</label>
                                             <input value={item.title} onChange={(e) => updateItem(item.id, "title", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
-                                                <ImageIcon className="w-3 h-3" /> Image URL
-                                            </label>
-                                            <input value={item.image || ""} onChange={(e) => updateItem(item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                                            <ImagePreview url={item.image} />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Summary (Grid Display)</label>

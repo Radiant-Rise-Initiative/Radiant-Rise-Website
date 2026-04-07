@@ -6,8 +6,9 @@ import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Loader2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Loader2, Newspaper } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { s } from "@/lib/utils/sanitizer";
 
 export default function NewsArchive() {
     const [news, setNews] = useState<any[]>([]);
@@ -150,20 +151,35 @@ export default function NewsArchive() {
                                 href={`/news/${story.slug}`} 
                                 key={story.id} 
                                 onMouseEnter={() => setHoveredId(story.id)}
-                                className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-start md:items-center py-8 md:py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
+                                className="group grid grid-cols-1 md:grid-cols-[120px_180px_1fr_auto] gap-6 md:gap-12 items-start md:items-center py-8 md:py-10 border-t border-black/10 hover:bg-black/[0.02] transition-colors relative z-10"
                             >
-                                <div className="md:col-span-2">
-                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase block mb-1 md:mb-0">
+                                <div className="md:w-[120px] md:h-[68px] bg-black/5 overflow-hidden shrink-0">
+                                    {story.image_url ? (
+                                        <Image 
+                                            src={s(story.image_url)} 
+                                            alt={story.title}
+                                            width={120}
+                                            height={68}
+                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center opacity-10">
+                                            <Newspaper className="w-4 h-4" />
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="shrink-0">
+                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase block mb-1 md:mb-0 whitespace-nowrap">
                                         {story.date}
                                     </span>
                                 </div>
-                                <div className="md:col-span-8">
-                                    <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-black group-hover:text-[#CD5929] transition-colors leading-[1.15] md:leading-[1.1]">
+                                <div className="min-w-0">
+                                    <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-black group-hover:text-[#CD5929] transition-colors leading-[1.15] md:leading-[1.1] truncate md:whitespace-normal">
                                         {story.title}
                                     </h3>
                                 </div>
-                                <div className="md:col-span-2 hidden md:flex justify-end items-center gap-5">
-                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase text-right">
+                                <div className="hidden md:flex justify-end items-center gap-5 shrink-0">
+                                    <span className="text-xs font-mono tracking-widest text-black/60 uppercase text-right whitespace-nowrap">
                                         {story.category}
                                     </span>
                                     <ArrowUpRight className="w-8 h-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#CD5929] shrink-0" />

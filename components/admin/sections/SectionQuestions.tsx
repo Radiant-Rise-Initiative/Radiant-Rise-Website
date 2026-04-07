@@ -48,7 +48,11 @@ export function SectionQuestions({ data, setData }: SectionQuestionsProps) {
                     </div>
                     <div className="space-y-2">
                         <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Navigation HREF</label>
-                        <input value={data?.href || ""} onChange={(e) => handleChange('href', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                        <input 
+                            value={data?.href || ""} 
+                            disabled
+                            className="w-full bg-black/[0.05] border border-black/10 px-4 py-3 text-sm text-black/30 cursor-not-allowed outline-none font-mono" 
+                        />
                     </div>
                 </div>
             </div>
@@ -75,9 +79,9 @@ export function SectionQuestions({ data, setData }: SectionQuestionsProps) {
                     onReorder={(newOrder) => setData({ ...data, items: newOrder })}
                     className="space-y-4"
                 >
-                    {items.map((item: any) => (
+                    {items.map((item: any, index: number) => (
                         <Reorder.Item 
-                            key={item.id} 
+                            key={item.id || `q-${index}`} 
                             value={item}
                             className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item"
                         >

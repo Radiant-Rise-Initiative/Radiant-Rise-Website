@@ -14,8 +14,13 @@ import {
     Loader2,
     X,
     Save,
-    Newspaper
+    Newspaper,
+    ArrowUpRight
 } from "lucide-react";
+import { ImagePreview } from "@/components/admin/ImagePreview";
+import { s } from "@/lib/utils/sanitizer";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function AdminNews() {
     const [news, setNews] = useState<any[]>([]);
@@ -23,6 +28,7 @@ export default function AdminNews() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentStory, setCurrentStory] = useState<any>(null);
     const [isSaving, setIsSaving] = useState(false);
+    const [hoveredId, setHoveredId] = useState<string | null>(null);
 
     useEffect(() => {
         fetchNews();
@@ -115,16 +121,32 @@ export default function AdminNews() {
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="border-b border-black/5 bg-black/[0.01]">
-                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40">Launch Date</th>
+                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40 w-[120px]">PRV</th>
+                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40 whitespace-nowrap w-[150px]">Launch Date</th>
                                 <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40">Story Title</th>
-                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40">Category</th>
-                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40 text-right">Activity</th>
+                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40 w-[120px]">Category</th>
+                                <th className="px-8 py-5 text-[10px] font-mono tracking-widest uppercase text-black/40 text-right w-[100px]">Activity</th>
                             </tr>
                         </thead>
                         <tbody>
                             {news.map((story) => (
-                                <tr key={story.id} className="border-b border-black/5 group hover:bg-black/[0.01] transition-colors">
-                                    <td className="px-8 py-6 text-sm font-medium text-black/60">{story.date}</td>
+                                <tr key={story.id} onMouseEnter={() => setHoveredId(story.id)} className="border-b border-black/5 group hover:bg-black/[0.01] transition-colors">
+                                    <td className="px-8 py-6">
+                                        <div className="w-[120px] h-[68px] bg-black/5 overflow-hidden shrink-0">
+                                            {story.image_url ? (
+                                                <img 
+                                                    src={s(story.image_url)} 
+                                                    alt="" 
+                                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center opacity-20">
+                                                    <Newspaper className="w-4 h-4" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </td>
+                                    <td className="px-8 py-6 text-sm font-medium text-black/60 whitespace-nowrap">{story.date}</td>
                                     <td className="px-8 py-6">
                                         <div className="flex flex-col">
                                             <span className="text-sm font-semibold text-black">{story.title}</span>
@@ -244,15 +266,18 @@ export default function AdminNews() {
                                     />
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Image URL</label>
-                                    <input 
-                                        type="text" 
-                                        value={currentStory?.image_url || ""}
-                                        onChange={(e) => setCurrentStory({ ...currentStory, image_url: e.target.value })}
-                                        className="w-full bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
-                                        placeholder="e.g. /assets/images/story.png"
-                                    />
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Image URL</label>
+                                        <input 
+                                            type="text" 
+                                            value={currentStory?.image_url || ""}
+                                            onChange={(e) => setCurrentStory({ ...currentStory, image_url: e.target.value })}
+                                            className="w-full bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
+                                            placeholder="e.g. /assets/images/story.png"
+                                        />
+                                    </div>
+                                    <ImagePreview url={currentStory?.image_url} />
                                 </div>
 
                                 <div className="space-y-2">
