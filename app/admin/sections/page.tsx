@@ -488,8 +488,8 @@ export default function AdminSections() {
                                     <div className="space-y-6">
                                         <div className="flex items-center justify-between">
                                             <div className="space-y-1">
-                                                <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Value Tabs</h4>
-                                                <p className="text-xs text-black/60">Manage the automated rotating tabs and their internal features</p>
+                                                <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Value Pillars (Tabs)</h4>
+                                                <p className="text-xs text-black/60">Manage the automated rotating phases and their pillars</p>
                                             </div>
                                             <button 
                                                 onClick={() => addItem(section.key, 'tabs')}
@@ -519,27 +519,27 @@ export default function AdminSections() {
                                                         {/* Tab Header Info */}
                                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                                             <div className="space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Tab Label</label>
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Phase Title</label>
                                                                 <input value={tab.label} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "label", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
                                                             </div>
                                                             <div className="space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Bottom Tagline</label>
-                                                                <input value={tab.bottomTagline} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "bottomTagline", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none font-mono" />
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Modal Tagline</label>
+                                                                <input value={tab.bottomTagline} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "bottomTagline", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
                                                             </div>
                                                             <div className="space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Display Headline</label>
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Short Description (on grid)</label>
                                                                 <input value={tab.headline} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "headline", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
                                                             </div>
                                                         </div>
 
                                                         {/* Nest Items (Features) */}
                                                         <div className="space-y-4">
-                                                            <h5 className="text-[9px] font-mono uppercase tracking-widest text-black/20 border-b border-black/5 pb-2">Internal Features (3 Points)</h5>
+                                                            <h4 className="text-[10px] font-mono uppercase tracking-widest text-black/40 border-b border-black/5 pb-2">Detailed Narrative (3 Pillars)</h4>
                                                             <div className="grid grid-cols-1 gap-4">
                                                                 {(tab.features || []).map((feature: any, fIdx: number) => (
                                                                     <div key={fIdx} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
                                                                         <div className="space-y-1">
-                                                                            <label className="block text-[9px] font-mono uppercase text-black/30">Feature {fIdx + 1} Title</label>
+                                                                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Pillar {fIdx + 1} Title</label>
                                                                             <input 
                                                                                 value={feature.title} 
                                                                                 onChange={(e) => {
@@ -547,11 +547,11 @@ export default function AdminSections() {
                                                                                     newFeatures[fIdx].title = e.target.value;
                                                                                     updateItem(section.key, 'tabs', tab.id, "features", newFeatures);
                                                                                 }} 
-                                                                                className="w-full bg-white border border-black/5 px-3 py-2 text-xs focus:border-black outline-none" 
+                                                                                className="w-full bg-white border border-black/10 px-3 py-2 text-sm focus:border-black outline-none" 
                                                                             />
                                                                         </div>
                                                                         <div className="md:col-span-3 space-y-1">
-                                                                            <label className="block text-[9px] font-mono uppercase text-black/30">Feature {fIdx + 1} Description</label>
+                                                                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Pillar {fIdx + 1} Description</label>
                                                                             <textarea 
                                                                                 value={feature.text} 
                                                                                 onChange={(e) => {
@@ -560,7 +560,7 @@ export default function AdminSections() {
                                                                                     updateItem(section.key, 'tabs', tab.id, "features", newFeatures);
                                                                                 }} 
                                                                                 rows={2}
-                                                                                className="w-full bg-white border border-black/5 px-3 py-2 text-xs focus:border-black outline-none resize-none"
+                                                                                className="w-full bg-white border border-black/10 px-3 py-2 text-sm focus:border-black outline-none resize-none"
                                                                             />
                                                                         </div>
                                                                     </div>
