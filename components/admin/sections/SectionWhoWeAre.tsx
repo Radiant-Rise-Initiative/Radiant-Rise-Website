@@ -3,6 +3,7 @@
 import { Plus, Trash2, GripVertical, Image as ImageIcon } from "lucide-react";
 import { Reorder } from "framer-motion";
 import { AutoResizingTextarea } from "@/components/admin/AutoResizingTextarea";
+import { ImagePreview } from "@/components/admin/ImagePreview";
 
 interface SectionWhoWeAreProps {
     data: any;
@@ -19,7 +20,7 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
     const addItem = () => {
         const newItem = { 
             id: Math.random().toString(36).substr(2, 9), 
-            title: "", description: "", modalTagline: "", modalText: "" 
+            title: "", description: "", modalTagline: "", modalText: "", image: "" 
         };
         setData({ ...data, items: [...items, newItem] });
     };
@@ -43,9 +44,12 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
                         <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Title</label>
                         <input value={data?.title || ""} onChange={(e) => handleChange('title', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
                     </div>
-                    <div className="space-y-2">
-                        <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Header Image URL</label>
-                        <input value={data?.image_url || ""} onChange={(e) => handleChange('image_url', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Header Image URL</label>
+                            <input value={data?.image_url || ""} onChange={(e) => handleChange('image_url', e.target.value)} className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                        </div>
+                        <ImagePreview url={data?.image_url} />
                     </div>
                 </div>
                 <div className="space-y-2">
@@ -93,6 +97,13 @@ export function SectionWhoWeAre({ data, setData }: SectionWhoWeAreProps) {
                                         <div className="space-y-2">
                                             <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Phase Heading</label>
                                             <input value={item.title} onChange={(e) => updateItem(item.id, "title", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
+                                                <ImageIcon className="w-3 h-3" /> Image URL
+                                            </label>
+                                            <input value={item.image || ""} onChange={(e) => updateItem(item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                            <ImagePreview url={item.image} />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Summary (Grid Display)</label>

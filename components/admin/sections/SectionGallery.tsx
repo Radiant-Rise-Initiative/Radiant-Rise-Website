@@ -2,6 +2,7 @@
 
 import { Plus, Trash2, GripVertical, Image as ImageIcon } from "lucide-react";
 import { Reorder } from "framer-motion";
+import { ImagePreview } from "@/components/admin/ImagePreview";
 
 interface SectionGalleryProps {
     data: any;
@@ -61,15 +62,18 @@ export function SectionGallery({ data, setData }: SectionGalleryProps) {
 
                         <div className="flex-1 space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div className="space-y-2 col-span-2">
-                                    <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
-                                        <ImageIcon className="w-3 h-3" /> Image URL
-                                    </label>
-                                    <input 
-                                        value={item.image}
-                                        onChange={(e) => updateItem(item.id, "image", e.target.value)}
-                                        className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors"
-                                    />
+                                <div className="space-y-4 col-span-2">
+                                    <div className="space-y-2">
+                                        <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
+                                            <ImageIcon className="w-3 h-3" /> Image URL
+                                        </label>
+                                        <input 
+                                            value={item.image}
+                                            onChange={(e) => updateItem(item.id, "image", e.target.value)}
+                                            className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors"
+                                        />
+                                    </div>
+                                    <ImagePreview url={item.image} />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Asset Label</label>

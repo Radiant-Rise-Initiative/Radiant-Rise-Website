@@ -3,6 +3,7 @@
 import { Plus, Trash2, GripVertical } from "lucide-react";
 import { Reorder } from "framer-motion";
 import { AutoResizingTextarea } from "@/components/admin/AutoResizingTextarea";
+import { ImagePreview } from "@/components/admin/ImagePreview";
 
 interface SectionTargetsProps {
     data: any;
@@ -94,6 +95,7 @@ export function SectionTargets({ data, setData }: SectionTargetsProps) {
                                     <div className="space-y-1">
                                         <label className="block text-[10px] font-mono tracking-widest text-black/40 uppercase">Background Image URL</label>
                                         <input value={item.image} onChange={(e) => updateItem(item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-3 py-2 text-sm outline-none focus:border-black" />
+                                        <ImagePreview url={item.image} className="mt-2" />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
