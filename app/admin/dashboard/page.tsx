@@ -48,7 +48,7 @@ export default function AdminDashboard() {
             {/* Greeting */}
             <div className="space-y-2">
                 <h2 className="text-3xl font-semibold tracking-tight text-black">Welcome back</h2>
-                <p className="text-black/40 text-sm font-mono tracking-widest uppercase">System Overview & Performance</p>
+                <p className="text-black/40 text-[10px] font-mono tracking-widest uppercase mt-1">System Overview & Performance</p>
             </div>
 
             {/* Quick Stats Grid */}

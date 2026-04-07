@@ -3,28 +3,25 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-    LayoutDashboard, 
-    FileText, 
-    Newspaper, 
     LogOut, 
     Menu, 
-    X,
     ChevronRight,
     Loader2
 } from "lucide-react";
 import { HOME_SECTIONS } from "@/lib/admin/sectionRegistry";
 
 const NAV_ITEMS = [
-    { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+    { name: "Dashboard", href: "/admin/dashboard", icon: "dashboard" },
     ...HOME_SECTIONS.map(s => ({
         name: s.label.replace(" Section", ""),
         href: `/admin/sections/${s.key}`,
         icon: s.icon
     })),
-    { name: "News Archive", href: "/admin/news", icon: Newspaper },
+    { name: "News Archive", href: "/admin/news", icon: "news" },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -90,9 +87,30 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             >
                 <div className="flex flex-col h-full">
                     {/* Sidebar Header */}
-                    <div className={`h-24 flex items-center border-b border-black/5 px-6 ${isSidebarOpen ? "justify-between" : "justify-center"}`}>
+                    <div className={`h-20 flex items-center border-b border-black/5 px-6 ${isSidebarOpen ? "justify-between" : "justify-center"}`}>
                         {isSidebarOpen && (
-                            <Link href="/admin/dashboard" className="text-lg font-semibold tracking-tight whitespace-nowrap">RRI Admin Portal</Link>
+                            <Link href="/admin/dashboard" className="flex items-center gap-2.5 text-lg font-semibold tracking-tight whitespace-nowrap">
+                                <Image 
+                                    src="/assets/branding/rr-logo-v3.svg"
+                                    alt="Radiant Rise"
+                                    width={32}
+                                    height={32}
+                                    className="h-8 w-auto object-contain"
+                                    priority
+                                />
+                                <span>Admin Portal</span>
+                            </Link>
+                        )}
+                        {!isSidebarOpen && (
+                            <Link href="/admin/dashboard" className="w-10 h-10 bg-black/[0.02] flex items-center justify-center rounded-sm hover:bg-black/[0.05] transition-colors">
+                                <Image 
+                                    src="/assets/branding/rr-logo-v3.svg"
+                                    alt="Logo"
+                                    width={24}
+                                    height={24}
+                                    className="h-6 w-auto object-contain"
+                                />
+                            </Link>
                         )}
                         <button 
                             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -122,7 +140,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                         />
                                     )}
-                                    {Icon && <Icon className={`w-5 h-5 shrink-0 ${isActive ? "text-[#CD5929]" : ""}`} />}
+                                    {item.icon && (
+                                        <img 
+                                            src={`/assets/images/admin_icons/${item.icon}${item.icon === 'dashboard' ? '_' : '-'}${isActive ? 'fill' : 'line'}.svg`}
+                                            alt=""
+                                            className="w-5 h-5 shrink-0 opacity-80 group-hover:opacity-100 transition-opacity"
+                                        />
+                                    )}
                                     {isSidebarOpen && (
                                         <span className="text-sm font-medium tracking-tight whitespace-nowrap">
                                             {item.name}
@@ -142,7 +166,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             onClick={handleLogout}
                             className={`flex items-center gap-4 px-4 py-4 w-full text-black/40 hover:text-red-500 transition-colors group`}
                         >
-                            <LogOut className="w-5 h-5 shrink-0" />
+                            <img 
+                                src="/assets/images/admin_icons/logout.svg"
+                                alt=""
+                                className="w-5 h-5 shrink-0 opacity-40 group-hover:opacity-100 group-hover:filter group-hover:brightness-0 group-hover:invert-[.2] group-hover:sepia-[.4] group-hover:saturate-[5] group-hover:hue-rotate-[340deg] transition-all"
+                            />
                             {isSidebarOpen && <span className="text-sm font-medium tracking-tight">Logout</span>}
                         </button>
                     </div>
@@ -155,7 +183,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     isSidebarOpen ? "pl-72" : "pl-20"
                 }`}
             >
-                <div className="max-w-6xl mx-auto p-8 md:p-12 lg:p-16">
+                <div className="max-w-6xl mx-auto pt-8 pb-12 px-8 md:px-12 lg:px-16">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={pathname}

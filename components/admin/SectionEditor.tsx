@@ -82,7 +82,7 @@ export function SectionEditor({
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="space-y-2">
                     <h2 className="text-3xl font-semibold tracking-tight text-black">{label}</h2>
-                    <p className="text-black/40 text-sm font-mono tracking-widest uppercase">{subtitle}</p>
+                    <p className="text-black/40 text-[10px] font-mono tracking-widest uppercase mt-1">{subtitle}</p>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -112,9 +112,9 @@ export function SectionEditor({
                         {isSaving ? (
                             <Loader2 className="w-3 h-3 animate-spin" />
                         ) : (
-                            <Save className="w-3 h-3" />
+                            <span className="text-[12px] font-mono tracking-widest uppercase font-bold">Save</span>
                         )}
-                        {isSaving ? "Syncing..." : "Save Changes"}
+                        {isSaving ? "Syncing..." : "Changes"}
                     </button>
                 </div>
             </div>
