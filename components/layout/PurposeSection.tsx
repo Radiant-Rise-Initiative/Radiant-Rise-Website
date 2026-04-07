@@ -15,14 +15,11 @@ interface PurposeSectionProps {
 }
 
 export function PurposeSection({ 
-    title = "Radiant Rise",
-    imageSrc = "/assets/images/hero_images/hero_006.jpg",
-    description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
-    videoSrc = "/assets/images/video_stories/Radiant Rise Story.mp4",
-    infoPoints = [
-        "To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.",
-        "To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community."
-    ]
+    title,
+    imageSrc,
+    description,
+    videoSrc,
+    infoPoints = []
 }: PurposeSectionProps) {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     
@@ -174,9 +171,9 @@ export function PurposeSection({
             />
             
             <PurposeStatement
-                title={title}
-                description={description}
-                imageSrc={imageSrc}
+                title={title || ""}
+                description={description || ""}
+                imageSrc={imageSrc || ""}
                 imageAlt="Radiant Rise Purpose"
                 actionText="Play Trailer"
                 onActionClick={() => setIsVideoOpen(true)}

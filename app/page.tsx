@@ -1,5 +1,15 @@
 import { getSections, getNews } from "@/lib/supabase";
 import { newsItems } from "@/lib/newsData";
+import { siteDefaults } from "@/lib/siteDefaults";
+
+// Data Sanitization Failsafe
+const s = (val: any): any => {
+  if (typeof val !== 'string') return val;
+  return val
+    .replace(/Hero 06\.jpg/g, 'hero_006.jpg')
+    .replace(/[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g, ' ')
+    .trim();
+};
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
@@ -19,10 +29,13 @@ import { TheoriesOfChange } from "@/components/layout/TheoriesOfChange";
 
 export default async function Home() {
   const sections = await getSections();
-  const heroData = sections.hero || {};
-  const purposeData = sections.purpose || {};
-  const impactData = sections.impact_stats || {};
-  const whoWeAreData = sections.who_we_are || {};
+  
+  // Merge Supabase content over robust internal defaults
+  const hero = { ...siteDefaults.hero, ...sections.hero };
+  const purpose = { ...siteDefaults.purpose, ...sections.purpose };
+  const impact = { ...siteDefaults.impact_stats, ...sections.impact_stats };
+  const whoWeAre = { ...siteDefaults.who_we_are, ...sections.who_we_are };
+  
   const newsData = await getNews();
   const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
 
@@ -30,30 +43,34 @@ export default async function Home() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero 
-        title={heroData.headline}
-        slides={heroData.slides}
+        title={s(hero.headline || hero.title)}
+        slides={hero.slides?.map((slide: any) => ({
+          ...slide,
+          image: s(slide.image),
+          description: s(slide.description)
+        }))}
       />
       <PurposeSection 
-        videoSrc={purposeData.video_url || "/assets/images/video_stories/Radiant Rise Story.mp4"} 
-        imageSrc={purposeData.image_url || "/assets/images/hero_images/hero_006.jpg"}
-        title={purposeData.title}
-        description={purposeData.description}
-        infoPoints={[purposeData.info_point_1, purposeData.info_point_2].filter(Boolean)}
+        videoSrc={s(purpose.video_url)} 
+        imageSrc={s(purpose.image_url)}
+        title={s(purpose.title)}
+        description={s(purpose.description)}
+        infoPoints={[purpose.info_point_1, purpose.info_point_2].filter(Boolean).map(s)}
       />
       <TheoriesOfChange />
       <ImpactStats 
-        title={impactData.title}
-        description={impactData.description}
-        imageSrc={impactData.image_url}
+        title={s(impact.title)}
+        description={s(impact.description)}
+        imageSrc={s(impact.image_url)}
         overallMetric={{
-          label: impactData.metric_label,
-          value: impactData.metric_value
+          label: s(impact.metric_label),
+          value: s(impact.metric_value)
         }}
       />
       <WhoWeAre 
-        title={whoWeAreData.title}
-        description={whoWeAreData.description}
-        imageSrc={whoWeAreData.image_url}
+        title={s(whoWeAre.title)}
+        description={s(whoWeAre.description)}
+        imageSrc={s(whoWeAre.image_url)}
       />
       <OurValuesTabs />
       <TargetScroller />
