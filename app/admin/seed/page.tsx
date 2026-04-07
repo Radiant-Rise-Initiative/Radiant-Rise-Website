@@ -72,7 +72,7 @@ export default function AdminSeed() {
                 content: {
                     title: "Radiant Rise",
                     description: "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
-                    image_url: "/assets/images/hero_images/Hero 06.jpg",
+                    image_url: "/assets/images/hero_images/hero_006.jpg",
                     video_url: "/assets/images/video_stories/Radiant Rise Story.mp4",
                     info_point_1: "To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.",
                     info_point_2: "To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community."

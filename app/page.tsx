@@ -35,7 +35,7 @@ export default async function Home() {
       />
       <PurposeSection 
         videoSrc={purposeData.video_url || "/assets/images/video_stories/Radiant Rise Story.mp4"} 
-        imageSrc={purposeData.image_url || "/assets/images/hero_images/Hero 06.jpg"}
+        imageSrc={purposeData.image_url || "/assets/images/hero_images/hero_006.jpg"}
         title={purposeData.title}
         description={purposeData.description}
         infoPoints={[purposeData.info_point_1, purposeData.info_point_2].filter(Boolean)}

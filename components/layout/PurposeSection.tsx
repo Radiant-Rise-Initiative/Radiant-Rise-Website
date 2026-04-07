@@ -16,7 +16,7 @@ interface PurposeSectionProps {
 
 export function PurposeSection({ 
     title = "Radiant Rise",
-    imageSrc = "/assets/images/hero_images/Hero 06.jpg",
+    imageSrc = "/assets/images/hero_images/hero_006.jpg",
     description = "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
     videoSrc = "/assets/images/video_stories/Radiant Rise Story.mp4",
     infoPoints = [
