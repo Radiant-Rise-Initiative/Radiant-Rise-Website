@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 import { motion, Reorder } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { 
     Save, 
     CheckCircle2, 
@@ -15,6 +16,42 @@ import {
     Type,
     Tag
 } from "lucide-react";
+
+// Custom auto-resizing textarea for better Admin UX
+function AutoResizingTextarea({ 
+    value, 
+    onChange, 
+    className, 
+    placeholder, 
+    disabled 
+}: { 
+    value: string, 
+    onChange: (val: string) => void, 
+    className?: string, 
+    placeholder?: string,
+    disabled?: boolean
+}) {
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = "auto";
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+        }
+    }, [value]);
+
+    return (
+        <textarea
+            ref={textareaRef}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className={cn("w-full resize-none overflow-hidden transition-all duration-200", className)}
+            placeholder={placeholder}
+            disabled={disabled}
+            rows={1}
+        />
+    );
+}
 
 // Define the keys for each section on the homepage
 const SECTIONS = [
@@ -209,11 +246,10 @@ export default function AdminSections() {
                                                             </div>
                                                             <div className="space-y-2">
                                                                 <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Description</label>
-                                                                <textarea 
-                                                                    rows={2}
+                                                                <AutoResizingTextarea 
                                                                     value={item.description}
-                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "description", e.target.value)}
-                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors resize-none"
+                                                                    onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "description", val)}
+                                                                    className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors"
                                                                 />
                                                             </div>
                                                         </div>
@@ -236,11 +272,19 @@ export default function AdminSections() {
                                                             <div className="space-y-4">
                                                                 <div className="space-y-2">
                                                                     <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Preview Description</label>
-                                                                    <textarea rows={2} value={item.description} onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "description", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none resize-none" />
+                                                                    <AutoResizingTextarea 
+                                                                        value={item.description} 
+                                                                        onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "description", val)} 
+                                                                        className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
+                                                                    />
                                                                 </div>
                                                                 <div className="space-y-2">
                                                                     <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Modal Detail Text</label>
-                                                                    <textarea rows={3} value={item.modal_text} onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "modal_text", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none resize-none" />
+                                                                    <AutoResizingTextarea 
+                                                                        value={item.modal_text} 
+                                                                        onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "modal_text", val)} 
+                                                                        className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
+                                                                    />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -265,11 +309,10 @@ export default function AdminSections() {
                                                 {field.includes('url') ? <ImageIcon className="w-3 h-3" /> : <div className="w-1 h-1 bg-black/20" />}
                                                 {field.replace(/_/g, ' ')}
                                             </label>
-                                            <textarea 
-                                                rows={field === "content" || field === "description" || field === "modal_text" ? 4 : 1}
+                                            <AutoResizingTextarea 
                                                 value={sectionsData[section.key]?.[field] || ""}
-                                                onChange={(e) => handleChange(section.key, field, e.target.value)}
-                                                className="w-full bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors overflow-hidden"
+                                                onChange={(val) => handleChange(section.key, field, val)}
+                                                className="bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
                                                 placeholder={`Enter ${field.replace(/_/g, ' ')}...`}
                                             />
                                         </div>
