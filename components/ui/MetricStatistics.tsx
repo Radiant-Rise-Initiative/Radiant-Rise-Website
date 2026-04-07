@@ -13,22 +13,11 @@ interface Metric {
     modalTitle?: string;
 }
 
-interface StatPair {
-    topLabel: string;
-    topValue: string;
-    topDescription: string;
-    topModalTitle?: string;
-    bottomLabel: string;
-    bottomValue: string;
-    bottomDescription: string;
-    bottomModalTitle?: string;
-}
-
 interface MetricStatisticsProps {
     title: string;
     linkText?: string;
     href?: string;
-    stats: StatPair[];
+    stats: Metric[];
     overallMetric?: {
         label: string;
         value: string;
@@ -137,12 +126,21 @@ export function MetricStatistics({
     title,
     linkText,
     href,
-    stats,
+    stats = [],
     overallMetric,
     className,
     id
 }: MetricStatisticsProps) {
     const [selectedMetric, setSelectedMetric] = useState<Metric | null>(null);
+
+    // Group items into pairs for the 4-column layout
+    const pairedStats = [];
+    for (let i = 0; i < stats.length; i += 2) {
+        pairedStats.push({ 
+            top: stats[i], 
+            bottom: stats[i + 1] 
+        });
+    }
 
     return (
         <section
@@ -174,7 +172,7 @@ export function MetricStatistics({
                     className="relative"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                        {stats.map((stat, index) => (
+                        {pairedStats.map((pair, index) => (
                             <motion.div
                                 key={index}
                                 variants={{
@@ -198,53 +196,47 @@ export function MetricStatistics({
                                 )}
                             >
                                 <div className={cn(
-                                    "absolute -right-px top-0 bottom-0 w-px bg-black/10 hidden",
+                                    "absolute -right-px top-0 bottom-0 w-px border-r border-dotted border-black/20 hidden",
                                     (index === 0 || index === 2) ? 'md:block' : '',
                                     (index === 1) ? 'lg:block' : '',
                                     (index === 3) ? '!hidden' : ''
                                 )} />
 
                                 <div className="flex flex-col h-full">
-                                    <div
-                                        className={cn(
-                                            "group cursor-pointer lg:pt-0 pb-14 lg:pb-8",
-                                            index === 0 ? 'pt-0' : 'pt-14'
-                                        )}
-                                        onClick={() => setSelectedMetric({
-                                            label: stat.topLabel,
-                                            value: stat.topValue,
-                                            description: stat.topDescription,
-                                            modalTitle: stat.topModalTitle,
-                                        })}
-                                    >
-                                        <MetricItem
-                                            label={stat.topLabel}
-                                            value={stat.topValue}
-                                            description={stat.topDescription}
-                                            modalTitle={stat.topModalTitle}
-                                            onOpen={setSelectedMetric}
-                                        />
-                                    </div>
+                                    {pair.top && (
+                                        <div
+                                            className={cn(
+                                                "group cursor-pointer lg:pt-0 pb-14 lg:pb-8",
+                                                index === 0 ? 'pt-0' : 'pt-14'
+                                            )}
+                                        >
+                                            <MetricItem
+                                                label={pair.top.label}
+                                                value={pair.top.value}
+                                                description={pair.top.description}
+                                                modalTitle={pair.top.modalTitle}
+                                                onOpen={setSelectedMetric}
+                                            />
+                                        </div>
+                                    )}
 
-                                    <div className="border-t border-black/10 w-full" />
+                                    {pair.top && pair.bottom && (
+                                        <div className="border-t border-dotted border-black/20 w-full" />
+                                    )}
 
-                                    <div
-                                        className="group cursor-pointer pt-14 lg:pt-8 pb-14 lg:pb-0"
-                                        onClick={() => setSelectedMetric({
-                                            label: stat.bottomLabel,
-                                            value: stat.bottomValue,
-                                            description: stat.bottomDescription,
-                                            modalTitle: stat.bottomModalTitle,
-                                        })}
-                                    >
-                                        <MetricItem
-                                            label={stat.bottomLabel}
-                                            value={stat.bottomValue}
-                                            description={stat.bottomDescription}
-                                            modalTitle={stat.bottomModalTitle}
-                                            onOpen={setSelectedMetric}
-                                        />
-                                    </div>
+                                    {pair.bottom && (
+                                        <div
+                                            className="group cursor-pointer pt-14 lg:pt-8 pb-14 lg:pb-0"
+                                        >
+                                            <MetricItem
+                                                label={pair.bottom.label}
+                                                value={pair.bottom.value}
+                                                description={pair.bottom.description}
+                                                modalTitle={pair.bottom.modalTitle}
+                                                onOpen={setSelectedMetric}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
@@ -257,7 +249,7 @@ export function MetricStatistics({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-black/10 mt-14 md:mt-16 pt-0 md:pt-16 group"
+                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-dotted border-black/20 mt-14 md:mt-16 pt-0 md:pt-16 group"
                     >
                         <div className="flex flex-col gap-6 max-w-4xl">
                             <p className="text-sm font-medium text-black/60 leading-tight">

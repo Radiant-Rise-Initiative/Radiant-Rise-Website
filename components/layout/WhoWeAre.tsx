@@ -56,12 +56,27 @@ const identityItems: StackItem[] = [
 export function WhoWeAre({ 
     title, 
     description,
-    imageSrc
+    imageSrc,
+    items = []
 }: { 
     title?: string, 
     description?: string,
-    imageSrc?: string
+    imageSrc?: string,
+    items?: any[]
 }) {
+    const formattedItems: StackItem[] = items.map((item, index) => ({
+        id: item.id || `phase-${index}`,
+        number: item.number || `0${index + 1}`,
+        title: item.title,
+        description: item.description,
+        linkText: "Learn more",
+        modal: {
+            topTagline: item.modalTagline,
+            title: item.modalTitle || item.title,
+            text: item.modalText
+        }
+    }));
+
     return (
         <ColumnInfoStack
             id="who-we-are"
@@ -70,7 +85,7 @@ export function WhoWeAre({
             contentBgColor="#CD5929"
             linkColor="#F3A993"
             description={description || ""}
-            items={identityItems}
+            items={formattedItems}
             onLinkClick={(id) => {
                 console.log(`Navigating to identity pillar: ${id}`);
             }}

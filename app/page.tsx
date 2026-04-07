@@ -90,6 +90,14 @@ export default async function Home() {
         title={s(whoWeAre.title)}
         description={s(whoWeAre.description)}
         imageSrc={s(whoWeAre.image_url)}
+        items={whoWeAre.items?.map((item: any) => ({
+          ...item,
+          title: s(item.title),
+          description: s(item.description),
+          modalTagline: s(item.modalTagline),
+          modalTitle: s(item.modalTitle),
+          modalText: s(item.modalText)
+        }))}
       />
       <OurValuesTabs />
       <TargetScroller />
