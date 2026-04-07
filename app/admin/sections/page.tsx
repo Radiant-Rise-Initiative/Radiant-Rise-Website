@@ -58,7 +58,11 @@ const SECTIONS = [
     { key: "hero", label: "Hero Section", isMulti: true, fieldName: 'slides' },
     { key: "purpose", label: "Purpose Section", fields: ["title", "description", "image_url", "video_url", "info_point_1", "info_point_2"] },
     { key: "theories_of_change", label: "Theory of Change", fields: ["title", "description"], isMulti: true, fieldName: 'items' },
+<<<<<<< HEAD
     { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "image_url", "metric_label", "metric_value"] },
+=======
+    { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "metric_label", "metric_value"], isMulti: true, fieldName: 'stats' },
+>>>>>>> 4d50b0a (1.5.1 - Refine Our Impact layout: Remove image dependency and reposition overall metric description)
     { key: "who_we_are", label: "Who We Are", fields: ["title", "description", "image_url"] },
     { key: "values", label: "Our Values", fields: ["title", "description", "image_url"] },
     { key: "gallery", label: "Our Gallery", isMulti: true, fieldName: 'items' },

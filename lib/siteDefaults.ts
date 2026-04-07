@@ -25,7 +25,6 @@ export const siteDefaults = {
     impact_stats: {
         title: "Our Impact",
         description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters.",
-        image_url: "/assets/images/gallery_images/01. Healing Hearts.jpg",
         metric_label: "Grassroots Engagement",
         metric_value: "105 Young Mothers"
     },

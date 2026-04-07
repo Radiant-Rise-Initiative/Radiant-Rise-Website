@@ -257,26 +257,18 @@ export function MetricStatistics({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-black/10 transition-colors hover:bg-black/[0.01] mt-14 md:mt-16 pt-0 md:pt-16 cursor-pointer group"
-                        onClick={() => setSelectedMetric({
-                            label: overallMetric.label,
-                            value: overallMetric.value,
-                            description: overallMetric.description,
-                            modalTitle: overallMetric.modalTitle,
-                        })}
+                        className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full border-t-0 md:border-t border-black/10 mt-14 md:mt-16 pt-0 md:pt-16 group"
                     >
-                        <div className="flex items-end justify-between gap-4">
-                            <div className="flex flex-col gap-6">
-                                <p className="text-sm font-medium text-black/60 leading-tight transition-colors group-hover:text-black/80">
-                                    {overallMetric.label}
-                                </p>
-                                <p className="text-6xl sm:text-7xl font-semibold text-black tracking-tighter -ml-1 leading-[1.0] group-hover:text-orange-600 transition-colors duration-300">
-                                    {overallMetric.value}
-                                </p>
-                            </div>
-                            <div className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-full z-10 hover:bg-black/80 shrink-0 mb-1">
-                                <Plus size={20} />
-                            </div>
+                        <div className="flex flex-col gap-6 max-w-4xl">
+                            <p className="text-sm font-medium text-black/60 leading-tight">
+                                {overallMetric.label}
+                            </p>
+                            <p className="text-6xl sm:text-7xl font-semibold text-black tracking-tighter -ml-1 leading-[1.0] transition-colors duration-300">
+                                {overallMetric.value}
+                            </p>
+                            <p className="text-base md:text-lg text-black/70 leading-relaxed mt-2">
+                                {overallMetric.description}
+                            </p>
                         </div>
                     </motion.div>
                 )}

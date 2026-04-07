@@ -48,6 +48,7 @@ const stats = [
 export function ImpactStats({ 
     title, 
     description,
+<<<<<<< HEAD
     imageSrc,
     overallMetric 
 }: { 
@@ -55,6 +56,15 @@ export function ImpactStats({
     description?: string,
     imageSrc?: string,
     overallMetric?: { label: string, value: string }
+=======
+    overallMetric,
+    stats = []
+}: { 
+    title?: string, 
+    description?: string,
+    overallMetric?: { label: string, value: string },
+    stats?: ImpactGridItem[]
+>>>>>>> 4d50b0a (1.5.1 - Refine Our Impact layout: Remove image dependency and reposition overall metric description)
 }) {
     return (
         <MetricStatistics

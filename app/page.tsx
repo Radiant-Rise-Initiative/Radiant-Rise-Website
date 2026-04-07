@@ -81,7 +81,6 @@ export default async function Home() {
       <ImpactStats 
         title={s(impact.title)}
         description={s(impact.description)}
-        imageSrc={s(impact.image_url)}
         overallMetric={{
           label: s(impact.metric_label),
           value: s(impact.metric_value)
