@@ -52,24 +52,29 @@ function NewsItemContent({ item }: { item: any }) {
 
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-export function RecentNews() {
-    const [news, setNews] = useState<any[]>([]);
+export function RecentNews({ initialNews }: { initialNews?: any[] }) {
+    const [news, setNews] = useState<any[]>(initialNews || []);
     const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
     const { scrollY } = useScroll();
     const gridRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(gridRef, { once: false, amount: 0.2 });
 
     useEffect(() => {
+        if (initialNews && initialNews.length > 0) {
+            setNews(initialNews);
+            return;
+        }
+
         const fetchNews = async () => {
             const { data } = await supabase
                 .from('news_releases')
                 .select('*')
                 .order('date', { ascending: false })
                 .limit(3);
-            if (data) setNews(data);
+            if (data && data.length > 0) setNews(data);
         };
         fetchNews();
-    }, []);
+    }, [initialNews]);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;

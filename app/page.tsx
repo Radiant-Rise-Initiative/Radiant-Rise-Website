@@ -1,4 +1,5 @@
-import { getSections } from "@/lib/supabase";
+import { getSections, getNews } from "@/lib/supabase";
+import { newsItems } from "@/lib/newsData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/layout/Hero";
 import { ImpactStats } from "@/components/layout/ImpactStats";
@@ -22,6 +23,8 @@ export default async function Home() {
   const purposeData = sections.purpose || {};
   const impactData = sections.impact_stats || {};
   const whoWeAreData = sections.who_we_are || {};
+  const newsData = await getNews();
+  const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -55,7 +58,7 @@ export default async function Home() {
       <OurValuesTabs />
       <TargetScroller />
       <ImpactMilestones />
-      <RecentNews />
+      <RecentNews initialNews={finalNews} />
       <OurGallery items={sections.gallery?.items} />
       <GotQuestions />
       <ConnectForm />
