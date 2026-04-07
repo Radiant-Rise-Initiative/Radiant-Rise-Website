@@ -48,10 +48,12 @@ const stats = [
 export function ImpactStats({ 
     title = "Our Impact", 
     description,
+    imageSrc,
     overallMetric 
 }: { 
     title?: string, 
     description?: string,
+    imageSrc?: string,
     overallMetric?: { label: string, value: string }
 }) {
     return (

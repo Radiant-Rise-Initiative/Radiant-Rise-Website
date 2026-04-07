@@ -33,10 +33,11 @@ export function GiantLogo() {
             {/* Bottom Bar - Pushed from Footer */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mt-24 pt-8 border-t border-white/10 text-xs font-mono tracking-widest text-white/20 uppercase">
                 <p className="shrink-0 text-center md:text-left w-full md:w-auto">© 2024 Radiant Rise Initiative. All rights reserved.</p>
-                <div className="grid grid-cols-3 w-full md:w-auto md:min-w-[400px] gap-2 sm:gap-8">
+                <div className="grid grid-cols-3 md:grid-cols-4 w-full md:w-auto md:min-w-[500px] gap-2 sm:gap-8">
                     <Link href="#" className="hover:text-white transition-colors text-left">Privacy Policy</Link>
                     <Link href="#" className="hover:text-white transition-colors text-center">Terms of Service</Link>
-                    <Link href="#" className="hover:text-white transition-colors text-right">Cookie Settings</Link>
+                    <Link href="#" className="hover:text-white transition-colors text-center md:text-right">Cookie Settings</Link>
+                    <Link href="/admin/login" className="hidden md:block hover:text-white transition-colors text-right">Login</Link>
                 </div>
             </div>
         </div>

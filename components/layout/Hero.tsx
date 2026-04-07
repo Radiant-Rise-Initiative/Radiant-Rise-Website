@@ -22,8 +22,9 @@ const defaultDescriptions = [
 
 export function Hero({ 
     title = "RISING TOGETHER",
-    images = defaultImages,
-    description = defaultDescriptions,
+    images: propImages,
+    description: propDescription,
+    slides,
     imageClassName,
     imageStyle,
     contentStyle
@@ -31,15 +32,20 @@ export function Hero({
     title?: React.ReactNode,
     images?: string[],
     description?: string | string[],
+    slides?: { image: string, description: string }[],
     imageClassName?: string,
     imageStyle?: React.CSSProperties,
     contentStyle?: React.CSSProperties
 }) {
+    // If slides are provided from Supabase, use them. Otherwise fallback to props/defaults.
+    const finalImages = slides ? slides.map(s => s.image) : (propImages || defaultImages);
+    const finalDescription = slides ? slides.map(s => s.description) : (propDescription || defaultDescriptions);
+
     return (
         <HeroUI
             title={title}
-            description={description}
-            images={images}
+            description={finalDescription}
+            images={finalImages}
             imageClassName={imageClassName}
             imageStyle={imageStyle}
             contentStyle={contentStyle}

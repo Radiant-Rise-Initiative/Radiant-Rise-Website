@@ -28,10 +28,11 @@ export default async function Home() {
       <Navbar />
       <Hero 
         title={heroData.headline}
-        description={heroData.subheadline}
+        slides={heroData.slides}
       />
       <PurposeSection 
-        videoSrc="/assets/images/video_stories/RR1 (Hero).mp4" 
+        videoSrc={purposeData.video_url || "/assets/images/video_stories/Radiant Rise Story.mp4"} 
+        imageSrc={purposeData.image_url || "/assets/images/hero_images/Hero 06.jpg"}
         title={purposeData.title}
         description={purposeData.description}
         infoPoints={[purposeData.info_point_1, purposeData.info_point_2].filter(Boolean)}
@@ -40,6 +41,7 @@ export default async function Home() {
       <ImpactStats 
         title={impactData.title}
         description={impactData.description}
+        imageSrc={impactData.image_url}
         overallMetric={{
           label: impactData.metric_label,
           value: impactData.metric_value
@@ -47,13 +49,14 @@ export default async function Home() {
       />
       <WhoWeAre 
         title={whoWeAreData.title}
-        description={whoWeAreData.content}
+        description={whoWeAreData.description}
+        imageSrc={whoWeAreData.image_url}
       />
       <OurValuesTabs />
       <TargetScroller />
       <ImpactMilestones />
       <RecentNews />
-      <OurGallery />
+      <OurGallery items={sections.gallery?.items} />
       <GotQuestions />
       <ConnectForm />
       <LetsRiseMarquee />
