@@ -681,7 +681,7 @@ export default function AdminSections() {
 
                                                         {/* Nest Items (Features) */}
                                                         <div className="space-y-4">
-                                                            <h4 className="text-[10px] font-mono uppercase tracking-widest text-black/40 border-b border-black/5 pb-2">Detailed Narrative (3 Pillars)</h4>
+                                                            <h4 className="text-[10px] font-mono uppercase tracking-widest text-black/40 border-b border-dashed border-black/10 pb-2">Detailed Narrative (3 Pillars)</h4>
                                                             <div className="grid grid-cols-1 gap-4">
                                                                 {(tab.features || []).map((feature: any, fIdx: number) => (
                                                                     <div key={fIdx} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
