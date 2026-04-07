@@ -72,17 +72,34 @@ export default function AdminSeed() {
                 content: {
                     title: "Radiant Rise",
                     description: "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
+<<<<<<< HEAD
                     image_url: "/assets/images/hero_images/hero_006.jpg",
+=======
+                    image_url: "/assets/images/thumbnails/thumbnail_story.jpg",
+>>>>>>> 36bd810 (1.4.9 - Integrate Theory of Change section into CMS and Admin Dashboard)
                     video_url: "/assets/images/video_stories/Radiant Rise Story.mp4",
                     info_point_1: "To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.",
                     info_point_2: "To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community."
                 }
             },
             {
+                key: 'theories_of_change',
+                content: {
+                    title: "Theory of Change",
+                    description: "We transform vulnerability into stability through a disciplined, structured six-month pathway. By coordinating trauma-informed stabilization with market-aligned skills and income activation, we move families in Acholi Quarters from survival mode toward sustained, intergenerational economic resilience.",
+                    items: [
+                        { id: "1", stage: "1", name: "STABILIZE", includes: "Surface emotional ground through trauma-informed counseling. We provide safe spaces for young mothers to recover from adversity and reclaim their sense of purpose." },
+                        { id: "2", stage: "2", name: "BUILD", includes: "Establish a strategic foundation through vocational training and financial literacy. We align participants with skills that meet real employer demand in Kampala." },
+                        { id: "3", stage: "3", name: "ACTIVATE", includes: "Translate training into income systems. We deploy job placements, employer partnerships (like Fine Spinners), and micro-enterprise toolkits to create immediate economic movement." },
+                        { id: "4", stage: "4", name: "REINFORCE", includes: "Finalize household stability through long-term support. We equip participants with savings habits and retention counseling to ensure resilience is sustained and consistent." }
+                    ]
+                }
+            },
+            {
                 key: 'impact_stats',
                 content: {
                     title: "Our Impact",
-                    description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled...",
+                    description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters.",
                     image_url: "/assets/images/gallery_images/01. Healing Hearts.jpg",
                     metric_label: "Grassroots Engagement",
                     metric_value: "105 Young Mothers"
@@ -92,7 +109,7 @@ export default function AdminSeed() {
                 key: 'who_we_are',
                 content: {
                     title: "Who We Are",
-                    description: "At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy...",
+                    description: "At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected.",
                     image_url: "/assets/images/purpose_images/purpose_01.jpg"
                 }
             },

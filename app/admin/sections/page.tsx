@@ -57,6 +57,7 @@ function AutoResizingTextarea({
 const SECTIONS = [
     { key: "hero", label: "Hero Section", isMulti: true, fieldName: 'slides' },
     { key: "purpose", label: "Purpose Section", fields: ["title", "description", "image_url", "video_url", "info_point_1", "info_point_2"] },
+    { key: "theories_of_change", label: "Theory of Change", fields: ["title", "description"], isMulti: true, fieldName: 'items' },
     { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "image_url", "metric_label", "metric_value"] },
     { key: "who_we_are", label: "Who We Are", fields: ["title", "description", "image_url"] },
     { key: "values", label: "Our Values", fields: ["title", "description", "image_url"] },
@@ -122,9 +123,18 @@ export default function AdminSections() {
 
     // Generic Multi-Item Helpers
     const addItem = (sectionKey: string, fieldName: string) => {
-        const newItem = sectionKey === 'hero' 
-            ? { id: Math.random().toString(36).substr(2, 9), image: "", description: "" }
-            : { id: Math.random().toString(36).substr(2, 9), title: "", category: "", description: "", image: "", modal_title: "", modal_text: "" };
+        let newItem: any;
+        
+        switch (sectionKey) {
+            case 'hero':
+                newItem = { id: Math.random().toString(36).substr(2, 9), image: "", description: "" };
+                break;
+            case 'theories_of_change':
+                newItem = { id: Math.random().toString(36).substr(2, 9), stage: "", name: "", includes: "" };
+                break;
+            default:
+                newItem = { id: Math.random().toString(36).substr(2, 9), title: "", category: "", description: "", image: "", modal_title: "", modal_text: "" };
+        }
         
         const currentItems = sectionsData[sectionKey]?.[fieldName] || [];
         handleChange(sectionKey, fieldName, [...currentItems, newItem]);
@@ -198,9 +208,31 @@ export default function AdminSections() {
                             </div>
                         </div>
 
-                        {/* Editable Fields */}
-                        <div className="p-8 space-y-6">
-                            {section.isMulti ? (
+                        {/* Mixed Content Fields (Metadata + Multi-Item) */}
+                        <div className="p-8 space-y-8">
+                            {/* Metadata Fields (if any) */}
+                            {section.fields && (
+                                <div className="space-y-6 pb-6 border-b border-dashed border-black/10">
+                                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40 mb-4">Section Metadata</h4>
+                                    {section.fields.map((field) => (
+                                        <div key={field} className="space-y-2">
+                                            <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
+                                                {field.includes('url') ? <ImageIcon className="w-3 h-3" /> : <div className="w-1 h-1 bg-black/20" />}
+                                                {field.replace(/_/g, ' ')}
+                                            </label>
+                                            <AutoResizingTextarea 
+                                                value={sectionsData[section.key]?.[field] || ""}
+                                                onChange={(val) => handleChange(section.key, field, val)}
+                                                className="bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
+                                                placeholder={`Enter ${field.replace(/_/g, ' ')}...`}
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Multi-Item Management (if any) */}
+                            {section.isMulti && (
                                 <div className="space-y-6">
                                     <div className="flex items-center justify-between">
                                         <div className="space-y-1">
@@ -253,6 +285,33 @@ export default function AdminSections() {
                                                                 />
                                                             </div>
                                                         </div>
+                                                    ) : section.key === 'theories_of_change' ? (
+                                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                                            <div className="md:col-span-1 space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Stage</label>
+                                                                <input 
+                                                                    value={item.stage} 
+                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "stage", e.target.value)} 
+                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
+                                                                />
+                                                            </div>
+                                                            <div className="md:col-span-3 space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Name</label>
+                                                                <input 
+                                                                    value={item.name} 
+                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "name", e.target.value)} 
+                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none font-bold tracking-tighter" 
+                                                                />
+                                                            </div>
+                                                            <div className="md:col-span-8 space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Description (Includes)</label>
+                                                                <AutoResizingTextarea 
+                                                                    value={item.includes} 
+                                                                    onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "includes", val)} 
+                                                                    className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
+                                                                />
+                                                            </div>
+                                                        </div>
                                                     ) : (
                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                             <div className="space-y-4">
@@ -300,23 +359,6 @@ export default function AdminSections() {
                                             </Reorder.Item>
                                         ))}
                                     </Reorder.Group>
-                                </div>
-                            ) : (
-                                <div className="space-y-6">
-                                    {section.fields?.map((field) => (
-                                        <div key={field} className="space-y-2">
-                                            <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
-                                                {field.includes('url') ? <ImageIcon className="w-3 h-3" /> : <div className="w-1 h-1 bg-black/20" />}
-                                                {field.replace(/_/g, ' ')}
-                                            </label>
-                                            <AutoResizingTextarea 
-                                                value={sectionsData[section.key]?.[field] || ""}
-                                                onChange={(val) => handleChange(section.key, field, val)}
-                                                className="bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
-                                                placeholder={`Enter ${field.replace(/_/g, ' ')}...`}
-                                            />
-                                        </div>
-                                    ))}
                                 </div>
                             )}
                         </div>

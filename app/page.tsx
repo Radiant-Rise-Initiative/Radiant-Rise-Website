@@ -45,6 +45,7 @@ export default async function Home() {
   const purpose = { ...siteDefaults.purpose, ...sections.purpose };
   const impact = { ...siteDefaults.impact_stats, ...sections.impact_stats };
   const whoWeAre = { ...siteDefaults.who_we_are, ...sections.who_we_are };
+  const theoriesOfChange = { ...siteDefaults.theories_of_change, ...sections.theories_of_change };
   
   const newsData = await getNews();
   const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
@@ -67,7 +68,16 @@ export default async function Home() {
         description={s(purpose.description)}
         infoPoints={[purpose.info_point_1, purpose.info_point_2].filter(Boolean).map(s)}
       />
-      <TheoriesOfChange />
+      <TheoriesOfChange 
+        title={s(theoriesOfChange.title)}
+        description={s(theoriesOfChange.description)}
+        items={theoriesOfChange.items?.map((item: any) => ({
+          ...item,
+          stage: s(item.stage),
+          name: s(item.name),
+          includes: s(item.includes)
+        }))}
+      />
       <ImpactStats 
         title={s(impact.title)}
         description={s(impact.description)}

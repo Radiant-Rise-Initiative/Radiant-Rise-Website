@@ -33,5 +33,15 @@ export const siteDefaults = {
         title: "Who We Are",
         description: "At the heart of the Radiant Rise Initiative are core values that guide every partnership and program we undertake. We serve with compassion and empathy, ensuring the dignity of the young mothers in our care is always respected.",
         image_url: "/assets/images/purpose_images/purpose_01.jpg"
+    },
+    theories_of_change: {
+        title: "Theory of Change",
+        description: "We transform vulnerability into stability through a disciplined, structured six-month pathway. By coordinating trauma-informed stabilization with market-aligned skills and income activation, we move families in Acholi Quarters from survival mode toward sustained, intergenerational economic resilience.",
+        items: [
+            { id: "1", stage: "1", name: "STABILIZE", includes: "Surface emotional ground through trauma-informed counseling. We provide safe spaces for young mothers to recover from adversity and reclaim their sense of purpose." },
+            { id: "2", stage: "2", name: "BUILD", includes: "Establish a strategic foundation through vocational training and financial literacy. We align participants with skills that meet real employer demand in Kampala." },
+            { id: "3", stage: "3", name: "ACTIVATE", includes: "Translate training into income systems. We deploy job placements, employer partnerships (like Fine Spinners), and micro-enterprise toolkits to create immediate economic movement." },
+            { id: "4", stage: "4", name: "REINFORCE", includes: "Finalize household stability through long-term support. We equip participants with savings habits and retention counseling to ensure resilience is sustained and consistent." }
+        ]
     }
 };
