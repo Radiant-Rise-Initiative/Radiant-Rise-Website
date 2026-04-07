@@ -5,8 +5,8 @@ import { siteDefaults } from "@/lib/siteDefaults";
 // Data Sanitization Failsafe
 const s = (val: any): any => {
   if (typeof val !== 'string') return val;
-  // Deep path replacement to avoid corruption
-  if (val.includes('Hero 06.jpg') || val.includes('hero_006.jpg')) {
+  // ONLY replace the specifically broken path used in the CMS for the video section
+  if (val.includes('Hero 06.jpg')) {
     return '/assets/images/thumbnails/thumbnail_story.jpg';
   }
   if (val.includes('About TN.jpg')) {
