@@ -72,11 +72,7 @@ export default function AdminSeed() {
                 content: {
                     title: "Radiant Rise",
                     description: "Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive.",
-<<<<<<< HEAD
-                    image_url: "/assets/images/hero_images/hero_006.jpg",
-=======
                     image_url: "/assets/images/thumbnails/thumbnail_story.jpg",
->>>>>>> 36bd810 (1.4.9 - Integrate Theory of Change section into CMS and Admin Dashboard)
                     video_url: "/assets/images/video_stories/Radiant Rise Story.mp4",
                     info_point_1: "To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation.",
                     info_point_2: "To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community."
@@ -101,9 +97,6 @@ export default function AdminSeed() {
                     title: "Our Impact",
                     description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters.",
                     metric_label: "Grassroots Engagement",
-<<<<<<< HEAD
-                    metric_value: "105 Young Mothers"
-=======
                     metric_value: "105 Young Mothers",
                     stats: [
                         {
@@ -163,7 +156,6 @@ export default function AdminSeed() {
                             description: "Radiant Rise Initiative was officially formed in July 2025 in direct response to the urgent need for coordinated economic support in informal urban settlements. Founded by Agnes Oyella, who experienced the harsh realities of Acholi Quarters firsthand, our registered indigenous NGO operates with a clear mandate. We aim to transform historically fragmented aid into sustained household economic resilience for Uganda's most vulnerable youth and young mothers."
                         }
                     ]
->>>>>>> 02634bd (1.6.0 - Modernize Impact And Identity Grid CMS)
                 }
             },
             {

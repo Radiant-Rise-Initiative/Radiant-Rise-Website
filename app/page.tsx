@@ -13,10 +13,8 @@ const s = (val: any): any => {
     return '/assets/images/thumbnails/thumbnail_about.jpg';
   }
   return val
-<<<<<<< HEAD
     .replace(/Hero 06\.jpg/g, 'hero_006.jpg')
-=======
->>>>>>> b68987f (1.4.6 - Fix corrupted sanitizer and standardize thumbnail filenames)
+
     .replace(/[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g, ' ')
     .trim();
 };
@@ -86,8 +84,6 @@ export default async function Home() {
           label: s(impact.metric_label),
           value: s(impact.metric_value)
         }}
-<<<<<<< HEAD
-=======
         stats={impact.stats?.map((stat: any) => ({
           ...stat,
           label: s(stat.label),
@@ -95,7 +91,7 @@ export default async function Home() {
           modalTitle: s(stat.modalTitle),
           description: s(stat.description)
         }))}
->>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
+
       />
       <WhoWeAre 
         title={s(whoWeAre.title)}

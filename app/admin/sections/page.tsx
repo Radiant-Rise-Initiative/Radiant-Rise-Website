@@ -57,12 +57,7 @@ function AutoResizingTextarea({
 const SECTIONS = [
     { key: "hero", label: "Hero Section", isMulti: true, fieldName: 'slides' },
     { key: "purpose", label: "Purpose Section", fields: ["title", "description", "image_url", "video_url", "info_point_1", "info_point_2"] },
-    { key: "theories_of_change", label: "Theory of Change", fields: ["title", "description"], isMulti: true, fieldName: 'items' },
-<<<<<<< HEAD
-    { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "image_url", "metric_label", "metric_value"] },
-=======
     { key: "impact_stats", label: "Impact Statistics", fields: ["title", "description", "metric_label", "metric_value"], isMulti: true, fieldName: 'stats' },
->>>>>>> 4d50b0a (1.5.1 - Refine Our Impact layout: Remove image dependency and reposition overall metric description)
     { key: "who_we_are", label: "Who We Are", fields: ["title", "description", "image_url"] },
     { key: "values", label: "Our Values", fields: ["title", "description", "image_url"] },
     { key: "gallery", label: "Our Gallery", isMulti: true, fieldName: 'items' },
@@ -136,8 +131,6 @@ export default function AdminSections() {
             case 'theories_of_change':
                 newItem = { id: Math.random().toString(36).substr(2, 9), stage: "", name: "", includes: "" };
                 break;
-<<<<<<< HEAD
-=======
             case 'impact_stats':
                 newItem = { 
                     id: Math.random().toString(36).substr(2, 9), 
@@ -150,9 +143,6 @@ export default function AdminSections() {
                     title: "", description: "", modalTagline: "", modalTitle: "", modalText: "" 
                 };
                 break;
-<<<<<<< HEAD
->>>>>>> 02634bd (1.6.0 - Modernize Impact And Identity Grid CMS)
-=======
             case 'our_values':
                 newItem = { 
                     id: Math.random().toString(36).substr(2, 9), 
@@ -164,7 +154,6 @@ export default function AdminSections() {
                     ]
                 };
                 break;
->>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
             default:
                 newItem = { id: Math.random().toString(36).substr(2, 9), title: "", category: "", description: "", image: "", modal_title: "", modal_text: "" };
         }
@@ -259,31 +248,7 @@ export default function AdminSections() {
                                                 className="bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
                                             />
                                         </div>
-<<<<<<< HEAD
-                                    ))}
-                                </div>
-                            )}
-
-                            {/* Multi-Item Management (if any) */}
-                            {section.isMulti && (
-                                <div className="space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <div className="space-y-1">
-                                            <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Manage {section.label} Items</h4>
-                                            <p className="text-xs text-black/60">Drag handles to reorder</p>
                                         </div>
-                                        <button 
-                                            onClick={() => addItem(section.key, section.fieldName!)}
-                                            className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-black/60 hover:text-black transition-colors"
-                                        >
-                                            <Plus className="w-3 h-3" /> Add Item
-                                        </button>
-=======
->>>>>>> 02634bd (1.6.0 - Modernize Impact And Identity Grid CMS)
-                                    </div>
-
-                                    <div className="border-b border-dashed border-black/10" />
-
                                     {/* 2. Grid Items in Middle */}
                                     <div className="space-y-6">
                                         <div className="flex items-center justify-between">
@@ -299,98 +264,7 @@ export default function AdminSections() {
                                             </button>
                                         </div>
 
-<<<<<<< HEAD
-                                                <div className="flex-1 space-y-6">
-                                                    {section.key === 'hero' ? (
-                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                            <div className="space-y-2">
-                                                                <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40">
-                                                                    <ImageIcon className="w-3 h-3" /> Image URL
-                                                                </label>
-                                                                <input 
-                                                                    value={item.image}
-                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "image", e.target.value)}
-                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors"
-                                                                />
-                                                            </div>
-                                                            <div className="space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Description</label>
-                                                                <AutoResizingTextarea 
-                                                                    value={item.description}
-                                                                    onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "description", val)}
-                                                                    className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none transition-colors"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    ) : section.key === 'theories_of_change' ? (
-                                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                                                            <div className="md:col-span-1 space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Stage</label>
-                                                                <input 
-                                                                    value={item.stage} 
-                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "stage", e.target.value)} 
-                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
-                                                                />
-                                                            </div>
-                                                            <div className="md:col-span-3 space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Name</label>
-                                                                <input 
-                                                                    value={item.name} 
-                                                                    onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "name", e.target.value)} 
-                                                                    className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none font-bold tracking-tighter" 
-                                                                />
-                                                            </div>
-                                                            <div className="md:col-span-8 space-y-2">
-                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Description (Includes)</label>
-                                                                <AutoResizingTextarea 
-                                                                    value={item.includes} 
-                                                                    onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "includes", val)} 
-                                                                    className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    ) : (
-                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                            <div className="space-y-4">
-                                                                <div className="space-y-2">
-                                                                    <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40"><Type className="w-3 h-3" /> Title</label>
-                                                                    <input value={item.title} onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "title", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                                                                </div>
-                                                                <div className="space-y-2">
-                                                                    <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40"><Tag className="w-3 h-3" /> Category</label>
-                                                                    <input value={item.category} onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "category", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                                                                </div>
-                                                                <div className="space-y-2">
-                                                                    <label className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-black/40"><ImageIcon className="w-3 h-3" /> Image URL</label>
-                                                                    <input value={item.image} onChange={(e) => updateItem(section.key, section.fieldName!, item.id, "image", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
-                                                                </div>
-                                                            </div>
-                                                            <div className="space-y-4">
-                                                                <div className="space-y-2">
-                                                                    <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Preview Description</label>
-                                                                    <AutoResizingTextarea 
-                                                                        value={item.description} 
-                                                                        onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "description", val)} 
-                                                                        className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
-                                                                    />
-                                                                </div>
-                                                                <div className="space-y-2">
-                                                                    <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Modal Detail Text</label>
-                                                                    <AutoResizingTextarea 
-                                                                        value={item.modal_text} 
-                                                                        onChange={(val) => updateItem(section.key, section.fieldName!, item.id, "modal_text", val)} 
-                                                                        className="bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" 
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                </div>
 
-                                                <button 
-                                                    onClick={() => removeItem(section.key, section.fieldName!, item.id)}
-                                                    className="mt-4 text-black/20 hover:text-red-500 transition-colors"
-=======
                                         <Reorder.Group 
                                             axis="y" 
                                             values={sectionsData[section.key]?.stats || []} 
@@ -402,7 +276,7 @@ export default function AdminSections() {
                                                     key={item.id} 
                                                     value={item}
                                                     className="bg-black/[0.02] border border-black/5 p-6 flex gap-6 items-start group/item"
->>>>>>> 02634bd (1.6.0 - Modernize Impact And Identity Grid CMS)
+
                                                 >
                                                     <div className="mt-4 cursor-grab active:cursor-grabbing text-black/20 group-hover/item:text-black/40 transition-colors">
                                                         <GripVertical className="w-4 h-4" />

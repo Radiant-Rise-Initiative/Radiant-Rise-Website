@@ -1,0 +1,571 @@
+
+> radiant-rise@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 40 errors:
+./app/about/page.tsx:10:1
+Parsing ecmascript source code failed
+[0m [90m  8 |[39m [36mimport[39m { [33mLetsRiseMarquee[39m } [36mfrom[39m [32m"@/components/layout/LetsRiseMarquee"[39m[33m;[39m
+ [90m  9 |[39m
+[31m[1m>[22m[39m[90m 10 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 12 |[39m [90m// Data Sanitization Failsafe[39m
+ [90m 13 |[39m [36mconst[39m s [33m=[39m (val[33m:[39m any)[33m:[39m any [33m=>[39m {[0m
+
+Merge conflict marker encountered.
+
+
+./app/about/page.tsx:11:1
+Parsing ecmascript source code failed
+[0m [90m  9 |[39m
+ [90m 10 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+[31m[1m>[22m[39m[90m 11 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m [90m// Data Sanitization Failsafe[39m
+ [90m 13 |[39m [36mconst[39m s [33m=[39m (val[33m:[39m any)[33m:[39m any [33m=>[39m {
+ [90m 14 |[39m   [36mif[39m ([36mtypeof[39m val [33m!==[39m [32m'string'[39m) [36mreturn[39m val[33m;[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/about/page.tsx:23:1
+Parsing ecmascript source code failed
+[0m [90m 21 |[39m }[33m;[39m
+ [90m 22 |[39m
+[31m[1m>[22m[39m[90m 23 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 24 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mAboutPage[39m() {
+ [90m 25 |[39m   [36mreturn[39m (
+ [90m 26 |[39m     [33m<[39m[33mmain[39m className[33m=[39m[32m"min-h-screen bg-background text-foreground"[39m[33m>[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/about/page.tsx:44:1
+Parsing ecmascript source code failed
+[0m [90m 42 |[39m       [33m<[39m[33mPurposeSection[39m 
+ [90m 43 |[39m         videoSrc[33m=[39m[32m"/assets/images/video_stories/RRI (Story).mp4"[39m
+[31m[1m>[22m[39m[90m 44 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 45 |[39m         imageSrc[33m=[39m[32m"/assets/images/about_images/About TN.jpg"[39m 
+ [90m 46 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 47 |[39m         imageSrc[33m=[39m{s([32m"/assets/images/thumbnails/thumbnail_about.jpg"[39m)} [0m
+
+Merge conflict marker encountered.
+
+
+./app/about/page.tsx:46:1
+Parsing ecmascript source code failed
+[0m [90m 44 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 45 |[39m         imageSrc[33m=[39m[32m"/assets/images/about_images/About TN.jpg"[39m 
+[31m[1m>[22m[39m[90m 46 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 47 |[39m         imageSrc[33m=[39m{s([32m"/assets/images/thumbnails/thumbnail_about.jpg"[39m)} 
+ [90m 48 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)
+ [90m 49 |[39m         description[33m=[39m[32m"I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities."[39m [0m
+
+Merge conflict marker encountered.
+
+
+./app/about/page.tsx:48:1
+Parsing ecmascript source code failed
+[0m [90m 46 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 47 |[39m         imageSrc[33m=[39m{s([32m"/assets/images/thumbnails/thumbnail_about.jpg"[39m)} 
+[31m[1m>[22m[39m[90m 48 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 49 |[39m         description[33m=[39m[32m"I believe that when a young person heals, they rise, and when they rise, they can transform their families and their communities."[39m 
+ [90m 50 |[39m         infoPoints[33m=[39m{[
+ [90m 51 |[39m           [32m"Developing trauma-informed psychosocial support systems that help participants process lived experiences, rebuild inner strength, and rediscover their inherent worth."[39m[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:262:2
+Parsing ecmascript source code failed
+[0m [90m 260 |[39m                                             [33m/[39m[33m>[39m
+ [90m 261 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 262 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m  [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 263 |[39m                                     ))}
+ [90m 264 |[39m                                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 265 |[39m                             )}[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:262:4
+Parsing ecmascript source code failed
+[0m [90m 260 |[39m                                             [33m/[39m[33m>[39m
+ [90m 261 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 262 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 263 |[39m                                     ))}
+ [90m 264 |[39m                                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 265 |[39m                             )}[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:262:6
+Parsing ecmascript source code failed
+[0m [90m 260 |[39m                                             [33m/[39m[33m>[39m
+ [90m 261 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 262 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m      [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 263 |[39m                                     ))}
+ [90m 264 |[39m                                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 265 |[39m                             )}[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:302:2
+Parsing ecmascript source code failed
+[0m [90m 300 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 301 |[39m
+[31m[1m>[22m[39m[90m 302 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m  [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 303 |[39m                                                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex-1 space-y-6"[39m[33m>[39m
+ [90m 304 |[39m                                                     {section[33m.[39mkey [33m===[39m [32m'hero'[39m [33m?[39m (
+ [90m 305 |[39m                                                         [33m<[39m[33mdiv[39m className[33m=[39m[32m"grid grid-cols-1 md:grid-cols-2 gap-6"[39m[33m>[39m[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:302:4
+Parsing ecmascript source code failed
+[0m [90m 300 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 301 |[39m
+[31m[1m>[22m[39m[90m 302 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m    [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 303 |[39m                                                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex-1 space-y-6"[39m[33m>[39m
+ [90m 304 |[39m                                                     {section[33m.[39mkey [33m===[39m [32m'hero'[39m [33m?[39m (
+ [90m 305 |[39m                                                         [33m<[39m[33mdiv[39m className[33m=[39m[32m"grid grid-cols-1 md:grid-cols-2 gap-6"[39m[33m>[39m[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:302:6
+Parsing ecmascript source code failed
+[0m [90m 300 |[39m                                         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 301 |[39m
+[31m[1m>[22m[39m[90m 302 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m      [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 303 |[39m                                                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex-1 space-y-6"[39m[33m>[39m
+ [90m 304 |[39m                                                     {section[33m.[39mkey [33m===[39m [32m'hero'[39m [33m?[39m (
+ [90m 305 |[39m                                                         [33m<[39m[33mdiv[39m className[33m=[39m[32m"grid grid-cols-1 md:grid-cols-2 gap-6"[39m[33m>[39m[0m
+
+Expression expected
+
+
+./app/admin/sections/page.tsx:61:1
+Parsing ecmascript source code failed
+[0m [90m 59 |[39m     { key[33m:[39m [32m"purpose"[39m[33m,[39m label[33m:[39m [32m"Purpose Section"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"image_url"[39m[33m,[39m [32m"video_url"[39m[33m,[39m [32m"info_point_1"[39m[33m,[39m [32m"info_point_2"[39m] }[33m,[39m
+ [90m 60 |[39m     { key[33m:[39m [32m"theories_of_change"[39m[33m,[39m label[33m:[39m [32m"Theory of Change"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m][33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'items'[39m }[33m,[39m
+[31m[1m>[22m[39m[90m 61 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 62 |[39m     { key[33m:[39m [32m"impact_stats"[39m[33m,[39m label[33m:[39m [32m"Impact Statistics"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"image_url"[39m[33m,[39m [32m"metric_label"[39m[33m,[39m [32m"metric_value"[39m] }[33m,[39m
+ [90m 63 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 64 |[39m     { key[33m:[39m [32m"impact_stats"[39m[33m,[39m label[33m:[39m [32m"Impact Statistics"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"metric_label"[39m[33m,[39m [32m"metric_value"[39m][33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'stats'[39m }[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:63:1
+Parsing ecmascript source code failed
+[0m [90m 61 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 62 |[39m     { key[33m:[39m [32m"impact_stats"[39m[33m,[39m label[33m:[39m [32m"Impact Statistics"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"image_url"[39m[33m,[39m [32m"metric_label"[39m[33m,[39m [32m"metric_value"[39m] }[33m,[39m
+[31m[1m>[22m[39m[90m 63 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 64 |[39m     { key[33m:[39m [32m"impact_stats"[39m[33m,[39m label[33m:[39m [32m"Impact Statistics"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"metric_label"[39m[33m,[39m [32m"metric_value"[39m][33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'stats'[39m }[33m,[39m
+ [90m 65 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m4[39md50b0a ([35m1.5[39m[35m.1[39m [33m-[39m [33mRefine[39m [33mOur[39m [33mImpact[39m layout[33m:[39m [33mRemove[39m image dependency and reposition overall metric description)
+ [90m 66 |[39m     { key[33m:[39m [32m"who_we_are"[39m[33m,[39m label[33m:[39m [32m"Who We Are"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"image_url"[39m] }[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:65:1
+Parsing ecmascript source code failed
+[0m [90m 63 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 64 |[39m     { key[33m:[39m [32m"impact_stats"[39m[33m,[39m label[33m:[39m [32m"Impact Statistics"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"metric_label"[39m[33m,[39m [32m"metric_value"[39m][33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'stats'[39m }[33m,[39m
+[31m[1m>[22m[39m[90m 65 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m4[39md50b0a ([35m1.5[39m[35m.1[39m [33m-[39m [33mRefine[39m [33mOur[39m [33mImpact[39m layout[33m:[39m [33mRemove[39m image dependency and reposition overall metric description)
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 66 |[39m     { key[33m:[39m [32m"who_we_are"[39m[33m,[39m label[33m:[39m [32m"Who We Are"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m[33m,[39m [32m"image_url"[39m] }[33m,[39m
+ [90m 67 |[39m     { key[33m:[39m [32m"our_values"[39m[33m,[39m label[33m:[39m [32m"Our Values"[39m[33m,[39m fields[33m:[39m [[32m"title"[39m[33m,[39m [32m"description"[39m][33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'tabs'[39m }[33m,[39m
+ [90m 68 |[39m     { key[33m:[39m [32m"gallery"[39m[33m,[39m label[33m:[39m [32m"Our Gallery"[39m[33m,[39m isMulti[33m:[39m [36mtrue[39m[33m,[39m fieldName[33m:[39m [32m'items'[39m }[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:139:1
+Parsing ecmascript source code failed
+[0m [90m 137 |[39m                 newItem [33m=[39m { id[33m:[39m [33mMath[39m[33m.[39mrandom()[33m.[39mtoString([35m36[39m)[33m.[39msubstr([35m2[39m[33m,[39m [35m9[39m)[33m,[39m stage[33m:[39m [32m""[39m[33m,[39m name[33m:[39m [32m""[39m[33m,[39m includes[33m:[39m [32m""[39m }[33m;[39m
+ [90m 138 |[39m                 [36mbreak[39m[33m;[39m
+[31m[1m>[22m[39m[90m 139 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 140 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 141 |[39m             [36mcase[39m [32m'impact_stats'[39m[33m:[39m
+ [90m 142 |[39m                 newItem [33m=[39m { [0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:140:1
+Parsing ecmascript source code failed
+[0m [90m 138 |[39m                 [36mbreak[39m[33m;[39m
+ [90m 139 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+[31m[1m>[22m[39m[90m 140 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 141 |[39m             [36mcase[39m [32m'impact_stats'[39m[33m:[39m
+ [90m 142 |[39m                 newItem [33m=[39m { 
+ [90m 143 |[39m                     id[33m:[39m [33mMath[39m[33m.[39mrandom()[33m.[39mtoString([35m36[39m)[33m.[39msubstr([35m2[39m[33m,[39m [35m9[39m)[33m,[39m [0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:153:1
+Parsing ecmascript source code failed
+[0m [90m 151 |[39m                 }[33m;[39m
+ [90m 152 |[39m                 [36mbreak[39m[33m;[39m
+[31m[1m>[22m[39m[90m 153 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 154 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m 155 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 156 |[39m             [36mcase[39m [32m'our_values'[39m[33m:[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:154:1
+Parsing ecmascript source code failed
+[0m [90m 152 |[39m                 [36mbreak[39m[33m;[39m
+ [90m 153 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+[31m[1m>[22m[39m[90m 154 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 155 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 156 |[39m             [36mcase[39m [32m'our_values'[39m[33m:[39m
+ [90m 157 |[39m                 newItem [33m=[39m { [0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:155:1
+Parsing ecmascript source code failed
+[0m [90m 153 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 154 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+[31m[1m>[22m[39m[90m 155 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 156 |[39m             [36mcase[39m [32m'our_values'[39m[33m:[39m
+ [90m 157 |[39m                 newItem [33m=[39m { 
+ [90m 158 |[39m                     id[33m:[39m [33mMath[39m[33m.[39mrandom()[33m.[39mtoString([35m36[39m)[33m.[39msubstr([35m2[39m[33m,[39m [35m9[39m)[33m,[39m [0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:167:1
+Parsing ecmascript source code failed
+[0m [90m 165 |[39m                 }[33m;[39m
+ [90m 166 |[39m                 [36mbreak[39m[33m;[39m
+[31m[1m>[22m[39m[90m 167 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b44c1bd ([35m1.5[39m[35m.2[39m [33m-[39m [33mOverhaul[39m [33mOur[39m [33mValues[39m [33mCMS[39m and [33mFix[39m [33mVercel[39m [33mBuild[39m)
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 168 |[39m             [36mdefault[39m[33m:[39m
+ [90m 169 |[39m                 newItem [33m=[39m { id[33m:[39m [33mMath[39m[33m.[39mrandom()[33m.[39mtoString([35m36[39m)[33m.[39msubstr([35m2[39m[33m,[39m [35m9[39m)[33m,[39m title[33m:[39m [32m""[39m[33m,[39m category[33m:[39m [32m""[39m[33m,[39m description[33m:[39m [32m""[39m[33m,[39m image[33m:[39m [32m""[39m[33m,[39m modal_title[33m:[39m [32m""[39m[33m,[39m modal_text[33m:[39m [32m""[39m }[33m;[39m
+ [90m 170 |[39m         }[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/sections/page.tsx:282:1
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:2
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m  [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:3
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m   [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:4
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m    [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:5
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m     [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:6
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m      [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:282:7
+Parsing ecmascript source code failed
+[0m [90m 280 |[39m                                         [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 281 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 282 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m02634[39mbd ([35m1.6[39m[35m.0[39m [33m-[39m [33mModernize[39m [33mImpact[39m [33mAnd[39m [33mIdentity[39m [33mGrid[39m [33mCMS[39m)
+ [90m     |[39m       [31m[1m^[22m[39m
+ [90m 283 |[39m                                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 284 |[39m
+ [90m 285 |[39m                                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"border-b border-dashed border-black/10"[39m [33m/[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+./app/admin/sections/page.tsx:265:30
+Parsing ecmascript source code failed
+[0m [90m 263 |[39m                                     ))}
+ [90m 264 |[39m                                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 265 |[39m                             )}
+ [90m     |[39m                              [31m[1m^[22m[39m
+ [90m 266 |[39m
+ [90m 267 |[39m                             {[90m/* Multi-Item Management (if any) */[39m}
+ [90m 268 |[39m                             {section[33m.[39misMulti [33m&&[39m ([0m
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+
+./app/admin/seed/page.tsx:75:1
+Parsing ecmascript source code failed
+[0m [90m 73 |[39m                     title[33m:[39m [32m"Radiant Rise"[39m[33m,[39m
+ [90m 74 |[39m                     description[33m:[39m [32m"Dedicated to breaking cycles of poverty by equipping young mothers and youths with the vocational skills, spiritual foundation, and resilience needed to thrive."[39m[33m,[39m
+[31m[1m>[22m[39m[90m 75 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 76 |[39m                     image_url[33m:[39m [32m"/assets/images/hero_images/hero_006.jpg"[39m[33m,[39m
+ [90m 77 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 78 |[39m                     image_url[33m:[39m [32m"/assets/images/thumbnails/thumbnail_story.jpg"[39m[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/seed/page.tsx:77:1
+Parsing ecmascript source code failed
+[0m [90m 75 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 76 |[39m                     image_url[33m:[39m [32m"/assets/images/hero_images/hero_006.jpg"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 77 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 78 |[39m                     image_url[33m:[39m [32m"/assets/images/thumbnails/thumbnail_story.jpg"[39m[33m,[39m
+ [90m 79 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m36[39mbd810 ([35m1.4[39m[35m.9[39m [33m-[39m [33mIntegrate[39m [33mTheory[39m [36mof[39m [33mChange[39m section into [33mCMS[39m and [33mAdmin[39m [33mDashboard[39m)
+ [90m 80 |[39m                     video_url[33m:[39m [32m"/assets/images/video_stories/Radiant Rise Story.mp4"[39m[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/seed/page.tsx:79:1
+Parsing ecmascript source code failed
+[0m [90m 77 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 78 |[39m                     image_url[33m:[39m [32m"/assets/images/thumbnails/thumbnail_story.jpg"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 79 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m [35m36[39mbd810 ([35m1.4[39m[35m.9[39m [33m-[39m [33mIntegrate[39m [33mTheory[39m [36mof[39m [33mChange[39m section into [33mCMS[39m and [33mAdmin[39m [33mDashboard[39m)
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 80 |[39m                     video_url[33m:[39m [32m"/assets/images/video_stories/Radiant Rise Story.mp4"[39m[33m,[39m
+ [90m 81 |[39m                     info_point_1[33m:[39m [32m"To provide holistic empowerment that addresses not just economic needs, but emotional and spiritual well-being for lasting transformation."[39m[33m,[39m
+ [90m 82 |[39m                     info_point_2[33m:[39m [32m"To build sustainable futures where every participant becomes a pillar of strength, driving self-reliance and prosperity within their community."[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/seed/page.tsx:104:1
+Parsing ecmascript source code failed
+[0m [90m 102 |[39m                     description[33m:[39m [32m"During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters."[39m[33m,[39m
+ [90m 103 |[39m                     metric_label[33m:[39m [32m"Grassroots Engagement"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 104 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 105 |[39m                     metric_value[33m:[39m [32m"105 Young Mothers"[39m
+ [90m 106 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 107 |[39m                     metric_value[33m:[39m [32m"105 Young Mothers"[39m[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/admin/seed/page.tsx:106:1
+Parsing ecmascript source code failed
+[0m [90m 104 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 105 |[39m                     metric_value[33m:[39m [32m"105 Young Mothers"[39m
+[31m[1m>[22m[39m[90m 106 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 107 |[39m                     metric_value[33m:[39m [32m"105 Young Mothers"[39m[33m,[39m
+ [90m 108 |[39m                     stats[33m:[39m [
+ [90m 109 |[39m                         {[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:16:1
+Parsing ecmascript source code failed
+[0m [90m 14 |[39m   }
+ [90m 15 |[39m   [36mreturn[39m val
+[31m[1m>[22m[39m[90m 16 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     [33m.[39mreplace([35m/Hero 06\.jpg/g[39m[33m,[39m [32m'hero_006.jpg'[39m)
+ [90m 18 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 19 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:18:1
+Parsing ecmascript source code failed
+[0m [90m 16 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m 17 |[39m     [33m.[39mreplace([35m/Hero 06\.jpg/g[39m[33m,[39m [32m'hero_006.jpg'[39m)
+[31m[1m>[22m[39m[90m 18 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 19 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)
+ [90m 20 |[39m     [33m.[39mreplace([35m/[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g[39m[33m,[39m [32m' '[39m)
+ [90m 21 |[39m     [33m.[39mtrim()[33m;[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:19:1
+Parsing ecmascript source code failed
+[0m [90m 17 |[39m     [33m.[39mreplace([35m/Hero 06\.jpg/g[39m[33m,[39m [32m'hero_006.jpg'[39m)
+ [90m 18 |[39m [33m===[39m[33m===[39m[33m=[39m
+[31m[1m>[22m[39m[90m 19 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b68987f ([35m1.4[39m[35m.6[39m [33m-[39m [33mFix[39m corrupted sanitizer and standardize thumbnail filenames)
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 20 |[39m     [33m.[39mreplace([35m/[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g[39m[33m,[39m [32m' '[39m)
+ [90m 21 |[39m     [33m.[39mtrim()[33m;[39m
+ [90m 22 |[39m }[33m;[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:89:1
+Parsing ecmascript source code failed
+[0m [90m 87 |[39m           value[33m:[39m s(impact[33m.[39mmetric_value)
+ [90m 88 |[39m         }}
+[31m[1m>[22m[39m[90m 89 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 90 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m 91 |[39m         stats[33m=[39m{impact[33m.[39mstats[33m?[39m[33m.[39mmap((stat[33m:[39m any) [33m=>[39m ({
+ [90m 92 |[39m           [33m...[39mstat[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:90:1
+Parsing ecmascript source code failed
+[0m [90m 88 |[39m         }}
+ [90m 89 |[39m [33m<<[39m[33m<<[39m[33m<<[39m[33m<[39m [33mHEAD[39m
+[31m[1m>[22m[39m[90m 90 |[39m [33m===[39m[33m===[39m[33m=[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 91 |[39m         stats[33m=[39m{impact[33m.[39mstats[33m?[39m[33m.[39mmap((stat[33m:[39m any) [33m=>[39m ({
+ [90m 92 |[39m           [33m...[39mstat[33m,[39m
+ [90m 93 |[39m           label[33m:[39m s(stat[33m.[39mlabel)[33m,[39m[0m
+
+Merge conflict marker encountered.
+
+
+./app/page.tsx:98:1
+Parsing ecmascript source code failed
+[0m [90m  96 |[39m           description[33m:[39m s(stat[33m.[39mdescription)
+ [90m  97 |[39m         }))}
+[31m[1m>[22m[39m[90m  98 |[39m [33m>>>[39m[33m>>>[39m[33m>[39m b44c1bd ([35m1.5[39m[35m.2[39m [33m-[39m [33mOverhaul[39m [33mOur[39m [33mValues[39m [33mCMS[39m and [33mFix[39m [33mVercel[39m [33mBuild[39m)
+ [90m     |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  99 |[39m       [33m/[39m[33m>[39m
+ [90m 100 |[39m       [33m<[39m[33mWhoWeAre[39m 
+ [90m 101 |[39m         title[33m=[39m{s(whoWeAre[33m.[39mtitle)}[0m
+
+Merge conflict marker encountered.
+
+
+    at <unknown> (./app/about/page.tsx:10:1)
+    at <unknown> (./app/about/page.tsx:11:1)
+    at <unknown> (./app/about/page.tsx:23:1)
+    at <unknown> (./app/about/page.tsx:44:1)
+    at <unknown> (./app/about/page.tsx:46:1)
+    at <unknown> (./app/about/page.tsx:48:1)
+    at <unknown> (./app/admin/sections/page.tsx:262:2)
+    at <unknown> (./app/admin/sections/page.tsx:262:4)
+    at <unknown> (./app/admin/sections/page.tsx:262:6)
+    at <unknown> (./app/admin/sections/page.tsx:302:2)
+    at <unknown> (./app/admin/sections/page.tsx:302:4)
+    at <unknown> (./app/admin/sections/page.tsx:302:6)
+    at <unknown> (./app/admin/sections/page.tsx:61:1)
+    at <unknown> (./app/admin/sections/page.tsx:63:1)
+    at <unknown> (./app/admin/sections/page.tsx:65:1)
+    at <unknown> (./app/admin/sections/page.tsx:139:1)
+    at <unknown> (./app/admin/sections/page.tsx:140:1)
+    at <unknown> (./app/admin/sections/page.tsx:153:1)
+    at <unknown> (./app/admin/sections/page.tsx:154:1)
+    at <unknown> (./app/admin/sections/page.tsx:155:1)
+    at <unknown> (./app/admin/sections/page.tsx:167:1)
+    at <unknown> (./app/admin/sections/page.tsx:282:1)
+    at <unknown> (./app/admin/sections/page.tsx:282:2)
+    at <unknown> (./app/admin/sections/page.tsx:282:3)
+    at <unknown> (./app/admin/sections/page.tsx:282:4)
+    at <unknown> (./app/admin/sections/page.tsx:282:5)
+    at <unknown> (./app/admin/sections/page.tsx:282:6)
+    at <unknown> (./app/admin/sections/page.tsx:282:7)
+    at <unknown> (./app/admin/sections/page.tsx:265:30)
+    at <unknown> (./app/admin/seed/page.tsx:75:1)
+    at <unknown> (./app/admin/seed/page.tsx:77:1)
+    at <unknown> (./app/admin/seed/page.tsx:79:1)
+    at <unknown> (./app/admin/seed/page.tsx:104:1)
+    at <unknown> (./app/admin/seed/page.tsx:106:1)
+    at <unknown> (./app/page.tsx:16:1)
+    at <unknown> (./app/page.tsx:18:1)
+    at <unknown> (./app/page.tsx:19:1)
+    at <unknown> (./app/page.tsx:89:1)
+    at <unknown> (./app/page.tsx:90:1)
+    at <unknown> (./app/page.tsx:98:1)
