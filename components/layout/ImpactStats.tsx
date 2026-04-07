@@ -2,6 +2,7 @@
 
 import { MetricStatistics } from "@/components/ui/MetricStatistics";
 
+<<<<<<< HEAD
 const stats = [
     {
         topLabel: "Economic Empowerment",
@@ -44,6 +45,15 @@ const stats = [
         bottomDescription: "Radiant Rise Initiative was officially formed in July 2025 in direct response to the urgent need for coordinated economic support in informal urban settlements. Founded by Agnes Oyella, who experienced the harsh realities of Acholi Quarters firsthand, our registered indigenous NGO operates with a clear mandate. We aim to transform historically fragmented aid into sustained household economic resilience for Uganda's most vulnerable youth and young mothers.",
     },
 ];
+=======
+interface Metric {
+    id: string;
+    label: string;
+    value: string;
+    modalTitle: string;
+    description: string;
+}
+>>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
 
 export function ImpactStats({ 
     title, 
@@ -63,8 +73,12 @@ export function ImpactStats({
     title?: string, 
     description?: string,
     overallMetric?: { label: string, value: string },
+<<<<<<< HEAD
     stats?: ImpactGridItem[]
 >>>>>>> 4d50b0a (1.5.1 - Refine Our Impact layout: Remove image dependency and reposition overall metric description)
+=======
+    stats?: Metric[]
+>>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
 }) {
     return (
         <MetricStatistics

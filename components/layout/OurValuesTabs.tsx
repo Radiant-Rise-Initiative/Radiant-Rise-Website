@@ -60,13 +60,21 @@ const ourValuesTabs: InfoTab[] = [
     }
 ];
 
-export function OurValuesTabs() {
+export function OurValuesTabs({
+    title,
+    description,
+    tabs = []
+}: {
+    title?: string,
+    description?: string,
+    tabs?: InfoTab[]
+}) {
     return (
         <AutomatedInfoTabs
             id="our-values"
-            title="Our Values"
-            description="Born from the lived realities of Acholi Quarters, Radiant Rise Initiative is a community-owned movement defined by deep-rooted values. Driven by faith, radical inclusivity, and an unwavering commitment to human dignity, we are building a sanctuary where vulnerable youths and young mothers can truly thrive and lead."
-            tabs={ourValuesTabs}
+            title={title || "Our Values"}
+            description={description || "Driven by faith, radical inclusivity, and an unwavering commitment to human dignity."}
+            tabs={tabs}
             durationPerTab={5000}
         />
     );

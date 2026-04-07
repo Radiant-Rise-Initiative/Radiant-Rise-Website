@@ -150,7 +150,21 @@ export default function AdminSections() {
                     title: "", description: "", modalTagline: "", modalTitle: "", modalText: "" 
                 };
                 break;
+<<<<<<< HEAD
 >>>>>>> 02634bd (1.6.0 - Modernize Impact And Identity Grid CMS)
+=======
+            case 'our_values':
+                newItem = { 
+                    id: Math.random().toString(36).substr(2, 9), 
+                    label: "", headline: "", bottomTagline: "",
+                    features: [
+                        { title: "", text: "" },
+                        { title: "", text: "" },
+                        { title: "" , text: "" }
+                    ]
+                };
+                break;
+>>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
             default:
                 newItem = { id: Math.random().toString(36).substr(2, 9), title: "", category: "", description: "", image: "", modal_title: "", modal_text: "" };
         }
@@ -164,7 +178,7 @@ export default function AdminSections() {
         handleChange(sectionKey, fieldName, currentItems.filter((i: any) => i.id !== id));
     };
 
-    const updateItem = (sectionKey: string, fieldName: string, id: string, field: string, value: string) => {
+    const updateItem = (sectionKey: string, fieldName: string, id: string, field: string, value: any) => {
         const currentItems = sectionsData[sectionKey]?.[fieldName] || [];
         const updated = currentItems.map((i: any) => i.id === id ? { ...i, [field]: value } : i);
         handleChange(sectionKey, fieldName, updated);
@@ -563,6 +577,126 @@ export default function AdminSections() {
 
                                                     <button 
                                                         onClick={() => removeItem(section.key, 'items', item.id)}
+                                                        className="mt-4 text-black/20 hover:text-red-500 transition-colors"
+                                                    >
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </Reorder.Item>
+                                            ))}
+                                        </Reorder.Group>
+                                    </div>
+                                </div>
+                            ) : section.key === 'our_values' ? (
+                                // Custom Layout for Our Values (Nested Tabs)
+                                <div className="space-y-10">
+                                    <div className="space-y-6">
+                                        <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Section Metadata</h4>
+                                        <div className="space-y-2">
+                                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Section Title</label>
+                                            <input 
+                                                value={sectionsData[section.key]?.title || ""}
+                                                onChange={(e) => handleChange(section.key, 'title', e.target.value)}
+                                                className="w-full bg-black/[0.02] border border-black/10 px-4 py-3 text-sm focus:border-black outline-none"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Primary Description</label>
+                                            <AutoResizingTextarea 
+                                                value={sectionsData[section.key]?.description || ""}
+                                                onChange={(val) => handleChange(section.key, 'description', val)}
+                                                className="bg-black/[0.02] border border-black/10 px-4 py-4 text-sm font-medium focus:border-black outline-none transition-colors"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="border-b border-dashed border-black/10" />
+
+                                    <div className="space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <div className="space-y-1">
+                                                <h4 className="text-[10px] font-mono tracking-widest uppercase text-black/40">Value Tabs</h4>
+                                                <p className="text-xs text-black/60">Manage the automated rotating tabs and their internal features</p>
+                                            </div>
+                                            <button 
+                                                onClick={() => addItem(section.key, 'tabs')}
+                                                className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-black/60 hover:text-black transition-colors"
+                                            >
+                                                <Plus className="w-3 h-3" /> Add Value
+                                            </button>
+                                        </div>
+
+                                        <Reorder.Group 
+                                            axis="y" 
+                                            values={sectionsData[section.key]?.tabs || []} 
+                                            onReorder={(newOrder) => handleChange(section.key, 'tabs', newOrder)}
+                                            className="space-y-6"
+                                        >
+                                            {(sectionsData[section.key]?.tabs || []).map((tab: any) => (
+                                                <Reorder.Item 
+                                                    key={tab.id} 
+                                                    value={tab}
+                                                    className="bg-black/[0.02] border border-black/5 p-8 flex gap-6 items-start group/item"
+                                                >
+                                                    <div className="mt-4 cursor-grab active:cursor-grabbing text-black/20 group-hover/item:text-black/40 transition-colors">
+                                                        <GripVertical className="w-4 h-4" />
+                                                    </div>
+
+                                                    <div className="flex-1 space-y-8">
+                                                        {/* Tab Header Info */}
+                                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                            <div className="space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Tab Label</label>
+                                                                <input value={tab.label} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "label", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                                            </div>
+                                                            <div className="space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Bottom Tagline</label>
+                                                                <input value={tab.bottomTagline} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "bottomTagline", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none font-mono" />
+                                                            </div>
+                                                            <div className="space-y-2">
+                                                                <label className="block text-[10px] font-mono tracking-widest uppercase text-black/40">Display Headline</label>
+                                                                <input value={tab.headline} onChange={(e) => updateItem(section.key, 'tabs', tab.id, "headline", e.target.value)} className="w-full bg-white border border-black/10 px-4 py-3 text-sm focus:border-black outline-none" />
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Nest Items (Features) */}
+                                                        <div className="space-y-4">
+                                                            <h5 className="text-[9px] font-mono uppercase tracking-widest text-black/20 border-b border-black/5 pb-2">Internal Features (3 Points)</h5>
+                                                            <div className="grid grid-cols-1 gap-4">
+                                                                {(tab.features || []).map((feature: any, fIdx: number) => (
+                                                                    <div key={fIdx} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                                                                        <div className="space-y-1">
+                                                                            <label className="block text-[9px] font-mono uppercase text-black/30">Feature {fIdx + 1} Title</label>
+                                                                            <input 
+                                                                                value={feature.title} 
+                                                                                onChange={(e) => {
+                                                                                    const newFeatures = [...tab.features];
+                                                                                    newFeatures[fIdx].title = e.target.value;
+                                                                                    updateItem(section.key, 'tabs', tab.id, "features", newFeatures);
+                                                                                }} 
+                                                                                className="w-full bg-white border border-black/5 px-3 py-2 text-xs focus:border-black outline-none" 
+                                                                            />
+                                                                        </div>
+                                                                        <div className="md:col-span-3 space-y-1">
+                                                                            <label className="block text-[9px] font-mono uppercase text-black/30">Feature {fIdx + 1} Description</label>
+                                                                            <textarea 
+                                                                                value={feature.text} 
+                                                                                onChange={(e) => {
+                                                                                    const newFeatures = [...tab.features];
+                                                                                    newFeatures[fIdx].text = e.target.value;
+                                                                                    updateItem(section.key, 'tabs', tab.id, "features", newFeatures);
+                                                                                }} 
+                                                                                rows={2}
+                                                                                className="w-full bg-white border border-black/5 px-3 py-2 text-xs focus:border-black outline-none resize-none"
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <button 
+                                                        onClick={() => removeItem(section.key, 'tabs', tab.id)}
                                                         className="mt-4 text-black/20 hover:text-red-500 transition-colors"
                                                     >
                                                         <Trash2 className="w-4 h-4" />

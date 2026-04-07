@@ -46,6 +46,7 @@ export default async function Home() {
   const impact = { ...siteDefaults.impact_stats, ...sections.impact_stats };
   const whoWeAre = { ...siteDefaults.who_we_are, ...sections.who_we_are };
   const theoriesOfChange = { ...siteDefaults.theories_of_change, ...sections.theories_of_change };
+  const ourValues = { ...siteDefaults.our_values, ...sections.our_values };
   
   const newsData = await getNews();
   const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
@@ -85,6 +86,16 @@ export default async function Home() {
           label: s(impact.metric_label),
           value: s(impact.metric_value)
         }}
+<<<<<<< HEAD
+=======
+        stats={impact.stats?.map((stat: any) => ({
+          ...stat,
+          label: s(stat.label),
+          value: s(stat.value),
+          modalTitle: s(stat.modalTitle),
+          description: s(stat.description)
+        }))}
+>>>>>>> b44c1bd (1.5.2 - Overhaul Our Values CMS and Fix Vercel Build)
       />
       <WhoWeAre 
         title={s(whoWeAre.title)}
@@ -99,7 +110,21 @@ export default async function Home() {
           modalText: s(item.modalText)
         }))}
       />
-      <OurValuesTabs />
+      <OurValuesTabs 
+        title={s(ourValues.title)}
+        description={s(ourValues.description)}
+        tabs={ourValues.tabs?.map((tab: any) => ({
+          ...tab,
+          label: s(tab.label),
+          headline: s(tab.headline),
+          bottomTagline: s(tab.bottomTagline),
+          features: tab.features?.map((feat: any) => ({
+            ...feat,
+            title: s(feat.title),
+            text: s(feat.text)
+          }))
+        }))}
+      />
       <TargetScroller />
       <ImpactMilestones />
       <RecentNews initialNews={finalNews} />
