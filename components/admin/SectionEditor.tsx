@@ -10,6 +10,7 @@ import {
     Loader2
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { deepMerge } from "@/lib/utils/deepMerge";
 
 interface SectionEditorProps {
     sectionKey: string;
@@ -39,11 +40,13 @@ export function SectionEditor({
                 .eq('section_key', sectionKey)
                 .single();
 
+            const defaultData = (siteDefaults as any)[sectionKey];
+            
             if (sectionData?.content) {
-                setData(sectionData.content);
+                // Pre-merge with defaults so the editor always has the full structure
+                setData(deepMerge(defaultData, sectionData.content));
             } else {
                 // Fallback: load from siteDefaults if Supabase has no data
-                const defaultData = (siteDefaults as any)[sectionKey];
                 if (defaultData) {
                     setData(defaultData);
                 }
