@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export default function AdminLogin() {
     const [email, setEmail] = useState("");
@@ -47,9 +48,19 @@ export default function AdminLogin() {
                 transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="w-full max-w-md bg-white p-8 md:p-12 border border-black/5 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
             >
-                <div className="mb-12">
-                    <h1 className="text-3xl font-semibold tracking-tight text-black mb-2">CM Portal</h1>
-                    <p className="text-sm text-black/40 font-mono tracking-widest uppercase">Admin Authorization</p>
+                <div className="mb-12 flex items-center gap-4">
+                    <Image 
+                        src="/assets/branding/rr-logo-v3.svg"
+                        alt="Radiant Rise"
+                        width={32}
+                        height={32}
+                        className="h-10 w-auto object-contain shrink-0"
+                        priority
+                    />
+                    <div className="flex flex-col">
+                        <h1 className="text-xl font-semibold tracking-tight text-black leading-tight">Admin Portal</h1>
+                        <p className="text-[10px] text-black/40 font-mono tracking-widest uppercase mt-0.5">RRI AUTHORIZATION</p>
+                    </div>
                 </div>
 
                 <form onSubmit={handleLogin} className="space-y-6">

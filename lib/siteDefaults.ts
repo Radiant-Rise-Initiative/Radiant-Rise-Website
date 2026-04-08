@@ -23,6 +23,7 @@ export const siteDefaults = {
         description: "During our critical initial community mobilization phase, one hundred and five young mothers successfully registered and were comprehensively profiled. By rigorously documenting their education status, current employment levels, and savings practices, we established a vital, data-driven baseline for all future programming. Empowering these specific women, who constantly balance caregiving with basic survival work, remains the absolute cornerstone of our mission to nurture intergenerational economic stability across Acholi Quarters.",
         metric_label: "Grassroots Engagement",
         metric_value: "105 Young Mothers",
+        metric_modalTitle: "105 Young Mothers Mobilized",
         stats: [
             {
                 id: "impact_1_top",

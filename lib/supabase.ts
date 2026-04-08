@@ -6,14 +6,32 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export async function getSections() {
-    const { data } = await supabase.from('site_sections').select('*');
-    return data?.reduce((acc, curr) => {
-        acc[curr.section_key] = curr.content;
-        return acc;
-    }, {} as Record<string, any>) || {};
+    try {
+        const { data, error } = await supabase.from('site_sections').select('*');
+        if (error) {
+            console.error('Supabase getSections error:', error.message);
+            return {};
+        }
+        return data?.reduce((acc, curr) => {
+            acc[curr.section_key] = curr.content;
+            return acc;
+        }, {} as Record<string, any>) || {};
+    } catch (e) {
+        console.error('Supabase getSections fetch failed:', e);
+        return {};
+    }
 }
 
 export async function getNews() {
-    const { data } = await supabase.from('news_releases').select('*').order('date', { ascending: false });
-    return data || [];
+    try {
+        const { data, error } = await supabase.from('news_releases').select('*').order('date', { ascending: false });
+        if (error) {
+            console.error('Supabase getNews error:', error.message);
+            return [];
+        }
+        return data || [];
+    } catch (e) {
+        console.error('Supabase getNews fetch failed:', e);
+        return [];
+    }
 }

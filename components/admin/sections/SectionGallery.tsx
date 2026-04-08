@@ -1,6 +1,7 @@
 "use client";
 
-import { Plus, Trash2, GripVertical, Image as ImageIcon } from "lucide-react";
+import { Plus, GripVertical, Image as ImageIcon } from "lucide-react";
+import { DeleteConfirmation } from "@/components/admin/DeleteConfirmation";
 import { Reorder } from "framer-motion";
 import { ImagePreview } from "@/components/admin/ImagePreview";
 
@@ -86,12 +87,11 @@ export function SectionGallery({ data, setData }: SectionGalleryProps) {
                             </div>
                         </div>
 
-                        <button 
-                            onClick={() => removeItem(item.id)}
-                            className="mt-4 text-black/20 hover:text-red-500 transition-colors"
-                        >
-                            <Trash2 className="w-4 h-4" />
-                        </button>
+                        <DeleteConfirmation 
+                            onConfirm={() => removeItem(item.id)}
+                            itemLabel="this gallery item"
+                            className="mt-4"
+                        />
                     </Reorder.Item>
                 ))}
             </Reorder.Group>

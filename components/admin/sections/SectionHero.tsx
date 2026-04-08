@@ -1,6 +1,7 @@
 "use client";
 
-import { Plus, Trash2, GripVertical, Image as ImageIcon } from "lucide-react";
+import { Plus, GripVertical, Image as ImageIcon } from "lucide-react";
+import { DeleteConfirmation } from "@/components/admin/DeleteConfirmation";
 import { Reorder } from "framer-motion";
 import { AutoResizingTextarea } from "@/components/admin/AutoResizingTextarea";
 import { ImagePreview } from "@/components/admin/ImagePreview";
@@ -88,12 +89,11 @@ export function SectionHero({ data, setData }: SectionHeroProps) {
                             </div>
                         </div>
 
-                        <button 
-                            onClick={() => removeSlide(item.id)}
-                            className="mt-4 text-black/20 hover:text-red-500 transition-colors"
-                        >
-                            <Trash2 className="w-4 h-4" />
-                        </button>
+                        <DeleteConfirmation 
+                            onConfirm={() => removeSlide(item.id)}
+                            itemLabel="this slide"
+                            className="mt-4"
+                        />
                     </Reorder.Item>
                 ))}
             </Reorder.Group>

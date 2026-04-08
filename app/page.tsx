@@ -1,6 +1,7 @@
 import { getSections, getNews } from "@/lib/supabase";
 import { newsItems } from "@/lib/newsData";
 import { siteDefaults } from "@/lib/siteDefaults";
+import { deepMerge } from "@/lib/utils/deepMerge";
 
 import { s } from "@/lib/utils/sanitizer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -20,20 +21,26 @@ import { OurGallery } from "@/components/layout/OurGallery";
 import { PurposeSection } from "@/components/layout/PurposeSection";
 import { TheoriesOfChange } from "@/components/layout/TheoriesOfChange";
 
+// ISR: Regenerate page every 60 seconds as a baseline. 
+// On-demand revalidation from admin saves triggers immediate refresh.
+export const revalidate = 60;
+
 export default async function Home() {
   const sections = await getSections();
   
-  // Merge Supabase content over robust internal defaults
-  const hero = { ...siteDefaults.hero, ...sections.hero };
-  const purpose = { ...siteDefaults.purpose, ...sections.purpose };
-  const impact = { ...siteDefaults.impact_stats, ...sections.impact_stats };
-  const whoWeAre = { ...siteDefaults.who_we_are, ...sections.who_we_are };
-  const theoriesOfChange = { ...siteDefaults.theories_of_change, ...sections.theories_of_change };
-  const ourValues = { ...siteDefaults.our_values, ...sections.our_values };
-  const ourTargets = { ...siteDefaults.our_targets, ...sections.our_targets };
-  const impactMilestones = { ...siteDefaults.impact_milestones, ...sections.impact_milestones };
-  const gallery = { ...siteDefaults.gallery, ...sections.gallery };
-  const gotQuestions = { ...siteDefaults.got_questions, ...sections.got_questions };
+  // Deep merge: siteDefaults is always the complete baseline.
+  // Supabase overrides only replace what has been explicitly set.
+  // Cast to `any` since Supabase content may include additional runtime fields.
+  const hero: any = deepMerge(siteDefaults.hero, sections.hero);
+  const purpose: any = deepMerge(siteDefaults.purpose, sections.purpose);
+  const impact: any = deepMerge(siteDefaults.impact_stats, sections.impact_stats);
+  const whoWeAre: any = deepMerge(siteDefaults.who_we_are, sections.who_we_are);
+  const theoriesOfChange: any = deepMerge(siteDefaults.theories_of_change, sections.theories_of_change);
+  const ourValues: any = deepMerge(siteDefaults.our_values, sections.our_values);
+  const ourTargets: any = deepMerge(siteDefaults.our_targets, sections.our_targets);
+  const impactMilestones: any = deepMerge(siteDefaults.impact_milestones, sections.impact_milestones);
+  const gallery: any = deepMerge(siteDefaults.gallery, sections.gallery);
+  const gotQuestions: any = deepMerge(siteDefaults.got_questions, sections.got_questions);
   
   const newsData = await getNews();
   const finalNews = (newsData && newsData.length > 0) ? newsData : newsItems.slice(0, 3);
@@ -71,7 +78,8 @@ export default async function Home() {
         description={s(impact.description)}
         overallMetric={{
           label: s(impact.metric_label),
-          value: s(impact.metric_value)
+          value: s(impact.metric_value),
+          modalTitle: s(impact.metric_modalTitle)
         }}
         stats={impact.stats?.map((stat: any) => ({
           ...stat,

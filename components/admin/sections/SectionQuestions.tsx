@@ -1,6 +1,7 @@
 "use client";
 
-import { Plus, Trash2, GripVertical } from "lucide-react";
+import { Plus, GripVertical } from "lucide-react";
+import { DeleteConfirmation } from "@/components/admin/DeleteConfirmation";
 import { Reorder } from "framer-motion";
 import { AutoResizingTextarea } from "@/components/admin/AutoResizingTextarea";
 
@@ -100,12 +101,12 @@ export function SectionQuestions({ data, setData }: SectionQuestionsProps) {
                                 </div>
                             </div>
 
-                            <button 
-                                onClick={() => removeItem(item.id)}
-                                className="mt-4 text-black/20 hover:text-red-500 transition-colors"
-                            >
-                                <Trash2 className="w-4 h-4" />
-                            </button>
+                            <DeleteConfirmation 
+                                onConfirm={() => removeItem(item.id)}
+                                itemLabel="this question"
+                                className="mt-4"
+                            />
+
                         </Reorder.Item>
                     ))}
                 </Reorder.Group>
