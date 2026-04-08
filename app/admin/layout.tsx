@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const pathname = usePathname();
 
     useEffect(() => {
-        const isPublicPath = pathname === "/admin/login" || pathname === "/admin/seed";
+        const isPublicPath = pathname === "/admin/login";
 
         const checkUser = async () => {
             const { data: { session } } = await supabase.auth.getSession();
@@ -71,7 +71,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         );
     }
 
-    const isPublicPath = pathname === "/admin/login" || pathname === "/admin/seed";
+    const isPublicPath = pathname === "/admin/login";
 
     if (isPublicPath) {
         return <AnimatePresence mode="wait"><motion.div key={pathname}>{children}</motion.div></AnimatePresence>;

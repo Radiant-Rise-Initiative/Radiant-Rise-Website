@@ -283,6 +283,18 @@ export default function AdminSeed() {
 
             <div className="w-full max-w-sm space-y-6">
                 <div className="p-8 bg-white border border-black/5 text-center space-y-6">
+                    {!isDone && (
+                        <div className="p-4 bg-amber-50 border border-amber-200 text-left mb-6">
+                            <div className="flex gap-3">
+                                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                                <div className="space-y-1">
+                                    <p className="text-[10px] font-mono leading-tight text-amber-800 uppercase tracking-tight font-bold">Production Data Warning</p>
+                                    <p className="text-[10px] font-mono leading-tight text-amber-700 uppercase tracking-tight">Executing this migration will systemically overwrite your current database content with hardcoded defaults. Only proceed if you require a full repository reset.</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     <div className="flex items-center justify-center gap-3">
                         {isMigrating ? (
                             <Loader2 className="w-4 h-4 animate-spin text-[#CD5929]" />
