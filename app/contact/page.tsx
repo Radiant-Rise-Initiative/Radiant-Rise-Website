@@ -23,13 +23,13 @@ export default function ContactUs() {
             <Navbar />
 
             {/* Header Replication */}
-            <section className="pt-[60px] md:pt-[90px] px-4 md:px-12 lg:px-8 w-full">
+            <section className="pt-[20px] md:pt-[50px] px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <SectionHeader 
                         title="Contact Us"
                         linkText="Get Directions"
                         href="#location-map"
-                        className="mb-8"
+                        className="mb-[72px]"
                     />
                 </div>
             </section>
