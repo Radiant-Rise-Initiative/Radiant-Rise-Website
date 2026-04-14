@@ -161,7 +161,7 @@ export default function ContactUs() {
                     {/* Embedded grayscale map centered on Kampala */}
                     <div className="w-full h-[300px] md:h-[500px] rounded-none overflow-hidden border border-black/5 relative">
                         {/* Floating Marker Card */}
-                        <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 bg-white shadow-2xl p-6 flex flex-col gap-3 w-auto min-w-[280px]">
+                        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-white shadow-2xl p-6 flex flex-col gap-3 w-auto min-w-[280px]">
                             <h4 className="font-semibold text-lg">Radiant Rise Initiative</h4>
                             <p className="text-sm text-black/60 leading-tight">
                                 Acholi Quarters,<br />
