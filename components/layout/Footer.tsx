@@ -12,7 +12,7 @@ interface FooterProps {
 export function Footer({ topPadding = false }: FooterProps) {
     return (
         <footer data-theme="dark" className="bg-black pt-0 pb-0 overflow-hidden text-white font-sans">
-            <div className={`max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0 pb-12 sm:pb-24 ${topPadding ? 'pt-12 sm:pt-24' : ''}`}>
+            <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0 py-12 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.5fr] gap-24 lg:gap-32">
 
                     {/* Newsletter Section */}
