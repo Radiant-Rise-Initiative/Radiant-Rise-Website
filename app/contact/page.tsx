@@ -44,6 +44,17 @@ export default function ContactUs() {
                             alt="Contact Us" 
                             className="w-full h-full object-cover block"
                         />
+                        {/* Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                        
+                        {/* Bottom Right Logo Overlay */}
+                        <div className="absolute bottom-8 right-8 z-20">
+                            <img 
+                                src="/assets/branding/rr-logo-v3.svg" 
+                                alt="Radiant Rise" 
+                                className="w-10 h-10 invert opacity-90"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
