@@ -30,8 +30,9 @@ export function Navbar() {
     const navItems = [
         { label: "Our Values", href: "/#our-values" },
         { label: "Who We Are", href: "/#who-we-are" },
-        { label: "Recent News", href: "/#recent-news" },
-        { label: "About Us", href: "/about" }
+        { label: "Updates", href: "/news" },
+        { label: "About Us", href: "/about" },
+        { label: "Reviews", href: "/reviews" }
     ];
 
     const logo = {

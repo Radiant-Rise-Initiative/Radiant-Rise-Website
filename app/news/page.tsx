@@ -60,7 +60,7 @@ export default function NewsArchive() {
         return (
             <main className="min-h-screen bg-[#fafafa] flex flex-col items-center justify-center">
                 <Navbar />
-                <p className="text-black/40 font-mono text-xs uppercase tracking-widest">No stories found in the archive.</p>
+                <p className="text-black/40 font-mono text-xs uppercase tracking-widest">No updates found.</p>
                 <Footer topPadding={true} />
             </main>
         );
@@ -138,7 +138,7 @@ export default function NewsArchive() {
             <section className="py-24 md:py-32 px-4 sm:px-12 lg:px-0 flex-grow relative">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="flex justify-between items-end mb-16">
-                        <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-black -ml-1">The Archive</h2>
+                        <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-black -ml-1">Progressive Updates</h2>
                         <span className="font-mono text-xs tracking-widest text-black/60 uppercase hidden sm:block">Latest Updates</span>
                     </div>
 

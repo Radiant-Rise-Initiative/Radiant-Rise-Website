@@ -105,6 +105,17 @@ export function NavbarUI({
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
 
+                        <Link href="/contact" className="hidden md:inline-flex">
+                            <Button
+                                variant="outline"
+                                className={cn(
+                                    "text-xs uppercase tracking-wider bg-transparent transition-all duration-500 rounded-none border-black text-black hover:bg-black hover:text-white"
+                                )}
+                            >
+                                CONTACT US
+                            </Button>
+                        </Link>
+
                         <Button
                             variant="outline"
                             onClick={onGiveNowClick}
