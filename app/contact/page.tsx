@@ -88,7 +88,7 @@ export default function ContactUs() {
                                     </button>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold mb-4 text-black">Social network</h3>
+                                    <h3 className="text-lg font-semibold mb-4 text-black">Our Platforms</h3>
                                     <div className="flex items-center gap-6">
                                         <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">f</Link>
                                         <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">𝕏</Link>
@@ -187,8 +187,8 @@ export default function ContactUs() {
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     {/* Embedded grayscale map centered on Kampala */}
                     <div className="w-full h-[420px] md:h-[620px] rounded-none overflow-hidden border border-black/5 relative">
-                        {/* Floating Marker Card */}
-                        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-[#CD5929] p-6 flex flex-col gap-3 w-auto min-w-[280px]">
+                        {/* Floating Marker Card - Responsive positions */}
+                        <div className="absolute top-4 left-4 right-4 sm:left-auto sm:right-6 md:top-8 md:right-8 z-10 bg-[#CD5929] p-6 flex flex-col gap-3 w-auto sm:min-w-[280px]">
                             <h4 className="font-semibold text-lg text-white">Radiant Rise Initiative</h4>
                             <p className="text-sm text-white/80 leading-tight">
                                 Acholi Quarters,<br />
