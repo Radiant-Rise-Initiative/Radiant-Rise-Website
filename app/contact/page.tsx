@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Copy, CheckCircle2 } from "lucide-react";
+import { Copy, CheckCircle2, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
@@ -28,32 +28,56 @@ export default function ContactUs() {
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <SectionHeader 
                         title="Contact Us"
-                        linkText="Get Directions"
-                        href="#location-map"
+                        linkText="MORE ABOUT US"
+                        href="/about"
                         className="mb-[72px]"
                     />
                 </div>
             </section>
 
-            {/* Simple Image Header (Replaces Hero) */}
+            {/* Simple Image Header (Replaces Hero) - Replicated Gallery Item Style */}
             <section className="pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[380px] md:h-[480px] overflow-hidden bg-gray-100 mb-[104px] border border-black/5">
-                        <img 
+                    <div className="w-full h-[380px] md:h-[480px] overflow-hidden bg-gray-100 mb-[104px] border border-black/5 relative group">
+                        <Image 
                             src="/assets/images/gallery_images/01. Healing Hearts.jpg" 
                             alt="Contact Us" 
-                            className="w-full h-full object-cover block"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            priority
                         />
-                        {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
                         
-                        {/* Bottom Right Logo Overlay */}
-                        <div className="absolute bottom-8 right-8 z-20">
-                            <img 
+                        {/* Overlay Gradient (Matches Gallery) */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+                        
+                        {/* Top Right Logo Overlay (Matches Gallery) */}
+                        <div className="absolute top-8 right-8 z-30">
+                            <Image 
                                 src="/assets/branding/rr-logo-v3.svg" 
                                 alt="Radiant Rise" 
-                                className="w-10 h-10 invert opacity-90"
+                                width={40}
+                                height={40}
+                                className="invert opacity-90"
                             />
+                        </div>
+
+                        {/* Bottom Content (Matches Gallery) */}
+                        <div className="absolute bottom-8 left-8 right-8 z-30 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                            <div className="text-white flex flex-col items-start gap-3">
+                                <span className="inline-block px-3 py-1 bg-[#f5f5f7]/10 text-white/90 text-xs font-mono tracking-widest backdrop-blur-sm uppercase mb-1">
+                                    Counseling
+                                </span>
+                                <p className="text-xl md:text-3xl font-medium tracking-tight max-w-2xl leading-tight text-white">
+                                    Healing Hearts: Post-trauma and adversity counseling sessions for young mothers.
+                                </p>
+                            </div>
+                            <Link
+                                href="#location-map"
+                                className="bg-[#f5f5f7] text-black w-full md:w-auto flex justify-center items-center gap-2 px-8 py-3.5 rounded-none text-sm font-mono tracking-widest uppercase hover:bg-[#f5f5f7]/90 transition-colors shadow-lg shrink-0 group/btn"
+                            >
+                                GET DIRECTIONS
+                                <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                            </Link>
                         </div>
                     </div>
                 </div>
