@@ -11,6 +11,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function ContactUs() {
     const [copied, setCopied] = useState<string | null>(null);
+    const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text);
@@ -207,10 +208,20 @@ export default function ContactUs() {
 
                         {/* Note: In production, the Google Maps embed needs a valid API key or just use an iframe embed string. 
                             The below uses a basic iframe map view centered on Kampala for demonstration matching the design. */}
+                        {/* Map Loading Skeleton */}
+                        {!isMapLoaded && (
+                            <div className="absolute inset-0 bg-[#e5e3df] animate-pulse flex items-center justify-center">
+                                <div className="space-y-4 w-full h-full p-12">
+                                    <div className="w-full h-full bg-black/5 rounded-none" />
+                                </div>
+                            </div>
+                        )}
+
                         <iframe 
                             src="https://maps.google.com/maps?q=0.33534,32.63950&z=15&ie=UTF8&iwloc=&output=embed" 
                             width="100%" 
                             height="100%" 
+                            onLoad={() => setIsMapLoaded(true)}
                             style={{ 
                                 border: 0, 
                                 filter: 'grayscale(1) contrast(1.1) brightness(1.1)',
@@ -219,10 +230,12 @@ export default function ContactUs() {
                                 left: '-75px',
                                 width: 'calc(100% + 150px)',
                                 height: 'calc(100% + 150px)',
-                                pointerEvents: 'none'
+                                pointerEvents: 'none',
+                                opacity: isMapLoaded ? 1 : 0,
+                                transition: 'opacity 0.8s ease-in-out'
                             }} 
                             allowFullScreen 
-                            loading="lazy" 
+                            loading="eager"
                             referrerPolicy="no-referrer-when-downgrade"
                             className="w-full h-full object-cover"
                         ></iframe>
