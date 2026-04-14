@@ -38,7 +38,7 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) - Replicated Gallery Item Style */}
             <section className="pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[380px] md:h-[480px] overflow-hidden bg-gray-100 mb-[104px] border border-black/5 relative group">
+                    <div className="w-full h-[420px] md:h-[520px] overflow-hidden bg-gray-100 mb-[104px] border border-black/5 relative group">
                         <Image 
                             src="/assets/images/gallery_images/01. Healing Hearts.jpg" 
                             alt="Contact Us" 
@@ -65,10 +65,10 @@ export default function ContactUs() {
                         <div className="absolute bottom-8 left-8 right-8 z-30 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                             <div className="text-white flex flex-col items-start gap-3">
                                 <span className="inline-block px-3 py-1 bg-[#f5f5f7]/10 text-white/90 text-xs font-mono tracking-widest backdrop-blur-sm uppercase mb-1">
-                                    Counseling
+                                    GET IN TOUCH
                                 </span>
                                 <p className="text-xl md:text-3xl font-medium tracking-tight max-w-2xl leading-tight text-white">
-                                    Healing Hearts: Post-trauma and adversity counseling sessions for young mothers.
+                                    We aim to respond to all inquiries within 24 hours.
                                 </p>
                             </div>
                             <Link
@@ -93,9 +93,6 @@ export default function ContactUs() {
                             <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
                                 We are always ready to help you and answer your questions
                             </h2>
-                            <p className="text-lg text-black/60 mb-16 leading-relaxed max-w-lg">
-                                Whether you want to partner with us, inquire about our programs, or volunteer with the Radiant Rise Initiative, our team is here for you. We aim to respond to all inquiries within 24 hours.
-                            </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                                 <div>
@@ -197,18 +194,6 @@ export default function ContactUs() {
                                     type="submit"
                                     className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
                                 >
-                                    <motion.span 
-                                        className="w-2 h-2 rounded-full bg-white/50" 
-                                        animate={{
-                                            backgroundColor: ["rgba(255, 255, 255, 0.5)", "#CD5929", "rgba(255, 255, 255, 0.5)"],
-                                            scale: [1, 1.5, 1],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeInOut"
-                                        }}
-                                    />
                                     Send Message
                                 </button>
                             </form>
