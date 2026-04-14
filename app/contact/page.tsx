@@ -161,7 +161,18 @@ export default function ContactUs() {
                                     type="submit"
                                     className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
                                 >
-                                    <span className="w-2 h-2 rounded-none bg-white/50" />
+                                    <motion.span 
+                                        className="w-2 h-2 rounded-full bg-white/50" 
+                                        animate={{
+                                            backgroundColor: ["rgba(255, 255, 255, 0.5)", "#CD5929", "rgba(255, 255, 255, 0.5)"],
+                                            scale: [1, 1.5, 1],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    />
                                     Send Message
                                 </button>
                             </form>
