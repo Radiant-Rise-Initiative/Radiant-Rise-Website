@@ -37,7 +37,7 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) */}
             <section className="pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[310px] md:h-[380px] overflow-hidden bg-gray-100 mb-[72px] border border-black/5">
+                    <div className="w-full h-[310px] md:h-[380px] overflow-hidden bg-gray-100 mb-[104px] border border-black/5">
                         <img 
                             src="/assets/images/hero_images/hero_001.jpg" 
                             alt="Contact Us" 
