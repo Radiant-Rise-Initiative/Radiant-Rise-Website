@@ -24,24 +24,13 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) */}
             <section className="pt-[60px] md:pt-[90px] px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[420px] md:h-[620px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
+                    <div className="w-full h-[250px] md:h-[320px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
                         <img 
                             src="/assets/images/hero_images/hero_001.jpg" 
                             alt="Contact Us" 
                             className="w-full h-full object-cover block"
                         />
                     </div>
-                </div>
-            </section>
-
-            <section className="px-4 md:px-12 lg:px-8 w-full border-b border-black/5 pb-10 mb-10">
-                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <span className="text-xs font-mono tracking-widest text-[#CD5929] uppercase block mb-4">
-                        GET IN TOUCH
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-black">
-                        Contacts
-                    </h1>
                 </div>
             </section>
 
