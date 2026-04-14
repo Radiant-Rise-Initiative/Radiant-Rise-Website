@@ -161,9 +161,9 @@ export default function ContactUs() {
                     {/* Embedded grayscale map centered on Kampala */}
                     <div className="w-full h-[420px] md:h-[620px] rounded-none overflow-hidden border border-black/5 relative">
                         {/* Floating Marker Card */}
-                        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-white shadow-2xl p-6 flex flex-col gap-3 w-auto min-w-[280px]">
-                            <h4 className="font-semibold text-lg">Radiant Rise Initiative</h4>
-                            <p className="text-sm text-black/60 leading-tight">
+                        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-[#CD5929] p-6 flex flex-col gap-3 w-auto min-w-[280px]">
+                            <h4 className="font-semibold text-lg text-white">Radiant Rise Initiative</h4>
+                            <p className="text-sm text-white/80 leading-tight">
                                 Acholi Quarters,<br />
                                 Kampala, Uganda
                             </p>
@@ -171,7 +171,7 @@ export default function ContactUs() {
                                 href="https://maps.google.com/?q=Acholi+Quarters,+Kampala,+Uganda" 
                                 target="_blank"
                                 rel="noreferrer"
-                                className="mt-2 text-xs font-semibold uppercase tracking-widest text-black flex items-center gap-2 hover:opacity-50 transition-opacity"
+                                className="mt-2 text-xs font-semibold uppercase tracking-widest text-white flex items-center gap-2 hover:opacity-60 transition-opacity"
                             >
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-9.21l5.94-5.94"/></svg>
                                 Directions
