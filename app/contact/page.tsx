@@ -93,6 +93,9 @@ export default function ContactUs() {
                             <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
                                 We are always ready to help you and answer your questions
                             </h2>
+                            <p className="text-lg text-black/60 mb-16 leading-relaxed max-w-lg">
+                                Whether you want to partner with us, inquire about our programs, or volunteer with the Radiant Rise Initiative, our team is here for you.
+                            </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                                 <div>
