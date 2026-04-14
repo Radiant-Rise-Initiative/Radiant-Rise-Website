@@ -18,11 +18,11 @@ export default function ContactUs() {
     };
 
     return (
-        <main className="min-h-screen bg-white text-black flex flex-col pt-28 md:pt-40">
+        <main className="min-h-screen bg-white text-black flex flex-col pt-20 md:pt-24">
             <Navbar />
 
             {/* Simple Image Header (Replaces Hero) */}
-            <section className="pt-24 md:pt-32 px-4 md:px-12 lg:px-8 w-full">
+            <section className="pt-[60px] md:pt-[90px] px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="w-full h-[420px] md:h-[620px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
                         <img 
