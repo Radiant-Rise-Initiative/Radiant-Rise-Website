@@ -24,7 +24,7 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) */}
             <section className="pt-24 md:pt-32 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[300px] md:h-[500px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
+                    <div className="w-full h-[420px] md:h-[620px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
                         <img 
                             src="/assets/images/hero_images/hero_001.jpg" 
                             alt="Contact Us" 
@@ -159,7 +159,7 @@ export default function ContactUs() {
             <section className="px-4 md:px-12 lg:px-8 pb-20 md:pb-32 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     {/* Embedded grayscale map centered on Kampala */}
-                    <div className="w-full h-[300px] md:h-[500px] rounded-none overflow-hidden border border-black/5 relative">
+                    <div className="w-full h-[420px] md:h-[620px] rounded-none overflow-hidden border border-black/5 relative">
                         {/* Floating Marker Card */}
                         <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10 bg-white shadow-2xl p-6 flex flex-col gap-3 w-auto min-w-[280px]">
                             <h4 className="font-semibold text-lg">Radiant Rise Initiative</h4>
@@ -181,10 +181,19 @@ export default function ContactUs() {
                         {/* Note: In production, the Google Maps embed needs a valid API key or just use an iframe embed string. 
                             The below uses a basic iframe map view centered on Kampala for demonstration matching the design. */}
                         <iframe 
-                            src="https://maps.google.com/maps?q=Acholi%20Quarters%2C%20Kampala%2C%20Uganda&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                            src="https://maps.google.com/maps?q=0.33534,32.63950&z=15&ie=UTF8&iwloc=&output=embed" 
                             width="100%" 
                             height="100%" 
-                            style={{ border: 0, filter: 'grayscale(1) contrast(1.1) brightness(1.1)' }} 
+                            style={{ 
+                                border: 0, 
+                                filter: 'grayscale(1) contrast(1.1) brightness(1.1)',
+                                position: 'absolute',
+                                top: '-75px',
+                                left: '-75px',
+                                width: 'calc(100% + 150px)',
+                                height: 'calc(100% + 150px)',
+                                pointerEvents: 'none'
+                            }} 
                             allowFullScreen 
                             loading="lazy" 
                             referrerPolicy="no-referrer-when-downgrade"
