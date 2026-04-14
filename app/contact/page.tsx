@@ -7,6 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Copy, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function ContactUs() {
     const [copied, setCopied] = useState<string | null>(null);
@@ -21,8 +22,20 @@ export default function ContactUs() {
         <main className="min-h-screen bg-white text-black flex flex-col pt-20 md:pt-24">
             <Navbar />
 
-            {/* Simple Image Header (Replaces Hero) */}
+            {/* Header Replication */}
             <section className="pt-[60px] md:pt-[90px] px-4 md:px-12 lg:px-8 w-full">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <SectionHeader 
+                        title="Contact Us"
+                        linkText="Get Directions"
+                        href="#location-map"
+                        className="mb-8"
+                    />
+                </div>
+            </section>
+
+            {/* Simple Image Header (Replaces Hero) */}
+            <section className="pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="w-full h-[250px] md:h-[320px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
                         <img 
@@ -145,7 +158,7 @@ export default function ContactUs() {
             </section>
 
             {/* Map Section */}
-            <section className="px-4 md:px-12 lg:px-8 pb-20 md:pb-32 w-full">
+            <section id="location-map" className="px-4 md:px-12 lg:px-8 pb-20 md:pb-32 w-full scroll-mt-24">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     {/* Embedded grayscale map centered on Kampala */}
                     <div className="w-full h-[420px] md:h-[620px] rounded-none overflow-hidden border border-black/5 relative">
