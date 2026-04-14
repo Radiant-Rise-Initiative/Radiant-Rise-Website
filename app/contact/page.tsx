@@ -37,7 +37,7 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) */}
             <section className="pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[310px] md:h-[380px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
+                    <div className="w-full h-[310px] md:h-[380px] overflow-hidden bg-gray-100 mb-[72px] border border-black/5">
                         <img 
                             src="/assets/images/hero_images/hero_001.jpg" 
                             alt="Contact Us" 
@@ -48,15 +48,12 @@ export default function ContactUs() {
             </section>
 
             {/* Content Grid */}
-            <section className="py-20 md:py-32 px-4 md:px-12 lg:px-8 w-full">
+            <section className="pb-20 md:pb-32 pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start w-full">
                         
                         {/* Left Column: Info */}
                         <div className="min-w-0 w-full">
-                            <span className="text-sm font-mono tracking-widest text-black/40 uppercase block mb-8">
-                                / get in touch /
-                            </span>
                             <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
                                 We are always ready to help you and answer your questions
                             </h2>
