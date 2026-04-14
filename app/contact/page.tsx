@@ -101,14 +101,28 @@ export default function ContactUs() {
 
                         {/* Right Column: Form Card */}
                         <div className="bg-[#f5f5f7] rounded-none p-8 md:p-12 lg:p-16 min-w-0 w-full">
-                            <h3 className="text-3xl lg:text-4xl font-medium tracking-tight mb-4">Get in Touch</h3>
+                            <h3 className="text-3xl lg:text-4xl font-medium tracking-tight mb-4 text-black">Send Message</h3>
                             <p className="text-black/60 mb-12 max-w-sm">
                                 Define your goals and identify areas where we can support or collaborate.
                             </p>
 
-                            <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Message sent! Thanks for reaching out."); }}>
+                            <form 
+                                className="space-y-8" 
+                                onSubmit={(e) => { 
+                                    e.preventDefault(); 
+                                    const formData = new FormData(e.currentTarget);
+                                    const name = formData.get('name');
+                                    const email = formData.get('email');
+                                    const subject = formData.get('subject');
+                                    const message = formData.get('message');
+                                    
+                                    const mailtoLink = `mailto:info@radiantriseinitiative.org?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                                    window.location.href = mailtoLink;
+                                }}
+                            >
                                 <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2">
                                     <input 
+                                        name="name"
                                         type="text" 
                                         placeholder="Full name" 
                                         required
@@ -117,6 +131,7 @@ export default function ContactUs() {
                                 </div>
                                 <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2 rounded-none">
                                     <input 
+                                        name="email"
                                         type="email" 
                                         placeholder="Email" 
                                         required
@@ -125,6 +140,7 @@ export default function ContactUs() {
                                 </div>
                                 <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2">
                                     <input 
+                                        name="subject"
                                         type="text" 
                                         placeholder="Subject" 
                                         required
@@ -133,6 +149,7 @@ export default function ContactUs() {
                                 </div>
                                 <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2">
                                     <textarea 
+                                        name="message"
                                         placeholder="Message" 
                                         rows={2}
                                         required
@@ -145,7 +162,7 @@ export default function ContactUs() {
                                     className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
                                 >
                                     <span className="w-2 h-2 rounded-none bg-white/50" />
-                                    Send a message
+                                    Send Message
                                 </button>
                             </form>
                         </div>
