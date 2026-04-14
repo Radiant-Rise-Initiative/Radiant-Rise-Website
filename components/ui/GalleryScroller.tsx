@@ -109,7 +109,7 @@ export function GalleryScroller({ items }: GalleryScrollerProps) {
                                                     e.stopPropagation();
                                                     setSelectedItem(item);
                                                 }}
-                                                className="bg-[#f5f5f7] text-black w-full md:w-auto flex justify-center items-center gap-2 px-8 py-3.5 rounded-full text-sm font-mono tracking-widest uppercase hover:bg-[#f5f5f7]/90 transition-colors shadow-lg shrink-0 group/btn"
+                                                className="bg-[#f5f5f7] text-black w-full md:w-auto flex justify-center items-center gap-2 px-8 py-3.5 rounded-none text-sm font-mono tracking-widest uppercase hover:bg-[#f5f5f7]/90 transition-colors shadow-lg shrink-0 group/btn"
                                             >
                                                 Learn More
                                                 <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
@@ -146,7 +146,7 @@ export function GalleryScroller({ items }: GalleryScrollerProps) {
                                 {/* Close Button */}
                                 <button
                                     onClick={closeModal}
-                                    className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+                                    className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-none hover:bg-white/10 transition-colors"
                                 >
                                     <X size={20} />
                                 </button>

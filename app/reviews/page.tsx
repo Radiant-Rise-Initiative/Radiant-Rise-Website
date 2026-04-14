@@ -100,12 +100,12 @@ export default function ReviewsPage() {
                 </div>
             </section>
 
-            <section className="px-4 sm:px-12 lg:px-0 pb-24 md:pb-32 bg-[#fafafa] pt-16 md:pt-24 flex-grow">
-                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+            <section className="px-4 md:px-12 lg:px-8 pb-24 md:pb-32 bg-[#fafafa] pt-16 md:pt-24 flex-grow w-full overflow-hidden">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 w-full min-w-0">
                         
                         {/* Reviews Display */}
-                        <div className="lg:col-span-7 xl:col-span-8">
+                        <div className="flex-1 min-w-0 w-full">
                             {isLoading ? (
                                 <div className="flex justify-center py-32">
                                     <Loader2 className="w-8 h-8 text-black animate-spin" />
@@ -118,7 +118,7 @@ export default function ReviewsPage() {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: i * 0.1, duration: 0.6 }}
-                                            className="bg-white p-8 md:p-10 rounded-3xl border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col justify-between"
+                                            className="bg-white p-8 md:p-10 rounded-none border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col justify-between"
                                         >
                                             <div>
                                                 <div className="flex text-[#CD5929] mb-6">
@@ -134,7 +134,7 @@ export default function ReviewsPage() {
                                                 </p>
                                             </div>
                                             <div className="flex items-center gap-4">
-                                                <div className="w-12 h-12 bg-[#f5f5f7] rounded-full flex items-center justify-center text-black/40">
+                                                <div className="w-12 h-12 bg-[#f5f5f7] rounded-none flex items-center justify-center text-black/40">
                                                     <MessageSquareQuote className="w-5 h-5" />
                                                 </div>
                                                 <div>
@@ -146,7 +146,7 @@ export default function ReviewsPage() {
                                     ))}
                                 </div>
                             ) : (
-                                <div className="text-center py-32 border border-dashed border-black/20 rounded-3xl">
+                                <div className="text-center py-32 border border-dashed border-black/20 rounded-none">
                                     <MessageSquareQuote className="w-12 h-12 text-black/20 mx-auto mb-4" />
                                     <p className="text-black/60 font-medium">No reviews published yet.</p>
                                 </div>
@@ -154,8 +154,8 @@ export default function ReviewsPage() {
                         </div>
 
                         {/* Submission Form */}
-                        <div className="lg:col-span-5 xl:col-span-4 self-start sticky top-32">
-                            <div className="bg-white rounded-[32px] p-8 md:p-10 border border-black/10 shadow-2xl relative overflow-hidden">
+                        <div className="w-full lg:w-[400px] xl:w-[450px] min-w-0 shrink-0 self-start lg:sticky lg:top-32">
+                            <div className="bg-white rounded-none p-8 md:p-10 border border-black/10 shadow-2xl relative overflow-hidden">
                                 <h3 className="text-2xl font-medium tracking-tight mb-2">Leave a Review</h3>
                                 <p className="text-black/60 text-sm mb-8">Your feedback is important to us and will be reviewed before publishing.</p>
 
@@ -166,9 +166,9 @@ export default function ReviewsPage() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -10 }}
-                                            className="bg-green-50 text-green-800 p-6 rounded-2xl flex flex-col items-center justify-center text-center py-12"
+                                            className="bg-green-50 text-green-800 p-6 rounded-none flex flex-col items-center justify-center text-center py-12"
                                         >
-                                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                                            <div className="w-12 h-12 bg-green-100 rounded-none flex items-center justify-center mb-4">
                                                 <Star className="w-6 h-6 text-green-600 fill-current" />
                                             </div>
                                             <h4 className="font-semibold text-lg mb-2">Thank you!</h4>
@@ -204,7 +204,7 @@ export default function ReviewsPage() {
                                                 </div>
                                             </div>
 
-                                            <div className="border border-black/10 rounded-xl px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
+                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
                                                 <input 
                                                     type="text" 
                                                     value={name}
@@ -215,7 +215,7 @@ export default function ReviewsPage() {
                                                 />
                                             </div>
 
-                                            <div className="border border-black/10 rounded-xl px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
+                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
                                                 <input 
                                                     type="text" 
                                                     value={role}
@@ -226,7 +226,7 @@ export default function ReviewsPage() {
                                                 />
                                             </div>
 
-                                            <div className="border border-black/10 rounded-xl px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
+                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
                                                 <textarea 
                                                     value={comment}
                                                     onChange={e => setComment(e.target.value)}
@@ -240,7 +240,7 @@ export default function ReviewsPage() {
                                             <button 
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full bg-black hover:bg-[#CD5929] text-white py-4 rounded-xl text-sm font-semibold tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                                                className="w-full bg-black hover:bg-[#CD5929] text-white py-4 rounded-none text-sm font-semibold tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                                             >
                                                 {isSubmitting ? (
                                                     <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>

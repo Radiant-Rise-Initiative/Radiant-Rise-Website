@@ -71,14 +71,14 @@ export default function NewsArchive() {
             <Navbar />
             
             {/* Featured Spotlight */}
-            <section className="pt-40 lg:pt-48 pb-24 px-4 sm:px-12 lg:px-0 bg-white border-b border-black/5">
+            <section className="pt-40 lg:pt-48 pb-24 px-4 md:px-12 lg:px-8 bg-white border-b border-black/5 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start w-full">
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                            className="relative aspect-square sm:aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden"
+                            className="relative aspect-square sm:aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden min-w-0"
                         >
                             <Link href={`/news/${featuredStory.slug}`} className="block w-full h-full group">
                                 {featuredStory.image_url && (
@@ -98,7 +98,7 @@ export default function NewsArchive() {
                             </Link>
                         </motion.div>
 
-                        <div className="flex flex-col items-start pr-0 lg:pr-12">
+                        <div className="flex flex-col items-start pr-0 lg:pr-12 min-w-0 w-full">
                             <motion.span 
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -135,8 +135,8 @@ export default function NewsArchive() {
             </section>
 
             {/* Editorial Archive List */}
-            <section className="py-24 md:py-32 px-4 sm:px-12 lg:px-0 flex-grow relative">
-                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+            <section className="py-24 md:py-32 px-4 md:px-12 lg:px-8 flex-grow relative w-full">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     <div className="flex justify-between items-end mb-16">
                         <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-black -ml-1">Progressive Updates</h2>
                         <span className="font-mono text-xs tracking-widest text-black/60 uppercase hidden sm:block">Latest Updates</span>

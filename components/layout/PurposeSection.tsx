@@ -196,7 +196,7 @@ export function PurposeSection({
                                 setIsVideoOpen(false);
                             }}
                             className={cn(
-                                "absolute z-50 transition-all duration-500 bg-black/40 hover:bg-black/80 rounded-full p-3 backdrop-blur-xl border border-white/10 text-white",
+                                "absolute z-50 transition-all duration-500 bg-black/40 hover:bg-black/80 rounded-none p-3 backdrop-blur-xl border border-white/10 text-white",
                                 isFullscreen ? "top-8 right-8" : "top-6 right-6 lg:top-12 lg:right-12",
                                 showControls ? "opacity-100" : "opacity-0"
                             )}

@@ -57,7 +57,7 @@ function MetricModal({ isOpen, onClose, metric }: MetricModalProps) {
                         >
                             <button
                                 onClick={onClose}
-                                className="absolute top-8 right-8 p-2 bg-black text-white rounded-full hover:bg-black/80 transition-colors"
+                                className="absolute top-8 right-8 p-2 bg-black text-white rounded-none hover:bg-black/80 transition-colors"
                             >
                                 <X size={20} />
                             </button>
@@ -106,7 +106,7 @@ function MetricItem({ label, value, description, modalTitle, onOpen }: MetricIte
                     {value}
                 </p>
                 <div
-                    className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-full z-10 hover:bg-black/80 shrink-0 mb-1"
+                    className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-none z-10 hover:bg-black/80 shrink-0 mb-1"
                 >
                     <Plus size={20} />
                 </div>
@@ -266,7 +266,7 @@ export function MetricStatistics({
                                     {overallMetric.value}
                                 </p>
                             </div>
-                            <div className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-full z-10 hover:bg-black/80 shrink-0 mb-1">
+                            <div className="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 md:translate-y-4 group-hover:translate-y-0 bg-black/5 text-black/40 md:bg-black md:text-white p-2 rounded-none z-10 hover:bg-black/80 shrink-0 mb-1">
                                 <Plus size={20} />
                             </div>
                         </div>

@@ -58,7 +58,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-6 right-6 p-2 bg-black text-white rounded-full hover:bg-black/80 transition-colors z-10"
+                                className="absolute top-6 right-6 p-2 bg-black text-white rounded-none hover:bg-black/80 transition-colors z-10"
                             >
                                 <X size={20} />
                             </button>

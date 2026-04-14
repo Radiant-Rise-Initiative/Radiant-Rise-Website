@@ -103,7 +103,7 @@ export function TestimonialSlider({
                             />
 
                             <div className="flex items-center gap-6">
-                                <div className={`relative w-20 h-20 transition-all duration-500 rounded-full overflow-hidden flex-none
+                                <div className={`relative w-20 h-20 transition-all duration-500 rounded-none overflow-hidden flex-none
                                     ${index === activeIndex ? "grayscale-0 brightness-100" : "grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100"}`}>
                                     <Image
                                         src={person.image}

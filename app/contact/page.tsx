@@ -18,49 +18,40 @@ export default function ContactUs() {
     };
 
     return (
-        <main className="min-h-screen bg-white text-black flex flex-col">
+        <main className="min-h-screen bg-white text-black flex flex-col pt-28 md:pt-40">
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="pt-28 md:pt-36 px-4 sm:px-12 lg:px-0">
-                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full relative">
-                    <div className="relative w-full h-[250px] md:h-[400px] lg:h-[450px] rounded-3xl md:rounded-[48px] overflow-hidden bg-gray-100">
-                        <img
-                            src="/assets/images/hero_images/hero_001.jpg"
-                            alt="Contact Us"
-                            className="absolute inset-0 w-full h-full object-cover z-0"
-                            loading="eager"
+            {/* Simple Image Header (Replaces Hero) */}
+            <section className="pt-24 md:pt-32 px-4 md:px-12 lg:px-8 w-full">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="w-full h-[250px] md:h-[320px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
+                        <img 
+                            src="/assets/images/hero_images/hero_001.jpg" 
+                            alt="Contact Us" 
+                            className="w-full h-full object-cover block"
                         />
-                        <div className="absolute inset-0 bg-black/20" /> 
-                        
-                        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16">
-                            <motion.h1 
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                                className="text-5xl sm:text-6xl md:text-8xl font-medium text-white tracking-tight"
-                            >
-                                Contacts
-                            </motion.h1>
-                        </div>
-                        
-                        {/* Floating Breadcrumb */}
-                        <div className="absolute bottom-8 right-8 bg-white text-black px-6 py-3 rounded-full hidden md:flex items-center gap-2 text-sm font-medium shadow-xl">
-                            <Link href="/" className="hover:opacity-70 transition-opacity">Home</Link>
-                            <span className="text-black/40">/</span>
-                            <span className="text-black/60">Contacts</span>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Content Grid */}
-            <section className="py-20 md:py-32 px-4 sm:px-12 lg:px-0">
+            <section className="px-4 md:px-12 lg:px-8 w-full border-b border-black/5 pb-10 mb-10">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
+                    <span className="text-xs font-mono tracking-widest text-[#CD5929] uppercase block mb-4">
+                        GET IN TOUCH
+                    </span>
+                    <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-black">
+                        Contacts
+                    </h1>
+                </div>
+            </section>
+
+            {/* Content Grid */}
+            <section className="py-20 md:py-32 px-4 md:px-12 lg:px-8 w-full">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start w-full">
                         
                         {/* Left Column: Info */}
-                        <div>
+                        <div className="min-w-0 w-full">
                             <span className="text-sm font-mono tracking-widest text-black/40 uppercase block mb-8">
                                 / get in touch /
                             </span>
@@ -110,7 +101,7 @@ export default function ContactUs() {
                         </div>
 
                         {/* Right Column: Form Card */}
-                        <div className="bg-[#f5f5f7] rounded-[32px] md:rounded-[40px] p-8 md:p-12 lg:p-16">
+                        <div className="bg-[#f5f5f7] rounded-none p-8 md:p-12 lg:p-16 min-w-0 w-full">
                             <h3 className="text-3xl lg:text-4xl font-medium tracking-tight mb-4">Get in Touch</h3>
                             <p className="text-black/60 mb-12 max-w-sm">
                                 Define your goals and identify areas where we can support or collaborate.
@@ -125,7 +116,7 @@ export default function ContactUs() {
                                         className="w-full bg-transparent outline-none placeholder:text-black/40 text-black text-sm"
                                     />
                                 </div>
-                                <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2">
+                                <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2 rounded-none">
                                     <input 
                                         type="email" 
                                         placeholder="Email" 
@@ -152,9 +143,9 @@ export default function ContactUs() {
 
                                 <button 
                                     type="submit"
-                                    className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-[100px] text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
+                                    className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
                                 >
-                                    <span className="w-2 h-2 rounded-full bg-white/50" />
+                                    <span className="w-2 h-2 rounded-none bg-white/50" />
                                     Send a message
                                 </button>
                             </form>
@@ -165,10 +156,10 @@ export default function ContactUs() {
             </section>
 
             {/* Map Section */}
-            <section className="px-4 sm:px-12 lg:px-0 pb-20 md:pb-32">
-                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
+            <section className="px-4 md:px-12 lg:px-8 pb-20 md:pb-32 w-full">
+                <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     {/* Embedded grayscale map centered on Kampala */}
-                    <div className="w-full h-[300px] md:h-[500px] rounded-3xl md:rounded-[48px] overflow-hidden border border-black/5 relative">
+                    <div className="w-full h-[300px] md:h-[500px] rounded-none overflow-hidden border border-black/5 relative">
                         {/* Floating Marker Card */}
                         <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 bg-white shadow-2xl p-6 flex flex-col gap-3 w-auto min-w-[280px]">
                             <h4 className="font-semibold text-lg">Radiant Rise Initiative</h4>
