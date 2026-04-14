@@ -50,34 +50,34 @@ export function TabForm() {
                             <input
                                 type="text"
                                 placeholder="First Name"
-                                className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-none focus:outline-none focus:border-orange-500/50 transition-colors"
                             />
                             <input
                                 type="text"
                                 placeholder="Last Name"
-                                className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                                className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-none focus:outline-none focus:border-orange-500/50 transition-colors"
                             />
                         </div>
                         <input
                             type="email"
                             placeholder="Email Address"
-                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-none focus:outline-none focus:border-orange-500/50 transition-colors"
                         />
                         <input
                             type="text"
                             placeholder="Company Name"
-                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-none focus:outline-none focus:border-orange-500/50 transition-colors"
                         />
 
                         <textarea
                             placeholder="Message"
                             rows={5}
-                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-sm focus:outline-none focus:border-orange-500/50 transition-colors resize-none flex-1"
+                            className="w-full bg-[#f5f5f7] border border-black/10 px-4 py-3 rounded-none focus:outline-none focus:border-orange-500/50 transition-colors resize-none flex-1"
                         />
 
                         <button
                             type="submit"
-                            className="w-full bg-black text-white py-4 font-bold uppercase tracking-widest hover:bg-orange-600 transition-colors duration-300 rounded-sm mt-auto"
+                            className="w-full bg-black text-white py-4 font-bold uppercase tracking-widest hover:bg-orange-600 transition-colors duration-300 rounded-none mt-auto"
                         >
                             SEND MESSAGE
                         </button>

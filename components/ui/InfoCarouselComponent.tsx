@@ -217,7 +217,7 @@ export function InfoCarouselComponent({
                             <button
                                 onClick={() => scroll("left")}
                                 disabled={activeIndex === 0}
-                                className="p-3 border border-black/10 rounded-full enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
+                                className="p-3 border border-black/10 rounded-none enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
                                 aria-label="Scroll left"
                             >
                                 <ArrowLeft size={20} />
@@ -225,7 +225,7 @@ export function InfoCarouselComponent({
                             <button
                                 onClick={() => scroll("right")}
                                 disabled={activeIndex === items.length - 1}
-                                className="p-3 border border-black/10 rounded-full enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
+                                className="p-3 border border-black/10 rounded-none enabled:hover:bg-black enabled:hover:text-white transition-all duration-300 disabled:opacity-100 disabled:text-black/40 disabled:border-black/10 disabled:cursor-not-allowed"
                                 aria-label="Scroll right"
                             >
                                 <ArrowRight size={20} />
@@ -256,7 +256,7 @@ export function InfoCarouselComponent({
                             >
                                 <button
                                     onClick={closeModal}
-                                    className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+                                    className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-none hover:bg-white/10 transition-colors"
                                 >
                                     <X size={20} />
                                 </button>

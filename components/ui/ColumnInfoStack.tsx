@@ -184,7 +184,7 @@ export function ColumnInfoStack({
                                 >
                                     <button
                                         onClick={closeModal}
-                                        className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+                                        className="absolute top-8 right-8 p-2 text-white/50 hover:text-white rounded-none hover:bg-white/10 transition-colors"
                                     >
                                         <X size={20} />
                                     </button>

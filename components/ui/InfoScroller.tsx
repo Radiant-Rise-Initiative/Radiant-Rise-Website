@@ -179,14 +179,14 @@ export function InfoScroller({
                     <div className="flex items-center gap-4">
                         <button
                             onClick={() => scroll("left")}
-                            className="p-3 border border-black/10 rounded-full hover:bg-black/5 transition-colors group/btn"
+                            className="p-3 border border-black/10 rounded-none hover:bg-black/5 transition-colors group/btn"
                             aria-label="Scroll left"
                         >
                             <ArrowLeft size={20} className="text-black transition-transform group-hover/btn:-translate-x-0.5" />
                         </button>
                         <button
                             onClick={() => scroll("right")}
-                            className="p-3 border border-black/10 rounded-full hover:bg-black/5 transition-colors group/btn"
+                            className="p-3 border border-black/10 rounded-none hover:bg-black/5 transition-colors group/btn"
                             aria-label="Scroll right"
                         >
                             <ArrowRight size={20} className="text-black transition-transform group-hover/btn:translate-x-0.5" />

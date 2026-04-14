@@ -24,7 +24,7 @@ export default function ContactUs() {
             {/* Simple Image Header (Replaces Hero) */}
             <section className="pt-24 md:pt-32 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="w-full h-[250px] md:h-[320px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
+                    <div className="w-full h-[300px] md:h-[500px] overflow-hidden bg-gray-100 mb-8 border border-black/5">
                         <img 
                             src="/assets/images/hero_images/hero_001.jpg" 
                             alt="Contact Us" 
@@ -181,7 +181,7 @@ export default function ContactUs() {
                         {/* Note: In production, the Google Maps embed needs a valid API key or just use an iframe embed string. 
                             The below uses a basic iframe map view centered on Kampala for demonstration matching the design. */}
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.87954930113!2d32.48622119159938!3d0.31302830000000216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1713093282928!5m2!1sen!2sus" 
+                            src="https://maps.google.com/maps?q=Acholi%20Quarters%2C%20Kampala%2C%20Uganda&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                             width="100%" 
                             height="100%" 
                             style={{ border: 0, filter: 'grayscale(1) contrast(1.1) brightness(1.1)' }} 
