@@ -84,7 +84,7 @@ export function PurposeStatement({
                                 onClick={onActionClick}
                                 className="flex items-center gap-6 group hover:opacity-80 transition-opacity"
                             >
-                                <div className="w-16 h-16 rounded-none border border-white/30 flex items-center justify-center bg-[#f5f5f7]/5 group-hover:bg-orange-600 group-hover:border-orange-600 transition-colors duration-300 shrink-0">
+                                <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center bg-[#f5f5f7]/5 group-hover:bg-orange-600 group-hover:border-orange-600 transition-colors duration-300 shrink-0">
                                     <Play size={24} fill="currentColor" className="ml-1" />
                                 </div>
                                 <span className="text-sm font-mono uppercase tracking-widest text-white/80 whitespace-nowrap">{actionText}</span>
@@ -116,7 +116,7 @@ export function PurposeStatement({
                                         className="flex gap-6 items-start"
                                     >
                                         <div className="w-16 flex justify-center shrink-0">
-                                            <div className="w-10 h-16 rounded-none border border-white/20 bg-[#f5f5f7]/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1">
+                                            <div className="w-10 h-16 rounded-full border border-white/20 bg-[#f5f5f7]/5 flex items-center justify-center text-sm font-mono text-white/60 mt-1">
                                                 {index + 1}
                                             </div>
                                         </div>

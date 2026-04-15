@@ -12,6 +12,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 export default function ContactUs() {
     const [copied, setCopied] = useState<string | null>(null);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text);
@@ -86,50 +87,66 @@ export default function ContactUs() {
             {/* Content Grid */}
             <section className="pb-20 md:pb-32 pt-0 px-4 md:px-12 lg:px-8 w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-stretch w-full">
                         
                         {/* Left Column: Info */}
-                        <div className="min-w-0 w-full">
-                            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
-                                We are always ready to help you and answer your questions
-                            </h2>
-                            <p className="text-lg text-black/60 mb-16 leading-relaxed max-w-lg">
-                                Whether you want to partner with us, inquire about our programs, or volunteer with the Radiant Rise Initiative, our team is here for you.
-                            </p>
+                        <div className="min-w-0 w-full flex flex-col justify-between py-2">
+                            <div>
+                                <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
+                                    Let’s explore how we can collaborate
+                                </h2>
+                                <p className="text-lg text-black/60 mb-16 leading-relaxed max-w-lg">
+                                    Whether you want to partner with us, inquire about our programs, or volunteer with the Radiant Rise Initiative, our team is here for you.
+                                </p>
+                            </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                                 <div>
-                                    <h3 className="text-lg font-semibold mb-4 text-black">Call Center</h3>
-                                    <p className="text-black/70 mb-2 font-medium">+256 000 000 000</p>
-                                    <p className="text-black/70 font-medium">+256 000 000 001</p>
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold mb-4 text-black">Our Location</h3>
-                                    <p className="text-black/70 mb-1 font-medium">Acholi Quarters,</p>
-                                    <p className="text-black/70 mb-1 font-medium">Kampala, Uganda</p>
-                                    <p className="text-black/70 font-medium">P.O. Box 0000, Kampala</p>
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold mb-4 text-black">Email</h3>
+                                    <h3 className="text-lg font-semibold mb-4 text-black">Email & Website</h3>
                                     <button 
-                                        onClick={() => handleCopy('info@radiantrise.org')}
-                                        className="text-black/70 font-medium hover:text-black transition-colors flex items-center gap-2 group"
+                                        onClick={() => handleCopy('Info@radiantriseinitiative.org')}
+                                        className="text-black/70 font-medium hover:text-black transition-colors flex items-center gap-2 group mb-2"
                                     >
-                                        info@radiantrise.org
-                                        {copied === 'info@radiantrise.org' ? (
+                                        Info@radiantriseinitiative.org
+                                        {copied === 'Info@radiantriseinitiative.org' ? (
                                             <CheckCircle2 className="w-4 h-4 text-green-600" />
                                         ) : (
                                             <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         )}
                                     </button>
+                                    <Link 
+                                        href="https://www.radiantriseinitiative.org"
+                                        target="_blank"
+                                        className="text-black/70 font-medium hover:text-black transition-colors block"
+                                    >
+                                        www.radiantriseinitiative.org
+                                    </Link>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold mb-4 text-black">Our Location</h3>
+                                    <p className="text-black/70 mb-1 font-medium">Banda B1 off Kireka SDA Road.</p>
+                                    <p className="text-black/70 mb-1 font-medium">Nakawa, Kampala, Uganda</p>
+                                    <p className="text-black/70 font-medium">P.O. Box 193113, Kampala-Uganda</p>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold mb-4 text-black">Call Center</h3>
+                                    <p className="text-black/70 mb-2 font-medium">+256 784 221 992</p>
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold mb-4 text-black">Our Platforms</h3>
                                     <div className="flex items-center gap-6">
-                                        <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">f</Link>
-                                        <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">𝕏</Link>
-                                        <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">in</Link>
-                                        <Link href="#" className="font-semibold hover:opacity-50 transition-opacity text-black">ig</Link>
+                                        <Link href="#" className="hover:opacity-60 transition-opacity">
+                                            <Image src="/assets/images/social_icons/facebook.svg" alt="Facebook" width={20} height={20} />
+                                        </Link>
+                                        <Link href="#" className="hover:opacity-60 transition-opacity">
+                                            <Image src="/assets/images/social_icons/twitter.svg" alt="Twitter" width={20} height={20} />
+                                        </Link>
+                                        <Link href="#" className="hover:opacity-60 transition-opacity">
+                                            <Image src="/assets/images/social_icons/instagram.svg" alt="Instagram" width={20} height={20} />
+                                        </Link>
+                                        <Link href="#" className="hover:opacity-60 transition-opacity">
+                                            <Image src="/assets/images/social_icons/youtube.svg" alt="YouTube" width={20} height={20} />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -144,16 +161,39 @@ export default function ContactUs() {
 
                             <form 
                                 className="space-y-8" 
-                                onSubmit={(e) => { 
+                                onSubmit={async (e) => { 
                                     e.preventDefault(); 
+                                    setStatus("loading");
+                                    
                                     const formData = new FormData(e.currentTarget);
                                     const name = formData.get('name');
                                     const email = formData.get('email');
                                     const subject = formData.get('subject');
                                     const message = formData.get('message');
                                     
-                                    const mailtoLink = `mailto:info@radiantriseinitiative.org?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-                                    window.location.href = mailtoLink;
+                                    try {
+                                        const response = await fetch('/api/send', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({
+                                                name,
+                                                email,
+                                                subject: subject,
+                                                message
+                                            })
+                                        });
+
+                                        if (response.ok) {
+                                            setStatus("success");
+                                            (e.target as HTMLFormElement).reset();
+                                            setTimeout(() => setStatus("idle"), 5000);
+                                        } else {
+                                            setStatus("error");
+                                        }
+                                    } catch (error) {
+                                        console.error(error);
+                                        setStatus("error");
+                                    }
                                 }}
                             >
                                 <div className="border-b border-black/10 focus-within:border-black/50 transition-colors py-2">
@@ -195,10 +235,44 @@ export default function ContactUs() {
 
                                 <button 
                                     type="submit"
-                                    className="bg-[#2D2D2D] hover:bg-black text-white px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-3 mt-12"
+                                    disabled={status === "loading"}
+                                    className={`px-8 py-4 rounded-none text-sm font-medium transition-colors w-fit flex items-center gap-4 mt-12 group/send
+                                        ${status === "success" ? "bg-green-600 hover:bg-green-700" : 
+                                          status === "error" ? "bg-red-600 hover:bg-red-700" : 
+                                          "bg-[#2D2D2D] hover:bg-black"} text-white`}
                                 >
-                                    Send Message
+                                    <div className="relative flex items-center justify-center w-2 h-2">
+                                        <motion.span 
+                                            className={`absolute w-2 h-2 rounded-full z-10 ${status === "success" ? "bg-white" : "bg-[#CD5929]"}`} 
+                                        />
+                                        <motion.span 
+                                            className={`absolute w-2 h-2 rounded-full ${status === "success" ? "bg-white/40" : "bg-[#CD5929]/40"}`}
+                                            animate={{
+                                                scale: [1, 3.5],
+                                                opacity: [0.8, 0],
+                                            }}
+                                            transition={{
+                                                duration: 1.5,
+                                                repeat: Infinity,
+                                                ease: "easeOut"
+                                            }}
+                                        />
+                                    </div>
+                                    {status === "loading" ? "Sending..." : 
+                                     status === "success" ? "Message Sent!" : 
+                                     status === "error" ? "Error! Try Again" : 
+                                     "Send Message"}
                                 </button>
+                                {status === "success" && (
+                                    <p className="text-green-600 text-xs font-mono mt-4 animate-pulse">
+                                        Thank you for reaching out. We've received your message!
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="text-red-600 text-xs font-mono mt-4">
+                                        Something went wrong. Please try again or email us directly.
+                                    </p>
+                                )}
                             </form>
                         </div>
 

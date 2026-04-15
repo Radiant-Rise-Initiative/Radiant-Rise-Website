@@ -189,14 +189,13 @@ export function PurposeSection({
                         className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 lg:p-12 cursor-pointer"
                         onClick={() => setIsVideoOpen(false)}
                     >
-                        {/* Global Close Button */}
                         <button 
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setIsVideoOpen(false);
                             }}
                             className={cn(
-                                "absolute z-50 transition-all duration-500 bg-black/40 hover:bg-black/80 rounded-none p-3 backdrop-blur-xl border border-white/10 text-white",
+                                "absolute z-50 transition-all duration-500 bg-black/40 hover:bg-black/80 rounded-full p-3 backdrop-blur-xl border border-white/10 text-white",
                                 isFullscreen ? "top-8 right-8" : "top-6 right-6 lg:top-12 lg:right-12",
                                 showControls ? "opacity-100" : "opacity-0"
                             )}
@@ -231,8 +230,7 @@ export function PurposeSection({
                                 onPause={() => setIsPlaying(false)}
                                 className="w-full h-full object-contain cursor-pointer"
                             />
-                            
-                            {/* Controls Overlay */}
+                                                       {/* Controls Overlay */}
                             <div 
                                 className={cn(
                                     "absolute bottom-0 left-0 right-0 px-8 pb-8 pt-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 flex items-center gap-5 text-white",
@@ -240,9 +238,20 @@ export function PurposeSection({
                                 )}
                                 onClick={e => e.stopPropagation()} 
                             >
+                                {/* Play/Pause Toggle */}
+                                <button 
+                                    onClick={togglePlay} 
+                                    className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center transition-colors border border-white/10 drop-shadow-md"
+                                >
+                                    {isPlaying ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" className="ml-0.5" />}
+                                </button>
+
                                 {/* Volume Toggle */}
-                                <button onClick={toggleMute} className="hover:opacity-80 transition-opacity focus:outline-none shrink-0 drop-shadow-md">
-                                    {isMuted || volume === 0 ? <VolumeX size={22} fill="currentColor" /> : <Volume2 size={22} fill="currentColor" opacity={0.9} />}
+                                <button 
+                                    onClick={toggleMute} 
+                                    className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center transition-colors border border-white/10 drop-shadow-md"
+                                >
+                                    {isMuted || volume === 0 ? <VolumeX size={18} fill="currentColor" /> : <Volume2 size={18} fill="currentColor" opacity={0.9} />}
                                 </button>
                                 
                                 {/* Progress Bar with Gaps */}

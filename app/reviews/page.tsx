@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Star, Loader2, MessageSquareQuote } from "lucide-react";
+import { Star, Loader2, MessageSquareQuote, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 
@@ -26,13 +26,6 @@ export default function ReviewsPage() {
 
     const fetchReviews = async () => {
         setIsLoading(true);
-        // Fallback mock data if table doesn't exist yet
-        const mockReviews = [
-            { id: '1', name: 'Sarah O.', role: 'Community Partner', comment: 'The dedication of the Radiant Rise team is truly inspiring. They are making a tangible difference in Acholi Quarters every single day.', rating: 5, created_at: '2026-03-15T10:00:00Z' },
-            { id: '2', name: 'John K.', role: 'Volunteer', comment: 'Such a well-structured and thoughtfully executed program. The focus on trauma healing before vocational training is brilliant.', rating: 5, created_at: '2026-02-28T14:30:00Z' },
-            { id: '3', name: 'Grace M.', role: 'Local Leader', comment: 'We have seen genuine transformation in the young mothers attending these programs. Their confidence has grown immensely.', rating: 5, created_at: '2026-01-10T09:15:00Z' },
-            { id: '4', name: 'David T.', role: 'Supporter', comment: 'Transparent, accountable, and deeply rooted in the community. Radiant Rise is an organization worth supporting.', rating: 4, created_at: '2025-12-05T16:45:00Z' },
-        ];
 
         try {
             // Attempt to fetch from Supabase
@@ -43,12 +36,12 @@ export default function ReviewsPage() {
                 .order('created_at', { ascending: false });
                 
             if (error || !data || data.length === 0) {
-                setReviews(mockReviews);
+                setReviews([]);
             } else {
                 setReviews(data);
             }
         } catch (e) {
-            setReviews(mockReviews);
+            setReviews([]);
         } finally {
             setIsLoading(false);
         }
@@ -86,9 +79,9 @@ export default function ReviewsPage() {
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-black/10 pb-12">
                         <div>
-                            <span className="text-xs font-mono tracking-widest text-[#CD5929] uppercase block mb-4">
+                            <div className="inline-flex items-center gap-2 bg-black/5 px-3 py-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black/60 mb-4 cursor-default">
                                 COMMUNITY VOICES
-                            </span>
+                            </div>
                             <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-black">
                                 Reviews
                             </h1>
@@ -100,7 +93,7 @@ export default function ReviewsPage() {
                 </div>
             </section>
 
-            <section className="px-4 md:px-12 lg:px-8 pb-24 md:pb-32 bg-[#fafafa] pt-16 md:pt-24 flex-grow w-full overflow-hidden">
+            <section className="px-4 sm:px-12 lg:px-0 pb-24 md:pb-32 flex-grow w-full">
                 <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full min-w-0">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 w-full min-w-0">
                         
@@ -111,53 +104,88 @@ export default function ReviewsPage() {
                                     <Loader2 className="w-8 h-8 text-black animate-spin" />
                                 </div>
                             ) : reviews.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                <div className="flex flex-col">
                                     {reviews.map((review, i) => (
                                         <motion.div 
                                             key={review.id}
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: i * 0.1, duration: 0.6 }}
-                                            className="bg-white p-8 md:p-10 rounded-none border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col justify-between"
+                                            className={`group flex flex-col md:flex-row gap-8 md:gap-16 pt-12 pb-16 ${i === 0 ? '' : 'border-t'} border-black/10 hover:bg-[#f5f5f7]/30 transition-colors cursor-default`}
                                         >
-                                            <div>
-                                                <div className="flex text-[#CD5929] mb-6">
+                                            {/* Metadata Column */}
+                                            <div className="w-full md:w-1/3 xl:w-1/4 shrink-0 flex flex-col gap-6 pt-2">
+                                                <div className="flex gap-1 text-[#CD5929]">
                                                     {[...Array(5)].map((_, index) => (
                                                         <Star 
                                                             key={index} 
-                                                            className={`w-4 h-4 ${index < review.rating ? 'fill-current' : 'opacity-30'}`} 
+                                                            className={`w-4 h-4 ${index < review.rating ? 'fill-current' : 'opacity-20'}`} 
                                                         />
                                                     ))}
                                                 </div>
-                                                <p className="text-lg md:text-xl text-black leading-relaxed font-medium mb-10 tracking-tight">
+                                                <div>
+                                                    <h4 className="text-xl font-semibold text-black tracking-tight mb-1">{review.name}</h4>
+                                                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-black/40">{review.role}</p>
+                                                </div>
+                                                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-black mt-auto">
+                                                    <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
+                                                    Verified Voice
+                                                </div>
+                                            </div>
+
+                                            {/* Review Content Column */}
+                                            <div className="w-full md:w-2/3 xl:w-3/4">
+                                                <MessageSquareQuote className="w-8 h-8 text-black/10 mb-6" />
+                                                <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium leading-[1.3] tracking-tight group-hover:text-black/80 transition-colors">
                                                     "{review.comment}"
                                                 </p>
-                                            </div>
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-12 h-12 bg-[#f5f5f7] rounded-none flex items-center justify-center text-black/40">
-                                                    <MessageSquareQuote className="w-5 h-5" />
-                                                </div>
-                                                <div>
-                                                    <h4 className="font-semibold text-black tracking-tight">{review.name}</h4>
-                                                    <p className="text-xs font-mono uppercase tracking-widest text-[#CD5929] mt-1">{review.role}</p>
-                                                </div>
                                             </div>
                                         </motion.div>
                                     ))}
                                 </div>
                             ) : (
-                                <div className="text-center py-32 border border-dashed border-black/20 rounded-none">
-                                    <MessageSquareQuote className="w-12 h-12 text-black/20 mx-auto mb-4" />
-                                    <p className="text-black/60 font-medium">No reviews published yet.</p>
-                                </div>
+                                <motion.div 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="group flex flex-col md:flex-row gap-8 md:gap-16 pt-12 pb-16 cursor-default border-t border-black/10 first:border-t-0"
+                                >
+                                    {/* Placeholder Metadata */}
+                                    <div className="w-full md:w-1/3 xl:w-1/4 shrink-0 flex flex-col gap-6 pt-2">
+                                        <div className="flex gap-1 text-black/10">
+                                            {[...Array(5)].map((_, index) => (
+                                                <Star key={index} className="w-4 h-4 fill-current" />
+                                            ))}
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-semibold text-black/20 tracking-tight mb-1">Your Name</h4>
+                                            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-black/20">Your Community Role</p>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-black/10 mt-auto">
+                                            <CheckCircle2 className="w-3.5 h-3.5" />
+                                            Pending Verification
+                                        </div>
+                                    </div>
+
+                                    {/* Placeholder Content */}
+                                    <div className="w-full md:w-2/3 xl:w-3/4">
+                                        <MessageSquareQuote className="w-8 h-8 text-black/5 mb-6" />
+                                        <p className="text-2xl md:text-3xl lg:text-4xl text-black/30 font-medium leading-[1.3] tracking-tight italic">
+                                            "Be the first to share your impact story and inspire the Radiant Rise community. Your experience matters and helps us build a stronger movement."
+                                        </p>
+                                        <div className="mt-10 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#CD5929]">
+                                            <div className="w-2 h-2 rounded-full bg-[#CD5929] animate-pulse" />
+                                            Awaiting first voice
+                                        </div>
+                                    </div>
+                                </motion.div>
                             )}
                         </div>
 
-                        {/* Submission Form */}
-                        <div className="w-full lg:w-[400px] xl:w-[450px] min-w-0 shrink-0 self-start lg:sticky lg:top-32">
-                            <div className="bg-white rounded-none p-8 md:p-10 border border-black/10 shadow-2xl relative overflow-hidden">
-                                <h3 className="text-2xl font-medium tracking-tight mb-2">Leave a Review</h3>
-                                <p className="text-black/60 text-sm mb-8">Your feedback is important to us and will be reviewed before publishing.</p>
+                        {/* Submission Portal */}
+                        <div className="w-full lg:w-[400px] xl:w-[450px] min-w-0 shrink-0 relative">
+                            <div className="lg:sticky lg:top-32 max-h-[calc(100vh-10rem)] overflow-y-auto bg-[#f5f5f7]/50 rounded-none p-8 md:p-12 border border-black/10 relative custom-scrollbar">
+                                <h3 className="text-3xl font-medium tracking-tight mb-2">Publish Your Review</h3>
+                                <p className="text-black/60 text-sm mb-8 leading-relaxed">Got a story about the Radiant Rise Initiative? We want to hear it. We verify all submissions.</p>
 
                                 <AnimatePresence mode="wait">
                                     {submitSuccess ? (
@@ -204,48 +232,56 @@ export default function ReviewsPage() {
                                                 </div>
                                             </div>
 
-                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
-                                                <input 
-                                                    type="text" 
-                                                    value={name}
-                                                    onChange={e => setName(e.target.value)}
-                                                    placeholder="Your Name" 
-                                                    required
-                                                    className="w-full bg-transparent outline-none placeholder:text-black/40 text-black text-sm"
-                                                />
-                                            </div>
+                                            <div className="space-y-4">
+                                                <div className="border border-black/10 rounded-none px-4 py-4 focus-within:border-black transition-all bg-white group hover:border-black/30">
+                                                    <label className="block text-[10px] font-mono tracking-widest text-black/30 uppercase mb-1 group-focus-within:text-[#CD5929] transition-colors">Your Name</label>
+                                                    <input 
+                                                        type="text" 
+                                                        value={name}
+                                                        onChange={e => setName(e.target.value)}
+                                                        placeholder="e.g. Sarah J." 
+                                                        required
+                                                        className="w-full bg-transparent outline-none placeholder:text-black/20 text-black text-sm font-medium"
+                                                    />
+                                                </div>
 
-                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
-                                                <input 
-                                                    type="text" 
-                                                    value={role}
-                                                    onChange={e => setRole(e.target.value)}
-                                                    placeholder="Your Role (e.g., Volunteer, Participant)" 
-                                                    required
-                                                    className="w-full bg-transparent outline-none placeholder:text-black/40 text-black text-sm"
-                                                />
-                                            </div>
+                                                <div className="border border-black/10 rounded-none px-4 py-4 focus-within:border-black transition-all bg-white group hover:border-black/30">
+                                                    <label className="block text-[10px] font-mono tracking-widest text-black/30 uppercase mb-1 group-focus-within:text-[#CD5929] transition-colors">Your Role</label>
+                                                    <input 
+                                                        type="text" 
+                                                        value={role}
+                                                        onChange={e => setRole(e.target.value)}
+                                                        placeholder="e.g. Volunteer" 
+                                                        required
+                                                        className="w-full bg-transparent outline-none placeholder:text-black/20 text-black text-sm font-medium"
+                                                    />
+                                                </div>
 
-                                            <div className="border border-black/10 rounded-none px-4 py-3 focus-within:border-black/50 focus-within:ring-1 ring-black/50 transition-all bg-[#fafafa]">
-                                                <textarea 
-                                                    value={comment}
-                                                    onChange={e => setComment(e.target.value)}
-                                                    placeholder="Share your experience..." 
-                                                    rows={4}
-                                                    required
-                                                    className="w-full bg-transparent outline-none placeholder:text-black/40 text-black text-sm resize-none"
-                                                />
+                                                <div className="border border-black/10 rounded-none px-4 py-4 focus-within:border-black transition-all bg-white group hover:border-black/30">
+                                                    <label className="block text-[10px] font-mono tracking-widest text-black/30 uppercase mb-1 group-focus-within:text-[#CD5929] transition-colors">Your Experience</label>
+                                                    <textarea 
+                                                        value={comment}
+                                                        onChange={e => setComment(e.target.value)}
+                                                        placeholder="Share your thoughts..." 
+                                                        rows={4}
+                                                        required
+                                                        className="w-full bg-transparent outline-none placeholder:text-black/20 text-black text-sm font-medium resize-none"
+                                                    />
+                                                </div>
                                             </div>
 
                                             <button 
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full bg-black hover:bg-[#CD5929] text-white py-4 rounded-none text-sm font-semibold tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                                                className="w-full bg-[#2D2D2D] hover:bg-black text-white py-5 rounded-none text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-4 group/submit"
                                             >
                                                 {isSubmitting ? (
-                                                    <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>
+                                                    <><Loader2 className="w-4 h-4 animate-spin" /> Submitting</>
                                                 ) : (
-                                                    <>Submit Review</>
+                                                    <>
+                                                        Submit Review
+                                                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/submit:translate-x-1 group-hover/submit:-translate-y-1" />
+                                                    </>
                                                 )}
                                             </button>
                                         </motion.form>

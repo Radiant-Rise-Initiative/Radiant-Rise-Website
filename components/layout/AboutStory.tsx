@@ -1,12 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function AboutStory() {
+    const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("loading");
+        
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    type: 'newsletter'
+                })
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                setEmail("");
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus("error");
+        }
+    };
+
     return (
         <section id="our-story" className="bg-white py-24 border-t border-black/5">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full px-4 sm:px-12 lg:px-0">
@@ -92,16 +123,43 @@ export function AboutStory() {
                             <div>
                                 <p className="text-xl text-black/40 tracking-tight">Stay connected with the movement.</p>
                             </div>
-                            <div className="relative max-w-2xl group">
+                            <form onSubmit={handleSubscribe} className="relative max-w-2xl group">
                                 <input
                                     type="email"
-                                    placeholder="Work Email"
-                                    className="w-full bg-transparent border border-black/10 py-5 px-6 pr-16 focus:outline-none focus:border-black transition-colors text-base md:text-lg"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder={status === "success" ? "Subscribed!" : "Enter Your Email"}
+                                    required
+                                    disabled={status === "loading" || status === "success"}
+                                    className={`w-full bg-transparent border py-5 px-6 pr-16 focus:outline-none transition-colors text-base md:text-lg
+                                        ${status === "success" ? "border-green-500 text-green-500 placeholder:text-green-500/60" : 
+                                          status === "error" ? "border-red-500 text-red-500" : 
+                                          "border-black/10 focus:border-black text-black"}`}
                                 />
-                                <button className="absolute right-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-black transition-colors">
-                                    <ArrowRight className="w-8 h-8" />
+                                <button 
+                                    type="submit"
+                                    disabled={status === "loading" || status === "success"}
+                                    className={`absolute right-6 top-1/2 -translate-y-1/2 transition-colors
+                                        ${status === "success" ? "text-green-500" : 
+                                          status === "loading" ? "text-black/20" : 
+                                          "text-black/20 group-focus-within:text-black"}`}
+                                >
+                                    {status === "loading" ? (
+                                        <div className="w-6 h-6 border-2 border-black/10 border-t-black animate-spin rounded-full" />
+                                    ) : status === "success" ? (
+                                        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+                                            <CheckCircle2 className="w-8 h-8" />
+                                        </motion.div>
+                                    ) : (
+                                        <ArrowRight className="w-8 h-8" />
+                                    )}
                                 </button>
-                            </div>
+                                {status === "error" && (
+                                    <p className="absolute -bottom-6 left-0 text-[10px] font-mono text-red-500">
+                                        Subscription failed. Please try again.
+                                    </p>
+                                )}
+                            </form>
 
                             <p className="text-xs text-black/40 leading-relaxed max-w-2xl">
                                 By submitting this form, you confirm that you agree to the storing and processing of your personal data by Radiant Rise as described in our <Link href="#" className="underline hover:text-black/60 transition-colors">Privacy Notice</Link>

@@ -88,12 +88,12 @@ export function RecentNews({ initialNews }: { initialNews?: any[] }) {
     if (news.length === 0) return null;
 
     return (
-        <section id="recent-news" data-theme="light" className="bg-[#f5f5f7] py-24 px-4 sm:px-12 lg:px-0">
+        <section id="our-updates" data-theme="light" className="bg-[#f5f5f7] py-24 px-4 sm:px-12 lg:px-0">
             <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto w-full">
                 {/* Header */}
                 <SectionHeader
-                    title="Recent News"
-                    linkText="See all news"
+                    title="Our Updates"
+                    linkText="VIEW ALL UPDATES"
                     href="/news"
                     className="mb-16"
                 />
