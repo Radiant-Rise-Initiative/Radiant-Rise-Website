@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Radiant Rise",
     template: "%s | Radiant Rise",
   },
-  description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
+  description: "Born from the lived realities of Acholi Quarters, a slum in Kampala, the Radiant Rise Initiative is a community-owned movement that empowers young mothers and vulnerable youths.",
   icons: {
     icon: "/assets/branding/rr-monogram.png",
     shortcut: "/assets/branding/rr-monogram.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Radiant Rise",
-    description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
+    description: "Born from the lived realities of Acholi Quarters, a slum in Kampala, the Radiant Rise Initiative is a community-owned movement that empowers young mothers and vulnerable youths.",
     type: "website",
     locale: "en_US",
     siteName: "Radiant Rise",
