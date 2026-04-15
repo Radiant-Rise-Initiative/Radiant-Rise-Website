@@ -17,12 +17,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Radiant Rise",
   description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
+  icons: {
+    icon: "/assets/branding/rr-monogram.png",
+    shortcut: "/assets/branding/rr-monogram.png",
+    apple: "/assets/branding/rr-monogram.png",
+  },
   openGraph: {
     title: "Radiant Rise",
     description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
     type: "website",
     locale: "en_US",
     siteName: "Radiant Rise",
+    images: [
+      {
+        url: "/assets/branding/rr-monogram.png",
+        width: 800,
+        height: 800,
+        alt: "Radiant Rise Logo",
+      },
+    ],
   },
 };
 

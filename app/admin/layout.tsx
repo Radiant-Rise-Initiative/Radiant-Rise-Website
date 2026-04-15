@@ -22,6 +22,7 @@ const NAV_ITEMS = [
         icon: s.icon
     })),
     { name: "News Archive", href: "/admin/news", icon: "news" },
+    { name: "Community Reviews", href: "/admin/reviews", icon: "questions" },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
