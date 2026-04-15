@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
         }
 
         const { data, error } = await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+            from: process.env.RESEND_FROM_EMAIL || 'Radiant Rise <info@radiantriseinitiative.org>',
             to: ['info@radiantriseinitiative.org'],
             subject: inboxSubject,
             html: emailContent,
