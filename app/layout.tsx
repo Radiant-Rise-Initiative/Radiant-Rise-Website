@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Radiant Rise",
+  title: {
+    default: "Radiant Rise",
+    template: "%s | Radiant Rise",
+  },
   description: "Nurturing Hope and Purpose to Transform Vulnerability into Sustained Livelihoods",
   icons: {
     icon: "/assets/branding/rr-monogram.png",
