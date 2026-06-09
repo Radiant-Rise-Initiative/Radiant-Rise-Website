@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { DonationInterface } from "./DonationInterface";
+import DonationInterface from "./DonationInterface";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -47,32 +47,32 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
                     />
 
                     {/* Modal Container */}
-                    <div className="fixed inset-0 flex items-center justify-center z-[101] p-4 pointer-events-none">
+                    <div className="fixed inset-0 flex items-center justify-center z-[101] p-2 sm:p-4 pointer-events-none">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="bg-[#f8f9fa] w-full max-w-[600px] shadow-2xl pointer-events-auto relative"
+                            className="bg-[#f8f9fa] w-full max-w-[600px] md:max-w-[850px] lg:max-w-[1300px] max-h-[90vh] overflow-hidden shadow-2xl pointer-events-auto relative rounded-lg"
                         >
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-6 right-6 p-2 bg-black text-white rounded-none hover:bg-black/80 transition-colors z-10"
+                                className="absolute top-2 sm:top-3 right-2 sm:right-3 p-1.5 bg-black text-white rounded-none hover:bg-black/80 transition-colors z-10"
                             >
                                 <X size={20} />
                             </button>
 
                             {/* Header */}
-                            <div className="p-8 pb-4 bg-[#f5f5f7] border-b border-black/5">
-                                <h2 className="text-xl font-bold tracking-tight text-black">Support Radiant Rise</h2>
+                            <div className="p-2 sm:p-3 lg:p-4 pb-2 sm:pb-2 bg-[#f5f5f7] border-b border-black/5">
+                                <h2 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-black">Support Radiant Rise</h2>
                             </div>
 
                             {/* Top Accent Line */}
                             <div className="h-px bg-black/5" />
 
                             {/* Donation UI */}
-                            <div className="p-8 md:p-10 bg-[#f8f9fa]">
+                            <div className="p-2 sm:p-3 lg:p-4 bg-[#f8f9fa] overflow-y-auto max-h-[calc(90vh-100px)] sm:max-h-[calc(90vh-110px)]">
                                 <DonationInterface />
                             </div>
                         </motion.div>
