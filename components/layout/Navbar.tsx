@@ -32,7 +32,7 @@ export function Navbar() {
         { label: "Who We Are", href: "/#who-we-are" },
         { label: "Updates", href: "/news" },
         { label: "About Us", href: "/about" },
-        { label: "Reviews", href: "/reviews" }
+        // { label: "Reviews", href: "/reviews" }
     ];
 
     const logo = {
